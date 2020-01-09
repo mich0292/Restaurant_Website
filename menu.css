@@ -1,0 +1,86 @@
+body {
+   
+}
+
+.container-fluid{
+    padding: 0;
+}
+
+.col-sm{
+	padding: 2em;
+	margin: 1em;
+}
+
+.col-sm img{
+	width: 15em;
+	height: 10em;	
+}
+
+.col-sm h1{
+	font-size: 5em;
+	color: #ff9b71;
+	font-weight: bold;
+	font-family: 'Sofia';
+	text-align: center;
+}
+
+.col-sm::after {
+	content: '';
+	clear: both;
+	display: block;
+}
+
+/*For hovering effect on image credit = https://codepen.io/nxworld/pen/ZYNOBZ */
+.col-sm div figure {
+	position: relative;
+	width: 15em;
+	height: 10em;
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	overflow: hidden;
+}
+
+.col-sm div span {
+	position: absolute;
+	bottom: -20px;
+	left: 0;
+	z-index: -1;
+	display: block;
+	width: 15em;
+	margin: 0;
+	padding: 0;
+	color: #444;
+	font-size: 18px;
+	text-decoration: none;
+	text-align: center;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+	opacity: 0;
+}
+
+.col-sm div{	
+	position: relative;
+	float: left;
+	width: 15em;
+	height: 10em;
+	margin: 0 0 5em 2em;
+	padding: 0;
+}
+
+figure:hover+span {
+	bottom: -36px;
+	opacity: 1;
+}
+
+
+.col-sm figure img {
+	opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.col-sm figure:hover img {
+	opacity: .5;
+}
+
+
