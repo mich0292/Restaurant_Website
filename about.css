@@ -1,0 +1,51 @@
+body{
+	background-image: url("images/sushiabout.jpg");
+	background-position: relative;
+}
+
+.back {
+	
+}
+
+.top {
+	
+}
+
+.top-opacity {
+	background-color: white;
+	opacity: 50%;
+	height: 500px;
+}
+
+.top-opacity h1 {
+	text-align: center;
+	padding: 200px;
+}
+
+.article {
+	background-color: #f5edd7;
+	padding: 70pt;
+}
+
+.container-about {
+	padding: 0 50px 50px 50px;
+}
+
+.about h3 {
+	text-align: center;
+	padding: 20pt;
+}
+
+.about-img{
+	float: left;	
+}
+.about-desc {
+	float: left;
+}
+
+.about-desc p{
+	background-color: black;
+	color: white; 	
+	padding: 30pt;
+	
+}
