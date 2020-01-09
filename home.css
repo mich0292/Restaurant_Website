@@ -1,0 +1,41 @@
+.titlebar {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: #0000;
+    font-weight: 700;
+    background-image: url("images/nigirizushi-00.jpg");
+    height: 720px;
+}
+
+.titletext {
+    text-align: center;
+    color: white;
+}
+
+@media screen and (max-width: 576px) {
+    .titlebar {
+        width: 100%!important;
+        background-position: center;
+        background-size: 100%;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .titlebar {
+        width: 100%!important;
+        background-position: center;
+        background-size: 100%;
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .titlebar {
+        width: 100%!important;
+        background-position: center;
+        background-size: 100%;
+        height: 250px;
+    }
+}
