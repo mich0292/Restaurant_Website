@@ -1,37 +1,52 @@
+@media screen and (max-width: max-width: 576px) {
+	.col-xs-2 div{
+		margin: 0;
+		padding: 0;
+	}
+
+}
+
 body {
    
 }
 
 .container-fluid{
-    padding: 0;
+    padding: 2em;
 }
 
-.col-sm{
-	padding: 2em;
-	margin: 1em;
+.row {
+	margin: 2em;
+}
+.col-xs-2{
+	margin-bottom: 4em;
 }
 
-.col-sm img{
+.col-xs-2 img{
 	width: 15em;
 	height: 10em;	
 }
 
-.col-sm h1{
+.col-xs-12 h1{
 	font-size: 5em;
 	color: #ff9b71;
 	font-weight: bold;
-	font-family: 'Sofia';
+	font-family: 'Sofia', 'arial';
 	text-align: center;
 }
 
-.col-sm::after {
+.col-xs-*::after {
 	content: '';
 	clear: both;
 	display: block;
 }
 
+.col-xs-12{
+	padding: 1.0em;
+	margin-bottom: 1.0em;
+}
+
 /*For hovering effect on image credit = https://codepen.io/nxworld/pen/ZYNOBZ */
-.col-sm div figure {
+.col-xs-2 div figure {
 	position: relative;
 	width: 15em;
 	height: 10em;
@@ -41,9 +56,9 @@ body {
 	overflow: hidden;
 }
 
-.col-sm div span {
+.col-xs-2 div span {
 	position: absolute;
-	bottom: -20px;
+	bottom: -0.5em;
 	left: 0;
 	z-index: -1;
 	display: block;
@@ -51,7 +66,8 @@ body {
 	margin: 0;
 	padding: 0;
 	color: #444;
-	font-size: 18px;
+	font-size: 1em;
+	font-family: 'georgia','arial';
 	text-decoration: none;
 	text-align: center;
 	-webkit-transition: .3s ease-in-out;
@@ -59,13 +75,9 @@ body {
 	opacity: 0;
 }
 
-.col-sm div{	
+.col-xs-2 div{	
 	position: relative;
-	float: left;
-	width: 15em;
-	height: 10em;
-	margin: 0 0 5em 2em;
-	padding: 0;
+	padding: 0.5em;
 }
 
 figure:hover+span {
@@ -73,14 +85,12 @@ figure:hover+span {
 	opacity: 1;
 }
 
-
-.col-sm figure img {
+.col-xs-2 figure img {
 	opacity: 1;
 	-webkit-transition: .3s ease-in-out;
 	transition: .3s ease-in-out;
 }
-.col-sm figure:hover img {
+
+.col-xs-2 figure:hover img {
 	opacity: .5;
 }
-
-
