@@ -67,7 +67,7 @@ div.card-footer{
 
 }
 
-div.card-footer span{
+div.card-footer span.pricing{
 	padding-top: 0.2em;
 	font-size: 1.5em;
 	font-weight: bold;
@@ -92,7 +92,7 @@ div.card-footer button{
 	}
 
 	/*Footer overlapped*/
-	div.card-footer span{
+	div.card-footer span.pricing{
 		padding-top: 0.2em;
 		font-size: 1.2em;
 		font-weight: bold;
@@ -101,7 +101,6 @@ div.card-footer button{
 
 	div.card-footer button{
 		margin-left: 25%;
-		margin-right: 0%;
 	}
 }
 
@@ -125,7 +124,7 @@ div.card-footer button{
 	}
 	
 	/*Footer overlapped*/
-	div.card-footer span{
+	div.card-footer span.pricing{
 		padding-top: 0.2em;
 		font-size: 1.2em;
 		font-weight: bold;
@@ -169,14 +168,18 @@ div.card-footer button{
 	}
 	
 	/*Footer overlapped*/
-	div.card-footer span{
+	div.card-footer span.pricing{
 		padding-top: 0.2em;
-		font-size: 0.8em;
+		font-size: 1.0em;
 		font-weight: bold;
 		font-family: 'Merriweather', serif, 'georgia' ;
 	}
 
 	div.card-footer button{
-		margin-left: 5%;
+		margin-left: 15%;
+	}
+	
+	button.btn.peach-gradient span.hidden{
+		display: none;
 	}
 }
