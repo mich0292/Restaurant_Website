@@ -1,6 +1,5 @@
 body{
-	font-family: Cocogoose Light,sans-serif;
-	color: grey;
+	font-family: 'Merriweather', serif, 'georgia' ;
 	margin: 0;
 }
 
@@ -9,16 +8,25 @@ p {
 	font-size: 15pt;
 }
 
-.back {
-	background-image: url("images/sushiabout.jpg");
-	background-attachment: fixed;
-	background-position: center;	
+/* Banner Section */
+#career-banner {
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/sushiabout.jpg");
 	background-size: cover;
+	height: 40em;
 }
-.top-opacity {
-	background-color: rgba(255, 255, 255, 0.6);
-	min-height: 600px;
+
+h2.heading.mb-3{
+	font-size: 5em;
+	font-family: 'Sofia', 'arial';
+	color: #ffffff;	
 }
+
+p.sub-heading{
+	font-size: 1.5em;
+	font-family: 'georgia';
+	color: #ffffff;
+}
+/* End of Section */
 
 .centered {
   position: absolute;
@@ -80,4 +88,52 @@ p {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+@media (max-width: 992px){
+	#career-banner{
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/sushiabout.jpg");
+		background-size: cover;
+		height: 35em;
+	}
+	p.sub-heading{
+		font-size: 1.2em;
+		font-family: 'georgia';
+		color: #ffffff;
+	}
+
+}
+
+@media  (max-width: 768px){
+	#career-banner{
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/sushiabout.jpg");
+		background-size: cover;
+		height: 25em;
+	}
+	p.sub-heading{
+		font-size: 1.2em;
+		font-family: 'georgia';
+		color: #ffffff;
+	}
+	
+}
+
+@media  (max-width: 576px) {	
+	#career-banner{
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/sushiabout.jpg");
+		background-size: cover;
+		height: 20em;
+	}
+	
+	h2.heading.mb-3{
+	font-size: 3em;
+	font-family: 'Sofia', 'arial';
+	color: #ffffff;
+	}
+	
+	p.sub-heading{
+		font-size: 0.8em;
+		font-family: 'georgia';
+		color: #ffffff;
+	}
 }
