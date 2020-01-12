@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+   <meta charset="utf-8">
+   <title>Pay me your money!!</title>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+	 <link rel="stylesheet" href="payment.css">
+</head>
+
+<body>
+
+<div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">Sushi Sama</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active disable">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Member
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <label for="username">Username :</label>
+                    <input class="form-control form-control-sm mx-2" type="username" placeholder="Enter Username"
+                        aria-label="Search">
+                    <label for="password">Password :</label>
+                    <input class="form-control form-control-sm mx-2" type="password" placeholder="Enter Username"
+                        aria-label="Search">
+                    <button type="button" class="btn btn-light">Login</button>
+                    <button type="button" class="btn btn-light ml-2">Register</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+	<br><br>
+<form method="get" action="http://www.randyconnolly.com/tests/process.php" class="center">
+<fieldset>
+	<legend>Payment</legend>
+
+	<table class="table table-borderless">
+		<tbody>
+		
+		<tr>
+		  <th scope="row">Full Name</th>
+		  <td><input type="text" name="first" class="name" placeholder="First Name" required> <input type="text" name="last" placeholder="Last Name" class="name" required></td>
+		</tr>
+		
+		<tr>
+		  <th scope="row">Email</th>
+		  <td><input type="email" name="email" placeholder="ex: sushi@example.com" required></td>
+		</tr>
+		
+		<tr>
+		  <th scope="row">Contact Number</th>
+		  <td><input type="name" name="phone" placeholder="012-4012938" required></td>
+		</tr>
+		
+		<tr>
+		  <th scope="row">Total Price</th>
+		  <td><input type="name" name="price" value="RM 0.00" disabled></td>
+		  <td></td>
+		</tr>
+		
+		<tr>
+		  <th scope="row">Payment Method</th>
+		  <td><span class="button">Cash</span>  <span class="button">Credit Card</span></td>
+		</tr>
+		
+		</tbody>
+		
+
+
+	  </table>
+ </fieldset>
+ 
+ </form>
+</body>
+</html>
