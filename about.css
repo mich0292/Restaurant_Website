@@ -1,18 +1,12 @@
-.container-fluid {
-	width:100%;
-}
-
 body{
 	font-family: Cocogoose Light,sans-serif;
 	color: grey;
-	text-align: center;
 	margin: 0;
 }
 
 p {
 	line-height:2;
 	font-size: 15pt;
-	text-align: left;
 }
 
 .back {
@@ -22,11 +16,24 @@ p {
 	background-size: cover;
 }
 .top-opacity {
-	background-color: white;
-	opacity: 50%;
-	min-height: 700px;
-	max-height: 70%;
-	
+	background-color: rgba(255, 255, 255, 0.6);
+	min-height: 600px;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-family: 'Sofia', 'arial';
+  color: black;
+  
+}
+
+.centered p {
+	font-size: 25pt;
+	text-align: center;
 }
 
 .article {
@@ -37,6 +44,7 @@ p {
 .title {
 	margin:auto;
 	padding: 2em;
+	text-align: center;
 }
 
 .info {
