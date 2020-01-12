@@ -12,6 +12,7 @@ body{
 p {
 	line-height:2;
 	font-size: 15pt;
+	text-align: left;
 }
 
 .back {
@@ -40,4 +41,35 @@ p {
 
 .info {
 	padding: 0 1em 1em 1em;
+}
+
+.info h4{
+	text-align: left;
+	margin-left: 2em;
+}
+
+.pos {
+	text-align: left;
+	margin: 2rem;
+}
+
+.dropdown {
+  position: relative;
+  margin: 0.5em;
+
+}
+
+.dropdown-content {
+  display: none;
+  position: right;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
