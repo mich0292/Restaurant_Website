@@ -18,6 +18,7 @@ p.sub-heading{
 	font-family: 'georgia';
 	color: #ffffff;
 }
+/* End of Section */
 
 .container-fluid{
     padding: 2em;
@@ -30,97 +31,113 @@ p.sub-heading{
 	margin-bottom: 4em;
 }
 
-.col-xs-2 img{
-	width: 15em;
-	height: 10em;	
+.col-xs-2 div{	
+	position: relative;
+	padding: 0.5em;
 }
 
-.col-xs-12 h1{
-	font-size: 5em;
-	color: #ff9b71;
-	font-weight: bold;
-	font-family: 'Sofia', 'arial';
-	text-align: center;
-}
-
-.col-xs-*::after {
-	content: '';
-	clear: both;
-	display: block;
-}
 
 .col-xs-12{
 	padding: 1.0em;
 	margin-bottom: 1.0em;
 }
 
-/*For hovering effect on image credit = https://codepen.io/nxworld/pen/ZYNOBZ */
-.col-xs-2 div figure {
-	position: relative;
-	width: 15em;
-	height: 10em;
-	margin: 0;
-	padding: 0;
-	background: #fff;
-	overflow: hidden;
-}
-
-.col-xs-2 div span {
-	position: absolute;
-	bottom: -0.5em;
-	left: 0;
-	z-index: -1;
-	display: block;
-	width: 15em;
-	margin: 0;
-	padding: 0;
-	color: #444;
-	font-size: 1em;
-	font-family: 'georgia','arial';
-	text-decoration: none;
+.col-xs-12 h1{
+	font-size: 5em;
+	color: #ff9b71;
+	font-weight: bold;
+	font-family: 'Merriweather', 'Sofia', 'arial';
 	text-align: center;
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
-	opacity: 0;
 }
 
-.col-xs-2 div{	
-	position: relative;
+/*For information on card: https://getbootstrap.com/docs/4.0/components/card/ */
+/* Card CSS */
+img.card-img-top{
+	width: 24em;
+	height: 15em;
+}
+
+h5.card-title.text-center{
 	padding: 0.5em;
+	font-size: 1.5em;
+	font-family: 'Merriweather', serif, 'georgia' ;
 }
 
-figure:hover+span {
-	bottom: -36px;
-	opacity: 1;
+div.card-footer{
+
 }
 
-.col-xs-2 figure img {
-	opacity: 1;
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
+div.card-footer span{
+	padding-top: 0.2em;
+	font-size: 1.5em;
+	font-weight: bold;
+	font-family: 'Merriweather', serif, 'georgia' ;
 }
 
-.col-xs-2 figure:hover img {
-	opacity: .5;
+div.card-footer button{
+	margin-left: 20%;
 }
+/* End */
 
-@media screen and (max-width: 992px){
+@media (max-width: 992px){
 	#menu-banner{
 		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/menu-banner.jpg");
 		background-size: cover;
 		height: 35em;
 	}
+	p.sub-heading{
+		font-size: 1.2em;
+		font-family: 'georgia';
+		color: #ffffff;
+	}
+
+	/*Footer overlapped*/
+	div.card-footer span{
+		padding-top: 0.2em;
+		font-size: 1.2em;
+		font-weight: bold;
+		font-family: 'Merriweather', serif, 'georgia' ;
+	}
+
+	div.card-footer button{
+		margin-left: 25%;
+		margin-right: 0%;
+	}
 }
 
-@media screen and (max-width: 768px){
+@media  (max-width: 768px){
 	#menu-banner{
 		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/menu-banner.jpg");
 		background-size: cover;
 		height: 25em;
 	}
+	p.sub-heading{
+		font-size: 1.2em;
+		font-family: 'georgia';
+		color: #ffffff;
+	}
+	
+	/*Card title too large */
+	h5.card-title.text-center{
+		padding: 0.5em;
+		font-size: 1.5em;
+		font-family: 'Merriweather', serif, 'georgia' ;
+	}
+	
+	/*Footer overlapped*/
+	div.card-footer span{
+		padding-top: 0.2em;
+		font-size: 1.2em;
+		font-weight: bold;
+		font-family: 'Merriweather', serif, 'georgia' ;
+	}
+
+	div.card-footer button{
+		margin-left: 15%;
+	}
 }
 
-@media screen and (max-width: 576px) {	
+@media  (max-width: 576px) {	
 	#menu-banner{
 		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/menu-banner.jpg");
 		background-size: cover;
@@ -132,5 +149,34 @@ figure:hover+span {
 	font-family: 'Sofia', 'arial';
 	color: #ffffff;
 	}
+	
+	p.sub-heading{
+		font-size: 0.8em;
+		font-family: 'georgia';
+		color: #ffffff;
+	}
+	
+	/*Control the menu banner bottom wording */
+	div.col-md-8{
+		padding:0;
+	}
+		
+	/*Card title too large */
+	h5.card-title.text-center{
+		padding: 0.5em;
+		font-size: 1.2em;
+		font-family: 'Merriweather', serif, 'georgia' ;
+	}
+	
+	/*Footer overlapped*/
+	div.card-footer span{
+		padding-top: 0.2em;
+		font-size: 0.8em;
+		font-weight: bold;
+		font-family: 'Merriweather', serif, 'georgia' ;
+	}
 
+	div.card-footer button{
+		margin-left: 5%;
+	}
 }
