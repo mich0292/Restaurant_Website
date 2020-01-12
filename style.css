@@ -11,9 +11,14 @@ nav {
     position: fixed;
     left: 0;
     top: 0;
+    width: 100%;
     background-color:  #ffdc7c;
 }
 
 h1{
     font-family: 'Sofia';
+}
+
+.bg-admin-content {
+    background: linear-gradient(90deg, rgba(217,216,214,1) 0%, rgba(241,240,237,1) 51%, rgba(255,255,255,1) 75%);
 }
