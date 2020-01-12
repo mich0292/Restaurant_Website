@@ -1,51 +1,43 @@
+.container-fluid {
+	width:100%;
+}
+
 body{
-	background-image: url("images/sushiabout.jpg");
-	background-position: relative;
+	font-family: Cocogoose Light,sans-serif;
+	color: grey;
+	text-align: center;
+	margin: 0;
+}
+
+p {
+	line-height:2;
+	font-size: 15pt;
 }
 
 .back {
-	
+	background-image: url("images/sushiabout.jpg");
+	background-attachment: fixed;
+	background-position: center;	
+	background-size: cover;
 }
-
-.top {
-	
-}
-
 .top-opacity {
 	background-color: white;
 	opacity: 50%;
-	height: 500px;
-}
-
-.top-opacity h1 {
-	text-align: center;
-	padding: 200px;
+	min-height: 700px;
+	max-height: 70%;
+	
 }
 
 .article {
 	background-color: #f5edd7;
-	padding: 70pt;
+	padding: 2em;
 }
 
-.container-about {
-	padding: 0 50px 50px 50px;
+.title {
+	margin:auto;
+	padding: 2em;
 }
 
-.about h3 {
-	text-align: center;
-	padding: 20pt;
-}
-
-.about-img{
-	float: left;	
-}
-.about-desc {
-	float: left;
-}
-
-.about-desc p{
-	background-color: black;
-	color: white; 	
-	padding: 30pt;
-	
+.info {
+	padding: 0 1em 1em 1em;
 }
