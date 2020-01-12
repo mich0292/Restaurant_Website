@@ -9,61 +9,74 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<!-- MD for Bootstrap -->
+	<link rel="stylesheet" href="mdb.min.css">
+	
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Sofia'>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="home.css" />
     <title>Sushi Sama</title>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#">Sushi Sama</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+	<nav class="navbar navbar-expand-lg navbar-light">
+		<a class="navbar-brand" href="#">Sushi Sama</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-            <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active disable">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Menu.html">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Member
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <label for="username">Username :</label>
-                    <input class="form-control form-control-sm mx-2" type="username" placeholder="Enter Username"
-                        aria-label="Search">
-                    <label for="password">Password :</label>
-                    <input class="form-control form-control-sm mx-2" type="password" placeholder="Enter Username"
-                        aria-label="Search">
-                    <button type="button" class="btn btn-light">Login</button>
-                    <button type="button" class="btn btn-light ml-2">Register</button>
-                </form>
-            </div>
-        </nav>
-        <div class="titlebar">
-            <img src="images/homepage/logo.png" class="logo">
-            <h1 class="text-light titletext">Sushi Sama</h1>
-        </div>
-    </div>
+		<div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active disable">
+					<a class="nav-link" href="#">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="Menu.html">Menu</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">About Us</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Member
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div>
+				</li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<label for="username">Username :</label>
+				<input class="form-control form-control-sm mx-2" type="username" placeholder="Enter Username"
+					aria-label="Search">
+				<label for="password">Password :</label>
+				<input class="form-control form-control-sm mx-2" type="password" placeholder="Enter Username"
+					aria-label="Search">
+				<button type="button" class="btn btn-light">Login</button>
+				<button type="button" class="btn btn-light ml-2">Register</button>
+			</form>
+		</div>
+	</nav>
+	
+	<!---- Homepage Banner ---->
+	<section class=" flex-center text-center" id="home-banner" >
+		<div class="container">
+			<div class="row align-items-center justify-content-center">
+			  <div class="col-md-8">
+				<div class="logo">
+					<img class="img-fluid mx-auto" src="images\homepage\logo2.png"\></div>
+				<h2 class="heading mb-3 pb-3">Sushi sama</h2>
+			  </div> 		  
+			</div>
+		  </div>
+	</section>
+	
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

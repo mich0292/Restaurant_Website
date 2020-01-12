@@ -1,13 +1,22 @@
-@media screen and (max-width: max-width: 576px) {
-	.col-xs-2 div{
-		margin: 0;
-		padding: 0;
-	}
-
-}
-
 body {
    
+}
+/* Banner Section */
+#menu-banner {
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/menu-banner.jpg");
+	background-size: cover;
+	height: 40em;
+}
+h2.heading.mb-3{
+	font-size: 5em;
+	font-family: 'Sofia', 'arial';
+	color: #ffffff;	
+}
+
+p.sub-heading{
+	font-size: 1.5em;
+	font-family: 'georgia';
+	color: #ffffff;
 }
 
 .container-fluid{
@@ -93,4 +102,35 @@ figure:hover+span {
 
 .col-xs-2 figure:hover img {
 	opacity: .5;
+}
+
+@media screen and (max-width: 992px){
+	#menu-banner{
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/menu-banner.jpg");
+		background-size: cover;
+		height: 35em;
+	}
+}
+
+@media screen and (max-width: 768px){
+	#menu-banner{
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/menu-banner.jpg");
+		background-size: cover;
+		height: 25em;
+	}
+}
+
+@media screen and (max-width: 576px) {	
+	#menu-banner{
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/menu-banner.jpg");
+		background-size: cover;
+		height: 20em;
+	}
+	
+	h2.heading.mb-3{
+	font-size: 3em;
+	font-family: 'Sofia', 'arial';
+	color: #ffffff;
+	}
+
 }
