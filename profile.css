@@ -1,0 +1,20 @@
+
+.container-fluid{
+    padding: 0;
+}
+fieldset {
+   margin: 1em auto;
+   background-color: #FAFCFF;
+   width: 65%;
+}
+
+legend {
+   background-color: #EBF4FB ;
+   margin: 0 auto;
+   width: 90%;
+   padding: 0.25em;
+   text-align: center;
+   font-weight: bold;
+   font-size: 100%;
+}
+

@@ -1,0 +1,101 @@
+/* Banner Section */
+#home-banner{
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url("images/banner/home-banner.jpg");
+	background-size: cover;
+	height: 50em;
+}
+h2.heading.mb-3{
+	font-size: 8em;
+	font-family: 'Sofia', 'arial';
+	color: #ffffff;	
+}
+
+.logo {
+    width: 25em;
+    height: 25em;
+	margin: auto;
+}
+
+.logo img {
+
+}
+
+@media screen and (max-width: 1200px) {
+    #home-banner {
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/home-banner.jpg");
+		background-size: cover;
+		height: 40em;
+    }
+
+    h2.heading.mb-3{
+		font-size: 5em;
+		font-family: 'Sofia', 'arial';
+		color: #ffffff;	
+	}
+
+	.logo{
+		width: 20em;
+		height: 20em;
+		margin: auto;
+	}
+}
+
+@media screen and (max-width: 992px) {
+    #home-banner {
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/home-banner.jpg");
+		background-size: cover;
+		height: 35em;
+	}
+
+    h2.heading.mb-3{
+		font-size: 4em;
+		font-family: 'Sofia', 'arial';
+		color: #ffffff;	
+	}
+
+	.logo{
+		width: 15em;
+		height: 15em;
+		margin: auto;
+	}
+}
+
+@media screen and (max-width: 768px) {
+    #home-banner {
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/home-banner.jpg");
+		background-size: cover;
+		height: 25em;
+    }
+
+    h2.heading.mb-3{
+		font-size: 4em;
+		font-family: 'Sofia', 'arial';
+		color: #ffffff;	
+	}
+
+	.logo{
+		width: 15em;
+		height: 15em;
+		margin: auto;
+	}
+}
+
+@media screen and (max-width: 576px) {
+    #home-banner {
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/home-banner.jpg");
+		background-size: cover;
+		height: 20em;
+    }
+
+   h2.heading.mb-3{
+		font-size: 3em;
+		font-family: 'Sofia', 'arial';
+		color: #ffffff;	
+	}
+	
+	.logo{
+		width: 10em;
+		height: 10em;
+		margin: auto;
+	}
+}

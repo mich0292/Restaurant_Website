@@ -1,0 +1,83 @@
+body{
+	font-family: Cocogoose Light,sans-serif;
+	color: grey;
+	margin: 0;
+}
+
+p {
+	line-height:2;
+	font-size: 15pt;
+}
+
+.back {
+	background-image: url("images/sushiabout.jpg");
+	background-attachment: fixed;
+	background-position: center;	
+	background-size: cover;
+}
+.top-opacity {
+	background-color: rgba(255, 255, 255, 0.6);
+	min-height: 600px;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-family: 'Sofia', 'arial';
+  color: black;
+  
+}
+
+.centered p {
+	font-size: 25pt;
+	text-align: center;
+}
+
+.article {
+	background-color: #f5edd7;
+	padding: 2em;
+}
+
+.title {
+	margin:auto;
+	padding: 2em;
+	text-align: center;
+}
+
+.info {
+	padding: 0 1em 1em 1em;
+}
+
+.info h4{
+	text-align: left;
+	margin-left: 2em;
+}
+
+.pos {
+	text-align: left;
+	margin: 2rem;
+}
+
+.dropdown {
+  position: relative;
+  margin: 0.5em;
+
+}
+
+.dropdown-content {
+  display: none;
+  position: right;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

@@ -1,0 +1,19 @@
+body {
+    background-color: white;
+    color: #000;
+}
+
+.container-fluid{
+    padding:0;
+}
+
+nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color:  #ffdc7c;
+}
+
+h1{
+    font-family: 'Sofia';
+}
