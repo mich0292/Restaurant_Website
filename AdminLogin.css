@@ -1,0 +1,10 @@
+body{
+    background-image: linear-gradient(to right top, #ffdc7c, #ffd077, #ffc373, #ffb771, #ffab70, #fda16c, #fa9769, #f78d66, #f1825e, #ea7757, #e46c50, #dd614a);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:100vh;
+}
+
+middle{
+    background-image: linear-gradient(to right top, #6ba292, #89b8a4, #a7cfb7, #c5e6cb, #e4fde1);
+}
