@@ -1,6 +1,7 @@
 body {
     background-color: white;
     color: #000;
+    height: 100%;
 }
 
 .container-fluid{
