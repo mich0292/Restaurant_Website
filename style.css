@@ -1,6 +1,7 @@
 body {
     background-color: white;
     color: #000;
+    height: 100%;
 }
 
 .container-fluid{
@@ -11,9 +12,14 @@ nav {
     position: fixed;
     left: 0;
     top: 0;
+    width: 100%;
     background-color:  #ffdc7c;
 }
 
 h1{
     font-family: 'Sofia';
+}
+
+.bg-admin-content {
+    background: linear-gradient(90deg, rgba(217,216,214,.8) 0%, rgba(255,255,255,.8) 25%);
 }

@@ -1,9 +1,15 @@
 .center {
   margin: auto;
-  width: 50%;
+  width: 60%;
   padding: 10px;
   font-size: 20px;
+  margin-top: 5%;
 }
+
+input[type="text"],input[type="email"]
+	{
+		margin-right: 100px;
+	}
 
 .button{
 	border: 0px solid black;
@@ -34,4 +40,46 @@ legend {
    text-align: center;
    font-weight: bold;
    font-size: 100%;
+}
+
+@media screen and (max-width: 1025px) {
+    .center {
+		margin: auto;
+		width: 80%;
+		padding: 10px;
+		font-size: 20px;
+		margin-top: 10%;
+	}
+	input[type="text"],input[type="email"]
+	{
+		font-size:20px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+    .center {
+		margin: auto;
+		width: 100%;
+		padding: 10px;
+		font-size: 20px;
+		margin-top: 5%;
+	}
+	input[type="text"],input[type="email"]
+	{
+		font-size:20px;
+	}
+}
+
+@media screen and (max-width: 576px) {
+    .center {
+		margin: auto;
+		width: 100%;
+		padding: 10px;
+		font-size: 11px;
+		margin-top: 5%;
+	}
+	input[type="text"],input[type="email"]
+	{
+		font-size:11px;
+	}
 }
