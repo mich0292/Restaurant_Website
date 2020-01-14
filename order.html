@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+   <meta charset="utf-8">
+   <title>Order</title>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+	 <link rel="stylesheet" href="order.css">
+</head>
+
+<body>
+
+<div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light">
+		<a class="navbar-brand" href="#">Sushi Sama</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active disable">
+					<a class="nav-link" href="#">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="Menu.html">Menu</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">About Us</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Member
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div>
+				</li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<label for="username">Username :</label>
+				<input class="form-control form-control-sm mx-2" type="username" placeholder="Enter Username"
+					aria-label="Search">
+				<label for="password">Password :</label>
+				<input class="form-control form-control-sm mx-2" type="password" placeholder="Enter Username"
+					aria-label="Search">
+				<button type="button" class="btn btn-light">Login</button>
+				<button type="button" class="btn btn-light ml-2">Register</button>
+			</form>
+		</div>
+	</nav>
+    </div>
+	
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">ORDER</h1>
+     </div>
+</section>
+
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col"> </th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Available</th>
+                            <th scope="col" class="text-center">Quantity</th>
+                            <th scope="col" class="text-right">Price</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="images/menu/inari-nigiri.png" width="100" height="100"/> </td>
+                            <td>Inari Nigiri</td>
+                            <td>In stock</td>
+                            <td><input class="form-control" type="number" value="1" required /></td>
+                            <td class="text-right">RM 3.50</td>
+                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                        </tr>
+                        <tr>
+                            <td><img src="images/menu/salmon_sushi.jpg" width="100" height="100"/> </td>
+                            <td>Salmon Sushi</td>
+                            <td>In stock</td>
+                            <td><input class="form-control" type="number" value="1" /></td>
+                            <td class="text-right">RM 5.50</td>
+                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                        </tr>
+                        <tr>
+                            <td><img src="images/menu/fried-oysters.jpg" width="100" height="100"/> </td>
+                            <td>Fried Oysters</td>
+                            <td>In stock</td>
+                            <td><input class="form-control" type="number" value="1" /></td>
+                            <td class="text-right">RM 15.00</td>
+                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="3" class="text-right">Sub-Total</td>
+                            <td colspan="2" class="text-right">RM 24.00</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="3" class="text-right">Service Tax (10%)</td>
+                            <td colspan="2" class="text-right">RM 2.40</td>
+                        </tr>
+						<tr>
+                            <td></td>
+                            <td colspan="3" class="text-right">SST (6%)</td>
+                            <td colspan="2" class="text-right">RM 1.44</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="3" class="text-right"><strong>Total</strong></td>
+                            <td colspan="2" class="text-right"><strong>RM 27.80</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+		
+        <div class="col mb-2">
+            <div class="row">
+                <div class="col-sm-12  col-md-6">
+                    <button class="btn btn-block btn-light">Continue Shopping</button>
+                </div>
+                <div class="col-sm-12 col-md-6 text-right">
+                    <button class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
