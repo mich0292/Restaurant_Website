@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+   <meta charset="utf-8">
+   <title>Make Reservation</title>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+	 <link rel="stylesheet" href="reserve.css">
+</head>
+
+<div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light">
+		<a class="navbar-brand" href="#">Sushi Sama</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active disable">
+					<a class="nav-link" href="#">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="Menu.html">Menu</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">About Us</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Member
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div>
+				</li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<label for="username">Username :</label>
+				<input class="form-control form-control-sm mx-2" type="username" placeholder="Enter Username"
+					aria-label="Search">
+				<label for="password">Password :</label>
+				<input class="form-control form-control-sm mx-2" type="password" placeholder="Enter Username"
+					aria-label="Search">
+				<button type="button" class="btn btn-light">Login</button>
+				<button type="button" class="btn btn-light ml-2">Register</button>
+			</form>
+		</div>
+	</nav>
+    </div>
+
+<div class="content">
+	<div class="container">
+			<div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb30 text-center">
+				<section class="jumbotron text-center head">
+					<div class="container">
+						<h1 class="jumbotron-heading font-weight-bold">Reservation</h1>
+					</div>
+				</section>
+				</div>
+			</div>
+			
+		<div class="row">
+			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb30">
+				<div class="form">
+					<form class="form-horizontal">
+						<div class="row">
+							<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+								<div class="form-group">
+									<label class="control-label" >Date to dine in</label>&nbsp;<span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
+									<div class="input-group">
+										<input name="date" type="date" class="form-control" required>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+								<div class="form-group">
+									<label class="control-label">Time</label>
+									<div class="input-group">
+										<input name="time" type="time" class="form-control" required>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+								<div class="form-group">
+									<label class="control-label required">Number of Adults:</label>
+									<input class="form-control" name="adult" type="number" value="1" required />
+								</div>
+							</div>
+							
+							<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+								<div class="form-group">
+									<label class="control-label required">Number of Childs:</label>
+										<div class="select">
+										<input class="form-control name="child" type="number" value="1" required />
+										</div>
+								</div>
+							</div>
+							
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt30">
+								<h4>Your Details</h4>
+							</div>
+							
+							<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+								<div class="form-group">
+									<label class="control-label">Full Name</label>
+									<input name="name" type="text" placeholder="Full Name" class="form-control" required>
+								</div>
+							</div>
+							
+							<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+								<div class="form-group">
+									<label class="control-label"> Email</label>
+									<input name="email" type="text" placeholder="ex: sushi@example.com" class="form-control" required>
+								</div>
+							</div>
+							
+							<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+								<div class="form-group">
+									<label class="control-label"> Phone</label>
+									<input name="phone" type="text" placeholder="ex: 012345678" class="form-control" required>
+								</div>
+							</div>
+							
+							<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+								<div class="form-group">
+									<label class="control-label">City</label>
+									<input name="city" type="text" placeholder="Cyberjaya" class="form-control" required>
+								</div>
+							</div>
+							
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+								<div class="form-group">
+									<label class="control-label">Describe Your Travel Requirements</label>
+									<textarea class="form-control" name="textarea" rows="4" placeholder="Write Your Requirements"></textarea>
+								</div>
+							</div>
+							
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center">
+								<a href="home.html" class="btn btn-secondary">Cancel</a>
+								<button type="submit" name="singlebutton" class="btn btn-primary">Reserve</button>
+							</div>
+						</div>
+					</form>
+				</div>
+							
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
