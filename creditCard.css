@@ -1,0 +1,21 @@
+.input-group-addon {
+    background-color: transparent;
+    border-left: 0;
+}
+
+.cc-number.identified {
+    background-repeat: no-repeat;
+	background-position-y: 3px;
+	background-position-x: 99%;
+}
+@media screen and (max-width: 1025px) {
+	body{
+			font-size: 15px;
+		}
+}
+
+@media screen and (max-width: 768px) {
+	body{
+			font-size: 25px;
+		}
+}
