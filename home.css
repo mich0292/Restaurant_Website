@@ -4,98 +4,128 @@
 	background-size: cover;
 	height: 50em;
 }
-h2.heading.mb-3{
+h1.heading.mb-3{
 	font-size: 8em;
 	font-family: 'Sofia', 'arial';
 	color: #ffffff;	
 }
 
-.logo {
-    width: 25em;
-    height: 25em;
-	margin: auto;
+button.btn a, button.btn a:visited{
+	color: white;
 }
 
-.logo img {
+.container-fluid{
+    padding: 2em;
+}
 
+.row {
+	margin: 2em;
+}
+
+.col-xs-12{
+	padding: 1.0em;
+	margin-bottom: 1.0em;
+}
+
+.col-xs-12 h2{
+	font-size: 5em;
+	color: #ff9b71;
+	font-weight: bold;
+	font-family: 'Sofia', 'georgia', serif;
+	text-align: center;
+}
+
+p{
+	font-size: 1.5em;
+	font-family: 'Merriweather', 'georgia', serif;
+	color: #000000;
+	padding: 1em;
+}
+
+footer{
+	background-color: rgba(0,0,0,0.75);
+	height: 16rem;
+	padding: 0;
+}
+
+footer h3{
+	font-family: 'Sofia', 'georgia', serif;
+	color: #ff9b71;
+	font-weight: bold;
+	font-size: 2.5rem;
+}
+
+footer p{
+	padding:0;
+	color: #ffdc7c;
+	font-weight:italic;
+	font-size: 1rem;
 }
 
 @media screen and (max-width: 1200px) {
     #home-banner {
-		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/home-banner.jpg");
-		background-size: cover;
 		height: 40em;
     }
 
-    h2.heading.mb-3{
-		font-size: 5em;
-		font-family: 'Sofia', 'arial';
-		color: #ffffff;	
+    h1.heading.mb-3{
+		font-size: 4em;
 	}
 
 	.logo{
 		width: 20em;
 		height: 20em;
-		margin: auto;
 	}
 }
 
 @media screen and (max-width: 992px) {
     #home-banner {
-		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/home-banner.jpg");
-		background-size: cover;
 		height: 35em;
 	}
 
-    h2.heading.mb-3{
-		font-size: 4em;
-		font-family: 'Sofia', 'arial';
-		color: #ffffff;	
+    h1.heading.mb-3{
+		font-size: 3em;	
 	}
 
 	.logo{
 		width: 15em;
 		height: 15em;
-		margin: auto;
 	}
 }
 
 @media screen and (max-width: 768px) {
     #home-banner {
-		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/home-banner.jpg");
-		background-size: cover;
 		height: 25em;
     }
 
-    h2.heading.mb-3{
-		font-size: 4em;
-		font-family: 'Sofia', 'arial';
-		color: #ffffff;	
+    h1.heading.mb-3{
+		font-size: 3em;
 	}
 
 	.logo{
 		width: 15em;
 		height: 15em;
-		margin: auto;
+	}
+	
+	.col-xs-12 h1{
+		font-size: 2em;
 	}
 }
 
 @media screen and (max-width: 576px) {
     #home-banner {
-		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/home-banner.jpg");
-		background-size: cover;
 		height: 20em;
     }
 
-   h2.heading.mb-3{
-		font-size: 3em;
-		font-family: 'Sofia', 'arial';
-		color: #ffffff;	
+   h1.heading.mb-3{
+		font-size: 1.5em;
 	}
 	
 	.logo{
 		width: 10em;
 		height: 10em;
-		margin: auto;
+	}
+	
+	.hidden{
+		display:none;
 	}
 }

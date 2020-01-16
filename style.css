@@ -8,13 +8,6 @@ body {
     padding:0;
 }
 
-nav {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    background-color:  #ffdc7c;
-}
 
 h1{
     font-family: 'Sofia';

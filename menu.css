@@ -7,7 +7,7 @@ body {
 	background-size: cover;
 	height: 40em;
 }
-h2.heading.mb-3{
+h1.heading.mb-3{
 	font-size: 5em;
 	font-family: 'Sofia', 'arial';
 	color: #ffffff;	
@@ -27,6 +27,7 @@ p.sub-heading{
 .row {
 	margin: 2em;
 }
+
 .col-xs-2{
 	margin-bottom: 4em;
 }
@@ -57,10 +58,9 @@ img.card-img-top{
 	height: 15em;
 }
 
-h5.card-title.text-center{
+h2.card-title.text-center{
 	padding: 0.5em;
 	font-size: 1.5em;
-	font-family: 'Merriweather', serif, 'georgia' ;
 }
 
 div.card-footer{
@@ -68,10 +68,7 @@ div.card-footer{
 }
 
 div.card-footer span.pricing{
-	padding-top: 0.2em;
 	font-size: 1.5em;
-	font-weight: bold;
-	font-family: 'Merriweather', serif, 'georgia' ;
 }
 
 div.card-footer button{
@@ -81,22 +78,16 @@ div.card-footer button{
 
 @media screen and (max-width: 992px){
 	#menu-banner{
-		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/menu-banner.jpg");
-		background-size: cover;
 		height: 35em;
 	}
 	p.sub-heading{
 		font-size: 1.2em;
-		font-family: 'georgia';
-		color: #ffffff;
 	}
 
 	/*Footer overlapped*/
 	div.card-footer span.pricing{
 		padding-top: 0.2em;
 		font-size: 1.2em;
-		font-weight: bold;
-		font-family: 'Merriweather', serif, 'georgia' ;
 	}
 
 	div.card-footer button{
@@ -106,29 +97,22 @@ div.card-footer button{
 
 @media screen and (max-width: 768px){
 	#menu-banner{
-		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/menu-banner.jpg");
-		background-size: cover;
 		height: 25em;
 	}
 	p.sub-heading{
 		font-size: 1.2em;
-		font-family: 'georgia';
-		color: #ffffff;
 	}
 	
 	/*Card title too large */
-	h5.card-title.text-center{
+	h2.card-title.text-center{
 		padding: 0.5em;
 		font-size: 1.5em;
-		font-family: 'Merriweather', serif, 'georgia' ;
 	}
 	
 	/*Footer overlapped*/
 	div.card-footer span.pricing{
 		padding-top: 0.2em;
 		font-size: 1.2em;
-		font-weight: bold;
-		font-family: 'Merriweather', serif, 'georgia' ;
 	}
 
 	div.card-footer button{
@@ -138,21 +122,15 @@ div.card-footer button{
 
 @media screen and (max-width: 576px) {	
 	#menu-banner{
-		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/menu-banner.jpg");
-		background-size: cover;
 		height: 20em;
 	}
 	
-	h2.heading.mb-3{
+	h1.heading.mb-3{
 	font-size: 3em;
-	font-family: 'Sofia', 'arial';
-	color: #ffffff;
 	}
 	
 	p.sub-heading{
 		font-size: 0.8em;
-		font-family: 'georgia';
-		color: #ffffff;
 	}
 	
 	/*Control the menu banner bottom wording */
@@ -161,18 +139,15 @@ div.card-footer button{
 	}
 		
 	/*Card title too large */
-	h5.card-title.text-center{
+	h2.card-title.text-center{
 		padding: 0.5em;
 		font-size: 1.2em;
-		font-family: 'Merriweather', serif, 'georgia' ;
 	}
 	
 	/*Footer overlapped*/
 	div.card-footer span.pricing{
 		padding-top: 0.2em;
 		font-size: 1.0em;
-		font-weight: bold;
-		font-family: 'Merriweather', serif, 'georgia' ;
 	}
 
 	div.card-footer button{
