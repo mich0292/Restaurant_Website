@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+   <meta charset="utf-8">
+   <title>Credit Card Payment</title>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+	 <link rel="stylesheet" href="creditCard.css">
+</head>
+
+<div class="container-fluid py-3">
+    <div class="row">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h3 class="text-center">Credit Card Payment</h3>
+                    </div>
+                    <hr>
+					
+                    <form method="post" class="needs-validation">
+                        <div class="form-group text-center">
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><img class="fa fa-2x" src="images/credit card/visa.jpg" width="50px" height="50px"></li>
+                                <li class="list-inline-item"><img class="fa fa-2x" src="images/credit card/mastercard.png" width="50px" height="50px"></li>
+								<li class="list-inline-item"><img class="fa fa-2x" src="images/credit card/americanexpress.png" width="50px" height="50px"></li>
+                            </ul>
+                        </div>
+						
+                        <div class="form-group">
+                            <label class="control-label mb-1">Payment amount</label>
+                            <input name="payment" type="text" value="RM 27.80" class="form-control" disabled required>
+                            <span class="invalid-feedback">Enter the payment amount</span>
+                        </div>
+						
+                        <div class="form-group">
+                            <label class="control-label mb-1">Name on card</label>
+                            <input name="name" type="text" class="form-control cc-name" required>
+                            <span class="invalid-feedback">Enter the name as shown on credit card</span>
+                        </div>
+						
+                        <div class="form-group">
+                            <label class="control-label mb-1">Card number</label>
+                            <input name="number" type="tel" class="form-control identified visa" required pattern="[0-9]{16}">
+                        </div>
+						
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="control-label mb-1">Expiration</label>
+                                    <input name="exp" type="tel" class="form-control" required placeholder="MM / YY">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label class="control-label mb-1">Security code</label>
+                                <div class="input-group">
+                                    <input name="code" type="tel" class="form-control" required pattern="[0-9]{3}">
+                                </div>
+                            </div>
+                        </div>
+						
+                        <div class="form-group">
+                            <label class="control-label mb-1">Postal code</label>
+                            <input name="zip" type="text" class="form-control" value="">
+                        </div>
+						
+                        <div>
+                            <button type="submit" class="btn btn-lg btn-info btn-block">
+                                <i class="fa fa-lock fa-lg"></i>&nbsp;
+                                <span>Pay RM 27.80</span>
+                                <span style="display:none;">Sending…</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
