@@ -10,9 +10,10 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
   <link href="fontawesome/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="Admin-OrderSummary.css" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="admin.css" />
   <title>Order History</title>
 </head>
 
@@ -24,19 +25,19 @@
 
   <div class="container">
     <div class="row px-3 mt-5 rounded-lg">
-      <nav aria-label="breadcrumb">
+      <nav aria-label="breadcrumb" class="col-12">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="AdminHome.html">Home</a></li>
           <li class="breadcrumb-item active" aria-current="page">Order History</li>
         </ol>
       </nav>
     </div>
-    <div class="row p-3 bg-white shadow-lg rounded-lg title px-5">
-      Order Summary
+    <div class="row p-2 bg-white shadow-lg rounded-lg title px-5">
+      Order History
     </div>
-    <div class="row d-flex justify-content-center rounded text-center bg-white mt-3 mb-5 ">
+    <div class="row d-flex justify-content-center rounded text-center bg-white mt-1">
       <!-- Shopping cart table -->
-      <table class="table table-hover table-bordered m-2">
+      <table class="table table-hover table-bordered m-2 d-none d-lg-table">
         <thead class="thead-dark">
           <tr>
             <th scope="col">
@@ -84,6 +85,33 @@
                 <i class="fa fa-trash"></i>
               </button>
             </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row d-flex justify-content-center rounded text-center bg-white mb-5 ">
+      <!-- Shopping cart table -->
+      <table class="table table-hover table-bordered d-lg-none">
+        <tbody>
+          <tr>
+            <th></th>
+            <td></td>
+          </tr>
+          <tr>
+            <th></th>
+            <td></td>
+          </tr>
+          <tr>
+            <th></th>
+            <td></td>
+          </tr>
+          <tr>
+            <th></th>
+            <td></td>
+          </tr>
+          <tr>
+            <th></th>
+            <td></td>
           </tr>
         </tbody>
       </table>

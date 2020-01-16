@@ -13,9 +13,9 @@ body{
 .breadcrumb-item{
     color: white!important;
     font-weight: bold;
-    font-size: 24px;
 }
 
 .title{
     font-size:24px;
+    font-family: 'Acme', sans-serif;
 }
