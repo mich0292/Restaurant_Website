@@ -7,5 +7,7 @@ td, .th-center{
 }
 
 .form-control-sm {
-  width:133px;
+  width:100px;
+  align-items: center;
+  margin: auto;
 }
