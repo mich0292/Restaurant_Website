@@ -48,6 +48,14 @@ footer{
 	padding: 0;
 }
 
+div.overlay{
+	position:absolute;
+	right:0%;
+	background:linear-gradient(to right,#ffdc7c, white 95%);
+	width:30%;
+	height:inherit;
+}
+
 footer h3{
 	font-family: 'Sofia', 'georgia', serif;
 	color: #ff9b71;
@@ -56,10 +64,16 @@ footer h3{
 }
 
 footer p{
+	position:relative;
 	padding:0;
 	color: #ffdc7c;
 	font-weight:italic;
 	font-size: 1rem;
+}
+
+div.social-media p{
+	font-size: 1.5rem;
+	color: gray;
 }
 
 @media screen and (max-width: 1200px) {
