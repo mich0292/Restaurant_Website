@@ -6,14 +6,18 @@ input[type=text],input[type=tel]{
 
 body{
 	font-family: 'Comic Sans MS';
-	font-size: 24px;
-	background-image: url('images/credit card/background.png');
-	background-repeat: round;
-	background-color: #406787;
 	overflow-x:hidden;
+	font-size: 25px;
 }
 
-@media screen and (min-width: 770px) {
+@media screen and (min-width: 1025px) {
+    body{
+			margin-top: 50px;
+		}
+
+}
+
+@media screen and (min-width: 770px) and (max-width: 1024px) {
     body{
 			margin-top: 150px;
 		}
@@ -30,7 +34,6 @@ body{
 @media screen and (max-width: 576px) {
     body{
 			font-size: 15px;
-			background-image: url('');
 			margin-top: 20px;
 		}
 }
