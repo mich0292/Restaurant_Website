@@ -2,7 +2,7 @@ body {
     background-color: white;
     color: #000;
     height: 100%;
-	font-family: 'Merriweather', 'georgia', serif;
+	font-family: 'Georgia', sans-serif;
 }
 
 .container-fluid{
@@ -12,7 +12,6 @@ body {
 .row {
 	margin: 2em;
 }
-
 
 .col-xs-12{
 	padding: 1.0em;
@@ -41,7 +40,7 @@ li.nav-item .btn {
 }
 
 a.nav-link {
-	font-family: 'Merriweather', 'georgia', sans-serif;
+	font-family: 'Georgia', sans-serif;
 	color: white; 
 	font-size: 1.2rem;
 	font-weight: bold;
@@ -56,7 +55,7 @@ a.nav-link:hover {
 }
   
 a.navbar-brand{
-	font-family: 'Merriweather', 'georgia', sans-serif;
+	font-family: 'Georgia', sans-serif;
 	color: #fff !important;
 	font-size: 2rem !important;
 	font-weight: bold;
@@ -72,7 +71,7 @@ a.navbar-brand img{
 	background: none;
 	color: #fff;
 	border-color: #fff; 
-	font-family: 'Merriweather', 'georgia', sans-serif;
+	font-family: 'Georgia', sans-serif;
 }
 /*End of navbar*/
 
@@ -96,7 +95,7 @@ div.overlay{
 }
 
 footer h3{
-	font-family: 'Sofia', 'georgia', serif;
+	font-family: 'Sofia', 'Georgia', serif;
 	color: #ff9b71;
 	font-weight: bold;
 	font-size: 2.5rem;

@@ -31,7 +31,7 @@ button.btn a, button.btn a:visited{
 	font-size: 5em;
 	color: #ff9b71;
 	font-weight: bold;
-	font-family: 'Sofia', 'georgia', serif;
+	font-family: 'Sofia', 'Georgia', serif;
 	text-align: center;
 }
 
@@ -41,7 +41,7 @@ div.image-banner{
 
 p{
 	font-size: 1.5em;
-	font-family: 'Merriweather', 'georgia', serif;
+	font-family: 'Georgia', serif;
 	color: #000000;
 	padding: 1em;
 }
