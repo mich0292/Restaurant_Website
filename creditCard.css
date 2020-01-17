@@ -1,27 +1,39 @@
-.input-group-addon {
-    background-color: transparent;
-    border-left: 0;
-}
 
-.cc-number.identified {
-    background-repeat: no-repeat;
-	background-position-y: 3px;
-	background-position-x: 99%;
-}
+input[type=text],input[type=tel]{
+		font-size: 0.8em;
+	}
+
 
 body{
 	font-family: 'Comic Sans MS';
-	font-size: 24px;
+	overflow-x:hidden;
+	font-size: 25px;
 }
 
-@media screen and (max-width: 1025px) {
+@media screen and (min-width: 1025px) {
+    body{
+			margin-top: 50px;
+		}
+
+}
+
+@media screen and (min-width: 770px) and (max-width: 1024px) {
+    body{
+			margin-top: 150px;
+		}
+
+}
+
+@media screen and (min-width: 577px) and (max-width: 769px) {
 	body{
-			font-size: 15px;
+			font-size: 20px;
+			margin-top: 80px;
 		}
 }
 
-@media screen and (max-width: 768px) {
-	body{
-			font-size: 25px;
+@media screen and (max-width: 576px) {
+    body{
+			font-size: 15px;
+			margin-top: 20px;
 		}
 }

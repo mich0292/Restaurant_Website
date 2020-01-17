@@ -12,11 +12,11 @@ p {
 #career-banner {
 	background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/sushiabout.jpg");
 	background-size: cover;
-	height: 40em;
+	height: 50em;
 }
 
-h2.heading.mb-3{
-	font-size: 5em;
+h1.heading.mb-3{
+	font-size: 8em;
 	font-family: 'Sofia', 'arial';
 	color: #ffffff;	
 }
