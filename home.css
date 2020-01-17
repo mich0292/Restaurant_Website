@@ -1,6 +1,6 @@
 /* Banner Section */
 #home-banner{
-	background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url("images/banner/home-banner.jpg");
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url("images/home/home-banner.jpg");
 	background-size: cover;
 	height: 50em;
 }
@@ -35,6 +35,10 @@ button.btn a, button.btn a:visited{
 	text-align: center;
 }
 
+div.image-banner{
+	background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url("images/banner/home-banner.jpg");
+}
+
 p{
 	font-size: 1.5em;
 	font-family: 'Merriweather', 'georgia', serif;
@@ -42,39 +46,6 @@ p{
 	padding: 1em;
 }
 
-footer{
-	background-color: rgba(0,0,0,0.75);
-	height: 16rem;
-	padding: 0;
-}
-
-div.overlay{
-	position:absolute;
-	right:0%;
-	background:linear-gradient(to right,#ffdc7c, white 95%);
-	width:30%;
-	height:inherit;
-}
-
-footer h3{
-	font-family: 'Sofia', 'georgia', serif;
-	color: #ff9b71;
-	font-weight: bold;
-	font-size: 2.5rem;
-}
-
-footer p{
-	position:relative;
-	padding:0;
-	color: #ffdc7c;
-	font-weight:italic;
-	font-size: 1rem;
-}
-
-div.social-media p{
-	font-size: 1.5rem;
-	color: gray;
-}
 
 @media screen and (max-width: 1200px) {
     #home-banner {
@@ -104,6 +75,7 @@ div.social-media p{
 		width: 15em;
 		height: 15em;
 	}
+	
 }
 
 @media screen and (max-width: 768px) {
@@ -123,6 +95,7 @@ div.social-media p{
 	.col-xs-12 h1{
 		font-size: 2em;
 	}
+
 }
 
 @media screen and (max-width: 576px) {
@@ -142,4 +115,5 @@ div.social-media p{
 	.hidden{
 		display:none;
 	}
+
 }

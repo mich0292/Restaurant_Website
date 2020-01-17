@@ -13,9 +13,8 @@
 	<!-- MD for Bootstrap -->
 	<link rel="stylesheet" href="mdb.min.css">	
 	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Sofia'>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="home.css" />
-	<link rel="stylesheet" href="nav.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
 	
 	<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -30,7 +29,7 @@
         crossorigin="anonymous"></script>
 </head>
 <body>
-	<section class="cover text-center " id="home-banner" >
+	<section class="cover text-center" id="home-banner" >
 		<!-- Nav bar -->
 		<!-- In reference to https://www.codeply.com/go/QAXbNGbWPA/bootstrap-4-navbar-transparent -->
 		<nav class="navbar navbar-toggleable-sm navbar-expand-lg navbar-inverse">
@@ -40,7 +39,7 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<a class="navbar-brand" href="home.html">
-					<img class="img-fluid pr-3 pb-1" src="images/homepage/logo2.png" alt="sushi-sama-logo" />Sushi Sama
+					<img class="img-fluid pr-3 pb-1" src="images/home/logo2.png" alt="sushi-sama-logo" />Sushi Sama
 				</a>
 				<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 					<ul class="navbar-nav">
@@ -68,13 +67,12 @@
 			</div>
 		</nav>
 			<!-- Homepage Banner -->
-		<div class="cover-container py-5">
+		<div class="cover-container py-6">
 			<div class="cover-inner container justify-content-center">
-				<h1 class="heading mb-3 py-4">Serving you <br/>the best sushi</h2>
+				<h1 class="heading mb-3 py-5">Serving you <br/>the best sushi</h2>
 				<button class="btn btn-outline-white"> <a href="#section-tableReservation"> Reserve a table </a> </button>
 			</div> 		  	
 		</div>
-
 	</section>
 	
 	<article>
@@ -93,55 +91,120 @@
 			</div>	
 		</div>	
 	</article>
+	
+	<div class ="container image-banner">
+		
+	</div>
 	<section id="section-tableReservation">
 		<div class="container">
 			<div class="row align-items-center justify-content-center">	
 				<div class="col-xs-12">
 					<h2>Reserve a table</h2>			
-					<form method="post" action="" >
-						<div class="row">	
-							<div class="col-xs-12">
-									<label for="name"> Full name: </label>
-									<input type="text" id="name">
-								</div>
-							</div>
-						<div class="row">	
-							<div class="col-xs-12 col-lg-6">
-								<label for="date"> Date of reservation <i class="fa fa-calendar"></i>: </label>
-								<input type="date" id="date">
-							</div>
-							<div class="col-xs-12 col-lg-6">
-								<label for="time"> Time of reservation: </label>
-								<input type="time" id="time">
-							</div>
-							<label for="information"> Additional information you would like to inform us </label>
-							<input type="textarea" id="information" rows="5">
-						</div>
-					</form>	
 				</div>
 			</div>
+			<form class="form-horizontal" method="post" action="">
+				<div class="row">
+					<div class="col-xl-6 col-lg-6 col-12">
+						<div class="form-group">
+							<label class="control-label" >Date of Reservation</label>&nbsp;<span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
+							<div class="input-group">
+								<input name="date" type="date" class="form-control" required>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-xl-6 col-lg-6 col-12">
+						<div class="form-group">
+							<label class="control-label">Time of Reservation</label>
+							<div class="input-group">
+								<input name="time" type="time" class="form-control" required>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-xl-6 col-lg-6 col-12">
+						<div class="form-group">
+							<label class="control-label required">Number of Adults:</label>
+							<input class="form-control" name="adult" type="number" value="1" required />
+						</div>
+					</div>
+					
+					<div class="col-xl-6 col-lg-6 col-12">
+						<div class="form-group">
+							<label class="control-label required">Number of Childs:</label>
+								<div class="select">
+									<input class="form-control name="child" type="number" value="1" required />
+								</div>
+						</div>
+					</div>
+					
+					<div class="col-sm-12 col-xs-12 mt30">
+						<h4>Your Details</h4>
+					</div>
+					
+					<div class="col-xl-6 col-lg-6 col-12">
+						<div class="form-group">
+							<label class="control-label">Full Name</label>
+							<input name="name" type="text" placeholder="Full Name" class="form-control" required>
+						</div>
+					</div>
+					
+					<div class="col-xl-6 col-lg-6 col-12">
+						<div class="form-group">
+							<label class="control-label"> Email</label>
+							<input name="email" type="text" placeholder="ex: sushi@example.com" class="form-control" required>
+						</div>
+					</div>
+					
+					<div class="col-xl-6 col-lg-6 col-12">
+						<div class="form-group">
+							<label class="control-label"> Phone</label>
+							<input name="phone" type="text" placeholder="ex: 012345678" class="form-control" required>
+						</div>
+					</div>
+					
+					<div class="col-xl-6 col-lg-6 col-12">
+						<div class="form-group">
+							<label class="control-label">City</label>
+							<input name="city" type="text" placeholder="Cyberjaya" class="form-control" required>
+						</div>
+					</div>
+					
+					<div class="col-xl-12 col-lg-12 col-12">
+						<div class="form-group">
+							<label class="control-label">Special remarks (Eg. food allergy )</label>
+							<textarea class="form-control" name="textarea" rows="4" placeholder="Please write to us!"></textarea>
+						</div>
+					</div>
+					
+					<div class="col-12 text-center">
+						<button type="submit" name="singlebutton" class="btn btn-outline-deep-orange">Reserve</button>
+						<button type="reset" class="btn btn-outline-cyan">Cancel</a>
+					</div>
+				</div>
+			</form>				
 		</div>
 	</section>
 	
-	<footer>
-		<div class="overlay">
+	<footer class="footer-hidden">
+		<div class="overlay ">
 		</div>
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-lg-3 col-xs-12 d-none d-md-block">
+				<div class="col-lg-3 col-xs-12 d-none d-lg-block">
 					<h3 class=" pb-2"> Sushi Sama</h3>
 					<p> Copyright reserved &copy</p>
 				</div>
-				<div class="col-lg-2 col-xs-12 d-none d-md-block">
+				<div class="col-lg-2 col-xs-12 d-none d-lg-block">
 					<p> Home</p>
 				</div>
-				<div class="col-lg-2 col-xs-12 d-none d-md-block">
+				<div class="col-lg-2 col-xs-12 d-none d-lg-block">
 					<p> Menu</p>
 				</div>
-				<div class="col-lg-2 col-xs-12 d-none d-md-block">
+				<div class="col-lg-2 col-xs-12 d-none d-lg-block">
 					<p> Career</p>
 				</div>
-				<div class="social-media col-lg-3 col-xs-12 d-none d-md-block">
+				<div class="social-media col-lg-3 col-xs-12 d-none d-sm-block">
 					<p>Find us here:</p>
 					<button type="button" class="btn peach-gradient"><i class="fa fa-2x fa-facebook"></i></button>
 					<button type="button" class="btn peach-gradient"><i class="fa fa-2x fa-instagram"></i></button>

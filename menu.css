@@ -3,12 +3,13 @@ body {
 }
 /* Banner Section */
 #menu-banner {
-	background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/menu-banner.jpg");
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/menu/menu-banner.jpg");
 	background-size: cover;
-	height: 40em;
+	height: 50em;
 }
+
 h1.heading.mb-3{
-	font-size: 5em;
+	font-size: 8em;
 	font-family: 'Sofia', 'arial';
 	color: #ffffff;	
 }
