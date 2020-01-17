@@ -78,8 +78,14 @@ div.card-footer button{
 	#menu-banner{
 		height: 35em;
 	}
+	
+	h1.heading.mb-3{
+		font-size: 3em;	
+	}
+	
 	p.sub-heading{
 		font-size: 1.2em;
+		padding: 0 !important;
 	}
 
 	/*Footer overlapped*/
@@ -97,8 +103,18 @@ div.card-footer button{
 	#menu-banner{
 		height: 25em;
 	}
+	
+	h1.heading.mb-3{
+		font-size: 3em;
+	}
+	
 	p.sub-heading{
 		font-size: 1.2em;
+		padding: 0 !important;
+	}
+	
+	div.cover-container.pt-5.mt-5{
+		padding: 0 !important;
 	}
 	
 	/*Card title too large */
@@ -124,11 +140,13 @@ div.card-footer button{
 	}
 	
 	h1.heading.mb-3{
-	font-size: 3em;
+		font-size: 3em;
+		padding: 0 !important;
 	}
 	
 	p.sub-heading{
 		font-size: 0.8em;
+		padding: 0 !important;
 	}
 	
 	/*Control the menu banner bottom wording */

@@ -92,48 +92,44 @@ p.sub-heading{
 
 @media (max-width: 992px){
 	#career-banner{
-		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/sushiabout.jpg");
-		background-size: cover;
 		height: 35em;
 	}
+	
+	h1.heading.mb-3{
+		font-size: 3em;	
+	}
+	
 	p.sub-heading{
 		font-size: 1.2em;
-		font-family: 'georgia';
-		color: #ffffff;
 	}
 
 }
 
 @media  (max-width: 768px){
 	#career-banner{
-		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/sushiabout.jpg");
-		background-size: cover;
 		height: 25em;
 	}
+	
+	h1.heading.mb-3{
+		font-size: 3em;
+	}
+	
 	p.sub-heading{
 		font-size: 1.2em;
-		font-family: 'georgia';
-		color: #ffffff;
 	}
 	
 }
 
 @media  (max-width: 576px) {	
 	#career-banner{
-		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("images/banner/sushiabout.jpg");
-		background-size: cover;
 		height: 20em;
 	}
 	
-	h2.heading.mb-3{
-	font-size: 3em;
-	font-family: 'Sofia', 'arial';
-	color: #ffffff;
+    h1.heading.mb-3{
+		font-size: 1.5em;
 	}
 	
 	p.sub-heading{
 		font-size: 0.8em;
-		font-family: 'georgia';
-		color: #ffffff;
 	}
 }

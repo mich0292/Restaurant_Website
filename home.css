@@ -87,6 +87,9 @@ p{
 		font-size: 3em;
 	}
 
+	.col-xs-12 h2{
+		font-size: 4em;
+	}
 	.logo{
 		width: 15em;
 		height: 15em;
@@ -103,7 +106,7 @@ p{
 		height: 20em;
     }
 
-   h1.heading.mb-3{
+    h1.heading.mb-3{
 		font-size: 1.5em;
 	}
 	
