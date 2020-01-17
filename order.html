@@ -10,7 +10,7 @@
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<link rel="stylesheet" href="cart.css">
+	<link rel="stylesheet" href="order.css">
 	<link rel="stylesheet" href="style.css">
 	
 	<!-- Optional JavaScript -->
@@ -60,9 +60,9 @@
 		</nav>
 		<!-- End of Nav Bar -->
 	<div class="px-2 px-lg-0">	
-		<div class="pb-5">
+		<div class="pb-0 pb-lg-5">
 			<div class="container">
-				<div class="row">
+				<div class="row mt-0 mx-0 mx-lg-5">
 					<div class="col-lg-12 p-4 p-lg-5 bg-white rounded shadow-lg mt-5 mb-5 rounded-lg">
 					<!-- Shopping cart table -->
 					<div class="table-responsive">
@@ -140,11 +140,12 @@
 				<div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Promo code</div>
 				<div class="p-4">
 					<p class="font-italic mb-4">If you have a promo code, please enter it in the box below</p>
-					<div class="input-group mb-4 border rounded-pill p-2">
-						<input type="text" placeholder="Apply promo" aria-describedby="button-addon3" class="form-control border-0">
+					<div class="input-group mb-4 border rounded-pill p-2 justify-content-center">
+						<input type="text" id="promo-input" placeholder="Apply promo" aria-describedby="button-addon3" class="form-control border-0 ml-2">
+							<button id="button-addon3" type="button" class="btn btn-dark rounded-pill"><i class="fa fa-gift mr-2"></i>Apply promo</button>
 						<div class="input-group-append border-0"></div>						  
 					</div>
-						<button id="button-addon3" type="button" class="btn btn-block btn-dark px-4 rounded-pill"><i class="fa fa-gift mr-2"></i>Apply promo</button>
+						
 				</div>
 				<!-- Instructions -->
 				<div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Special remarks</div>
@@ -161,7 +162,7 @@
 							<li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
 								<h5 class="font-weight-bold">RM15.40</h5>
 							</li>
-						</ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
+						</ul><a href="#" class="btn btn-dark rounded-pill py-2 px-3 px-lg-5">Procceed to checkout</a>
 					</div>
 				</div>
 			</div>

@@ -1,4 +1,6 @@
-
+body {
+  background-image: linear-gradient(#dd614a, #ff9b71, #ffdc7c, #ffffff);
+}
 
 td, .th-center{
   text-align: center;
@@ -9,3 +11,33 @@ td, .th-center{
   align-items: center;
   margin: auto;
 }
+
+@media only screen and (max-width: 350px) {
+  #button-addon3 {
+    padding: 0.25em 1em;
+  }
+}
+
+@media only screen and (min-width: 350px) {
+  #button-addon3 {
+    padding: 0.25em 2.25em;
+  }
+}
+
+@media only screen and (min-width: 370px) {
+  #button-addon3 {
+    padding: 0.25em 2.75em;
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  #button-addon3 {
+    padding: 0.25em 3.5em;
+  }
+} 
+
+@media only screen and (min-width: 600px) {
+  #button-addon3 {
+    padding: 0 1.5em;
+  }
+} 
