@@ -4,6 +4,7 @@
 	background-size: cover;
 	height: 50em;
 }
+
 h1.heading.mb-3{
 	font-size: 8em;
 	font-family: 'Sofia', 'arial';
@@ -36,7 +37,23 @@ button.btn a, button.btn a:visited{
 }
 
 div.image-banner{
-	background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url("images/banner/home-banner.jpg");
+	background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url("images/home/image-banner.jpg");
+	height: 20rem;
+}
+
+h3.image-heading{
+	font-size: 4em;
+	font-family: 'Sofia', 'arial';
+	color: #ffffff;
+	text-align: center;
+}
+
+p.image-text{
+	font-size: 1.5em;
+	font-family: 'Georgia', serif;
+	color: #ffffff;
+	text-align: center;
+	font-style: italic;
 }
 
 p{
@@ -46,6 +63,9 @@ p{
 	padding: 1em;
 }
 
+div.info p{
+	line-height: 4rem;
+}
 
 @media screen and (max-width: 1200px) {
     #home-banner {
@@ -53,7 +73,7 @@ p{
     }
 
     h1.heading.mb-3{
-		font-size: 4em;
+		font-size: 6em;
 	}
 
 	.logo{
@@ -68,12 +88,18 @@ p{
 	}
 
     h1.heading.mb-3{
-		font-size: 3em;	
+		font-size: 4.0em;	
 	}
 
 	.logo{
 		width: 15em;
 		height: 15em;
+	}
+	
+	h3.image-heading{
+		font-size: 3.2em;
+		padding: 0;
+		margin-bottom: 1.0rem;
 	}
 	
 }
@@ -84,7 +110,8 @@ p{
     }
 
     h1.heading.mb-3{
-		font-size: 3em;
+		font-size: 3.5em;
+		padding-bottom: 1rem !important;
 	}
 
 	.col-xs-12 h2{
@@ -98,6 +125,12 @@ p{
 	.col-xs-12 h1{
 		font-size: 2em;
 	}
+	
+	h3.image-heading{
+		font-size: 3.2em;
+		padding: 0;
+		margin-bottom: 1.0rem;
+	}
 
 }
 
@@ -107,7 +140,7 @@ p{
     }
 
     h1.heading.mb-3{
-		font-size: 1.5em;
+		font-size: 2.5;
 	}
 	
 	.logo{
@@ -117,6 +150,21 @@ p{
 	
 	.hidden{
 		display:none;
+	}
+	
+	div.info p{
+		line-height: 2rem;
+	}
+	
+	p.image-text{
+		font-size: 1.0em;
+		padding: 0;
+	}
+	
+	h3.image-heading{
+		font-size: 2.5em;
+		padding: 0;
+		margin-bottom: 1.0rem;
 	}
 
 }
