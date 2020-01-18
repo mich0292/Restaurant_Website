@@ -5,8 +5,8 @@ input[type=text],input[type=tel]{
 
 
 body{
-	font-family: 'Comic Sans MS';
-	overflow-x:hidden;
+	font-family: 'Georgia', serif;
+	overflow-x: hidden;
 	font-size: 25px;
 }
 

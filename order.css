@@ -1,36 +1,43 @@
-body{
-	font-family: 'Comic Sans MS';
+body {
+  background-image: linear-gradient(#dd614a, #ff9b71, #ffdc7c, #ffffff);
 }
 
-@media screen and (max-width: 1025px) {
-    img{
-		width: 100px;
-		height: 100px;
-	}
-
+td, .th-center{
+  text-align: center;
 }
 
-@media screen and (max-width: 768px) {
-    img{
-		width: 75px;
-		height: 75px;
-	}
-
+.form-control-sm {
+  width:100px;
+  align-items: center;
+  margin: auto;
 }
 
-@media screen and (max-width: 576px) {
-    img{
-		width: 50px;
-		height: 50px;
-	}
-	body{
-		font-size: 10px;
-	}
-	h1{
-		font-size: 24px;
-	}
-	input[type="number"]
-	{
-		font-size:12px;
-	}
+@media only screen and (max-width: 350px) {
+  #button-addon3 {
+    padding: 0.25em 1em;
+  }
 }
+
+@media only screen and (min-width: 350px) {
+  #button-addon3 {
+    padding: 0.25em 2.25em;
+  }
+}
+
+@media only screen and (min-width: 370px) {
+  #button-addon3 {
+    padding: 0.25em 2.75em;
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  #button-addon3 {
+    padding: 0.25em 3.5em;
+  }
+} 
+
+@media only screen and (min-width: 600px) {
+  #button-addon3 {
+    padding: 0 1.5em;
+  }
+} 
