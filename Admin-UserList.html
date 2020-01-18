@@ -9,180 +9,241 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="fontawesome/css/all.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="Admin-UserList.css" />
   <link rel="stylesheet" href="admin.css" />
   <title>User List</title>
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand font-weight-bold d-none d-md-block">
+    <a class="navbar-brand font-weight-bold">
       <i class="fa fa-cogs mr-2"></i>Sushi Sama Panel</a>
+      <div class="row ml-3 px-3 rounded-lg d-none d-lg-block">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb m-0">
+            <li class="breadcrumb-item"><a href="AdminHome.html"><i class="fas fa-home"></i></a></li>
+            <li class="breadcrumb-item active" aria-current="page">User List</li>
+          </ol>
+        </nav>
+      </div>
   </nav>
 
   <div class="container">
-    <div class="row px-3 mt-5 rounded-lg">
+    <div class="row px-3 mt-3 rounded-lg d-lg-none">
       <nav aria-label="breadcrumb" class="w-100">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="AdminHome.html"><i class="fas fa-home"></i></a></li>
-          <li class="breadcrumb-item active" aria-current="page">Order History</li>
+          <li class="breadcrumb-item active" aria-current="page">User List</li>
         </ol>
       </nav>
     </div>
-    <div class="row p-2 bg-white shadow-lg rounded-lg title px-3 m-0 text-left">
-      Order History
+    <div class="row p-2 bg-white shadow-lg rounded-lg title px-3 mt-3 m-0 text-left">
+      User List
     </div>
     <div class="row d-flex justify-content-center rounded text-center bg-white mt-1 m-0">
       <!-- Shopping cart table -->
-      <table class="table table-hover table-bordered m-2 d-none d-md-table">
+      <table class="table table-hover table-bordered m-2 d-none d-lg-table">
         <thead class="thead-dark">
           <tr>
             <th scope="col">
-              <div class="p-2 text-uppercase">ID</div>
+              <div class="p-2">ID</div>
             </th>
             <th scope="col" class="th-center">
-              <div class="py-2 text-uppercase">Username</div>
+              <div class="py-2">Username</div>
             </th>
             <th scope="col" class="th-center">
-              <div class="py-2 text-uppercase">Amount </div>
+              <div class="py-2">Password </div>
             </th>
             <th scope="col" class="th-center">
-              <div class="py-2 text-uppercase">Order Time</div>
+              <div class="py-2">Name</div>
             </th>
             <th scope="col" class="th-center">
-              <div class="py-2 text-uppercase">Action</div>
+              <div class="py-2">Birthday</div>
+            </th>
+            <th scope="col" class="th-center">
+              <div class="py-2">Email</div>
+            </th>
+            <th scope="col" class="th-center">
+              <div class="py-2">Contact</div>
+            </th>
+            <th scope="col" class="th-center">
+              <div class="py-2">Action</div>
             </th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th>
-              <div class="p-2">1</div>
+            <th class="align-middle">
+              1
             </th>
-            <td class="align-middle">lucastest</td>
-            <td class="align-middle">RM4.80</td>
+            <td class="align-middle">lucas123</td>
+            <td class="align-middle">Lucas123</td>
+            <td class="align-middle">Lucas Wong</td>
+            <td class="align-middle">1999-02-21</td>
+            <td class="align-middle">lucas@gmail.com</td>
+            <td class="align-middle">0123456789</td>
             <td class="align-middle">
-              2020-01-17 15:30:00
-            </td>
-            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
-          </tr>
-          <tr>
-            <th>
-              <div class="p-2">2</div>
-            </th>
-            <td class="align-middle">lucastest</td>
-            <td class="align-middle">RM2.80</td>
-            <td class="align-middle">2020-01-17 15:30:00</td>
-            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+              <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+              <button class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></button>
             </td>
           </tr>
           <tr>
-            <th>
-              <div class="p-2">3</div>
+            <th class="align-middle">
+              2
             </th>
-            <td class="align-middle">lucastest</td>
-            <td class="align-middle">RM7.80</td>
-            <td class="align-middle">2020-01-17 15:30:00</td>
+            <td class="align-middle">lucas1234</td>
+            <td class="align-middle">Lucas1234</td>
+            <td class="align-middle">Lucas Wang</td>
+            <td class="align-middle">1999-02-21</td>
+            <td class="align-middle">lucas@gmail.com</td>
+            <td class="align-middle">0123456789</td>
             <td class="align-middle">
-              <button class="btn btn-sm btn-danger">
-                <i class="fa fa-trash"></i>
-              </button>
+              <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+              <button class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <th class="align-middle">
+              3
+            </th>
+            <td class="align-middle">lucas12345</td>
+            <td class="align-middle">Lucas12345</td>
+            <td class="align-middle">Lucas Wong</td>
+            <td class="align-middle">1999-02-21</td>
+            <td class="align-middle">lucas@gmail.com</td>
+            <td class="align-middle">0123456789</td>
+            <td class="align-middle">
+              <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+              <button class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></button>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div class="row justify-content-center rounded text-center bg-white mb-5 m-0 d-md-none">
-      <table class="table table-responsive m-1">
-        <tbody>
-          <tr>
-            <table class="table table-borderless table-striped border m-2 text-left">
-              <colgroup>
-                <col class="p-1 px-2 w-25">
-                <col class="p-1 px-2 w-25">
-              </colgroup>
-              <tr>
-                <th scope="col">ID</th>
-                <td>1</td>
-              </tr>
-              <tr>
-                <th scope="col">Username</th>
-                <td>lucastest</td>
-              </tr>
-              <tr>
-                <th scope="col">Amount</th>
-                <td>RM4.80</td>
-              </tr>
-              <tr>
-                <th scope="col">Order Time</th>
-                <td>2020-01-17 15:30:00</td>
-              </tr>
-              <tr>
-                <th scope="row">Action</th>
-                <td><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
-              </tr>
-            </table>
-          </tr>
-          <tr>
-            <table class="table table-borderless table-striped border m-2 text-left">
-              <colgroup>
-                <col class="p-1 px-2 w-25">
-                <col class="p-1 px-2 w-25">
-              </colgroup>
-              <tr>
-                <th scope="col">ID</th>
-                <td>2</td>
-              </tr>
-              <tr>
-                <th scope="col">Username</th>
-                <td>lucastest</td>
-              </tr>
-              <tr>
-                <th scope="col">Amount</th>
-                <td>RM2.80</td>
-              </tr>
-              <tr>
-                <th scope="col">Order Time</th>
-                <td>2020-01-17 15:30:00</td>
-              </tr>
-              <tr>
-                <th scope="row">Action</th>
-                <td><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
-              </tr>
-            </table>
-          </tr>
-          <tr>
-            <table class="table table-borderless table-striped border m-2 text-left">
-              <colgroup>
-                <col class="p-1 px-2 w-25">
-                <col class="p-1 px-2 w-25">
-              </colgroup>
-              <tr>
-                <th scope="col">ID</th>
-                <td>3</td>
-              </tr>
-              <tr>
-                <th scope="col">Username</th>
-                <td>lucastest</td>
-              </tr>
-              <tr>
-                <th scope="col">Amount</th>
-                <td>RM7.80</td>
-              </tr>
-              <tr>
-                <th scope="col">Order Time</th>
-                <td>2020-01-17 15:30:00</td>
-              </tr>
-              <tr>
-                <th scope="row">Action</th>
-                <td><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
-              </tr>
-            </table>
-          </tr>
-        </tbody>
+    <div class="row justify-content-center rounded text-center bg-white mb-5 m-0 d-lg-none">
+      <table class="table table-borderless table-striped border m-2 text-left">
+        <colgroup>
+          <col class="p-0 px-2 w-25">
+          <col class="p-0 px-2 w-25">
+        </colgroup>
+        <tr>
+          <th scope="col">ID</th>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th scope="col">Username</th>
+          <td>lucas123</td>
+        </tr>
+        <tr>
+          <th scope="col">Password</th>
+          <td>Lucas123</td>
+        </tr>
+        <tr>
+          <th scope="col">Name</th>
+          <td>Lucas Wong</td>
+        </tr>
+        <tr>
+          <th scope="col">Birthday</th>
+          <td>1999-02-21</td>
+        </tr>
+        <tr>
+          <th scope="col">Email</th>
+          <td>lucas@gmail.com</td>
+        </tr>
+        <tr>
+          <th scope="col">Contact</th>
+          <td>0123456789</td>
+        </tr>
+        <tr>
+          <th scope="col">Action</th>
+          <td>
+            <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+            <button class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></button>
+          </td>
+        </tr>
+      </table>
+      <table class="table table-borderless table-striped border m-2 text-left">
+        <colgroup>
+          <col class="p-0 px-2 w-25">
+          <col class="p-0 px-2 w-25">
+        </colgroup>
+        <tr>
+          <th scope="col">ID</th>
+          <td>2</td>
+        </tr>
+        <tr>
+          <th scope="col">Username</th>
+          <td>lucas1234</td>
+        </tr>
+        <tr>
+          <th scope="col">Password4</th>
+          <td>Lucas123</td>
+        </tr>
+        <tr>
+          <th scope="col">Name</th>
+          <td>Lucas Wang</td>
+        </tr>
+        <tr>
+          <th scope="col">Birthday</th>
+          <td>1999-02-21</td>
+        </tr>
+        <tr>
+          <th scope="col">Email</th>
+          <td>lucas@gmail.com</td>
+        </tr>
+        <tr>
+          <th scope="col">Contact</th>
+          <td>0123456789</td>
+        </tr>
+        <tr>
+          <th scope="col">Action</th>
+          <td>
+            <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+            <button class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></button>
+          </td>
+        </tr>
+      </table>
+      <table class="table table-borderless table-striped border m-2 text-left">
+        <colgroup>
+          <col class="p-0 px-2 w-25">
+          <col class="p-0 px-2 w-25">
+        </colgroup>
+        <tr>
+          <th scope="col">ID</th>
+          <td>3</td>
+        </tr>
+        <tr>
+          <th scope="col">Username</th>
+          <td>lucas12345</td>
+        </tr>
+        <tr>
+          <th scope="col">Password</th>
+          <td>Lucas12345</td>
+        </tr>
+        <tr>
+          <th scope="col">Name</th>
+          <td>Lucas Wong</td>
+        </tr>
+        <tr>
+          <th scope="col">Birthday</th>
+          <td>1999-02-21</td>
+        </tr>
+        <tr>
+          <th scope="col">Email</th>
+          <td>lucas@gmail.com</td>
+        </tr>
+        <tr>
+          <th scope="col">Contact</th>
+          <td>0123456789</td>
+        </tr>
+        <tr>
+          <th scope="col">Action</th>
+          <td>
+            <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+            <button class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></button>
+          </td>
+        </tr>
       </table>
     </div>
   </div>

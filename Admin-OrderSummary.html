@@ -9,30 +9,28 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
   <link href="fontawesome/css/all.css" rel="stylesheet">
-  <link rel="stylesheet" href="Admin-OrderSummary.css" />
   <link rel="stylesheet" href="admin.css" />
   <title>Order History</title>
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand font-weight-bold d-none d-md-block">
+    <a class="navbar-brand font-weight-bold">
       <i class="fa fa-cogs mr-2"></i>Sushi Sama Panel</a>
-      <div class="row px-3 rounded-lg d-none d-md-block">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb m-0">
-            <li class="breadcrumb-item"><a href="AdminHome.html"><i class="fas fa-home"></i></a></li>
-            <li class="breadcrumb-item active" aria-current="page">Order History</li>
-          </ol>
-        </nav>
-      </div>
+    <div class="row px-3 rounded-lg d-none d-md-block">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb m-0">
+          <li class="breadcrumb-item"><a href="AdminHome.html"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item active" aria-current="page">Order History</li>
+        </ol>
+      </nav>
+    </div>
   </nav>
 
   <div class="container">
-    <div class="row px-3 mt-5 rounded-lg d-md-none">
+    <div class="row px-3 mt-3 rounded-lg d-md-none">
       <nav aria-label="breadcrumb" class="w-100">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="AdminHome.html"><i class="fas fa-home"></i></a></li>
@@ -49,19 +47,19 @@
         <thead class="thead-dark">
           <tr>
             <th scope="col">
-              <div class="p-2 text-uppercase">ID</div>
+              <div class="p-2">ID</div>
             </th>
             <th scope="col" class="th-center">
-              <div class="py-2 text-uppercase">Username</div>
+              <div class="py-2">Username</div>
             </th>
             <th scope="col" class="th-center">
-              <div class="py-2 text-uppercase">Amount </div>
+              <div class="py-2">Amount </div>
             </th>
             <th scope="col" class="th-center">
-              <div class="py-2 text-uppercase">Order Time</div>
+              <div class="py-2">Order Time</div>
             </th>
             <th scope="col" class="th-center">
-              <div class="py-2 text-uppercase">Action</div>
+              <div class="py-2">Action</div>
             </th>
           </tr>
         </thead>
@@ -129,7 +127,7 @@
                 <td>2020-01-17 15:30:00</td>
               </tr>
               <tr>
-                <th scope="row">Action</th>
+                <th scope="col">Action</th>
                 <td><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
               </tr>
             </table>
@@ -157,7 +155,7 @@
                 <td>2020-01-17 15:30:00</td>
               </tr>
               <tr>
-                <th scope="row">Action</th>
+                <th scope="col">Action</th>
                 <td><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
               </tr>
             </table>
@@ -185,7 +183,7 @@
                 <td>2020-01-17 15:30:00</td>
               </tr>
               <tr>
-                <th scope="row">Action</th>
+                <th scope="col">Action</th>
                 <td><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
               </tr>
             </table>

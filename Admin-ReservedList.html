@@ -9,10 +9,8 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="fontawesome/css/all.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="Admin-ReservedList.css" />
   <link rel="stylesheet" href="admin.css" />
   <title>Reserved List</title>
 </head>
@@ -21,14 +19,14 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand font-weight-bold">
       <i class="fa fa-cogs mr-2"></i>Sushi Sama Panel</a>
-      <div class="row px-3 rounded-lg d-none d-lg-block">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb m-0">
-            <li class="breadcrumb-item"><a href="AdminHome.html"><i class="fas fa-home"></i></a></li>
-            <li class="breadcrumb-item active" aria-current="page">Table Reservation</li>
-          </ol>
-        </nav>
-      </div>
+    <div class="row ml-3 px-3 rounded-lg d-none d-lg-block">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb m-0">
+          <li class="breadcrumb-item"><a href="AdminHome.html"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item active" aria-current="page">Table Reservation</li>
+        </ol>
+      </nav>
+    </div>
   </nav>
 
   <div class="container">
@@ -40,66 +38,67 @@
         </ol>
       </nav>
     </div>
-    <div class="row p-2 bg-white shadow-lg rounded-lg title px-3 mt-3 m-0   text-left">
+    <div class="row p-2 bg-white shadow-lg rounded-lg title px-3 mt-md-3 m-0 text-left">
       Table Reservation
     </div>
-    <div class="row justify-content-start rounded text-center bg-white mt-1 m-0">
+    <div class="row justify-content-center rounded text-center bg-white mt-1 m-0">
 
-      <table class="table table-responsive table-hover table-bordered m-2 d-none d-lg-table">
+      <table class="table table-responsive table-hover table-bordered m-2 d-none d-lg-table text-center">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">
-              <div class="p-2 col-1">ID</div>
+            <th scope="col" class="th-center">
+              <div class="py-2">ID</div>
             </th>
             <th scope="col" class="th-center">
               <div class="py-2">Name</div>
             </th>
             <th scope="col" class="th-center">
-              <div class="py-2 col-1">Contact </div>
+              <div class="py-2">Contact </div>
             </th>
             <th scope="col" class="th-center">
-              <div class="py-2 col-1">Headcount<br>(Adult)</div>
+              <div class="py-2">Headcount<br>(Adult)</div>
             </th>
             <th scope="col" class="th-center">
-              <div class="py-2 col-1">Headcount<br>(Child)</div>
+              <div class="py-2">Headcount<br>(Children)</div>
             </th>
             <th scope="col" class="th-center">
-              <div class="py-2 col-1">Reservation Time</div>
+              <div class="py-2">Time</div>
             </th>
             <th scope="col" class="th-center">
-              <div class="py-2 col-1">Action</div>
+              <div class="py-2">Action</div>
             </th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th>
-              <div class="p-2 col-1">1</div>
+            <th class="align-middle">
+              1
             </th>
-            <td class="align-middle col-1">Test 1</td>
-            <td class="align-middle col-1">0123456789</td>
-            <td class="align-middle col-1">2</td>
-            <td class="align-middle col-1">0</td>
-            <td class="align-middle col-1">2020-01-17 15:30:00</td>
-            <td class="align-middle col-1"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
-          </tr>
-          <tr>
-            <th>
-              <div class="p-2 col-1">2</div>
-            </th>
-            <td class="align-middle col-1">lucastest</td>
-            <td class="align-middle col-1">0123456789</td>
-            <td class="align-middle col-1">2</td>
-            <td class="align-middle col-1">0</td>
-            <td class="align-middle col-1">2020-01-17 15:30:00</td>
-            <td class="align-middle col-1"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+            <td class="align-middle">Test 1</td>
+            <td class="align-middle">0123456789</td>
+            <td class="align-middle">2</td>
+            <td class="align-middle">0</td>
+            <td class="align-middle">2020-01-17 15:30:00</td>
+            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
             </td>
           </tr>
           <tr>
-            <th>
-              <div class="p-2">3</div>
+            <th class="align-middle">
+             2
             </th>
-            <td class="align-middle">lucastest</td>
+            <td class="align-middle">Test 1</td>
+            <td class="align-middle">0123456789</td>
+            <td class="align-middle">2</td>
+            <td class="align-middle">0</td>
+            <td class="align-middle">2020-01-17 15:30:00</td>
+            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <th class="align-middle">
+              3
+            </th>
+            <td class="align-middle">Test 1</td>
             <td class="align-middle">0123456789</td>
             <td class="align-middle">2</td>
             <td class="align-middle">0</td>
@@ -114,93 +113,107 @@
       </table>
     </div>
     <div class="row justify-content-center rounded text-center bg-white mb-5 m-0 d-lg-none">
-      <table class="table table-responsive m-1">
-        <tbody>
-          <tr>
-            <table class="table table-borderless table-striped border m-2 text-left">
-              <colgroup>
-                <col class="p-1 px-2 w-25">
-                <col class="p-1 px-2 w-25">
-              </colgroup>
-              <tr>
-                <th scope="col">ID</th>
-                <td>1</td>
-              </tr>
-              <tr>
-                <th scope="col">Username</th>
-                <td>lucastest</td>
-              </tr>
-              <tr>
-                <th scope="col">Amount</th>
-                <td>RM4.80</td>
-              </tr>
-              <tr>
-                <th scope="col">Order Time</th>
-                <td>2020-01-17 15:30:00</td>
-              </tr>
-              <tr>
-                <th scope="row">Action</th>
-                <td><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
-              </tr>
-            </table>
-          </tr>
-          <tr>
-            <table class="table table-borderless table-striped border m-2 text-left">
-              <colgroup>
-                <col class="p-1 px-2 w-25">
-                <col class="p-1 px-2 w-25">
-              </colgroup>
-              <tr>
-                <th scope="col">ID</th>
-                <td>2</td>
-              </tr>
-              <tr>
-                <th scope="col">Username</th>
-                <td>lucastest</td>
-              </tr>
-              <tr>
-                <th scope="col">Amount</th>
-                <td>RM2.80</td>
-              </tr>
-              <tr>
-                <th scope="col">Order Time</th>
-                <td>2020-01-17 15:30:00</td>
-              </tr>
-              <tr>
-                <th scope="row">Action</th>
-                <td><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
-              </tr>
-            </table>
-          </tr>
-          <tr>
-            <table class="table table-borderless table-striped border m-2 text-left">
-              <colgroup>
-                <col class="p-1 px-2 w-25">
-                <col class="p-1 px-2 w-25">
-              </colgroup>
-              <tr>
-                <th scope="col">ID</th>
-                <td>3</td>
-              </tr>
-              <tr>
-                <th scope="col">Username</th>
-                <td>lucastest</td>
-              </tr>
-              <tr>
-                <th scope="col">Amount</th>
-                <td>RM7.80</td>
-              </tr>
-              <tr>
-                <th scope="col">Order Time</th>
-                <td>2020-01-17 15:30:00</td>
-              </tr>
-              <tr>
-                <th scope="row">Action</th>
-                <td><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
-              </tr>
-            </table>
-          </tr>
-        </tbody>
+      <table class="table table-borderless table-striped border m-2 text-left">
+        <colgroup>
+          <col class="p-1 px-2 w-25">
+          <col class="p-1 px-2 w-25">
+        </colgroup>
+        <tr>
+          <th scope="col">ID</th>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th scope="col">Name</th>
+          <td>Test 1</td>
+        </tr>
+        <tr>
+          <th scope="col">Contact</th>
+          <td>0123456789</td>
+        </tr>
+        <tr>
+          <th scope="col">HeadCount<br>(Adult)</th>
+          <td>2</td>
+        </tr>
+        <tr>
+          <th scope="col">HeadCount<br>(Children)</th>
+          <td>2</td>
+        </tr>
+        <tr>
+          <th scope="col">Time</th>
+          <td>2020-01-17 15:30:00</td>
+        </tr>
+        <tr>
+          <th scope="col">Action</th>
+          <td><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
+        </tr>
+      </table>
+      <table class="table table-borderless table-striped border m-2 text-left">
+        <colgroup>
+          <col class="p-1 px-2 w-25">
+          <col class="p-1 px-2 w-25">
+        </colgroup>
+        <tr>
+          <th scope="col">ID</th>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th scope="col">Name</th>
+          <td>Test 1</td>
+        </tr>
+        <tr>
+          <th scope="col">Contact</th>
+          <td>0123456789</td>
+        </tr>
+        <tr>
+          <th scope="col">HeadCount<br>(Adult)</th>
+          <td>2</td>
+        </tr>
+        <tr>
+          <th scope="col">HeadCount<br>(Children)</th>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th scope="col">Time</th>
+          <td>2020-01-17 15:30:00</td>
+        </tr>
+        <tr>
+          <th scope="col">Action</th>
+          <td><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
+        </tr>
+      </table>
+      <table class="table table-borderless table-striped border m-2 text-left">
+        <colgroup>
+          <col class="p-1 px-2 w-25">
+          <col class="p-1 px-2 w-25">
+        </colgroup>
+        <tr>
+          <th scope="col">ID</th>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th scope="col">Name</th>
+          <td>Test 1</td>
+        </tr>
+        <tr>
+          <th scope="col">Contact</th>
+          <td>0123456789</td>
+        </tr>
+        <tr>
+          <th scope="col">HeadCount<br>(Adult)</th>
+          <td>2</td>
+        </tr>
+        <tr>
+          <th scope="col">HeadCount<br>(Children)</th>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th scope="col">Time</th>
+          <td>2020-01-17 15:30:00</td>
+        </tr>
+        <tr>
+          <th scope="col">Action</th>
+          <td><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
+        </tr>
       </table>
     </div>
   </div>
