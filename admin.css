@@ -11,7 +11,14 @@ body{
 }
 
 .breadcrumb-item{
+    color: black!important;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.container .breadcrumb-item{
     color: white!important;
+    font-size: 1.5em;
     font-weight: bold;
 }
 
