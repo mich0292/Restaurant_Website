@@ -1,0 +1,66 @@
+
+input[type=text],input[type=tel]{ /* changing the font size of input type */
+		font-size: 0.8em;
+	}
+
+.recimg{ /* for rectangle image */
+	width: 70px;
+	height: 50px;
+}
+
+.sqrimg{ /* for square image */
+	width: 70px;
+	height: 70px;
+}
+
+html { /* do not repeat the linear gradient color */
+    height: 100%;
+}
+body { /* do not repeat the linear gradient color */
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body{
+	font-family: 'Georgia', serif;
+	overflow-x:hidden; /* disable the bottom scroll bar*/
+	font-size: 20px;
+	/*background-image: radial-gradient(red 1%, white);*/
+	background-image: linear-gradient(to top,#dd614a, #ff9b71, #ffdc7c, #ffffff);
+}
+
+
+.rounded { 
+    border-radius: 25px!important; /* change border radius*/
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* adds shadow on the border*/
+	opacity: 0.95;
+}
+
+@media screen and (min-width: 1025px) { 
+    body{
+			margin-top: 50px; /* make some space on top for larger screen*/
+		}
+
+}
+
+@media screen and (min-width: 770px) and (max-width: 1024px) {
+    body{
+			margin-top: 150px; /* make some space on top for large screen*/
+		}
+
+}
+
+@media screen and (min-width: 577px) and (max-width: 769px) {
+	body{
+			margin-top: 80px;
+		}
+}
+
+@media screen and (max-width: 576px) {
+    body{
+			font-size: 15px;
+			background-color: white;
+		}
+}
