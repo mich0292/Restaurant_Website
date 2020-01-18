@@ -8,7 +8,7 @@ body{
 	font-family: 'Georgia', serif;
 	overflow-x:hidden; /* disable the bottom scroll bar*/
 	font-size: 20px;
-	background-image: radial-gradient(red 1%, white);
+	/*background-image: radial-gradient(red 1%, white);*/
 	background-color: none;
 }
 
@@ -18,16 +18,16 @@ body{
 	opacity: 0.95;
 }
 
-@media screen and (min-width: 1025px) { 
+/*@media screen and (min-width: 1025px) { 
     body{
-			margin-top: 50px; /* make some space on top for larger screen*/
+			margin-top: 50px;
 		}
 
 }
 
 @media screen and (min-width: 770px) and (max-width: 1024px) {
     body{
-			margin-top: 150px; /* make some space on top for large screen*/
+			margin-top: 150px;
 		}
 
 }
@@ -43,4 +43,4 @@ body{
 			font-size: 15px;
 			background-color: white;
 		}
-}
+}*/
