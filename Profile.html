@@ -29,51 +29,45 @@
 </head>
 <body>
 
-<div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Sushi Sama</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active disable">
-					<a class="nav-link" href="#">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="Menu.html">Menu</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">About Us</a>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Member
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Action</a>
-						<a class="dropdown-item" href="#">Another action</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Something else here</a>
-					</div>
-				</li>
-			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<label for="username">Username :</label>
-				<input class="form-control form-control-sm mx-2" type="username" placeholder="Enter Username"
-					aria-label="Search">
-				<label for="password">Password :</label>
-				<input class="form-control form-control-sm mx-2" type="password" placeholder="Enter Username"
-					aria-label="Search">
-				<button type="button" class="btn btn-light">Login</button>
-				<button type="button" class="btn btn-light ml-2">Register</button>
-			</form>
-		</div>
-	</nav>
-</div>
+	<div class="container-fluid p-0">
+    	<!-- Nav bar -->
+		<!-- In reference to https://www.codeply.com/go/QAXbNGbWPA/bootstrap-4-navbar-transparent -->
+		<nav class="navbar navbar-toggleable-sm navbar-expand-lg navbar-inverse">
+			<div class="container-fluid py-0">	
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" 
+				data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<a class="navbar-brand" href="home.html">
+					<img class="img-fluid pr-3 pb-1" src="images/home/logo2.png" alt="sushi-sama-logo" />Sushi Sama
+				</a>
+				<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+					<ul class="navbar-nav">
+						<li class="nav-item px-2 mt-1">
+							<a class="nav-link" href="home.html">Home</a>
+						</li>
+						<li class="nav-item px-2 mt-1">
+							<a class="nav-link" href="menu.html">Menu</a>
+						</li>
+						<li class="nav-item px-2 mt-1">
+							<a class="nav-link" href="order.html">Order</a>
+						</li>
+						<li class="nav-item px-2 mt-1">
+							<a class="nav-link" href="career.html">Career</a>
+						</li>
+						<li class="nav-item active px-2 mt-1">
+							<a class="nav-link" href="profile.html">Profile</a>
+						</li>
+						<li class="nav-item pl-2">
+							<a class="btn btn-outline-white btn-outline" href="#"><i class="fa fa-user"></i> Login
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- End of Nav Bar -->
+	</div>
 	
 	<div class="container">
 		<fieldset>
