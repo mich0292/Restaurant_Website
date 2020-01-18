@@ -1,38 +1,9 @@
-
-/* ==========================================================================
-   #WRAPPER
-   ========================================================================== */
-.wrapper {
-  margin: 0 auto;
+div.nav{
+	  background-image: linear-gradient(#ffdc7c, #ff9b71, #dd614a );
 }
 
-.wrapper--w960 {
-  max-width: 960px;
-}
-
-.wrapper--w780 {
-  max-width: 780px;
-}
-
-.wrapper--w680 {
-  max-width: 75%;
-}
-
-
-
-/* ==========================================================================
-   #FORM
-   ========================================================================== */
-input {
-  outline: none;
-  margin: 0;
-  border: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  width: 100%;
-  font-size: 14px;
-  font-family: inherit;
+a.nav-link:hover {
+	color: gray;
 }
 
 .label {
@@ -43,19 +14,10 @@ input {
   margin-bottom: 5px;
 }
 
-.input-group {
-  position: relative;
-  margin-bottom: 22px;
-}
-
 .input-group-icon {
   position: relative;
 }
 
-
-/* ==========================================================================
-   #TITLE
-   ========================================================================== */
 .title {
   font-size: 24px;
   color: #525252;
