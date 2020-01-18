@@ -4,23 +4,18 @@ body{
     height:100vh;
 }
 
-.middle{
-    background-image: linear-gradient(to right top, #6ba292, #89b8a4, #a7cfb7, #c5e6cb, #e4fde1);
-
-}
-
  #form_login {
     margin: auto;
     text-align: center;
     vertical-align: middle;
-    width:100%;
-    display:table;
-    height:100px;
-    padding:200px 50px;
+    width: 100%;
+    display: table;
+    top: 25%;
+    position: absolute;
  }
 
 .container{
-    width:35%;
+    max-width:400px;
 }
 
 .h3{
