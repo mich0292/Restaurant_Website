@@ -3,24 +3,17 @@ div .navbar{
 }
 
 fieldset {
-   margin: 1em auto;
    background-color: #FAFCFF;
-   width:90%;
 }
 
 legend {
    background-color: #EBF4FB ;
-   margin: 0 auto;
-   width: 90%;
-   padding: 0.25em;
-   text-align: center;
-   font-weight: bold;
-   font-size: 100%;
+   max-width: 600px;
 }
 
 @media only screen and (min-width: 1000px)
 {
    .container {
-      width: 65%;
+      width: 50%;
    }
 }
