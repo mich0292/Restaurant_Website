@@ -8,10 +8,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="AdminLogin.css" />
-    <title>Hello, world!</title>
+    <title>Admin Login</title>
+
   </head>
   <body>
-    <h1>Hello, world!</h1>
     <!-- example -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -19,14 +19,32 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   
-   <div>
+   <div id="form_login" >
+    <div class="container login-container" >
+      <div class="row">
+          <div class="col-md-12 login-form-1">
+              <h3>Admin Login</h3>
 
-        <form id="form_login" class="border rounded" >
-          First name: <input type="text" name="FirstName" placeholder="Username"><br>
-          Last name: <input type="text" name="LastName" placeholder="Password"><br>
-          <input type="submit" value="Login">
-          </form>
+              <form>
+                  <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Your Email *" value="" />
+                  </div>
+                  <div class="form-group">
+                      <input type="password" class="form-control" placeholder="Your Password *" value="" />
+                  </div>
+                  <div class="form-group">
+                      <input type="submit" class="btn btn-outline-dark" value="Login" />
+                  </div>
+                  <div class="form-group">
+                      <a href="#" class="ForgetPwd">Forget Password?</a>
+                  </div>
 
+                  <div class="footer" >Don't have an account? <a href="#">Create one</a>
+	                </div>
+              </form>
+          </div>
+      </div>
+  </div>
 
    </div>
   

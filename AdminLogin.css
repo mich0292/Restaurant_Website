@@ -13,12 +13,16 @@ body{
     margin: auto;
     text-align: center;
     vertical-align: middle;
-    width:250px;
+    width:100%;
     display:table;
     height:100px;
-    padding:100px;
+    padding:200px 50px;
  }
 
- .border-3 {
-    border-width:3px !important;
+.container{
+    width:35%;
+}
+
+.h3{
+    font-family:"Georgia, serif";
 }
