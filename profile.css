@@ -5,7 +5,7 @@
 fieldset {
    margin: 1em auto;
    background-color: #FAFCFF;
-   width: 65%;
+   width:90%;
 }
 
 legend {
@@ -18,3 +18,9 @@ legend {
    font-size: 100%;
 }
 
+@media only screen and (min-width: 1000px)
+{
+   .container {
+      width: 65%;
+   }
+}
