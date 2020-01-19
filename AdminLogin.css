@@ -6,7 +6,6 @@ body{
 
  #form_login {
     margin: auto;
-    text-align: center;
     vertical-align: middle;
     width: 100%;
     display: table;
@@ -20,4 +19,8 @@ body{
 
 .h3{
     font-family:"Georgia, serif";
+}
+
+.form-control{
+    text-align: left;
 }
