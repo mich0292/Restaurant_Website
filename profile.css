@@ -1,19 +1,19 @@
+body{
+    background:#f8f8f8
+}
+
 div .navbar{
-   background-image: linear-gradient(#dd614a, #ff9b71,  #ffdc7c);
+    background-image: linear-gradient(#dd614a, #ff9b71,  #ffdc7c);
+ }
+
+.container-fluid{
+    padding: 0;
 }
 
-fieldset {
-   background-color: #FAFCFF;
+.row {
+	margin: 0;
 }
 
-legend {
-   background-color: #EBF4FB ;
-   max-width: 600px;
-}
-
-@media only screen and (min-width: 1000px)
-{
-   .container {
-      width: 50%;
-   }
+#outer .container-fluid {
+    padding: 2em;
 }
