@@ -26,3 +26,11 @@ body{
     font-size:24px;
     font-family: 'Acme', sans-serif;
 }
+
+.navbar a{
+    color:black;
+}
+
+.breadcrumb a{
+    color:white;
+}

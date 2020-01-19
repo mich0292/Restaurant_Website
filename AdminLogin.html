@@ -7,7 +7,10 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Chai Kar Sing -->
     <link rel="stylesheet" href="AdminLogin.css" />
+    <link href="fontawesome/css/all.css" rel="stylesheet">  
     <link rel="stylesheet" href="admin.css" />
     <title>Admin Login</title>
 
@@ -15,24 +18,22 @@
   <body>
     <div id="form_login" >
         <div class="container login-container shadow bg-white rounded p-4">
-            <div class="row justify-content-center">
-                <form>
-                    <div class="col-md-12 form-group">
-                        <h3>Sushi Sama Panel</h3>
+            <div class="justify-content-center">
+                <div class="row d-inline">
+                    <i class="fa fa-cog fa-2x pl-3"></i>
+                    <h3 class="d-inline ml-2">Sushi Sama Panel</h3>
+                </div>
+                <form class="row"> 
+                    <div class="form-group w-100 px-3 pt-3">
+                        <label for="usernameInput"><i class="fas fa-user mr-2 px-1"></i>Username</label>
+                        <input type="text" class="form-control" id="usernameInput" placeholder="Enter username" required="true" value="" />
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Enter username" required="true" value="" />
+                    <div class="form-group w-100  px-3 pt-3">
+                        <label for="passwordInput"><i class="fas fa-lock mr-2 px-1"></i>Password</label>
+                        <input type="password" class="form-control" id="passwordInput" placeholder="Enter password" required="true" value="" />
                     </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Enter password" required="true" value="" />
-                    </div>
-                    <div class="form-group">
-                        <a href="#" class="ForgetPwd">Forget Password?</a>
-                    </div>
-                    <div class="form-group" >Don't have an account? <a href="#">Create one</a>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-outline-dark" value="Login" />
+                    <div class="form-group w-100 px-3">
+                        <a href="AdminHome.html" class="btn btn-dark">Login</a>
                     </div>
                 </form>
             </div>
