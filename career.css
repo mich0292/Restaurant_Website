@@ -1,11 +1,10 @@
 body{
 	background-color: #f5edd7;
 	font-family: 'Merriweather', serif, 'georgia' ;
-	margin: 0;
 }
 
 p {
-	line-height:2;
+	line-height: 2;
 	font-size: 15pt;
 }
 
@@ -60,20 +59,6 @@ p.sub-heading{
 .centered p {
 	font-size: 25pt;
 	text-align: center;
-}
-
-.article {
-	padding: 2em;
-}
-
-.title {
-	margin:auto;
-	padding: 2em;
-	text-align: center;
-}
-
-.info {
-	padding: 0 1em 1em 1em;
 }
 
 .info h4{
