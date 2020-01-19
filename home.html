@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-<head lang="en">
+<head>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,7 +36,39 @@
 </head>
 
 <body>
-	<section class="cover text-center" id="home-banner">
+	<!--Login Modal -->
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="loginModalLabel">Login</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="usernameInput"><i class="fas fa-user mr-2 px-1"></i>Username</label>
+							<input type="text" class="form-control" id="usernameInput" placeholder="Username">
+						</div>
+						<div class="form-group">
+							<label for="passwordInput"><i class="fas fa-lock mr-2 px-1"></i>Password</label>
+							<input type="password" class="form-control" id="passwordInput" placeholder="Password">
+						</div>
+						<small id="registerLink" class="form-text text-muted">Not a member yet? <a
+								href="Registration.html">Sign up here</a></small>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary rounded">Login</button>
+					<button type="button" class="btn rounded" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="cover text-center" id="home-banner">
 		<!-- Nav bar -->
 		<!-- In reference to https://www.codeply.com/go/QAXbNGbWPA/bootstrap-4-navbar-transparent -->
 		<nav class="navbar navbar-toggleable-sm navbar-expand-lg navbar-inverse">
@@ -81,12 +113,12 @@
 		<!-- Homepage Banner -->
 		<div class="cover-container py-6">
 			<div class="cover-inner container justify-content-center">
-				<h1 class="heading mb-3 py-5">Serving you <br />the best sushi</h2>
-					<button class="btn btn-outline-white d-none d-md-inline"> <a href="#section-tableReservation">
-							Reserve a table </a> </button>
+				<h1 class="heading mb-3 py-5">Serving you <br />the best sushi</h1>
+					<button class="btn btn-outline-white d-none d-md-inline" onclick="window.location.href = '#section-tableReservation';">
+							Reserve a table </button> 
 			</div>
 		</div>
-	</section>
+	</div>
 
 	<article>
 		<div class="container">
@@ -110,7 +142,7 @@
 	<!-- Image banner -->
 	<div class="container-fluid image-banner">
 		<div class="cover-inner container justify-content-center">
-			<h3 class="image-heading mt-3 pt-5"> Freshly made sushi every day</h1>
+			<h3 class="image-heading mt-3 pt-5"> Freshly made sushi every day</h3>
 				<p class="image-text"> We only use the freshest ingredient</p>
 		</div>
 	</div>
@@ -122,7 +154,7 @@
 					<h2>Reserve a table</h2>
 				</div>
 			</div>
-			<form class="form-horizontal" method="post" action="">
+			<form class="form-horizontal" method="post" action="#">
 				<div class="row">
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
@@ -202,7 +234,7 @@
 
 					<div class="col-12 text-center">
 						<button type="submit" name="singlebutton" class="btn btn-outline-deep-orange">Reserve</button>
-						<button type="reset" class="btn btn-outline-cyan">Cancel</a>
+						<button type="reset" class="btn btn-outline-cyan">Cancel</button>
 					</div>
 				</div>
 			</form>
@@ -216,7 +248,7 @@
 			<div class="row">
 				<div class="col-lg-3 col-xs-12 d-none d-lg-block">
 					<h3 class=" pb-2"> Sushi Sama</h3>
-					<p> Copyright reserved &copy</p>
+					<p> Copyright reserved &copy;</p>
 				</div>
 				<div class="col-lg-2 col-xs-12 d-none d-lg-block">
 					<a href="home.html"> <i class="fa fa-5x fa-home"></i> </a>
@@ -240,38 +272,5 @@
 		</div>
 	</footer>
 </body>
-
-<!--Login Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
-	aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="loginModalLabel">Login</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<form>
-					<div class="form-group">
-						<label for="usernameInput"><i class="fas fa-user mr-2 px-1"></i>Username</label>
-						<input type="text" class="form-control" id="usernameInput" placeholder="Username">
-					</div>
-					<div class="form-group">
-						<label for="passwordInput"><i class="fas fa-lock mr-2 px-1"></i>Password</label>
-						<input type="password" class="form-control" id="passwordInput" placeholder="Password">
-					</div>
-					<small id="registerLink" class="form-text text-muted">Not a member yet? <a
-							href="Registration.html">Sign up here</a></small>
-				</form>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-primary rounded">Login</button>
-				<button type="button" class="btn rounded" data-dismiss="modal">Cancel</button>
-			</div>
-		</div>
-	</div>
-</div>
 
 </html>
