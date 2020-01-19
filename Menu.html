@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">	
+<html lang="en">
+<head>	
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,6 +28,38 @@
 </head>
 
 <body>	
+	<!--Login Modal -->
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="loginModalLabel">Login</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="usernameInput"><i class="fas fa-user mr-2 px-1"></i>Username</label>
+							<input type="text" class="form-control" id="usernameInput" placeholder="Username">
+						</div>
+						<div class="form-group">
+							<label for="passwordInput"><i class="fas fa-lock mr-2 px-1"></i>Password</label>
+							<input type="password" class="form-control" id="passwordInput" placeholder="Password">
+						</div>
+						<small id="registerLink" class="form-text text-muted">Not a member yet? <a
+								href="Registration.html">Sign up here</a></small>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary rounded">Login</button>
+					<button type="button" class="btn rounded" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- Menu banner -->
 	<section class="cover text-center" id="menu-banner" >
 	<!-- Nav bar -->
@@ -73,7 +105,7 @@
 		</nav>
 		<div class="cover-container pt-5 mt-5">
 			<div class="cover-inner container justify-content-center">
-				<h1 class="heading mb-3 py-4">Delicious &amp; Fresh</h2>
+				<h1 class="heading mb-3 py-4">Delicious &amp; Fresh</h1>
 				<p class="sub-heading pt-5">The only thing we love more than food is you!</p>
 			  </div> 		  
 		</div>
@@ -362,7 +394,7 @@
 			<div class="row">
 				<div class="col-lg-3 col-xs-12 d-none d-lg-block">
 					<h3 class=" pb-2"> Sushi Sama</h3>
-					<p> Copyright reserved &copy</p>
+					<p> Copyright reserved &copy;</p>
 				</div>
 				<div class="col-lg-2 col-xs-12 d-none d-lg-block">
 					<a href="home.html"> <i class="fa fa-5x fa-home"></i> </a>
@@ -386,36 +418,4 @@
 		</div>
 	</footer>
 </body>
-<!--Login Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
-	aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="loginModalLabel">Login</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<form>
-					<div class="form-group">
-						<label for="usernameInput"><i class="fas fa-user mr-2 px-1"></i>Username</label>
-						<input type="text" class="form-control" id="usernameInput" placeholder="Username">
-					</div>
-					<div class="form-group">
-						<label for="passwordInput"><i class="fas fa-lock mr-2 px-1"></i>Password</label>
-						<input type="password" class="form-control" id="passwordInput" placeholder="Password">
-					</div>
-					<small id="registerLink" class="form-text text-muted">Not a member yet? <a
-							href="Registration.html">Sign up here</a></small>
-				</form>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-primary rounded">Login</button>
-				<button type="button" class="btn rounded" data-dismiss="modal">Cancel</button>
-			</div>
-		</div>
-	</div>
-</div>
 </html>
