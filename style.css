@@ -126,17 +126,87 @@ i.fa-home, i.fa-cutlery, i.fa-briefcase{
 		font-size: 1.5rem;
 		color: white;
 	}
+		
+	button.navbar-toggler {
+		color: #ff9b71 !important;
+		border: 1px solid white;
+		background-color: white;
+		border-radius: 20em;
+	}
+	
+	div#navbarSupportedContent{
+		color: #ff9b71 !important;
+		background-color: rgba(255, 255, 255, 0.98);
+		border-radius: 2em;
+	}
+	
+	a.nav-link {
+		color: #ff9b71 !important;
+	}
+	
+	.btn-outline-white, .btn-outline-white:visited {
+		background: none;
+		color: #ff9b71 !important;
+		border-color: #fff; 
+	}
 }
 @media screen and (max-width: 768px) {
 
 	div.social-media p{
 		font-size: 1.5rem;
 		color: white;
+	}	
+
+	button.navbar-toggler {
+		color: #ff9b71 !important;
+		border: 1px solid white;
+		background-color: white;
+		border-radius: 20em;
+	}
+	
+	div#navbarSupportedContent{
+		color: #ff9b71 !important;
+		background-color: rgba(255, 255, 255, 0.98);
+		border-radius: 2em;
+	}
+	
+	a.nav-link {
+		color: #ff9b71 !important;
+	}
+	
+	.btn-outline-white, .btn-outline-white:visited {
+		background: none;
+		color: #ff9b71 !important;
+		border-color: #fff; 
 	}
 }
 
 @media screen and (max-width: 576px) {
 	.footer-hidden{
 		display:none;
+	}
+	
+	button.navbar-toggler {
+		color: #ff9b71 !important;
+		border: 1px solid white;
+		background-color: white;
+		border-radius: 20em;
+	}
+	
+	div#navbarSupportedContent{
+		color: #ff9b71 !important;
+		background-color: rgba(255, 255, 255, 0.98);
+		border-radius: 2em;
+	}
+	
+	a.nav-link {
+		font-size: 0.9rem;
+		color: #ff9b71 !important;
+	}
+	
+	.btn-outline-white, .btn-outline-white:visited {
+		background: none;
+		color: #ff9b71 !important;
+		border-color: #fff; 
 	}
 }
