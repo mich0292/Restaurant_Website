@@ -57,10 +57,10 @@ body{
 	body{
 			margin-top: 80px;
 		}
-}
+}*/
 @media screen and (max-width: 576px) {
     body{
 			font-size: 15px;
 			background-color: white;
 		}
-}*/
+}
