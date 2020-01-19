@@ -74,10 +74,42 @@
 				</ul>
 			</div>
 		</nav>
+		<!--Login Modal -->
+		<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="loginModalLabel">Login</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="usernameInput"><i class="fas fa-user mr-2 px-1"></i>Username</label>
+							<input type="text" class="form-control" id="usernameInput" placeholder="Username">
+						</div>
+						<div class="form-group">
+							<label for="passwordInput"><i class="fas fa-lock mr-2 px-1"></i>Password</label>
+							<input type="password" class="form-control" id="passwordInput" placeholder="Password">
+						</div>
+						<small id="registerLink" class="form-text text-muted">Not a member yet? <a
+								href="Registration.html">Sign up here</a></small>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary rounded">Login</button>
+					<button type="button" class="btn rounded" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+		</div>
 		<div class="container-fluid">
 			<div class="container m-auto px-0 row shadow-lg rounded">
 				<div class="col-6 p-0 d-none d-lg-block">
-					<img src="images/health.jpg" style="width:100%" />
+					<img src="images/health.jpg" style="width:100%" alt="sushi"/>
 				</div>
 				<div class="col-12 col-lg-6 p-4">
 					<h2 class="title">Registration Form</h2>
@@ -119,8 +151,7 @@
 								<label class="label mr-2">Email</label>
 							</div>
 							<div class="col-12 col-md-8">
-								<input type="email" class="form-control" id="exampleInputEmail1"
-									aria-describedby="emailHelp" placeholder="Enter email">
+								<input type="email" class="form-control" placeholder="Enter email">
 							</div>
 						</div>
 						<div class="row mx-2">
@@ -142,37 +173,6 @@
 		</div>
 	</div>
 </body>
-<!--Login Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
-	aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="loginModalLabel">Login</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<form>
-					<div class="form-group">
-						<label for="usernameInput"><i class="fas fa-user mr-2 px-1"></i>Username</label>
-						<input type="text" class="form-control" id="usernameInput" placeholder="Username">
-					</div>
-					<div class="form-group">
-						<label for="passwordInput"><i class="fas fa-lock mr-2 px-1"></i>Password</label>
-						<input type="password" class="form-control" id="passwordInput" placeholder="Password">
-					</div>
-					<small id="registerLink" class="form-text text-muted">Not a member yet? <a
-							href="Registration.html">Sign up here</a></small>
-				</form>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-primary rounded">Login</button>
-				<button type="button" class="btn rounded" data-dismiss="modal">Cancel</button>
-			</div>
-		</div>
-	</div>
-</div>
+
 
 </html>
