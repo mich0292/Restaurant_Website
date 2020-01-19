@@ -1,121 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <title>Payment</title>
-	<!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
-	 <link rel="stylesheet" href="payment.css">
+<head>
+	<title>Payment</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="fontawesome/css/all.css" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="payment.css">
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-<div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light">
-		<a class="navbar-brand" href="#">Sushi Sama</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+	<div class="container-fluid">
+		<nav class="navbar navbar-toggleable-sm navbar-expand-lg navbar-inverse">
+			<div class="container-fluid py-0 justify-content-between">
+				<a class="navbar-brand w-50" href="home.html">
+					<img class="img-fluid pr-3 pb-1" src="images/home/logo2.png" alt="sushi-sama-logo" />Sushi Sama
+				</a>
+				<button class="navbar-toggler btn" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<i class="fas fa-bars"></i>
+				</button>
+				<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+					<ul class="navbar-nav">
+						<li class="nav-item active px-2 mt-1">
+							<a class="nav-link" href="home.html">Home</a>
+						</li>
+						<li class="nav-item px-2 mt-1">
+							<a class="nav-link" href="menu.html">Menu</a>
+						</li>
+						<li class="nav-item px-2 mt-1">
+							<a class="nav-link" href="order.html">Order</a>
+						</li>
+						<li class="nav-item px-2 mt-1">
+							<a class="nav-link" href="career.html">Career</a>
+						</li>
+						<li class="nav-item px-2 mt-1">
+							<a class="nav-link" href="profile.html">Profile</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
 
-		<div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active disable">
-					<a class="nav-link" href="#">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="Menu.html">Menu</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">About Us</a>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Member
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Action</a>
-						<a class="dropdown-item" href="#">Another action</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Something else here</a>
-					</div>
-				</li>
-			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<label>Username :</label>
-				<input class="form-control form-control-sm mx-2" type="text" placeholder="Enter Username"
-					aria-label="Search">
-				<label>Password :</label>
-				<input class="form-control form-control-sm mx-2" type="password" placeholder="Enter Username"
-					aria-label="Search">
-				<button type="button" class="btn btn-light">Login</button>
-				<button type="button" class="btn btn-light ml-2">Register</button>
-			</form>
+	<section class="jumbotron text-center">
+		<div class="container">
+			<h1 class="jumbotron-heading">PAYMENT</h1>
 		</div>
-	</nav>
-    </div>
-	
-<section class="jumbotron text-center">
-    <div class="container">
-        <h1 class="jumbotron-heading">PAYMENT</h1>
-     </div>
-</section>
+	</section>
 
-<form method="get" action="payment.html" class="center">
-<fieldset>
-		<div class="container mb-4">
-			<div class="table-responsive">
-				<table class="table table-striped table-borderless">
-					<tbody>
-						<tr>
-							<th class="align-middle">Full Name</th>
-								<td><input type="text" class="form-control" name="first" placeholder="Full Name" required></td>
+	<form method="get" action="payment.html" class="center">
+		<fieldset>
+			<div class="container mb-4">
+				<div class="table-responsive">
+					<table class="table table-striped table-borderless">
+						<tbody>
+							<tr>
+								<th class="align-middle">Full Name</th>
+								<td><input type="text" class="form-control" name="first" placeholder="Full Name"
+										required></td>
 							</tr>
-								
-						<tr>
-							<th class="align-middle">Email</th>
-							<td><input type="email" class="form-control" name="email" placeholder="ex: sushi@example.com" required></td>
-						</tr>
-								
-						<tr>
-							<th class="align-middle">Contact Number</th>
-							<td><input type="text" class="form-control" name="phone" placeholder="ex: 012345678" required></td>
-						</tr>
-								
-						<tr>
-							<th class="align-middle">Total Price</th>
-							<td><input type="text" class="form-control" name="price" value="RM 27.80" disabled></td>
-						</tr>
-								
-						<tr>
-							<th class="align-middle">Payment Method</th>
-							<td>
-								<div class="col">
-									<div class="row">
-										<div class="col-sm-12  col-md-6">
-											<a href="" class="btn btn-block btn-warning text-uppercase">Cash</a>
+
+							<tr>
+								<th class="align-middle">Email</th>
+								<td><input type="email" class="form-control" name="email"
+										placeholder="ex: sushi@example.com" required></td>
+							</tr>
+
+							<tr>
+								<th class="align-middle">Contact Number</th>
+								<td><input type="text" class="form-control" name="phone" placeholder="ex: 012345678"
+										required></td>
+							</tr>
+
+							<tr>
+								<th class="align-middle">Total Price</th>
+								<td><input type="text" class="form-control" name="price" value="RM 27.80" disabled></td>
+							</tr>
+
+							<tr>
+								<th class="align-middle">Payment Method</th>
+								<td>
+									<div class="col">
+										<div class="row">
+											<div class="col-sm-12  col-md-6">
+												<a href="" class="btn btn-block btn-warning text-uppercase">Cash</a>
 												<!--<button class="btn btn-block btn-warning text-uppercase">Cash</button>-->
 											</div>
 											<div class="col-sm-12 col-md-6 text-right">
-											<a href="creditCard.html" class="btn btn-block btn-success text-uppercase">Credit Card</a>
+												<a href="creditCard.html"
+													class="btn btn-block btn-success text-uppercase">Credit Card</a>
 												<!--<button class="btn btn-block btn-success text-uppercase" href="creditCard.html">Credit Card</button>-->
 											</div>
 										</div>
-								</div>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
-		</div>
- </fieldset>
- </form>
- 
+		</fieldset>
+	</form>
+
 </body>
+
 </html>

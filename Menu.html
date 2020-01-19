@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="mdb.min.css">
 
 	<!-- Awesome Font(Icons) -->
+	<link href="fontawesome/css/all.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<!-- Michelle -->
@@ -58,8 +59,9 @@
 							<a class="nav-link" href="profile.html">Profile</a>
 						</li>
 						<li class="nav-item pl-2">
-							<a class="btn btn-outline-white btn-outline" href="#"><i class="fa fa-user"></i> Login
-							</a>
+							<button class="btn btn-outline-white btn-outline" data-toggle="modal"
+								data-target="#loginModal"><i class="fa fa-user"></i> Login
+							</button>
 						</li>
 					</ul>
 				</div>
@@ -380,4 +382,36 @@
 		</div>
 	</footer>
 </body>
+<!--Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="loginModalLabel">Login</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="form-group">
+						<label for="usernameInput"><i class="fas fa-user mr-2 px-1"></i>Username</label>
+						<input type="text" class="form-control" id="usernameInput" placeholder="Username">
+					</div>
+					<div class="form-group">
+						<label for="passwordInput"><i class="fas fa-lock mr-2 px-1"></i>Password</label>
+						<input type="password" class="form-control" id="passwordInput" placeholder="Password">
+					</div>
+					<small id="registerLink" class="form-text text-muted">Not a member yet? <a
+							href="Registration.html">Sign up here</a></small>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary rounded">Login</button>
+				<button type="button" class="btn rounded" data-dismiss="modal">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
 </html>
