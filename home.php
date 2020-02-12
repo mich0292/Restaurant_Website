@@ -1,3 +1,8 @@
+<?php
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +52,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form action="includes/login.inc.php" method="post">
+					<form action="includes/login.inc.php" method="post" id="loginform">
 						<div class="form-group">
 							<label for="usernameInput"><i class="fas fa-user mr-2 px-1"></i>Username</label>
 							<input type="text" class="form-control" id="usernameInput" name="username" placeholder="Username">
@@ -61,7 +66,7 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary rounded">Login</button>
+					<button type="submit" form="loginform" name="login-submit" class="btn btn-primary rounded">Login</button>
 					<button type="button" class="btn rounded" data-dismiss="modal">Cancel</button>
 				</div>
 			</div>
@@ -102,9 +107,19 @@
 							<a class="nav-link" data-toggle="modal" data-target="#loginModal">Login	</a>
 						</li>
 						<li class="nav-item pl-2 d-none d-lg-block">
-							<button class="btn btn-outline-white btn-outline" data-toggle="modal"
-								data-target="#loginModal"><i class="fa fa-user"></i> Login
-							</button>
+                            <?php
+                                if(isset($_SESSION['userId'])){
+                                echo '<form action="includes/logout.inc.php" method="post">
+                                        <button type="submit" name="logout-submit" class="btn btn-outline-white btn-outline">Logout
+                                        </button>
+                                    <form>';
+                                }
+                                else{
+                                echo '<button class="btn btn-outline-white btn-outline" data-toggle="modal"
+                                        data-target="#loginModal"><i class="fa fa-user"></i> Login
+                                    </button>';
+                                }
+                            ?>
 						</li>
 					</ul>
 				</div>
@@ -161,7 +176,7 @@
 							<label class="control-label">Date of Reservation</label>&nbsp;<span
 								class="input-group-addon"><i class="fa fa-calendar"></i></span>
 							<div class="input-group">
-								<input name="date" type="date" class="form-control" required>
+								<input name="date" type="date" class="form-control" >
 							</div>
 						</div>
 					</div>
@@ -170,23 +185,23 @@
 						<div class="form-group">
 							<label class="control-label">Time of Reservation</label>
 							<div class="input-group">
-								<input name="time" type="time" class="form-control" required>
+								<input name="time" type="time" class="form-control" >
 							</div>
 						</div>
 					</div>
 
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
-							<label class="control-label required">Number of Adults:</label>
-							<input class="form-control" name="adult" type="number" value="1" required />
+							<label class="control-label">Number of Adults:</label>
+							<input class="form-control" name="adult" type="number" value="1"  />
 						</div>
 					</div>
 
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">	
-							<label class="control-label required">Number of Childs:</label>
+							<label class="control-label">Number of Childs:</label>
 							<div class="select">
-								<input class="form-control" name="child" type="number" value="1" required />
+								<input class="form-control" name="child" type="number" value="1"  />
 							</div>
 						</div>
 					</div>
@@ -198,7 +213,7 @@
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
 							<label class="control-label">Full Name</label>
-							<input name="name" type="text" placeholder="Full Name" class="form-control" required>
+							<input name="name" type="text" placeholder="Full Name" class="form-control" >
 						</div>
 					</div>
 
@@ -206,21 +221,21 @@
 						<div class="form-group">
 							<label class="control-label"> Email</label>
 							<input name="email" type="text" placeholder="ex: sushi@example.com" class="form-control"
-								required>
+								>
 						</div>
 					</div>
 
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
 							<label class="control-label"> Phone</label>
-							<input name="phone" type="text" placeholder="ex: 012345678" class="form-control" required>
+							<input name="phone" type="text" placeholder="ex: 012345678" class="form-control" >
 						</div>
 					</div>
 
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
 							<label class="control-label">City</label>
-							<input name="city" type="text" placeholder="Cyberjaya" class="form-control" required>
+							<input name="city" type="text" placeholder="Cyberjaya" class="form-control" >
 						</div>
 					</div>
 
