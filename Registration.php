@@ -135,7 +135,7 @@
 								<label class="label mr-2">Name</label>
 							</div>
 							<div class="col-12 col-md-8">
-								<input type="text" class="form-control" placeholder="Enter Name">
+								<input type="text" class="form-control" name="name" placeholder="Enter Name">
 							</div>
 						</div>
 						<div class="row mx-2">
@@ -143,7 +143,7 @@
 								<label class="label">Birthday</label>
 							</div>
 							<div class="col-12 col-md-8">
-								<input type="date" class="form-control">
+								<input type="date" class="form-control" name="birthday">
 							</div>
 						</div>
 						<div class="row mx-2">
@@ -159,7 +159,7 @@
 								<label class="label mr-2">Contact</label>
 							</div>
 							<div class="col-12 col-md-8">
-								<input type="text" class="form-control" placeholder="Enter Contact">
+								<input type="text" class="form-control" name="contact" placeholder="Enter Contact">
 							</div>
 						</div>
 						<div class="row justify-content-center py-0 my-0">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2020 at 05:36 PM
+-- Generation Time: Feb 12, 2020 at 07:09 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -69,15 +69,19 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` tinytext NOT NULL,
   `password` longtext NOT NULL,
-  `email` tinytext NOT NULL
+  `email` tinytext NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `birthday` date DEFAULT NULL,
+  `contact` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `email`) VALUES
-(3, 'test', '$2y$10$fCBPtPV8GHltbviG9Y1Dh.DaDOyOO6KLfG2lJiIi9QgKUJEVZ3Jvu', 'test@gmail.com');
+INSERT INTO `user` (`id`, `username`, `password`, `email`, `name`, `birthday`, `contact`) VALUES
+(3, 'test', '$2y$10$fCBPtPV8GHltbviG9Y1Dh.DaDOyOO6KLfG2lJiIi9QgKUJEVZ3Jvu', 'test@gmail.com', NULL, NULL, NULL),
+(4, 'justin', '$2y$10$n92GvEDZa6JPnrkfAHAQTeE/oZjeqU6dWeT98N9cP/RI/MHM9KNtu', 'justinngo@gmail.com', 'justin ngo', '1888-01-29', 123456789);
 
 --
 -- Indexes for dumped tables
@@ -115,7 +119,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

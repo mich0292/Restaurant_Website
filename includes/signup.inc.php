@@ -4,9 +4,12 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
         $email = $_POST['email'];
+        $name = $_POST['name'];
+        $birthday = $_POST['birthday'];
+        $contact = $_POST['contact'];
         
-        if(empty($username) || empty($password) || empty($email)){
-            header("Location: ../Registration.php?error=emptyfields&username=".$username."&email=".$email);
+        if(empty($username) || empty($password) || empty($email) || empty($name) || empty($birthday) || empty($contact)){
+            header("Location: ../Registration.php?error=emptyfields&username=".$username."&email=".$email."&name=".$name."&birthday=".$birthday."&contact=".$contact);
             exit();
         }
         else if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)){
@@ -37,7 +40,7 @@
                     exit();
                 }
                 else{
-                    $sql = "INSERT INTO user (username, password, email) VALUES (?, ?, ?)";
+                    $sql = "INSERT INTO user (username, password, email, name, birthday, contact) VALUES (?, ?, ?, ?, ?, ?)";
                     $stmt = mysqli_stmt_init($conn);
                     if(! mysqli_stmt_prepare($stmt, $sql)){
                         header("Location: ../Registration.php?error=sqlerror");
@@ -45,7 +48,7 @@
                     }
                     else{
                         $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-                        mysqli_stmt_bind_param($stmt, "sss", $username, $hashedPwd, $email);
+                        mysqli_stmt_bind_param($stmt, "sssssi", $username, $hashedPwd, $email, $name, $birthday, $contact);
                         mysqli_stmt_execute($stmt);
                         header("Location: ../Registration.php?signup=success");
                         exit();
