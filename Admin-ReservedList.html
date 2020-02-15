@@ -49,8 +49,9 @@
         </ol>
       </nav>
     </div>
-    <div class="row p-2 bg-white shadow-lg rounded-lg title px-3 mt-md-3 m-0 text-left">
-      Table Reservation
+    <div class="row p-2 bg-white shadow-lg rounded-lg title px-3 mt-md-3 m-0 text-left justify-content-between">
+      <div>Table Reservation</div>
+      <button class="btn btn-success" data-toggle="modal" data-target="#addReserveModal">Add Reservation</button>
     </div>
     <div class="row justify-content-center rounded text-center bg-white mt-1 m-0">
 
@@ -90,7 +91,7 @@
             <td class="align-middle">2</td>
             <td class="align-middle">0</td>
             <td class="align-middle">2020-01-17 15:30:00</td>
-            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+            <td class="align-middle"><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal"><i class="fa fa-trash"></i></button>
             </td>
           </tr>
           <tr>
@@ -102,7 +103,7 @@
             <td class="align-middle">2</td>
             <td class="align-middle">0</td>
             <td class="align-middle">2020-01-17 15:30:00</td>
-            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+            <td class="align-middle"><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal"><i class="fa fa-trash"></i></button>
             </td>
           </tr>
           <tr>
@@ -115,7 +116,7 @@
             <td class="align-middle">0</td>
             <td class="align-middle">2020-01-17 15:30:00</td>
             <td class="align-middle">
-              <button class="btn btn-sm btn-danger">
+              <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal">
                 <i class="fa fa-trash"></i>
               </button>
             </td>
@@ -155,7 +156,7 @@
         </tr>
         <tr>
           <th scope="col">Action</th>
-          <td><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
+          <td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal"><i class="fa fa-trash"></i></button></td>
         </tr>
       </table>
       <table class="table table-borderless table-striped border m-2 text-left">
@@ -189,7 +190,7 @@
         </tr>
         <tr>
           <th scope="col">Action</th>
-          <td><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
+          <td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal"><i class="fa fa-trash"></i></button></td>
         </tr>
       </table>
       <table class="table table-borderless table-striped border m-2 text-left">
@@ -223,9 +224,78 @@
         </tr>
         <tr>
           <th scope="col">Action</th>
-          <td><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
+          <td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal"><i class="fa fa-trash"></i></button></td>
         </tr>
       </table>
+    </div>
+  </div>
+
+  <div class="modal fade" id="addReserveModal" tabindex="-1" role="dialog" aria-labelledby="addReserveModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addReserveModalLabel">Add Item</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <form method="post">
+              <div class="form-group">
+                <label for="custName" class="">Name:</label>
+                <input type="text" class="form-control" name="custName">
+              </div>
+              <div class="form-group">
+                <label for="custContact" class="">Contact:</label>
+                <input type="text" class="form-control" name="custContact">
+              </div>
+              <div class="form-group">
+                <label for="adultHc" class="">Headcount(Adult):</label>
+                <input type="number" min="0" class="form-control"  name="adultHc">
+              </div>
+              <div class="form-group">
+                <label for="childHc" class="">Headcount(Children):</label>
+                <input type="text" min="0" class="form-control"  name="childHc">
+              </div>
+              <div class="form-group">
+                <label for="resvTime" class="">Time:</label>
+                <input type="datetime-local" class="form-control" name="resvTime">
+              </div>
+              <div class="form-group">
+                <label for="specialRemark" class="">Special Remarks:</label>
+                <input type="text" class="form-control" name="specialRemark">
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="dltReserveModal" tabindex="-1" role="dialog" aria-labelledby="dltReserveModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="dltReserveModalLabel">Add Item</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div> Remove Reservation?
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger">Comfirm</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
     </div>
   </div>
 </body>

@@ -49,8 +49,9 @@
         </ol>
       </nav>
     </div>
-    <div class="row p-2 bg-white shadow-lg rounded-lg title px-3 mt-3 m-0 text-left">
-      Menu List
+    <div class="row p-2 bg-white shadow-lg rounded-lg title px-3 mt-3 m-0 text-left justify-content-between">
+      <div>Menu List</div>
+      <button class="btn btn-success" data-toggle="modal" data-target="#addMenuModal">Add Item</button>
     </div>
     <div class="row d-flex justify-content-center rounded text-center bg-white mt-1 m-0">
       <table class="table table-hover table-bordered m-2 d-none d-md-table">
@@ -183,6 +184,41 @@
           </td>
         </tr>
       </table>
+    </div>
+  </div>
+
+  <div class="modal fade" id="addMenuModal" tabindex="-1" role="dialog" aria-labelledby="addMenuModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addMenuModalLabel">Add Item</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <form method="post">
+              <div class="form-group">
+                <label for="menuName" class="">Name:</label>
+                <input type="text" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="price" class="">Price:</label>
+                <input type="number" class="form-control" step="0.01" min="0">
+              </div>
+              <div class="form-group">
+                <label for="menuName" class="">Picture URL:</label>
+                <input type="text" class="form-control">
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
     </div>
   </div>
 </body>
