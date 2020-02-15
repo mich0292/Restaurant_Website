@@ -1,4 +1,17 @@
-<!doctype html>
+<?php	
+    session_start();
+	include 'includes/adm-menulist.inc.php';
+	$nameErr = $priceErr = "";
+	
+	if(isset($_POST['addMenuButton'])){		
+		if (empty($_POST['menuName']))
+			$nameErr = "Food name is required.";
+
+		if (empty($_POST['menuPrice']))
+			$priceErr = "Food price is required.";
+	}
+?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -198,25 +211,25 @@
         </div>
         <div class="modal-body">
           <div>
-            <form method="post">
+            <form method="post" id="addMenuForm">
               <div class="form-group">
                 <label for="menuName" class="">Name:</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="menuName">
               </div>
               <div class="form-group">
-                <label for="price" class="">Price:</label>
-                <input type="number" class="form-control" step="0.01" min="0">
+                <label for="menuPrice" class="">Price:</label>
+                <input type="number" class="form-control" step="0.01" min="0" name="menuPrice">
               </div>
               <div class="form-group">
-                <label for="menuName" class="">Picture URL:</label>
-                <input type="text" class="form-control">
+                <label for="menuPicUrl" class="">Picture URL:</label>
+                <input type="text" class="form-control" name="menuPicUrl">
               </div>
             </form>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Comfirm</button>
+          <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" name="addMenuButton" class="btn btn-primary" form="addMenuForm">Comfirm</button>
         </div>
       </div>
     </div>
@@ -236,15 +249,15 @@
             <form method="post">
               <div class="form-group">
                 <label for="menuName" class="">Name:</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="menuName">
               </div>
               <div class="form-group">
-                <label for="price" class="">Price:</label>
-                <input type="number" class="form-control" step="0.01" min="0">
+                <label for="menuPrice" class="">Price:</label>
+                <input type="number" class="form-control" step="0.01" min="0" name="menuPrice">
               </div>
               <div class="form-group">
-                <label for="menuName" class="">Picture URL:</label>
-                <input type="text" class="form-control">
+                <label for="menuPicUrl" class="">Picture URL:</label>
+                <input type="text" class="form-control" name="menuPicUrl">
               </div>
             </form>
           </div>
