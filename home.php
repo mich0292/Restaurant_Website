@@ -1,5 +1,7 @@
 <?php
-    session_start();	
+
+	session_start();	
+	$_SESSION['page'] = "home";
 	include 'includes/reservation.inc.php';
 	
 	$nameErr = $emailErr = $phoneErr = $cityErr = "";
