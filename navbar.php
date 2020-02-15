@@ -1,3 +1,30 @@
+<?php
+$page = $_SESSION['page'];
+
+if($page == "home"){$home = "active";}
+else{$home = "";}
+if($page == "menu"){$menu = "active";}
+else $menu = "";
+if($page == "order")
+    $order = "active";
+else
+    $order = "";
+if($page == "career")
+    $career = "active";
+else
+    $career = "";
+if($page == "profile")
+    $profile = "active";
+else
+    $profile = "";
+if($page == "registration")
+    $registration = "active";
+else
+    $registration = "";
+
+?>
+
+
 <nav class="navbar navbar-toggleable-sm navbar-expand-lg navbar-inverse">
     <div class="container-fluid py-0 justify-content-between">
         <a class="navbar-brand" href="home.html">
@@ -10,21 +37,32 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav">
-                <li class="nav-item active px-2 mt-1">
-                    <a class="nav-link" href="home.html">Home</a>
+                <li class="nav-item <?php echo $home ?> px-2 mt-1">
+                    <a class="nav-link" href="home.php">Home</a>
                 </li>
-                <li class="nav-item px-2 mt-1">
-                    <a class="nav-link" href="menu.html">Menu</a>
+                <li class="nav-item <?php echo $menu ?> px-2 mt-1">
+                    <a class="nav-link" href="menu.php">Menu</a>
                 </li>
-                <li class="nav-item px-2 mt-1">
-                    <a class="nav-link" href="order.html">Order</a>
+                <li class="nav-item <?php echo $order ?> px-2 mt-1">
+                    <a class="nav-link" href="order.php">Order</a>
                 </li>
-                <li class="nav-item px-2 mt-1">
-                    <a class="nav-link" href="career.html">Career</a>
+                <li class="nav-item <?php echo $career ?> px-2 mt-1">
+                    <a class="nav-link" href="career.php">Career</a>
                 </li>
-                <li class="nav-item px-2 mt-1">
-                    <a class="nav-link" href="profile.html">Profile</a>
-                </li>
+                <?php
+                if(isset($_SESSION['userId'])){
+                    echo '
+                    <li class="nav-item '.$profile.' px-2 mt-1">
+                        <a class="nav-link" href="Profile.php">Profile</a>
+                    </li>';
+                }
+                else{
+                    echo '
+                    <li class="nav-item  '.$registration.' px-2 mt-1">
+                        <a class="nav-link" href="Registration.php">SignUp</a>
+                    </li>';
+                }
+                ?>
                 <li class="nav-item px-2 mt-1 d-lg-none">
                     <a class="nav-link" data-toggle="modal" data-target="#loginModal">Login	</a>
                 </li>
