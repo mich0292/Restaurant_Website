@@ -1,6 +1,57 @@
 <?php
     session_start();
+	include 'navbar.php'; 
+	include 'includes/reservation.inc.php';
+	
+	$nameErr = null;
+	$emailErr = "";
+	$phoneErr = "";
+	$cityErr = "";
+	
+	if(isset($_POST['reservebutton'])){
+		if (!empty($_POST['date'])){
+			$dateOfReservation = $_POST['date'];
+		}
+		
+		if (!empty($_POST['time'])){
+			$timeOfReservation = $_POST['time'];
+		} 
+		
+		if (!empty($_POST['adult'])){
+			$numOfAdult = $_POST['adult'];
+		}
+		
+		if (empty($_POST['child'])){
+			$numOfChild = $_POST['child'];
+		} 
+		
+		if (empty($_POST['name'])){
+			$nameErr = "Your full name is required."
+		} else {
+			$fullName = $_POST['name'];
+		}
+		
+		if (empty($_POST['email'])){
+			$emailErr = "Your email is required."
+		} else {
+			$email = $_POST['email'];
+		}
+		
+		if (empty($_POST['phone'];)){
+			$phoneErr = "Your email is required."
+		} else {
+			$phone = $_POST['phone'];
+		}
+		
+		if (empty($_POST['city'])){
+			$cityErr = "Your city of residence is required."
+		} else {
+			$city = $_POST['city'];
+		}
 
+		$remarks = $_POST['remarks'];
+		writeReservation($dateOfReservation,$timeOfReservation,$numOfAdult,$numOfChild,$fullName,$email,$phone,$city,$remarks);
+	}
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +127,6 @@
 	<div class="cover text-center" id="home-banner">
 		<!-- Nav bar -->
 		<!-- In reference to https://www.codeply.com/go/QAXbNGbWPA/bootstrap-4-navbar-transparent -->
-		<?php include('navbar.php'); ?>
 		<!-- Homepage Banner -->
 		<div class="cover-container py-6">
 			<div class="cover-inner container justify-content-center">
@@ -145,7 +195,7 @@
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
 							<label class="control-label">Number of Adults:</label>
-							<input class="form-control" name="adult" type="number" value="1"  />
+							<input class="form-control" name="adult" type="number" value="1" >
 						</div>
 					</div>
 
@@ -153,7 +203,7 @@
 						<div class="form-group">	
 							<label class="control-label">Number of Childs:</label>
 							<div class="select">
-								<input class="form-control" name="child" type="number" value="1"  />
+								<input class="form-control" name="child" type="number" value="0" >
 							</div>
 						</div>
 					</div>
@@ -165,42 +215,41 @@
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
 							<label class="control-label">Full Name</label>
-							<input name="name" type="text" placeholder="Full Name" class="form-control" >
+							<input name="name" type="text" placeholder="Full Name" class="form-control" value="<?php echo $nameErr; ?>"  >
 						</div>
 					</div>
 
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
 							<label class="control-label"> Email</label>
-							<input name="email" type="text" placeholder="ex: sushi@example.com" class="form-control"
-								>
+							<input name="email" type="text" placeholder="ex: sushi@example.com" class="form-control" value="<?php echo $emailErr; ?>" >
 						</div>
 					</div>
 
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
 							<label class="control-label"> Phone</label>
-							<input name="phone" type="text" placeholder="ex: 012345678" class="form-control" >
+							<input name="phone" type="text" placeholder="ex: 012345678" class="form-control" value="<?php echo $phoneErr; ?>" >
 						</div>
 					</div>
 
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
 							<label class="control-label">City</label>
-							<input name="city" type="text" placeholder="Cyberjaya" class="form-control" >
+							<input name="city" type="text" placeholder="Cyberjaya" class="form-control" value="<?php echo $cityErr; ?>" >
 						</div>
 					</div>
 
 					<div class="col-xl-12 col-lg-12 col-12">
 						<div class="form-group">
 							<label class="control-label">Special remarks (Eg. food allergy )</label>
-							<textarea class="form-control" name="textarea" rows="4"
+							<textarea class="form-control" name="remarks" rows="4"
 								placeholder="Please write to us!"></textarea>
 						</div>
 					</div>
 
 					<div class="col-12 text-center">
-						<button type="submit" name="singlebutton" class="btn btn-outline-deep-orange">Reserve</button>
+						<button type="submit" name="reservebutton" class="btn btn-outline-deep-orange">Reserve</button>
 						<button type="reset" class="btn btn-outline-cyan">Cancel</button>
 					</div>
 				</div>
