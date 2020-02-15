@@ -1,59 +1,23 @@
 <?php
-    session_start();
-	include 'navbar.php'; 
+    session_start();	
 	include 'includes/reservation.inc.php';
 	
-	$nameErr = null;
-	$emailErr = "";
-	$phoneErr = "";
-	$cityErr = "";
+	$nameErr = $emailErr = $phoneErr = $cityErr = "";
 	
-	if(isset($_POST['reservebutton'])){
-		if (!empty($_POST['date'])){
-			$dateOfReservation = $_POST['date'];
-		}
-		
-		if (!empty($_POST['time'])){
-			$timeOfReservation = $_POST['time'];
-		} 
-		
-		if (!empty($_POST['adult'])){
-			$numOfAdult = $_POST['adult'];
-		}
-		
-		if (empty($_POST['child'])){
-			$numOfChild = $_POST['child'];
-		} 
-		
-		if (empty($_POST['name'])){
-			$nameErr = "Your full name is required."
-		} else {
-			$fullName = $_POST['name'];
-		}
-		
-		if (empty($_POST['email'])){
-			$emailErr = "Your email is required."
-		} else {
-			$email = $_POST['email'];
-		}
-		
-		if (empty($_POST['phone'];)){
-			$phoneErr = "Your email is required."
-		} else {
-			$phone = $_POST['phone'];
-		}
-		
-		if (empty($_POST['city'])){
-			$cityErr = "Your city of residence is required."
-		} else {
-			$city = $_POST['city'];
-		}
+	if(isset($_POST['reservebutton'])){		
+		if (empty($_POST['name']))
+			$nameErr = "Your full name is required.";
 
-		$remarks = $_POST['remarks'];
-		writeReservation($dateOfReservation,$timeOfReservation,$numOfAdult,$numOfChild,$fullName,$email,$phone,$city,$remarks);
+		if (empty($_POST['email']))
+			$emailErr = "Your email is required.";
+
+		if (empty($_POST['phone']))
+			$phoneErr = "Your email is required.";
+
+		if (empty($_POST['city'])) 
+			$cityErr = "Your city of residence is required.";
 	}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -126,7 +90,7 @@
 	
 	<div class="cover text-center" id="home-banner">
 		<!-- Nav bar -->
-		<!-- In reference to https://www.codeply.com/go/QAXbNGbWPA/bootstrap-4-navbar-transparent -->
+		<?php include 'navbar.php'; ?>
 		<!-- Homepage Banner -->
 		<div class="cover-container py-6">
 			<div class="cover-inner container justify-content-center">
