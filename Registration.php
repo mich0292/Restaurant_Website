@@ -2,6 +2,7 @@
 
 session_start();
 $_SESSION['page'] = "registration";
+
 ?>
 
 <!DOCTYPE html>

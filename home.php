@@ -1,7 +1,8 @@
 <?php
 
-	session_start();	
-	include 'includes/reservation.inc.php';
+session_start();
+$_SESSION['page'] = "home";
+include 'includes/reservation.inc.php';
 	
 ?>
 <!DOCTYPE html>
