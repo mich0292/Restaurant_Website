@@ -18,7 +18,7 @@
 							<input type="password" class="form-control" id="passwordInput" name="password" placeholder="Password">
 						</div>
 						<small id="registerLink" class="form-text text-muted">Not a member yet? <a
-								href="Registration.html">Sign up here</a></small>
+								href="Registration.php">Sign up here</a></small>
 					</form>
 				</div>
 				<div class="modal-footer">
