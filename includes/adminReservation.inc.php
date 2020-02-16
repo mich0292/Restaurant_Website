@@ -14,8 +14,10 @@
 		$city = $_POST['custCity'];
 		$remarks = $_POST['specialRemark'];
 		
+		//Ensure all the required fields are filled
 		if (!empty($dateOfReservation) && !empty($timeOfReservation) && !empty($numOfAdult) && !empty($numOfChild) 
 			&& !empty($fullName) && ! empty($email) && !empty($phone) && !empty($city)){
+			//sql statement for insertion
 			$sql = "INSERT INTO reservation (date_of_reservation, time_of_reservation, num_of_adult, num_of_child, full_name, email, phone, city, special_remarks) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			$stmt = mysqli_stmt_init($conn);
 			if (mysqli_stmt_prepare($stmt, $sql)){
@@ -31,22 +33,22 @@
 			}
 		}	
 		else{
-			if (empty($_POST['date'])) $_SESSION['dateClass'] = "has-error"; 
-			if (empty($_POST['time'])) $_SESSION['timeClass'] = "has-error"; 
+			if (empty($_POST['resvDate'])) $_SESSION['dateClass'] = "has-error"; 
+			if (empty($_POST['resvTime'])) $_SESSION['timeClass'] = "has-error"; 
 			
-			if (empty($_POST['name'])){
+			if (empty($_POST['custName'])){
 				$_SESSION['nameErr'] = "Name is required";
 				$_SESSION['nameClass'] = "has-error";
 			}
-			if (empty($_POST['email'])){
+			if (empty($_POST['custEmail'])){
 				$_SESSION['emailErr'] = "Email is required";
 				$_SESSION['emailClass'] = "has-error";
 			}
-			if (empty($_POST['phone'])){
+			if (empty($_POST['custContact'])){
 				$_SESSION['phoneErr'] = "Phone number is required";
 				$_SESSION['phoneClass'] = "has-error";
 			}
-			if (empty($_POST['city'])) {
+			if (empty($_POST['custCity'])) {
 				$_SESSION['cityErr'] = "City of residence is required";
 				$_SESSION['cityClass'] = "has-error";
 			}

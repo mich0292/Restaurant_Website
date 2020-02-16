@@ -242,11 +242,10 @@
           </button>
         </div>
         <div class="modal-body">
-          <div>
             <form method="post">
 			  <div class="form-group">
                 <label for="resvDate" class="">Date:</label>
-                <input id="<?php echo $_SESSION['dateClass']; ?>"type="datetime-local" class="form-control" name="resvDate">
+                <input id="<?php echo $_SESSION['dateClass']; ?>"type="datetime-local" class="form-control" name="resvDate" >
               </div>
               <div class="form-group">
                 <label for="resvTime" class="">Time:</label>
@@ -254,7 +253,7 @@
               </div>
 			<div class="form-group">
                 <label for="custName" class="">Name:</label>
-                <input type="text" class="form-control" name="custName">
+                <input id="<?php echo $_SESSION['nameClass']; ?> type="text" class="form-control" name="custName" value="<?php echo $_SESSION['nameErr']; ?>" >
               </div>
               <div class="form-group">
                 <label for="custContact" class="">Contact:</label>
@@ -262,7 +261,7 @@
               </div>
 			  <div class="form-group">
                 <label for="custEmail" class="">Email:</label>
-                <input type="text" class="form-control" name="custEmail">
+                <input type="text" class="form-control" name="custEmail" value="<?php echo $_SESSION['emailErr']; ?>">
               </div>
 			  <div class="form-group">
                 <label for="custCity" class="">City:</label>
@@ -280,14 +279,12 @@
                 <label for="specialRemark" class="">Special Remarks:</label>
                 <input type="text" class="form-control" name="specialRemark">
               </div>
-            </form>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" name="addReservation" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" name="addReservation" class="btn btn-primary">Save changes</button>
+			</div>
+			</form>
+		</div>
     </div>
   </div>
 
