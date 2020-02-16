@@ -1,6 +1,27 @@
 <?php
 	session_start();
-	include 'includes/adminReservation.inc.php';
+	require 'includes/adminReservation.inc.php';
+	 if( isset( $_SESSION['counter'] ) ) {
+		$_SESSION['counter'] += 1;
+	}else {
+		$_SESSION['counter'] = 1;
+		 //Clear the error message
+		$_SESSION['dateErr'] = "";
+		$_SESSION['timeErr'] = "";
+		$_SESSION['nameErr'] = "";
+		$_SESSION['phoneErr'] = "";
+		$_SESSION['emailErr'] = "";
+		$_SESSION['cityErr'] = "";
+		$_SESSION['adultErr'] = "";
+		
+		//Clear the error formattting
+		$_SESSION['dateClass'] = ""; 
+		$_SESSION['timeClass'] = "";
+		$_SESSION['nameClass'] = "";
+		$_SESSION['emailClass'] = "";
+		$_SESSION['phoneClass'] = "";
+		$_SESSION['adultClass'] = "";
+	}
 ?>
 <!doctype html>
 <html lang="en">
@@ -242,34 +263,41 @@
           </button>
         </div>
         <div class="modal-body">
-            <form method="post">
+            <form id="addReservationID" method="post">
 			  <div class="form-group">
                 <label for="resvDate" class="">Date:</label>
-                <input id="<?php echo $_SESSION['dateClass']; ?>"type="datetime-local" class="form-control" name="resvDate" >
+                <input type="date-local" class="form-control" name="resvDate" >
+				<small id="<?php echo $_SESSION['dateClass']; ?>"> <?php echo $_SESSION['dateErr']; ?> </small>
               </div>
               <div class="form-group">
                 <label for="resvTime" class="">Time:</label>
-                <input id="<?php echo $_SESSION['timeClass']; ?>" type="datetime-local" class="form-control" name="resvTime">
+                <input type="time-local" class="form-control" name="resvTime">
+				<small id="<?php echo $_SESSION['timeClass'];?>"> <?php echo $_SESSION['timeErr']; ?> </small>
               </div>
-			<div class="form-group">
+				<div class="form-group">
                 <label for="custName" class="">Name:</label>
-                <input id="<?php echo $_SESSION['nameClass']; ?> type="text" class="form-control" name="custName" value="<?php echo $_SESSION['nameErr']; ?>" >
+                <input type="text" class="form-control" name="custName" >
+				<small id="<?php echo $_SESSION['nameClass'];?>"> <?php echo $_SESSION['nameErr']; ?> </small>
               </div>
               <div class="form-group">
                 <label for="custContact" class="">Contact:</label>
                 <input type="text" class="form-control" name="custContact">
+				<small id="<?php echo $_SESSION['phoneClass'];?>"> <?php echo $_SESSION['phoneErr']; ?> </small>
               </div>
 			  <div class="form-group">
                 <label for="custEmail" class="">Email:</label>
-                <input type="text" class="form-control" name="custEmail" value="<?php echo $_SESSION['emailErr']; ?>">
+                <input type="text" class="form-control" name="custEmail">
+				<small id="<?php echo $_SESSION['emailClass'];?>"> <?php echo $_SESSION['emailErr']; ?> </small>
               </div>
 			  <div class="form-group">
                 <label for="custCity" class="">City:</label>
                 <input type="text" class="form-control" name="custCity">
+				<small id="<?php echo $_SESSION['cityClass'];?>"> <?php echo $_SESSION['cityErr']; ?> </small>
               </div>
               <div class="form-group">
                 <label for="adultHc" class="">Headcount(Adult):</label>
                 <input type="number" min="1" class="form-control"  name="adultHc">
+				<small id="<?php echo $_SESSION['adultClass'];?>"> <?php echo $_SESSION['adultErr']; ?> </small>
               </div>
               <div class="form-group">
                 <label for="childHc" class="">Headcount(Children):</label>
@@ -279,10 +307,8 @@
                 <label for="specialRemark" class="">Special Remarks:</label>
                 <input type="text" class="form-control" name="specialRemark">
               </div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" name="addReservation" class="btn btn-primary">Save changes</button>
-			</div>
+				<button type="submit" name="closeButton" class="btn btn-secondary" >Close</button>
+				<button type="submit" name="addReservation" class="btn btn-primary" >Save changes</button>
 			</form>
 		</div>
     </div>

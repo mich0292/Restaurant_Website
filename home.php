@@ -1,8 +1,34 @@
 <?php
 
 	session_start();	
-	include 'includes/reservation.inc.php';
+	require 'includes/reservation.inc.php';
+	$_SESSION['page'] = "home";
 	
+	if( isset( $_SESSION['counter'] ) ) {
+		$_SESSION['counter'] += 1;
+	}else {
+		$_SESSION['counter'] = 1;
+		
+		//Clear the saved input
+		$_SESSION['name'] = "";
+				
+		 //Clear the error message
+		$_SESSION['dateErr'] = "";
+		$_SESSION['timeErr'] = "";
+		$_SESSION['nameErr'] = "";
+		$_SESSION['phoneErr'] = "";
+		$_SESSION['emailErr'] = "";
+		$_SESSION['cityErr'] = "";
+		$_SESSION['adultErr'] = "";
+		
+		//Clear the error formattting
+		$_SESSION['dateClass'] = ""; 
+		$_SESSION['timeClass'] = "";
+		$_SESSION['nameClass'] = "";
+		$_SESSION['emailClass'] = "";
+		$_SESSION['phoneClass'] = "";
+		$_SESSION['adultClass'] = "";
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -136,28 +162,32 @@
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
 							<label class="control-label">Full Name</label>
-							<input id="<?php echo $_SESSION['nameClass'];?>" name="name" type="text" placeholder="Full Name" class="form-control" value="<?php echo $_SESSION['nameErr']; ?>"  >
+							<input  name="name" type="text" placeholder="Full Name" class="form-control" value="<?php echo $_SESSION['name']; ?>"  >
+							<small id="<?php echo $_SESSION['nameClass'];?>"> <?php echo $_SESSION['nameErr']; ?> </small>
 						</div>
 					</div>
 
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
 							<label class="control-label"> Email</label>
-							<input id="<?php echo $_SESSION['emailClass'];?>" name="email" type="text" placeholder="ex: sushi@example.com" class="form-control" value="<?php echo $_SESSION['emailErr']; ?>" >
+							<input name="email" type="text" placeholder="ex: sushi@example.com" class="form-control" >
+							<small id="<?php echo $_SESSION['emailClass'];?>"> <?php echo $_SESSION['emailErr']; ?> </small>
 						</div>
 					</div>
 
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
 							<label class="control-label"> Phone</label>
-							<input id="<?php echo $_SESSION['phoneClass'];?>" name="phone" type="text" placeholder="ex: 012345678" class="form-control" value="<?php echo $_SESSION['phoneErr']; ?>" >
+							<input name="phone" type="text" placeholder="ex: 012345678" class="form-control" value="<?php echo $_SESSION['phoneErr']; ?>" >
+							<small id="<?php echo $_SESSION['phoneClass'];?>"> <?php echo $_SESSION['phoneErr']; ?> </small>
 						</div>
 					</div>
 
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
 							<label class="control-label">City</label>
-							<input id="<?php echo $_SESSION['cityClass'];?>" name="city" type="text" placeholder="Cyberjaya" class="form-control" value="<?php echo $_SESSION['cityErr']; ?>" >
+							<input name="city" type="text" placeholder="Cyberjaya" class="form-control" value="<?php echo $_SESSION['cityErr']; ?>" >
+							<small id="<?php echo $_SESSION['cityClass'];?>"> <?php echo $_SESSION['cityErr']; ?> </small>
 						</div>
 					</div>
 
