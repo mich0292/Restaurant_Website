@@ -1,24 +1,8 @@
 <?php
 
 	session_start();	
-	$_SESSION['page'] = "home";
 	include 'includes/reservation.inc.php';
 	
-	$nameErr = $emailErr = $phoneErr = $cityErr = "";
-	
-	if(isset($_POST['reservebutton'])){		
-		if (empty($_POST['name']))
-			$nameErr = "Your full name is required.";
-
-		if (empty($_POST['email']))
-			$emailErr = "Your email is required.";
-
-		if (empty($_POST['phone']))
-			$phoneErr = "Your email is required.";
-
-		if (empty($_POST['city'])) 
-			$cityErr = "Your city of residence is required.";
-	}
 ?>
 <!DOCTYPE html>
 <html lang="en">

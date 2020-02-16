@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	include 'includes/adminReservation.inc.php';
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -241,12 +245,12 @@
           <div>
             <form method="post">
 			  <div class="form-group">
-                <label for="resvTime" class="">Date:</label>
-                <input type="datetime-local" class="form-control" name="resvTime">
+                <label for="resvDate" class="">Date:</label>
+                <input id="<?php echo $_SESSION['dateClass']; ?>"type="datetime-local" class="form-control" name="resvDate">
               </div>
               <div class="form-group">
                 <label for="resvTime" class="">Time:</label>
-                <input type="datetime-local" class="form-control" name="resvTime">
+                <input id="<?php echo $_SESSION['timeClass']; ?>" type="datetime-local" class="form-control" name="resvTime">
               </div>
 			<div class="form-group">
                 <label for="custName" class="">Name:</label>
@@ -255,6 +259,14 @@
               <div class="form-group">
                 <label for="custContact" class="">Contact:</label>
                 <input type="text" class="form-control" name="custContact">
+              </div>
+			  <div class="form-group">
+                <label for="custEmail" class="">Email:</label>
+                <input type="text" class="form-control" name="custEmail">
+              </div>
+			  <div class="form-group">
+                <label for="custCity" class="">City:</label>
+                <input type="text" class="form-control" name="custCity">
               </div>
               <div class="form-group">
                 <label for="adultHc" class="">Headcount(Adult):</label>
@@ -272,8 +284,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" name="addReservation" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" name="addReservation" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>

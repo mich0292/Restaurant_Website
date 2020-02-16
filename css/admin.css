@@ -34,3 +34,8 @@ body{
 .breadcrumb a{
     color:white;
 }
+
+#has-error {
+	color: red;
+	font-weight: bold;
+}
