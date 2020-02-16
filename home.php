@@ -33,7 +33,7 @@
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 	<!-- MD for Bootstrap -->
-	<link rel="stylesheet" href="mdb.min.css">
+	<link rel="stylesheet" href="css/mdb.min.css">
 
 	<!-- Awesome Font(Icons) -->
 	<link href="fontawesome/css/all.css" rel="stylesheet">
@@ -41,8 +41,8 @@
 
 	<!-- Michelle -->
 	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Sofia'>
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="home.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/home.css">
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->

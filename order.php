@@ -16,7 +16,7 @@ $_SESSION['page'] = "order";
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		
 	<!-- MD for Bootstrap -->
-	<link rel="stylesheet" href="mdb.min.css">
+	<link rel="stylesheet" href="css/mdb.min.css">
 	
 	<!-- Awesome Font(Icons) -->
 	<link href="fontawesome/css/all.css" rel="stylesheet">

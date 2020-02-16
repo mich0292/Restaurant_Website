@@ -67,6 +67,10 @@ div.info p{
 	line-height: 4rem;
 }
 
+#has-error {
+	color: red;
+}
+
 @media screen and (max-width: 1200px) {
     #home-banner {
 		height: 40em;

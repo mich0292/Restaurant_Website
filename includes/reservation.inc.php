@@ -1,6 +1,4 @@
 <?php
-
-	$reservation = $_SESSION['page'];
 	
 	// If the reservebutton is pressed
 	if(isset($_POST['reservebutton'])){
