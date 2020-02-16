@@ -30,7 +30,7 @@
   <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
 
   <!-- Wong Zi Jiang -->
-  <link rel="stylesheet" href="admin.css" />
+  <link rel="stylesheet" href="css/admin.css" />
   <title>Menu List</title>
 
   <!-- Optional JavaScript -->
