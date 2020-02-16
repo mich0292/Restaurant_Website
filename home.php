@@ -108,14 +108,14 @@
 					<h2>Reserve a table</h2>
 				</div>
 			</div>
-			<form class="form-horizontal" method="post" action="#">
+			<form class="form-horizontal" method="post" action="">
 				<div class="row">
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
 							<label class="control-label">Date of Reservation</label>&nbsp;<span
 								class="input-group-addon"><i class="fa fa-calendar"></i></span>
 							<div class="input-group">
-								<input name="date" type="date" class="form-control" >
+								<input id="<?php echo $_SESSION['dateClass'];?>"  name="date" type="date" class="form-control" >
 							</div>
 						</div>
 					</div>
@@ -124,21 +124,21 @@
 						<div class="form-group">
 							<label class="control-label">Time of Reservation</label>
 							<div class="input-group">
-								<input name="time" type="time" class="form-control" >
+								<input id="<?php echo $_SESSION['timeClass'];?>" name="time" type="time" class="form-control" >
 							</div>
 						</div>
 					</div>
 
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
-							<label class="control-label">Number of Adults:</label>
+							<label class="control-label">Number of Adult:</label>
 							<input class="form-control" name="adult" type="number" value="1" >
 						</div>
 					</div>
 
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">	
-							<label class="control-label">Number of Childs:</label>
+							<label class="control-label">Number of Child:</label>
 							<div class="select">
 								<input class="form-control" name="child" type="number" value="0" >
 							</div>
@@ -152,28 +152,28 @@
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
 							<label class="control-label">Full Name</label>
-							<input name="name" type="text" placeholder="Full Name" class="form-control" value="<?php echo $nameErr; ?>"  >
+							<input id="<?php echo $_SESSION['nameClass'];?>" name="name" type="text" placeholder="Full Name" class="form-control" value="<?php echo $_SESSION['nameErr']; ?>"  >
 						</div>
 					</div>
 
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
 							<label class="control-label"> Email</label>
-							<input name="email" type="text" placeholder="ex: sushi@example.com" class="form-control" value="<?php echo $emailErr; ?>" >
+							<input id="<?php echo $_SESSION['emailClass'];?>" name="email" type="text" placeholder="ex: sushi@example.com" class="form-control" value="<?php echo $_SESSION['emailErr']; ?>" >
 						</div>
 					</div>
 
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
 							<label class="control-label"> Phone</label>
-							<input name="phone" type="text" placeholder="ex: 012345678" class="form-control" value="<?php echo $phoneErr; ?>" >
+							<input id="<?php echo $_SESSION['phoneClass'];?>" name="phone" type="text" placeholder="ex: 012345678" class="form-control" value="<?php echo $_SESSION['phoneErr']; ?>" >
 						</div>
 					</div>
 
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
 							<label class="control-label">City</label>
-							<input name="city" type="text" placeholder="Cyberjaya" class="form-control" value="<?php echo $cityErr; ?>" >
+							<input id="<?php echo $_SESSION['cityClass'];?>" name="city" type="text" placeholder="Cyberjaya" class="form-control" value="<?php echo $_SESSION['cityErr']; ?>" >
 						</div>
 					</div>
 
@@ -187,7 +187,7 @@
 
 					<div class="col-12 text-center">
 						<button type="submit" name="reservebutton" class="btn btn-outline-deep-orange">Reserve</button>
-						<button type="reset" class="btn btn-outline-cyan">Cancel</button>
+						<button type="submit" name="cancelbutton" class="btn btn-outline-cyan">Cancel</button>
 					</div>
 				</div>
 			</form>
