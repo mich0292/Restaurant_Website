@@ -1,10 +1,19 @@
 <?php
 	session_start();
-	require 'includes/adminReservation.inc.php';
+	require 'includes/admin/adminReservation.inc.php';
 	 if( isset( $_SESSION['counter'] ) ) {
 		$_SESSION['counter'] += 1;
 	}else {
 		$_SESSION['counter'] = 1;
+		//Clear the saved input
+		$_SESSION['dateInput'] = "";
+		$_SESSION['timeInput'] = "";
+		$_SESSION['nameInput'] = "";
+		$_SESSION['emailInput'] = "";
+		$_SESSION['cityInput'] = "";
+		$_SESSION['phoneInput'] = "";
+		$_SESSION['remarksInput'] = "";
+		
 		 //Clear the error message
 		$_SESSION['dateErr'] = "";
 		$_SESSION['timeErr'] = "";
@@ -22,6 +31,8 @@
 		$_SESSION['phoneClass'] = "";
 		$_SESSION['adultClass'] = "";
 	}
+	$reservationList = readReservation();
+	
 ?>
 <!doctype html>
 <html lang="en">
@@ -90,6 +101,9 @@
             <th scope="col" class="th-center">
               <div class="py-2">Contact </div>
             </th>
+			<th scope="col" class="th-center">
+              <div class="py-2">Email</div>
+            </th>
             <th scope="col" class="th-center">
               <div class="py-2">Headcount<br>(Adult)</div>
             </th>
@@ -105,45 +119,26 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th class="align-middle">
-              1
-            </th>
-            <td class="align-middle">Test 1</td>
-            <td class="align-middle">0123456789</td>
-            <td class="align-middle">2</td>
-            <td class="align-middle">0</td>
-            <td class="align-middle">2020-01-17 15:30:00</td>
-            <td class="align-middle"><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal"><i class="fa fa-trash"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <th class="align-middle">
-              2
-            </th>
-            <td class="align-middle">Test 1</td>
-            <td class="align-middle">0123456789</td>
-            <td class="align-middle">2</td>
-            <td class="align-middle">0</td>
-            <td class="align-middle">2020-01-17 15:30:00</td>
-            <td class="align-middle"><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal"><i class="fa fa-trash"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <th class="align-middle">
-              3
-            </th>
-            <td class="align-middle">Test 1</td>
-            <td class="align-middle">0123456789</td>
-            <td class="align-middle">2</td>
-            <td class="align-middle">0</td>
-            <td class="align-middle">2020-01-17 15:30:00</td>
-            <td class="align-middle">
-              <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal">
-                <i class="fa fa-trash"></i>
-              </button>
-            </td>
-          </tr>
+			
+		<?php
+			$IDCounter = 1;
+			foreach($reservationList as $reservation){
+				echo "<tr>";
+				echo "<th class="."align-middle".">";
+				echo $IDCounter; //ID counter
+				echo "</th>";
+				echo "<td class="."align-middle".">".$reservation[4]."</td>"; //Name
+				echo "<td class="."align-middle".">".$reservation[6]."</td>"; //Contact
+				echo "<td class="."align-middle".">".$reservation[5]."</td>"; //Email
+				echo "<td class="."align-middle".">".$reservation[2]."</td>"; //Num of adult
+				echo "<td class="."align-middle".">".$reservation[3]."</td>"; //Num of child
+				echo "<td class="."align-middle".">".$reservation[0]." ".$reservation[1]."</td>"; //Date + time
+				echo "<td class="."align-middle".">"."<button class="."btn btn-sm btn-danger"." data-toggle="."modal"."data-target="."#dltReserveModal".">";
+				echo "<i class="."fa fa-trash"."></i></button>";
+				echo "/<tr>";
+				$IDCounter++;
+			}
+		  ?>
         </tbody>
       </table>
     </div>
@@ -266,37 +261,37 @@
             <form id="addReservationID" method="post">
 			  <div class="form-group">
                 <label for="resvDate" class="">Date:</label>
-                <input type="date-local" class="form-control" name="resvDate" value = "<?php echo $_SESSION['dateInput'];?> ">
+                <input type="date" class="form-control" name="resvDate" value ="<?php echo $_SESSION['dateInput'];?>">
 				<small id="<?php echo $_SESSION['dateClass']; ?>"> <?php echo $_SESSION['dateErr']; ?> </small>
               </div>
               <div class="form-group">
                 <label for="resvTime" class="">Time:</label>
-                <input type="time-local" class="form-control" name="resvTime" value = "<?php echo $_SESSION['timeInput'];?> ">
+                <input type="time" class="form-control" name="resvTime" value ="<?php echo $_SESSION['timeInput'];?>">
 				<small id="<?php echo $_SESSION['timeClass'];?>"> <?php echo $_SESSION['timeErr']; ?> </small>
               </div>
 				<div class="form-group">
                 <label for="custName" class="">Name:</label>
-                <input type="text" class="form-control" name="custName" value = "<?php echo $_SESSION['nameInput'];?> ">
+                <input type="text" class="form-control" name="custName" value ="<?php echo $_SESSION['nameInput'];?>">
 				<small id="<?php echo $_SESSION['nameClass'];?>"> <?php echo $_SESSION['nameErr']; ?> </small>
               </div>
               <div class="form-group">
                 <label for="custContact" class="">Contact:</label>
-                <input type="text" class="form-control" name="custContact" value = "<?php echo $_SESSION['phoneInput'];?> ">
+                <input type="text" class="form-control" name="custContact" value ="<?php echo $_SESSION['phoneInput'];?>">
 				<small id="<?php echo $_SESSION['phoneClass'];?>"> <?php echo $_SESSION['phoneErr']; ?> </small>
               </div>
 			  <div class="form-group">
                 <label for="custEmail" class="">Email:</label>
-                <input type="text" class="form-control" name="custEmail" value = "<?php echo $_SESSION['emailInput'];?> ">
+                <input type="text" class="form-control" name="custEmail" value = "<?php echo $_SESSION['emailInput'];?>">
 				<small id="<?php echo $_SESSION['emailClass'];?>"> <?php echo $_SESSION['emailErr']; ?> </small>
               </div>
 			  <div class="form-group">
                 <label for="custCity" class="">City:</label>
-                <input type="text" class="form-control" name="custCity" value = "<?php echo $_SESSION['cityInput'];?> ">
+                <input type="text" class="form-control" name="custCity" value = "<?php echo $_SESSION['cityInput'];?>">
 				<small id="<?php echo $_SESSION['cityClass'];?>"> <?php echo $_SESSION['cityErr']; ?> </small>
               </div>
               <div class="form-group">
                 <label for="adultHc" class="">Headcount(Adult):</label>
-                <input type="number" min="1" class="form-control"  name="adultHc" value= "<?php echo $_SESSION['adultInput'];?> ">
+                <input type="number" min="1" class="form-control"  name="adultHc" value= "<?php echo $_SESSION['adultInput'];?>">
 				<small id="<?php echo $_SESSION['adultClass'];?>"> <?php echo $_SESSION['adultErr']; ?> </small>
               </div>
               <div class="form-group">
@@ -305,7 +300,7 @@
               </div>
               <div class="form-group">
                 <label for="specialRemark" class="">Special Remarks:</label>
-                <input type="text" class="form-control" name="specialRemark" value = "<?php echo $_SESSION['remarksInput'];?> ">
+                <input type="text" class="form-control" name="specialRemark" value = "<?php echo $_SESSION['remarksInput'];?>">
               </div>
 				<button type="submit" name="closeButton" class="btn btn-secondary" >Close</button>
 				<button type="submit" name="addReservation" class="btn btn-primary" >Save changes</button>
