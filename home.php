@@ -10,7 +10,11 @@
 		$_SESSION['counter'] = 1;
 		
 		//Clear the saved input
-		$_SESSION['name'] = "";
+		$_SESSION['nameInput'] = "";
+		$_SESSION['emailInput'] = "";
+		$_SESSION['cityInput'] = "";
+		$_SESSION['phoneInput'] = "";
+		$_SESSION['remarksInput'] = "";
 				
 		 //Clear the error message
 		$_SESSION['dateErr'] = "";
@@ -134,7 +138,8 @@
 						<div class="form-group">
 							<label class="control-label">Time of Reservation</label>
 							<div class="input-group">
-								<input id="<?php echo $_SESSION['timeClass'];?>" name="time" type="time" class="form-control" >
+								<input  name="time" type="time" class="form-control" >
+								<small id="<?php echo $_SESSION['nameClass'];?>"> <?php echo $_SESSION['nameErr']; ?> </small>
 							</div>
 						</div>
 					</div>
@@ -162,7 +167,7 @@
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
 							<label class="control-label">Full Name</label>
-							<input  name="name" type="text" placeholder="Full Name" class="form-control" value="<?php echo $_SESSION['name']; ?>"  >
+							<input  name="name" type="text" placeholder="Full Name" class="form-control" value="<?php echo $_SESSION['nameInput']; ?>"  >
 							<small id="<?php echo $_SESSION['nameClass'];?>"> <?php echo $_SESSION['nameErr']; ?> </small>
 						</div>
 					</div>
@@ -170,7 +175,7 @@
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
 							<label class="control-label"> Email</label>
-							<input name="email" type="text" placeholder="ex: sushi@example.com" class="form-control" >
+							<input name="email" type="text" placeholder="ex: sushi@example.com" class="form-control" value="<?php echo $_SESSION['emailInput']; ?>" >
 							<small id="<?php echo $_SESSION['emailClass'];?>"> <?php echo $_SESSION['emailErr']; ?> </small>
 						</div>
 					</div>
@@ -178,7 +183,7 @@
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
 							<label class="control-label"> Phone</label>
-							<input name="phone" type="text" placeholder="ex: 012345678" class="form-control" value="<?php echo $_SESSION['phoneErr']; ?>" >
+							<input name="phone" type="text" placeholder="ex: 012345678" class="form-control" value="<?php echo $_SESSION['phoneInput']; ?>" >
 							<small id="<?php echo $_SESSION['phoneClass'];?>"> <?php echo $_SESSION['phoneErr']; ?> </small>
 						</div>
 					</div>
@@ -186,7 +191,7 @@
 					<div class="col-xl-6 col-lg-6 col-12">
 						<div class="form-group">
 							<label class="control-label">City</label>
-							<input name="city" type="text" placeholder="Cyberjaya" class="form-control" value="<?php echo $_SESSION['cityErr']; ?>" >
+							<input name="city" type="text" placeholder="Cyberjaya" class="form-control"  value="<?php echo $_SESSION['cityInput']; ?>">
 							<small id="<?php echo $_SESSION['cityClass'];?>"> <?php echo $_SESSION['cityErr']; ?> </small>
 						</div>
 					</div>
@@ -194,8 +199,8 @@
 					<div class="col-xl-12 col-lg-12 col-12">
 						<div class="form-group">
 							<label class="control-label">Special remarks (Eg. food allergy )</label>
-							<textarea class="form-control" name="remarks" rows="4"
-								placeholder="Please write to us!"></textarea>
+							<textarea class="form-control" name="remarks" rows="4" 
+							placeholder="Please write to us!" value="<?php echo $_SESSION['remarksInput']; ?>" ></textarea>
 						</div>
 					</div>
 

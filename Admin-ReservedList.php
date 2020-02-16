@@ -266,37 +266,37 @@
             <form id="addReservationID" method="post">
 			  <div class="form-group">
                 <label for="resvDate" class="">Date:</label>
-                <input type="date-local" class="form-control" name="resvDate" >
+                <input type="date-local" class="form-control" name="resvDate" value = "<?php echo $_SESSION['dateInput'];?> ">
 				<small id="<?php echo $_SESSION['dateClass']; ?>"> <?php echo $_SESSION['dateErr']; ?> </small>
               </div>
               <div class="form-group">
                 <label for="resvTime" class="">Time:</label>
-                <input type="time-local" class="form-control" name="resvTime">
+                <input type="time-local" class="form-control" name="resvTime" value = "<?php echo $_SESSION['timeInput'];?> ">
 				<small id="<?php echo $_SESSION['timeClass'];?>"> <?php echo $_SESSION['timeErr']; ?> </small>
               </div>
 				<div class="form-group">
                 <label for="custName" class="">Name:</label>
-                <input type="text" class="form-control" name="custName" >
+                <input type="text" class="form-control" name="custName" value = "<?php echo $_SESSION['nameInput'];?> ">
 				<small id="<?php echo $_SESSION['nameClass'];?>"> <?php echo $_SESSION['nameErr']; ?> </small>
               </div>
               <div class="form-group">
                 <label for="custContact" class="">Contact:</label>
-                <input type="text" class="form-control" name="custContact">
+                <input type="text" class="form-control" name="custContact" value = "<?php echo $_SESSION['phoneInput'];?> ">
 				<small id="<?php echo $_SESSION['phoneClass'];?>"> <?php echo $_SESSION['phoneErr']; ?> </small>
               </div>
 			  <div class="form-group">
                 <label for="custEmail" class="">Email:</label>
-                <input type="text" class="form-control" name="custEmail">
+                <input type="text" class="form-control" name="custEmail" value = "<?php echo $_SESSION['emailInput'];?> ">
 				<small id="<?php echo $_SESSION['emailClass'];?>"> <?php echo $_SESSION['emailErr']; ?> </small>
               </div>
 			  <div class="form-group">
                 <label for="custCity" class="">City:</label>
-                <input type="text" class="form-control" name="custCity">
+                <input type="text" class="form-control" name="custCity" value = "<?php echo $_SESSION['cityInput'];?> ">
 				<small id="<?php echo $_SESSION['cityClass'];?>"> <?php echo $_SESSION['cityErr']; ?> </small>
               </div>
               <div class="form-group">
                 <label for="adultHc" class="">Headcount(Adult):</label>
-                <input type="number" min="1" class="form-control"  name="adultHc">
+                <input type="number" min="1" class="form-control"  name="adultHc" value= "<?php echo $_SESSION['adultInput'];?> ">
 				<small id="<?php echo $_SESSION['adultClass'];?>"> <?php echo $_SESSION['adultErr']; ?> </small>
               </div>
               <div class="form-group">
@@ -305,7 +305,7 @@
               </div>
               <div class="form-group">
                 <label for="specialRemark" class="">Special Remarks:</label>
-                <input type="text" class="form-control" name="specialRemark">
+                <input type="text" class="form-control" name="specialRemark" value = "<?php echo $_SESSION['remarksInput'];?> ">
               </div>
 				<button type="submit" name="closeButton" class="btn btn-secondary" >Close</button>
 				<button type="submit" name="addReservation" class="btn btn-primary" >Save changes</button>
