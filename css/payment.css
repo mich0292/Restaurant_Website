@@ -1,0 +1,79 @@
+.center { /* control form to center and font size */
+  margin: auto;
+  width: 80%;
+  padding: 10px;
+  font-size: 20px;
+  font-family: 'Comic Sans MS';
+}
+
+fieldset{ /* having space between top and bottom inside of form */
+	padding: 20px;
+}
+
+html { /* do not repeat the linear gradient color */
+    height: 100%;
+}
+body { /* do not repeat the linear gradient color */
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body{ /* set linear gradient color */
+	background-image: linear-gradient(to bottom,#dd614a, #ff9b71, #ffdc7c, #ffffff);
+}
+
+input[type="text"],input[type="email"] /* set font size of input type */
+	{
+		margin-right: 20px;
+	}
+
+fieldset {
+   margin: 1em auto;
+   background-color: #FAFCFF;
+}
+
+/*
+	legend {
+   background-color: #EBF4FB ;
+   margin: 0 auto;
+   width: 90%;
+   padding: 0.25em;
+   text-align: center;
+   font-weight: bold;
+   font-size: 100%;
+}
+*/
+
+
+
+@media screen and (max-width: 768px) { /* control form to center and font size */
+    .center {
+		margin: auto;
+		width: 100%;
+		padding: 10px;
+		font-size: 20px;
+	}
+	input[type="text"],input[type="email"]
+	{
+		font-size:20px;
+		margin-right: 0px;
+	}
+}
+
+@media screen and (max-width: 576px) { /* control form to center and font size */
+    .center {
+		margin: auto;
+		width: 100%;
+		font-size: 11px;
+	}
+	input[type="text"],input[type="email"]
+	{
+		font-size:11px;
+		margin-right: 0px;
+	}
+	a{
+		font-size:11px!important;
+	}
+}

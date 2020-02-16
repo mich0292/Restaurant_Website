@@ -1,0 +1,41 @@
+body{
+    background:linear-gradient(to right top, #ffdc7c, #ffd077, #ffc373, #ffb771, #ffab70, #eb956b, #d68165, #bf6e5f, #8e514e, #5d3639, #301e21, #000000) fixed;
+}
+
+.summary-body{
+    height: 90vh;
+}
+
+.breadcrumb{
+    background: transparent;
+}
+
+.breadcrumb-item{
+    color: black!important;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.container .breadcrumb-item{
+    color: white!important;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.title{
+    font-size:24px;
+    font-family: 'Acme', sans-serif;
+}
+
+.navbar a{
+    color:black;
+}
+
+.breadcrumb a{
+    color:white;
+}
+
+#has-error {
+	color: red;
+	font-weight: bold;
+}

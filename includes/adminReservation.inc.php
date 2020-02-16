@@ -1,18 +1,18 @@
 <?php
 	
 	// If the reservebutton is pressed
-	if(isset($_POST['reservebutton'])){
+	if(isset($_POST['addReservation'])){
 		require 'dbh.inc.php';	//connect to database
 
-		$dateOfReservation = $_POST['date'];
-		$timeOfReservation = $_POST['time'];
-		$numOfAdult = $_POST['adult'];
-		$numOfChild = $_POST['child'];
-		$fullName = $_POST['name'];
-		$email = $_POST['email'];
-		$phone = $_POST['phone'];
-		$city = $_POST['city'];
-		$remarks = $_POST['remarks'];
+		$dateOfReservation = $_POST['resvDate'];
+		$timeOfReservation = $_POST['resvTime'];
+		$numOfAdult = $_POST['adultHc'];
+		$numOfChild = $_POST['childHc'];
+		$fullName = $_POST['custName'];
+		$email = $_POST['custEmail'];
+		$phone = $_POST['custContact'];
+		$city = $_POST['custCity'];
+		$remarks = $_POST['specialRemark'];
 		
 		if (!empty($dateOfReservation) && !empty($timeOfReservation) && !empty($numOfAdult) && !empty($numOfChild) 
 			&& !empty($fullName) && ! empty($email) && !empty($phone) && !empty($city)){
@@ -22,11 +22,11 @@
 				//string = s, i = integer
 				mysqli_stmt_bind_param($stmt, "ssiisssss", $dateOfReservation, $timeOfReservation, $numOfAdult, $numOfChild, $fullName, $email, $phone, $city, $remarks);
 				mysqli_stmt_execute($stmt);
-				header("Location: home.php?reservation=success");
+				header("Location: admin_reservedlist.php?reservation=success");
 				exit();
 			}else {
 				$errorMessage = "Error entering data:".mysqli_error($link)."<br>";
-				header("Location: home.php?sql_error");
+				header("Location: admin_reservedlist.php?sql_error");
 				exit();
 			}
 		}	
@@ -35,22 +35,22 @@
 			if (empty($_POST['time'])) $_SESSION['timeClass'] = "has-error"; 
 			
 			if (empty($_POST['name'])){
-				$_SESSION['nameErr'] = "Your name is required";
+				$_SESSION['nameErr'] = "Name is required";
 				$_SESSION['nameClass'] = "has-error";
 			}
 			if (empty($_POST['email'])){
-				$_SESSION['emailErr'] = "Your email is required";
+				$_SESSION['emailErr'] = "Email is required";
 				$_SESSION['emailClass'] = "has-error";
 			}
 			if (empty($_POST['phone'])){
-				$_SESSION['phoneErr'] = "Your phone number is required";
+				$_SESSION['phoneErr'] = "Phone number is required";
 				$_SESSION['phoneClass'] = "has-error";
 			}
 			if (empty($_POST['city'])) {
-				$_SESSION['cityErr'] = "Your city of residence is required";
+				$_SESSION['cityErr'] = "City of residence is required";
 				$_SESSION['cityClass'] = "has-error";
 			}
-			header("Location: home.php#section-tableReservation");
+			header("Location: admin_reservedlist.php");
 			exit();	
 		}				
 		mysqli_close($conn);		

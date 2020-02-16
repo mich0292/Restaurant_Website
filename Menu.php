@@ -16,7 +16,7 @@ $_SESSION['page'] = "menu";
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 	<!-- MD for Bootstrap -->
-	<link rel="stylesheet" href="mdb.min.css">
+	<link rel="stylesheet" href="css/mdb.min.css">
 
 	<!-- Awesome Font(Icons) -->
 	<link href="fontawesome/css/all.css" rel="stylesheet">
@@ -24,8 +24,8 @@ $_SESSION['page'] = "menu";
 
 	<!-- Michelle -->
 	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Sofia'>
-	<link rel="stylesheet" href="menu.css">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/menu.css">
+	<link rel="stylesheet" href="css/style.css">
 	
 	<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

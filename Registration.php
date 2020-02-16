@@ -18,12 +18,12 @@ $_SESSION['page'] = "registration";
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<!-- MD for Bootstrap -->
-	<link rel="stylesheet" href="mdb.min.css">
+	<link rel="stylesheet" href="css/mdb.min.css">
 
 	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Sofia'>
 	<link href="fontawesome/css/all.css" rel="stylesheet">
-	<link rel="stylesheet" href="style.css" />
-	<link rel="stylesheet" href="Registration.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/Registration.css" />
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
