@@ -1,6 +1,6 @@
 /* Banner Section */
 #home-banner{
-	background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url("images/home/home-banner.jpg");
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url("../images/home/home-banner.jpg");
 	background-size: cover;
 	height: 50em;
 }
