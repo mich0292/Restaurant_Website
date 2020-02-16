@@ -121,6 +121,7 @@
 	/*********************************************************************************************
 	*									Display Reservation										 *
 	*********************************************************************************************/
+	//For pdo connection
 	function setConnectionInfo(){
 		$connString='mysql:host=localhost;dbname=sushisamadb';
 		$user='root';
@@ -145,6 +146,32 @@
 			header("Location: Admin-ReservedList.php?sql_error");
 			exit();
 		}
+		$pdo = null;
 	}
-
+	
+	/*********************************************************************************************
+	*									Destroy Reservation										 *
+	*********************************************************************************************/
+	function deleteReservation($ID_number){
+		$pdo=setConnectionInfo();
+		$sql='DELETE FROM reservation WHERE reservationID =:ID_number';
+		if ( $statement=$pdo->prepare($sql)){
+			$statement->bindParam(':ID_number', $ID_number);
+			$statement->execute();
+			header("Location: Admin-ReservedList.php?deleteReservation=success");
+			exit();	
+		} else{
+			$errorMessage = "Error entering data:".mysqli_error($link)."<br>";
+			session_unset(); 
+			session_destroy(); 
+			header("Location: Admin-ReservedList.php?sql_error");
+			exit();
+		}
+		$pdo = null;	
+	}
+	
+	if (isset($_POST['deleteReservation'])){
+		$getID = $_POST['deleteReservation'];
+		deleteReservation($getID);
+	} 
 ?>
