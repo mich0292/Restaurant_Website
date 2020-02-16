@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -54,7 +53,6 @@
       <button class="btn btn-success" data-toggle="modal" data-target="#addReserveModal">Add Reservation</button>
     </div>
     <div class="row justify-content-center rounded text-center bg-white mt-1 m-0">
-
       <table class="table table-responsive table-hover table-bordered m-2 d-none d-lg-table text-center">
         <thead class="thead-dark">
           <tr>
@@ -242,7 +240,15 @@
         <div class="modal-body">
           <div>
             <form method="post">
+			  <div class="form-group">
+                <label for="resvTime" class="">Date:</label>
+                <input type="datetime-local" class="form-control" name="resvTime">
+              </div>
               <div class="form-group">
+                <label for="resvTime" class="">Time:</label>
+                <input type="datetime-local" class="form-control" name="resvTime">
+              </div>
+			<div class="form-group">
                 <label for="custName" class="">Name:</label>
                 <input type="text" class="form-control" name="custName">
               </div>
@@ -252,15 +258,11 @@
               </div>
               <div class="form-group">
                 <label for="adultHc" class="">Headcount(Adult):</label>
-                <input type="number" min="0" class="form-control"  name="adultHc">
+                <input type="number" min="1" class="form-control"  name="adultHc">
               </div>
               <div class="form-group">
                 <label for="childHc" class="">Headcount(Children):</label>
-                <input type="text" min="0" class="form-control"  name="childHc">
-              </div>
-              <div class="form-group">
-                <label for="resvTime" class="">Time:</label>
-                <input type="datetime-local" class="form-control" name="resvTime">
+                <input type="number" min="0" class="form-control"  name="childHc">
               </div>
               <div class="form-group">
                 <label for="specialRemark" class="">Special Remarks:</label>
@@ -270,7 +272,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" name="addReservation" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
@@ -291,7 +293,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger">Comfirm</button>
+          <button type="button" name="deleteReservation" class="btn btn-danger">Comfirm</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           
         </div>
