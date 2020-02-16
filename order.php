@@ -23,8 +23,8 @@ $_SESSION['page'] = "order";
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<!-- Gordon -->
-	<link rel="stylesheet" href="order.css">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/order.css">
+	<link rel="stylesheet" href="css/style.css">
 	
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -21,8 +21,8 @@ $_SESSION['page'] = "registration";
 
 	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Sofia'>
 	<link href="fontawesome/css/all.css" rel="stylesheet">
-	<link rel="stylesheet" href="style.css" />
-	<link rel="stylesheet" href="Registration.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/Registration.css" />
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
