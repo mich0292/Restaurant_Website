@@ -1,6 +1,4 @@
 <?php
-
-
 session_start();
 $_SESSION['page'] = "profile";
 require 'includes/dbh.inc.php';
@@ -22,6 +20,7 @@ $birthday = $row[2];
 $contact = $row[3];
    
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -57,8 +56,6 @@ $contact = $row[3];
 		<!-- In reference to https://www.codeply.com/go/QAXbNGbWPA/bootstrap-4-navbar-transparent -->
         <?php include('navbar.php'); ?>
         <!-- End of Nav Bar -->
-        <?php
-        echo '
             <div class="container my-5">
                 <div class="row flex-lg-nowrap justify-content-center">
                     <div class="col-12 col-lg-9 mb-3">
@@ -67,22 +64,22 @@ $contact = $row[3];
                                 <div class="row">
                                     <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                                         <div class="text-center text-sm-left mb-2 mb-sm-0">
-                                            <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">'.$name.'</h4>
-                                            <p class="mb-0">@'.$username.'</p>
+                                            <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap"></h4>
+                                            <p class="mb-0"></p>
                                     </div>
                                     <div class="text-center text-sm-right">
-                                        <span class="badge badge-secondary">administrator</span>
+                                        <span class="badge badge-secondary"></span>
                                 </div>
                             </div>
                         </div>
                         <div class="tab-content pt-3">
                             <div class="tab-pane active">
-                                <fieldset class="form p-2">
+                                <form class="form p-2" method="post" action="includes/profile.inc.php">
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group">
                                                 <label>Username</label>
-                                                <input class="form-control" type="text" name="username" value="'.$username.'" readonly>
+                                                <input class="form-control" type="text" name="username" value="" placeholder="<?php echo $username?>>
                                             </div>
                                         </div>
                                     </div>
@@ -90,7 +87,7 @@ $contact = $row[3];
                                         <div class="col">
                                             <div class="form-group">
                                                 <label>Email</label>
-                                                <input class="form-control" type="text" value="'.$email.'" readonly>
+                                                <input class="form-control" type="email" value="" placeholder="<?php echo $email?>">
                                             </div>
                                         </div>
                                     </div>
@@ -98,7 +95,7 @@ $contact = $row[3];
                                         <div class="col">
                                             <div class="form-group">
                                                 <label>Birthday</label>
-                                                <input class="form-control" type="text" value="'.$birthday.'" readonly>
+                                                <input class="form-control" type="date" value="" placeholder="<?php echo $birthday?>">
                                             </div>
                                         </div>
                                     </div>
@@ -106,24 +103,23 @@ $contact = $row[3];
                                         <div class="col">
                                             <div class="form-group">
                                                 <label>Contact</label>
-                                                <input class="form-control" type="text" value="'.$contact.'" readonly>
+                                                <input class="form-control" type="text" value="" placeholder="<?php echo $contact?>">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group">
-                                                <button class="btn btn-primary" formaction="edit-profile.php">Edit Profile</button>
+                                                <button class="btn btn-primary" type="submit" name="edit-profile">Save</button>
                                             </div>
                                         </div>
                                     </div>
-                                </fieldset>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        '; ?>
         <div class="col-12 col-lg-3 mb-3">
             <div class="card">
                 <div class="card-body">

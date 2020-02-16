@@ -1,10 +1,14 @@
 <?php
 $page = $_SESSION['page'];
 
-if($page == "home"){$home = "active";}
-else{$home = "";}
-if($page == "menu"){$menu = "active";}
-else $menu = "";
+if($page == "home")
+    $home = "active";
+else
+    $home = "";
+if($page == "menu")
+    $menu = "active";
+else 
+    $menu = "";
 if($page == "order")
     $order = "active";
 else
