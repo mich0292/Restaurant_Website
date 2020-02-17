@@ -82,7 +82,7 @@
 		<div class="cover-container py-6">
 			<div class="cover-inner container justify-content-center">
 				<h1 class="heading mb-3 py-5">Serving you <br />the best sushi</h1>
-					<button class="btn btn-outline-white d-none d-md-inline" onclick="window.location.href = '#section-tableReservation';">
+					<button type="button" class="btn btn-outline-white d-none d-md-inline" onclick="window.location.href = '#section-tableReservation';">
 							Reserve a table </button> 
 			</div>
 		</div>

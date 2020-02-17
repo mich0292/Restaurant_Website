@@ -1,5 +1,4 @@
 <?php
-    session_start();
     if (isset($_POST['edit-profile'])) {
         require 'dbh.inc.php';
         $username = $_POST['username'];
@@ -13,10 +12,10 @@
         $sql = "UPDATE `user` SET name = '$name', email = '$email', password = '$hashedPwd', birthday = '$birthday', contact = '$contact' WHERE username = '$username'";
 	    $update_profile = mysqli_query($conn,$sql);
 	    if ($update_profile) {
-		   header("Location: ../Profile.php?user=$username");
+		    header("Location: ../Profile.php?user=$username");
         }
-        else {
-		  echo $mysqli->error;
+        else{
+		    echo $mysqli->error;
         }
         mysqli_close($conn);
     }
