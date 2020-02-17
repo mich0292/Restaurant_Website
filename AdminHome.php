@@ -23,7 +23,7 @@ session_start();
   <!-- Wong Zi Jiang -->
   <link rel="stylesheet" href="css/AdminHome.css" />
   <link rel="stylesheet" href="css/admin.css" />
-  <title>Admin Summary</title>
+  <title>Admin Home</title>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -50,7 +50,7 @@ session_start();
         <div class="card-body">
           <i class="fas fa-book-open fa-10x w-100"></i>
           <a href="Admin-OrderSummary.php" class="btn btn-dark rounded-pill mt-3">
-            <h5>Order History</h5>
+            <h5>Order Summary</h5>
           </a>
         </div>
       </div>
