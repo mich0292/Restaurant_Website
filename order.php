@@ -49,6 +49,7 @@ $_SESSION['page'] = "order";
 					<div class="row mt-0 mx-0 mx-lg-5">
 						<div class="col-lg-12 p-4 p-lg-5 bg-white rounded shadow-lg mt-5 mb-5 rounded-lg">
 							<!-- Shopping cart table -->
+							<form method="post" id="order-item">
 							<div class="table-responsive">
 								<table class="table table-hover">
 									<thead class="thead-light">
@@ -116,6 +117,7 @@ $_SESSION['page'] = "order";
 									</tbody>
 								</table>
 							</div>
+						</form>
 						<!-- End of shopping cart table-->
 						<!-- Discount -->
 						<div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Promo code</div>
@@ -141,7 +143,7 @@ $_SESSION['page'] = "order";
 								<li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
 									<h5 class="font-weight-bold">RM15.40</h5>
 								</li>
-							</ul><a href="payment.html" class="btn btn-dark rounded-pill py-2 px-3 px-lg-5">Procceed to checkout</a>
+							</ul><button href="payment.php" class="btn btn-dark rounded-pill py-2 px-3 px-lg-5" type="submit" name="proceed-payment">Procceed to checkout</a>
 						</div>
 						</div>
 					</div>
