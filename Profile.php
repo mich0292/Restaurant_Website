@@ -7,7 +7,7 @@ $username = $_SESSION['username'];
 if(!isset($_SESSION['username'])){
     header("Location: ./Registration.php");
 }
-$sql = "SELECT name,email,birthday,contact FROM user WHERE username='$username'";
+$sql = "SELECT name,email,birthday,contact,is_admin FROM user WHERE username='$username'";
 $result = mysqli_query($conn, $sql);
 if (!$result) {
     echo 'Could not run query: ' . mysql_error();
@@ -19,6 +19,14 @@ $name = $row[0];
 $email = $row[1];
 $birthday = $row[2];
 $contact = $row[3];
+$admin = $row[4];
+
+if($admin == 1){
+    $user = "administrator";
+}
+else{
+    $user = "customer";
+}
    
 ?>
 <!doctype html>
@@ -70,7 +78,7 @@ $contact = $row[3];
                                             <p class="mb-0">@'.$username.'</p>
                                     </div>
                                     <div class="text-center text-sm-right">
-                                        <span class="badge badge-secondary">administrator</span>
+                                        <span class="badge badge-secondary">'.$user.'</span>
                                 </div>
                             </div>
                         </div>

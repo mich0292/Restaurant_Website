@@ -61,17 +61,6 @@ $contact = $row[3];
                 <div class="col-12 col-lg-9 mb-3">
                     <div class="card">
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
-                                    <div class="text-center text-sm-left mb-2 mb-sm-0">
-                                        <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap"></h4>
-                                        <p class="mb-0"></p>
-                                    </div>
-                                    <div class="text-center text-sm-right">
-                                        <span class="badge badge-secondary"></span>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="tab-content pt-3">
                                 <div class="tab-pane active">
                                     <form class="form p-2" method="post" action="includes/profile.inc.php">
