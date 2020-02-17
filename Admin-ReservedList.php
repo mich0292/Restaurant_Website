@@ -1,10 +1,19 @@
 <?php
 	session_start();
-	require 'includes/adminReservation.inc.php';
+	require 'includes/admin/adminReservation.inc.php';
 	 if( isset( $_SESSION['counter'] ) ) {
 		$_SESSION['counter'] += 1;
 	}else {
 		$_SESSION['counter'] = 1;
+		//Clear the saved input
+		$_SESSION['dateInput'] = "";
+		$_SESSION['timeInput'] = "";
+		$_SESSION['nameInput'] = "";
+		$_SESSION['emailInput'] = "";
+		$_SESSION['cityInput'] = "";
+		$_SESSION['phoneInput'] = "";
+		$_SESSION['remarksInput'] = "";
+		
 		 //Clear the error message
 		$_SESSION['dateErr'] = "";
 		$_SESSION['timeErr'] = "";
@@ -22,6 +31,8 @@
 		$_SESSION['phoneClass'] = "";
 		$_SESSION['adultClass'] = "";
 	}
+	$stmt = readReservation();
+	$reservationList = $stmt->fetchAll();
 ?>
 <!doctype html>
 <html lang="en">
@@ -77,8 +88,8 @@
       <div>Table Reservation</div>
       <button class="btn btn-success" data-toggle="modal" data-target="#addReserveModal">Add Reservation</button>
     </div>
-    <div class="row justify-content-center rounded text-center bg-white mt-1 m-0">
-      <table class="table table-responsive table-hover table-bordered m-2 d-none d-lg-table text-center">
+    <div class="row justify-content-center rounded text-center bg-white mt-2 m-0">
+      <table class="table table-responsive table-hover table-bordered m-0 d-none d-lg-table text-center">
         <thead class="thead-dark">
           <tr>
             <th scope="col" class="th-center">
@@ -90,6 +101,9 @@
             <th scope="col" class="th-center">
               <div class="py-2">Contact </div>
             </th>
+			<th scope="col" class="th-center">
+              <div class="py-2">Email</div>
+            </th>
             <th scope="col" class="th-center">
               <div class="py-2">Headcount<br>(Adult)</div>
             </th>
@@ -99,56 +113,45 @@
             <th scope="col" class="th-center">
               <div class="py-2">Time</div>
             </th>
+			<th scope="col" class="th-center">
+              <div class="py-2">Special remarks</div>
+            </th>
             <th scope="col" class="th-center">
               <div class="py-2">Action</div>
             </th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th class="align-middle">
-              1
-            </th>
-            <td class="align-middle">Test 1</td>
-            <td class="align-middle">0123456789</td>
-            <td class="align-middle">2</td>
-            <td class="align-middle">0</td>
-            <td class="align-middle">2020-01-17 15:30:00</td>
-            <td class="align-middle"><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal"><i class="fa fa-trash"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <th class="align-middle">
-              2
-            </th>
-            <td class="align-middle">Test 1</td>
-            <td class="align-middle">0123456789</td>
-            <td class="align-middle">2</td>
-            <td class="align-middle">0</td>
-            <td class="align-middle">2020-01-17 15:30:00</td>
-            <td class="align-middle"><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal"><i class="fa fa-trash"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <th class="align-middle">
-              3
-            </th>
-            <td class="align-middle">Test 1</td>
-            <td class="align-middle">0123456789</td>
-            <td class="align-middle">2</td>
-            <td class="align-middle">0</td>
-            <td class="align-middle">2020-01-17 15:30:00</td>
-            <td class="align-middle">
-              <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal">
-                <i class="fa fa-trash"></i>
-              </button>
-            </td>
-          </tr>
+        <tbody>	
+		<?php
+			$IDCounter = 1;
+			foreach($reservationList as $reservation){
+				echo "<tr>";
+				echo '<th class="align-middle">';
+				echo $reservation[0]; //ID counter
+				//$reservation[7] = city
+				//$reservation[8] = special remark
+				echo "</th>";
+				echo '<td class="align-middle">'.$reservation[5]."</td>"; //Name
+				echo '<td class="align-middle">'.$reservation[7]."</td>"; //Contact
+				echo '<td class="align-middle">'.$reservation[6]."</td>"; //Email
+				echo '<td class="align-middle">'.$reservation[3]."</td>"; //Num of adult
+				echo '<td class="align-middle">'.$reservation[4]."</td>"; //Num of child
+				echo '<td class="align-middle">'.$reservation[1]." ".$reservation[2]."</td>"; //Date + time
+				echo '<td class="align-middle">'.$reservation[9]."</td>"; //Special remarks
+				echo '<td>
+						<form method="post">
+							<button type="submit" name="deleteReservation" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal" value="'.$reservation[0].'">
+								<i class="fa fa-trash"></i>
+							</button>
+					  </td>';
+				echo "</tr>";
+			}
+		  ?>
         </tbody>
       </table>
     </div>
     <div class="row justify-content-center rounded text-center bg-white mb-5 m-0 d-lg-none">
-      <table class="table table-borderless table-striped border m-2 text-left">
+      <table class="table table-borderless table-striped border text-left">
         <colgroup>
           <col class="p-1 px-2 w-25">
           <col class="p-1 px-2 w-25">
@@ -172,74 +175,6 @@
         <tr>
           <th scope="col">HeadCount<br>(Children)</th>
           <td>2</td>
-        </tr>
-        <tr>
-          <th scope="col">Time</th>
-          <td>2020-01-17 15:30:00</td>
-        </tr>
-        <tr>
-          <th scope="col">Action</th>
-          <td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal"><i class="fa fa-trash"></i></button></td>
-        </tr>
-      </table>
-      <table class="table table-borderless table-striped border m-2 text-left">
-        <colgroup>
-          <col class="p-1 px-2 w-25">
-          <col class="p-1 px-2 w-25">
-        </colgroup>
-        <tr>
-          <th scope="col">ID</th>
-          <td>1</td>
-        </tr>
-        <tr>
-          <th scope="col">Name</th>
-          <td>Test 1</td>
-        </tr>
-        <tr>
-          <th scope="col">Contact</th>
-          <td>0123456789</td>
-        </tr>
-        <tr>
-          <th scope="col">HeadCount<br>(Adult)</th>
-          <td>2</td>
-        </tr>
-        <tr>
-          <th scope="col">HeadCount<br>(Children)</th>
-          <td>1</td>
-        </tr>
-        <tr>
-          <th scope="col">Time</th>
-          <td>2020-01-17 15:30:00</td>
-        </tr>
-        <tr>
-          <th scope="col">Action</th>
-          <td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal"><i class="fa fa-trash"></i></button></td>
-        </tr>
-      </table>
-      <table class="table table-borderless table-striped border m-2 text-left">
-        <colgroup>
-          <col class="p-1 px-2 w-25">
-          <col class="p-1 px-2 w-25">
-        </colgroup>
-        <tr>
-          <th scope="col">ID</th>
-          <td>1</td>
-        </tr>
-        <tr>
-          <th scope="col">Name</th>
-          <td>Test 1</td>
-        </tr>
-        <tr>
-          <th scope="col">Contact</th>
-          <td>0123456789</td>
-        </tr>
-        <tr>
-          <th scope="col">HeadCount<br>(Adult)</th>
-          <td>2</td>
-        </tr>
-        <tr>
-          <th scope="col">HeadCount<br>(Children)</th>
-          <td>0</td>
         </tr>
         <tr>
           <th scope="col">Time</th>
@@ -253,88 +188,87 @@
     </div>
   </div>
 
-  <div class="modal fade" id="addReserveModal" tabindex="-1" role="dialog" aria-labelledby="addReserveModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addReserveModalLabel">Add Item</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <form id="addReservationID" method="post">
-			  <div class="form-group">
-                <label for="resvDate" class="">Date:</label>
-                <input type="date-local" class="form-control" name="resvDate" value = "<?php echo $_SESSION['dateInput'];?> ">
-				<small id="<?php echo $_SESSION['dateClass']; ?>"> <?php echo $_SESSION['dateErr']; ?> </small>
-              </div>
-              <div class="form-group">
-                <label for="resvTime" class="">Time:</label>
-                <input type="time-local" class="form-control" name="resvTime" value = "<?php echo $_SESSION['timeInput'];?> ">
-				<small id="<?php echo $_SESSION['timeClass'];?>"> <?php echo $_SESSION['timeErr']; ?> </small>
-              </div>
-				<div class="form-group">
-                <label for="custName" class="">Name:</label>
-                <input type="text" class="form-control" name="custName" value = "<?php echo $_SESSION['nameInput'];?> ">
-				<small id="<?php echo $_SESSION['nameClass'];?>"> <?php echo $_SESSION['nameErr']; ?> </small>
-              </div>
-              <div class="form-group">
-                <label for="custContact" class="">Contact:</label>
-                <input type="text" class="form-control" name="custContact" value = "<?php echo $_SESSION['phoneInput'];?> ">
-				<small id="<?php echo $_SESSION['phoneClass'];?>"> <?php echo $_SESSION['phoneErr']; ?> </small>
-              </div>
-			  <div class="form-group">
-                <label for="custEmail" class="">Email:</label>
-                <input type="text" class="form-control" name="custEmail" value = "<?php echo $_SESSION['emailInput'];?> ">
-				<small id="<?php echo $_SESSION['emailClass'];?>"> <?php echo $_SESSION['emailErr']; ?> </small>
-              </div>
-			  <div class="form-group">
-                <label for="custCity" class="">City:</label>
-                <input type="text" class="form-control" name="custCity" value = "<?php echo $_SESSION['cityInput'];?> ">
-				<small id="<?php echo $_SESSION['cityClass'];?>"> <?php echo $_SESSION['cityErr']; ?> </small>
-              </div>
-              <div class="form-group">
-                <label for="adultHc" class="">Headcount(Adult):</label>
-                <input type="number" min="1" class="form-control"  name="adultHc" value= "<?php echo $_SESSION['adultInput'];?> ">
-				<small id="<?php echo $_SESSION['adultClass'];?>"> <?php echo $_SESSION['adultErr']; ?> </small>
-              </div>
-              <div class="form-group">
-                <label for="childHc" class="">Headcount(Children):</label>
-                <input type="number" min="0" class="form-control"  name="childHc">
-              </div>
-              <div class="form-group">
-                <label for="specialRemark" class="">Special Remarks:</label>
-                <input type="text" class="form-control" name="specialRemark" value = "<?php echo $_SESSION['remarksInput'];?> ">
-              </div>
-				<button type="submit" name="closeButton" class="btn btn-secondary" >Close</button>
-				<button type="submit" name="addReservation" class="btn btn-primary" >Save changes</button>
-			</form>
+	<div class="modal fade" id="addReserveModal" tabindex="-1" role="dialog" aria-labelledby="addReserveModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="addReserveModalLabel">Add Item</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="addReservationID" method="post">
+						<div class="form-group">
+							<label for="resvDate" class="">Date:</label>
+							<input type="date" class="form-control" name="resvDate" value ="<?php echo $_SESSION['dateInput'];?>">
+							<small id="<?php echo $_SESSION['dateClass']; ?>"> <?php echo $_SESSION['dateErr']; ?> </small>
+						</div>
+						<div class="form-group">
+							<label for="resvTime" class="">Time:</label>
+							<input type="time" class="form-control" name="resvTime" value ="<?php echo $_SESSION['timeInput'];?>">
+							<small id="<?php echo $_SESSION['timeClass'];?>"> <?php echo $_SESSION['timeErr']; ?> </small>
+						</div>
+						<div class="form-group">
+							<label for="custName" class="">Name:</label>
+							<input type="text" class="form-control" name="custName" value ="<?php echo $_SESSION['nameInput'];?>">
+							<small id="<?php echo $_SESSION['nameClass'];?>"> <?php echo $_SESSION['nameErr']; ?> </small>
+						</div>
+						<div class="form-group">
+							<label for="custContact" class="">Contact:</label>
+							<input type="text" class="form-control" name="custContact" value ="<?php echo $_SESSION['phoneInput'];?>">
+							<small id="<?php echo $_SESSION['phoneClass'];?>"> <?php echo $_SESSION['phoneErr']; ?> </small>
+						</div>
+						<div class="form-group">
+							<label for="custEmail" class="">Email:</label>
+							<input type="text" class="form-control" name="custEmail" value = "<?php echo $_SESSION['emailInput'];?>">
+							<small id="<?php echo $_SESSION['emailClass'];?>"> <?php echo $_SESSION['emailErr']; ?> </small>
+						</div>
+						<div class="form-group">
+							<label for="custCity" class="">City:</label>
+							<input type="text" class="form-control" name="custCity" value = "<?php echo $_SESSION['cityInput'];?>">
+							<small id="<?php echo $_SESSION['cityClass'];?>"> <?php echo $_SESSION['cityErr']; ?> </small>
+						</div>
+						<div class="form-group">
+							<label for="adultHc" class="">Headcount(Adult):</label>
+							<input type="number" min="1" class="form-control"  name="adultHc" value= "<?php echo $_SESSION['adultInput'];?>">
+							<small id="<?php echo $_SESSION['adultClass'];?>"> <?php echo $_SESSION['adultErr']; ?> </small>
+						</div>
+						<div class="form-group">
+							<label for="childHc" class="">Headcount(Children):</label>
+							<input type="number" min="0" class="form-control"  name="childHc">
+						</div>
+						<div class="form-group">
+							<label for="specialRemark" class="">Special Remarks:</label>
+							<input type="text" class="form-control" name="specialRemark" value = "<?php echo $_SESSION['remarksInput'];?>">
+						</div>
+							<button type="submit" name="closeButton" class="btn btn-secondary" >Close</button>
+							<button type="submit" name="addReservation" class="btn btn-primary" >Save changes</button>
+					</form>
+				</div>
+			</div>
 		</div>
-    </div>
-  </div>
+	</div>
 
-  <div class="modal fade" id="dltReserveModal" tabindex="-1" role="dialog" aria-labelledby="dltReserveModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="dltReserveModalLabel">Add Item</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div> Remove Reservation?
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" name="deleteReservation" class="btn btn-danger">Comfirm</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="modal fade" id="dltReserveModal" tabindex="-1" role="dialog" aria-labelledby="dltReserveModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="dltReserveModalLabel">Delete Item</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div> Remove Reservation?</div>	
+				</div>
+				<div class="modal-footer">
+					<button type="button" name="deleteReservation" class="btn btn-danger">Comfirm</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>

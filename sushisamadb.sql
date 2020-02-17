@@ -53,6 +53,7 @@ CREATE TABLE `order_history` (
 --
 
 CREATE TABLE `reservation` (
+  `reservationID` int(155) NOT NULL,
   `date_of_reservation` date DEFAULT NULL,
   `time_of_reservation` time DEFAULT NULL,
   `num_of_adult` int(11) DEFAULT NULL,
@@ -68,8 +69,8 @@ CREATE TABLE `reservation` (
 -- Dumping data for table `reservation`
 --
 
-INSERT INTO `reservation` (`date_of_reservation`, `time_of_reservation`, `num_of_adult`, `num_of_child`, `full_name`, `email`, `phone`, `city`, `special_remarks`) VALUES
-('2020-02-14', '10:00:00', 1, 0, 'Michelle Chai', 'michelle123679@gmail.com', '0165727809', 'Cyberjaya', '');
+INSERT INTO `reservation` (`reservationID`, `date_of_reservation`, `time_of_reservation`, `num_of_adult`, `num_of_child`, `full_name`, `email`, `phone`, `city`, `special_remarks`) VALUES
+(1, '2012-12-10', '10:00:00', 1, 0, 'Michelle Chai', 'test', '0165727809', 'test', 'teststetestst' );
 
 -- --------------------------------------------------------
 --

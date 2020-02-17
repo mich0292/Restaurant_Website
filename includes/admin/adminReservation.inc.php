@@ -1,8 +1,11 @@
 <?php
 
+	/*********************************************************************************************
+	*									Add Reservation											 *
+	*********************************************************************************************/
 	// If the reservebutton is pressed
 	if(isset($_POST['addReservation'])){
-		require 'dbh.inc.php';	//connect to database
+		require 'includes/dbh.inc.php';	//connect to database
 
 		$dateOfReservation = $_POST['resvDate'];
 		$timeOfReservation = $_POST['resvTime'];
@@ -15,9 +18,7 @@
 		$remarks = $_POST['specialRemark'];
 		
 		//Ensure all the required fields are filled
-		if (!empty($dateOfReservation) && !empty($timeOfReservation) && !empty($numOfAdult) && !empty($numOfChild) 
-			&& !empty($fullName) && ! empty($email) && !empty($phone) && !empty($city)){
-			
+		if (!empty($dateOfReservation) && !empty($timeOfReservation) && !empty($numOfAdult) && !empty($fullName) && ! empty($email) && !empty($phone) && !empty($city)){			
 			//sql statement for insertion
 			$sql = "INSERT INTO reservation (date_of_reservation, time_of_reservation, num_of_adult, num_of_child, full_name, email, phone, city, special_remarks) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			$stmt = mysqli_stmt_init($conn);
@@ -38,6 +39,7 @@
 			}
 		}	
 		else{
+			//This part is to keep the already input data/ to display the error message for empty fields
 			if (empty($_POST['resvDate'])){
 				$_SESSION['dateErr'] = "Date is required";
 				$_SESSION['dateClass'] = "has-error"; 
@@ -94,12 +96,12 @@
 				$_SESSION['adultErr'] = "Number of adult will be 1";
 				$_SESSION['adultClass'] = "has-error";
 			}else {
-				$_SESSION['adultInput'] = $numOfAdult
+				$_SESSION['adultInput'] = $numOfAdult;
 				$_SESSION['adultErr'] = "";
 				$_SESSION['adultClass'] = "";
 			}
 			
-			if (!empty($_POST['remarks']){
+			if (!empty($_POST['remarks'])){
 				$_SESSION['remarksInput'] = $remarks;
 			}
 			
@@ -112,7 +114,64 @@
 		//Destroy session and clear the variables
 		session_unset(); 
 		session_destroy(); 
-		header("Location: home.php?cancel#section-tableReservation");
+		header("Location: Admin-ReservedList.php");
 		exit();	
 	}
+	
+	/*********************************************************************************************
+	*									Display Reservation										 *
+	*********************************************************************************************/
+	//For pdo connection
+	function setConnectionInfo(){
+		$connString='mysql:host=localhost;dbname=sushisamadb';
+		$user='root';
+		$password='';
+		//Actual connection to database with this line
+		$pdo=new PDO($connString, $user, $password);
+		$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+		return $pdo;
+	}
+
+	function readReservation(){
+		$pdo=setConnectionInfo();
+		//Assign string to sql
+		$sql='SELECT * FROM reservation';
+		//Execute sql (statement hold the result of the query)
+		if ( $statement=$pdo->query($sql)){
+			return $statement;
+		} else{
+			$errorMessage = "Error entering data:".mysqli_error($link)."<br>";
+			session_unset(); 
+			session_destroy(); 
+			header("Location: Admin-ReservedList.php?sql_error");
+			exit();
+		}
+		$pdo = null;
+	}
+	
+	/*********************************************************************************************
+	*									Destroy Reservation										 *
+	*********************************************************************************************/
+	function deleteReservation($ID_number){
+		$pdo=setConnectionInfo();
+		$sql='DELETE FROM reservation WHERE reservationID =:ID_number';
+		if ( $statement=$pdo->prepare($sql)){
+			$statement->bindParam(':ID_number', $ID_number);
+			$statement->execute();
+			header("Location: Admin-ReservedList.php?deleteReservation=success");
+			exit();	
+		} else{
+			$errorMessage = "Error entering data:".mysqli_error($link)."<br>";
+			session_unset(); 
+			session_destroy(); 
+			header("Location: Admin-ReservedList.php?sql_error");
+			exit();
+		}
+		$pdo = null;	
+	}
+	
+	if (isset($_POST['deleteReservation'])){
+		$getID = $_POST['deleteReservation'];
+		deleteReservation($getID);
+	} 
 ?>

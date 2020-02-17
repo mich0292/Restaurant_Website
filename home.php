@@ -129,8 +129,9 @@
 							<label class="control-label">Date of Reservation</label>&nbsp;<span
 								class="input-group-addon"><i class="fa fa-calendar"></i></span>
 							<div class="input-group">
-								<input id="<?php echo $_SESSION['dateClass'];?>"  name="date" type="date" class="form-control" >
+								<input name="date" type="date" class="form-control" value="<?php echo $_SESSION['dateInput']; ?>"> 
 							</div>
+							<small id="<?php echo $_SESSION['dateClass'];?>"> <?php echo $_SESSION['dateErr']; ?> </small>
 						</div>
 					</div>
 
@@ -138,9 +139,9 @@
 						<div class="form-group">
 							<label class="control-label">Time of Reservation</label>
 							<div class="input-group">
-								<input  name="time" type="time" class="form-control" >
-								<small id="<?php echo $_SESSION['nameClass'];?>"> <?php echo $_SESSION['nameErr']; ?> </small>
+								<input name="time" type="time" class="form-control" value="<?php echo $_SESSION['timeInput']; ?>" >
 							</div>
+							<small id="<?php echo $_SESSION['timeClass'];?>"> <?php echo $_SESSION['timeErr']; ?> </small>
 						</div>
 					</div>
 
@@ -200,7 +201,7 @@
 						<div class="form-group">
 							<label class="control-label">Special remarks (Eg. food allergy )</label>
 							<textarea class="form-control" name="remarks" rows="4" 
-							placeholder="Please write to us!" value="<?php echo $_SESSION['remarksInput']; ?>" ></textarea>
+							placeholder="Please write to us!" ><?php echo $_SESSION['remarksInput']; ?></textarea>
 						</div>
 					</div>
 
