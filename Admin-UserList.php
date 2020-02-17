@@ -1,4 +1,40 @@
-<!doctype html>
+<?php
+	session_start();
+	require 'includes/admin/adminUser.inc.php';
+	 if( isset( $_SESSION['counter'] ) ) {
+		$_SESSION['counter'] += 1;
+	}else {
+		// $_SESSION['counter'] = 1;
+		// //Clear the saved input
+		// $_SESSION['dateInput'] = "";
+		// $_SESSION['timeInput'] = "";
+		// $_SESSION['nameInput'] = "";
+		// $_SESSION['emailInput'] = "";
+		// $_SESSION['cityInput'] = "";
+		// $_SESSION['phoneInput'] = "";
+		// $_SESSION['remarksInput'] = "";
+		
+		//  //Clear the error message
+		// $_SESSION['dateErr'] = "";
+		// $_SESSION['timeErr'] = "";
+		// $_SESSION['nameErr'] = "";
+		// $_SESSION['phoneErr'] = "";
+		// $_SESSION['emailErr'] = "";
+		// $_SESSION['cityErr'] = "";
+		// $_SESSION['adultErr'] = "";
+		
+		// //Clear the error formattting
+		// $_SESSION['dateClass'] = ""; 
+		// $_SESSION['timeClass'] = "";
+		// $_SESSION['nameClass'] = "";
+		// $_SESSION['emailClass'] = "";
+		// $_SESSION['phoneClass'] = "";
+		// $_SESSION['adultClass'] = "";
+	}
+	$stmt = readUserList();
+	$userList = $stmt->fetchAll();
+?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
