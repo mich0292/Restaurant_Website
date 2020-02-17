@@ -9,7 +9,8 @@
 
 		if (empty($_POST['menuPrice']))
 			$priceErr = "Food price is required.";
-	}
+  }
+  $menuList = readMenu();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,10 +31,11 @@
   <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
 
   <!-- Wong Zi Jiang -->
-  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="stylesheet" href="css/admin.css"/>
   <title>Menu List</title>
 
   <!-- Optional JavaScript -->
+  <script type="text/javascript" src="Admin-MenuList.js"></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -80,44 +82,35 @@
               <div class="py-2">Price</div>
             </th>
             <th scope="col" class="th-center">
+              <div class="py-2">Picture URL</div>
+            </th>
+            <th scope="col" class="th-center">
               <div class="py-2">Action</div>
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th class="align-middle">
-              1
-            </th>
-            <td class="align-middle">Salmon Sushi</td>
-            <td class="align-middle">RM4.80</td>
-            <td class="align-middle"><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltMenuModal"><i class="fa fa-trash"></i></button>
-              <button class="btn btn-sm ml-1 btn-primary" data-toggle="modal" data-target="#editMenuModal"><i class="fa fa-edit"></i></button></td>
-          </tr>
-          <tr>
-            <th class="align-middle">
-              2
-            </th>
-            <td class="align-middle">California roll</td>
-            <td class="align-middle">RM2.80</td>
-            <td class="align-middle">
-              <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltMenuModal"><i class="fa fa-trash"></i></button>
-              <button class="btn btn-sm ml-1 btn-primary" data-toggle="modal" data-target="#editMenuModal"><i class="fa fa-edit"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <th class="align-middle">
-              3
-            </th>
-            <td class="align-middle">Inari Igiri</td>
-            <td class="align-middle">RM1.80</td>
-            <td class="align-middle">
-              <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltMenuModal">
-                <i class="fa fa-trash"></i>
-              </button>
-              <button class="btn btn-sm ml-1 btn-primary" data-toggle="modal" data-target="#editMenuModal"><i class="fa fa-edit"></i></button>
-            </td>
-          </tr>
+        <?php
+			    $IDCounter = 1;
+			    foreach($menuList as $menuItem){
+            echo "<tr>";
+            echo '<th class="align-middle">';
+            echo $menuItem[0]; //ID counter
+            echo "</th>";
+            echo '<td class="align-middle">'.$menuItem[1]."</td>"; //Name
+            echo '<td class="align-middle">'.$menuItem[2]."</td>"; //Contact
+            echo '<td class="align-middle">'.$menuItem[3]."</td>"; //Email
+            echo '<td>
+                    <button type="submit" name="deleteReservation" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal" value="'.$menuItem[0].'">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                    <button class="btn btn-sm ml-0 btn-primary" data-toggle="modal" data-target="#editMenuModal" value="'.$menuItem[0].'">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                  </td>';
+            echo "</tr>";
+			}
+		  ?>
         </tbody>
       </table>
     </div>
@@ -205,7 +198,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="addMenuModalLabel">Add Item</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="reset" class="close" data-dismiss="modal" aria-label="Close" name="closeAddItem" onClick="resetForm()">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -214,21 +207,21 @@
             <form method="post" id="addMenuForm">
               <div class="form-group">
                 <label for="menuName" class="">Name:</label>
-                <input type="text" class="form-control" name="menuName">
+                <input type="text" class="form-control" name="menuName" id="addMenuName">
               </div>
               <div class="form-group">
                 <label for="menuPrice" class="">Price:</label>
-                <input type="number" class="form-control" step="0.01" min="0" name="menuPrice">
+                <input type="number" class="form-control" step="0.01" min="0" name="menuPrice" id="addMenuPrice">
               </div>
               <div class="form-group">
                 <label for="menuPicUrl" class="">Picture URL:</label>
-                <input type="text" class="form-control" name="menuPicUrl">
+                <input type="text" class="form-control" name="menuPicUrl" id="addMenuPicUrl">
               </div>
             </form>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="reset" class="btn btn-secondary" data-dismiss="modal" name="closeAddItem" form="addMenuForm" onClick="resetForm()">Close</button>
           <button type="submit" name="addMenuButton" class="btn btn-primary" form="addMenuForm">Comfirm</button>
         </div>
       </div>
@@ -240,13 +233,13 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="editMenuModalLabel">Edit Item</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="resetForm()">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <div>
-            <form method="post">
+            <form method="post" id="editMenuForm">
               <div class="form-group">
                 <label for="menuName" class="">Name:</label>
                 <input type="text" class="form-control" name="menuName">
@@ -263,7 +256,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="resetForm()">Close</button>
           <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
