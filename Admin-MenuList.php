@@ -63,14 +63,14 @@
   <nav class="navbar navbar-light bg-light justify-content-between">
     <a class="navbar-brand font-weight-bold">
       <i class="fa fa-cogs mr-2"></i>Sushi Sama Panel</a>
-    <a href="AdminLogin.html" class="justify-content-end"><i class="fa fa-lg fa-sign-out-alt"></i></a>
+    <a href="AdminLogin.php" class="justify-content-end"><i class="fa fa-lg fa-sign-out-alt"></i></a>
   </nav>
 
   <div class="container">
     <div class="row px-3 mt-3 rounded-lg">
       <nav aria-label="breadcrumb" class="w-100">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="AdminHome.html"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item"><a href="AdminHome.php"><i class="fas fa-home"></i></a></li>
           <li class="breadcrumb-item active" aria-current="page">Menu List</li>
         </ol>
       </nav>

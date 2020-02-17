@@ -1,38 +1,34 @@
 <?php
 	session_start();
 	require 'includes/admin/adminUser.inc.php';
-	 if( isset( $_SESSION['counter'] ) ) {
-		$_SESSION['counter'] += 1;
-	}else {
-		// $_SESSION['counter'] = 1;
-		// //Clear the saved input
-		// $_SESSION['dateInput'] = "";
-		// $_SESSION['timeInput'] = "";
-		// $_SESSION['nameInput'] = "";
-		// $_SESSION['emailInput'] = "";
-		// $_SESSION['cityInput'] = "";
-		// $_SESSION['phoneInput'] = "";
-		// $_SESSION['remarksInput'] = "";
+		//Clear the saved input
+		$_SESSION['usernameInput'] = "";
+		$_SESSION['passwordInput'] = "";
+		$_SESSION['nameInput'] = "";
+		$_SESSION['emailInput'] = "";
+		$_SESSION['contactInput'] = "";
+		$_SESSION['staffInput'] = "";
 		
-		//  //Clear the error message
-		// $_SESSION['dateErr'] = "";
-		// $_SESSION['timeErr'] = "";
-		// $_SESSION['nameErr'] = "";
-		// $_SESSION['phoneErr'] = "";
-		// $_SESSION['emailErr'] = "";
-		// $_SESSION['cityErr'] = "";
-		// $_SESSION['adultErr'] = "";
+		 //Clear the error message
+		$_SESSION['usernameErr'] = "";
+		$_SESSION['passwordErr'] = "";
+		$_SESSION['nameErr'] = "";
+		$_SESSION['contactErr'] = "";
+		$_SESSION['emailErr'] = "";
+		$_SESSION['bdayErr'] = "";
+		$_SESSION['staffErr'] = "";
 		
-		// //Clear the error formattting
-		// $_SESSION['dateClass'] = ""; 
-		// $_SESSION['timeClass'] = "";
-		// $_SESSION['nameClass'] = "";
-		// $_SESSION['emailClass'] = "";
-		// $_SESSION['phoneClass'] = "";
-		// $_SESSION['adultClass'] = "";
-	}
+		//Clear the error formattting
+		$_SESSION['dateClass'] = ""; 
+		$_SESSION['timeClass'] = "";
+		$_SESSION['nameClass'] = "";
+		$_SESSION['emailClass'] = "";
+		$_SESSION['contactClass'] = "";
+        $_SESSION['bdayClass'] = "";
+        $_SESSION['staffClass'] = "";
+	
 	$stmt = readUserList();
-	$userList = $stmt->fetchAll();
+    $userList = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,6 +50,7 @@
 
   <!-- Wong Zi Jiang -->
   <link rel="stylesheet" href="css/admin.css" />
+  <script type="text/javascript" src="Admin-UserList.js"></script>
   <title>User List</title>
 
   <!-- Optional JavaScript -->
@@ -85,85 +82,67 @@
         </ol>
       </nav>
     </div>
-    <div class="row p-2 bg-white shadow-lg rounded-lg title px-3 m-0 text-left">
+    <div class="row p-2 bg-white shadow-lg rounded-lg title px-3 text-left m-0">
       User List
     </div>
-    <div class="row d-flex justify-content-center rounded text-center bg-white mt-1 m-0">
-      <table class="table table-hover table-bordered m-2 d-none d-lg-table">
+    <div class="row d-flex rounded text-center bg-white mt-1 table-responsive m-0">
+      <table class="col table table-hover table-bordered d-none d-lg-table">
         <thead class="thead-dark">
           <tr>
             <th scope="col">
-              <div class="p-2">ID</div>
+              <div class="">ID</div>
             </th>
             <th scope="col" class="th-center">
-              <div class="py-2">Username</div>
+              <div class="">Username</div>
             </th>
             <th scope="col" class="th-center">
-              <div class="py-2">Password </div>
+              <div class="">Password </div>
             </th>
             <th scope="col" class="th-center">
-              <div class="py-2">Name</div>
+              <div class="">Name</div>
             </th>
             <th scope="col" class="th-center">
-              <div class="py-2">Birthday</div>
+              <div class="">Birthday</div>
             </th>
             <th scope="col" class="th-center">
-              <div class="py-2">Email</div>
+              <div class="">Email</div>
             </th>
             <th scope="col" class="th-center">
-              <div class="py-2">Contact</div>
+              <div class="">Contact</div>
             </th>
             <th scope="col" class="th-center">
-              <div class="py-2">Action</div>
+              <div class="">Staff</div>
+            </th>
+            <th scope="col" class="th-center">
+              <div class="">Action</div>
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th class="align-middle">
-              1
-            </th>
-            <td class="align-middle">lucas123</td>
-            <td class="align-middle">Lucas123</td>
-            <td class="align-middle">Lucas Wong</td>
-            <td class="align-middle">1999-02-21</td>
-            <td class="align-middle">lucas@gmail.com</td>
-            <td class="align-middle">0123456789</td>
-            <td class="align-middle">
-              <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
-              <button class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <th class="align-middle">
-              2
-            </th>
-            <td class="align-middle">lucas1234</td>
-            <td class="align-middle">Lucas1234</td>
-            <td class="align-middle">Lucas Wang</td>
-            <td class="align-middle">1999-02-21</td>
-            <td class="align-middle">lucas@gmail.com</td>
-            <td class="align-middle">0123456789</td>
-            <td class="align-middle">
-              <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
-              <button class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <th class="align-middle">
-              3
-            </th>
-            <td class="align-middle">lucas12345</td>
-            <td class="align-middle">Lucas12345</td>
-            <td class="align-middle">Lucas Wong</td>
-            <td class="align-middle">1999-02-21</td>
-            <td class="align-middle">lucas@gmail.com</td>
-            <td class="align-middle">0123456789</td>
-            <td class="align-middle">
-              <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
-              <button class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></button>
-            </td>
-          </tr>
+            <?php
+                foreach($userList as $user){
+                    echo "<tr>";
+                    echo '<th class="align-middle">';
+                    echo $user[0]; //ID
+                    echo "</th>";
+                    echo '<td class="align-middle username">'.$user[1]."</td>"; //Username   
+                    echo '<td class="align-middle password">'.$user[2]."</td>"; //Password
+                    echo '<td class="align-middle name">'.$user[4]."</td>"; //Name
+                    echo '<td class="align-middle birthday">'.$user[5]."</td>"; //Birthday
+                    echo '<td class="align-middle email">'.$user[3]."</td>"; //Email
+                    echo '<td class="align-middle contact">'.$user[6]."</td>"; //Contact
+                    echo '<td class="align-middle is-staff">'.$user[7]."</td>"; //Is_Staff
+                    echo '<td>
+                        <form method="get">
+                        <button type="button" name="retrieveUser" class="btn btn-sm btn-primary editButton" data-toggle="modal" data-target="#editUserModal" value="'.$user[0].'">
+                        <i class="fa fa-edit"></i>
+                        </button>
+                        <button type="submit" name="deleteReservation" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal" value="'.$user[0].'">
+                        <i class="fa fa-trash"></i>
+                        </button>
+                        </td></form>';
+                    echo "</tr>";}
+            ?>
         </tbody>
       </table>
     </div>
@@ -293,6 +272,106 @@
       </table>
     </div>
   </div>
-</body>
 
+  <div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="editUserModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+                    <form id="editUserForm" method="post" action="includes/admin/adminUser.inc.php">
+						<div class="form-group">
+							<label for="usrlUsername" class="">Username:</label>
+							<input type="text" class="form-control" id="editUsername" name="usrlUsername" value ="<?php echo $_SESSION['usernameInput'];?>" readonly>
+							<small id="<?php echo $_SESSION['usernameClass']; ?>"> <?php echo $_SESSION['usernameErr']; ?> </small>
+						</div>
+						<div class="form-group">
+							<label for="usrlPassword" class="">Password:</label>
+							<input type="text" class="form-control" id="editPassword" name="usrlPassword" value ="<?php echo $_SESSION['passwordInput'];?>" >
+							<small id="<?php echo $_SESSION['passwordClass'];?>"> <?php echo $_SESSION['passwordErr']; ?> </small>
+						</div>
+						<div class="form-group">
+							<label for="usrlName" class="">Name:</label>
+							<input type="text" class="form-control" id="editName" name="usrlName" value ="<?php echo $_SESSION['nameInput'];?>">
+							<small id="<?php echo $_SESSION['nameClass'];?>"> <?php echo $_SESSION['nameErr']; ?> </small>
+                        </div>
+                        <div class="form-group">
+							<label for="usrlBday" class="">Birthday:</label>
+							<input type="date" class="form-control" id="editBirthday" name="usrlBday" value = "<?php echo $_SESSION['bdayInput'];?>">
+							<small id="<?php echo $_SESSION['bdayClass'];?>"> <?php echo $_SESSION['bdayErr']; ?> </small>
+                        </div>
+                        <div class="form-group">
+							<label for="usrlEmail" class="">Email:</label>
+							<input type="text" class="form-control" id="editEmail" name="usrlEmail" value = "<?php echo $_SESSION['emailInput'];?>">
+							<small id="<?php echo $_SESSION['emailClass'];?>"> <?php echo $_SESSION['emailErr']; ?> </small>
+						</div>
+						<div class="form-group">
+							<label for="usrlContact" class="">Contact:</label>
+							<input type="text" class="form-control" id="editContact" name="usrlContact" value ="<?php echo $_SESSION['contactInput'];?>">
+							<small id="<?php echo $_SESSION['contactClass'];?>"> <?php echo $_SESSION['contactErr']; ?> </small>
+						</div>
+						<div class="form-group">
+							<label for="usrlIsStaff" class="">Is Staff:</label>
+							<input type="text" class="form-control" id="editIsStaff" name="usrlIsStaff" value = "<?php echo $_SESSION['staffInput'];?>">
+							<small id="<?php echo $_SESSION['staffClass'];?>"> <?php echo $_SESSION['staffErr']; ?> </small>
+						</div>
+							<button type="submit" name="closeButton" class="btn btn-secondary" >Close</button>
+							<button type="submit" name="editUser" class="btn btn-primary" >Save changes</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="dltReserveModal" tabindex="-1" role="dialog" aria-labelledby="dltReserveModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="dltReserveModalLabel">Delete Item</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div> Remove User?</div>	
+				</div>
+				<div class="modal-footer">
+					<button type="button" name="deleteReservation" class="btn btn-danger">Comfirm</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+    </div>
+    <script>
+        $(document).on('click','.editButton',function(){
+            var row = $(this).closest('tr');
+            var name = row.find('.name').text();
+            var username = row.find('.username').text();
+            var password = row.find('.password').text();
+            var birthday = row.find('.birthday').text();
+            var email = row.find('.email').text();
+            var contact = row.find('.contact').text();
+            var is_staff = row.find('.is-staff').text();
+            $('#editUserModal').find('#editName').val(name);
+            $('#editUserModal').find('#editUsername').val(username);
+            $('#editUserModal').find('#editPassword').val(password);
+            $('#editUserModal').find('#editBirthday').val(birthday);
+            $('#editUserModal').find('#editEmail').val(email);
+            $('#editUserModal').find('#editContact').val(contact);
+            $('#editUserModal').find('#editIsStaff').val(is_staff);
+            $('#editUserModal').modal('show');
+            console.log("Got IT");
+            console.log(name);
+            console.log(check);
+            });
+            $(document).on('click','.dltButton',function(){ // Click to only happen on announce links
+				$("#userID").val($(this).data('id'));
+				$('#dltUserModal').modal('show');
+		   });
+    </script>
+</body>
 </html>
