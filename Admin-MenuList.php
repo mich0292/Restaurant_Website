@@ -91,24 +91,23 @@
         </thead>
         <tbody>
         <?php
-			    $IDCounter = 1;
-			    foreach($menuList as $menuItem){
-            echo "<tr>";
-            echo '<th class="align-middle">';
-            echo $menuItem[0]; //ID counter
-            echo "</th>";
-            echo '<td class="align-middle">'.$menuItem[1]."</td>"; //Name
-            echo '<td class="align-middle">'.$menuItem[2]."</td>"; //Contact
-            echo '<td class="align-middle">'.$menuItem[3]."</td>"; //Email
-            echo '<td>
-                    <button type="submit" name="deleteReservation" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal" value="'.$menuItem[0].'">
-                      <i class="fa fa-trash"></i>
-                    </button>
-                    <button class="btn btn-sm ml-0 btn-primary" data-toggle="modal" data-target="#editMenuModal" value="'.$menuItem[0].'">
-                      <i class="fa fa-edit"></i>
-                    </button>
-                  </td>';
-            echo "</tr>";
+			foreach($menuList as $menuItem){
+				echo "<tr>";
+				echo '<th class="align-middle">';
+				echo $menuItem[0]; //ID 
+				echo "</th>";
+				echo '<td class="align-middle">'.$menuItem[1]."</td>"; //Name
+				echo '<td class="align-middle">'.$menuItem[2]."</td>"; //Contact
+				echo '<td class="align-middle">'.$menuItem[3]."</td>"; //Email
+				echo '<td>
+						<button type="submit" name="deleteReservation" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal" value="'.$menuItem[0].'">
+						  <i class="fa fa-trash"></i>
+						</button>
+						<button class="btn btn-sm ml-0 btn-primary" data-toggle="modal" data-target="#editMenuModal" value="'.$menuItem[0].'">
+						  <i class="fa fa-edit"></i>
+						</button>
+					  </td>';
+				echo "</tr>";
 			}
 		  ?>
         </tbody>

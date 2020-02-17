@@ -123,11 +123,10 @@
         </thead>
         <tbody>	
 		<?php
-			$IDCounter = 1;
 			foreach($reservationList as $reservation){
 				echo "<tr>";
 				echo '<th class="align-middle">';
-				echo $reservation[0]; //ID counter
+				echo $reservation[0]; //ID
 				//$reservation[7] = city
 				//$reservation[8] = special remark
 				echo "</th>";
