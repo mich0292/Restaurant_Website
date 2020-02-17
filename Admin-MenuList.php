@@ -63,14 +63,14 @@
   <nav class="navbar navbar-light bg-light justify-content-between">
     <a class="navbar-brand font-weight-bold">
       <i class="fa fa-cogs mr-2"></i>Sushi Sama Panel</a>
-    <a href="AdminLogin.html" class="justify-content-end"><i class="fa fa-lg fa-sign-out-alt"></i></a>
+    <a href="AdminLogin.php" class="justify-content-end"><i class="fa fa-lg fa-sign-out-alt"></i></a>
   </nav>
 
   <div class="container">
     <div class="row px-3 mt-3 rounded-lg">
       <nav aria-label="breadcrumb" class="w-100">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="AdminHome.html"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item"><a href="AdminHome.php"><i class="fas fa-home"></i></a></li>
           <li class="breadcrumb-item active" aria-current="page">Menu List</li>
         </ol>
       </nav>
@@ -127,81 +127,41 @@
       </table>
     </div>
     <div class="row justify-content-center rounded text-center bg-white mb-5 m-0 d-md-none">
-      <table class="table table-borderless table-responsive table-striped border m-2 text-left">
-        <colgroup>
-          <col class="p-1 px-2 w-25">
-          <col class="p-1 px-2 w-25">
-        </colgroup>
-        <tr>
-          <th scope="col">ID</th>
-          <td>1</td>
-        </tr>
-        <tr>
-          <th scope="col">Name</th>
-          <td>Salmon Sushi</td>
-        </tr>
-        <tr>
-          <th scope="col">Price</th>
-          <td>RM4.80</td>
-        </tr>
-        <tr>
-          <th scope="row">Action</th>
-          <td>
-            <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltMenuModal"><i class="fa fa-trash"></i></button>
-            <button class="btn btn-sm ml-0 btn-primary" data-toggle="modal" data-target="#editMenuModal"><i class="fa fa-edit"></i></button>
-          </td>
-        </tr>
-      </table>
-      <table class="table table-borderless table-striped border m-2 text-left">
-        <colgroup>
-          <col class="p-1 px-2 w-25">
-          <col class="p-1 px-2 w-25">
-        </colgroup>
-        <tr>
-          <th scope="col">ID</th>
-          <td>2</td>
-        </tr>
-        <tr>
-          <th scope="col">Name</th>
-          <td>California roll</td>
-        </tr>
-        <tr>
-          <th scope="col">Price</th>
-          <td>RM2.80</td>
-        </tr>
-        <tr>
-          <th scope="row">Action</th>
-          <td>
-            <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltMenuModal"><i class="fa fa-trash"></i></button>
-            <button class="btn btn-sm ml-0 btn-primary" data-toggle="modal" data-target="#editMenuModal"><i class="fa fa-edit"></i></button>
-          </td>
-        </tr>
-      </table>
-      <table class="table table-borderless table-striped border m-2 text-left">
-        <colgroup>
-          <col class="p-1 px-2 w-25">
-          <col class="p-1 px-2 w-25">
-        </colgroup>
-        <tr>
-          <th scope="col">ID</th>
-          <td>3</td>
-        </tr>
-        <tr>
-          <th scope="col">Name</th>
-          <td>Inari Igiri</td>
-        </tr>
-        <tr>
-          <th scope="col">Price</th>
-          <td>RM1.80</td>
-        </tr>
-        <tr>
-          <th scope="row">Action</th>
-          <td>
-            <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltMenuModal"><i class="fa fa-trash"></i></button>
-            <button class="btn btn-sm ml-0 btn-primary" data-toggle="modal" data-target="#editMenuModal"><i class="fa fa-edit"></i></button>
-          </td>
-        </tr>
-      </table>
+      <?php
+			foreach($menuList as $menuItem){ 
+				echo	'<table class="table table-borderless table-striped border md-3 text-left">
+						<colgroup>
+						  <col class="p-1 px-2 w-25">
+						  <col class="p-1 px-2 w-25">
+						</colgroup>
+						<tr>
+						  <th scope="col">ID</th>
+						  <td>'.$menuItem[0].'</td>
+						</tr>
+						<tr>
+						  <th scope="col">Category</th>
+						  <td>'.$menuItem[3].'</td>
+						</tr>
+						<tr>
+						  <th scope="col">Name</th>
+						  <td>'.$menuItem[1].'</td>
+						</tr>
+						<tr>
+						  <th scope="col">Price</th>
+						  <td>'.$menuItem[2].'</td>
+						</tr>
+						<tr>
+						  <th scope="col">Picture:<br>(Adult)</th>
+						  <td><img src="'.$menuItem[4].'" height="50" width="50"></td>
+						</tr>
+						<tr>
+						  <th scope="col">Action</th>
+						  <td><button class="btn btn-sm btn-danger deleteButton" data-toggle="modal" data-id="'.$menuItem[0].'"><i class="fa fa-trash"></i></button></td>
+						</tr>
+				</table>	';	
+			}
+		  ?>
+
     </div>
   </div>
   

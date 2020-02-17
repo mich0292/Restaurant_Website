@@ -80,14 +80,14 @@
   <nav class="navbar navbar-light bg-light justify-content-between">
     <a class="navbar-brand font-weight-bold">
       <i class="fa fa-cogs mr-2"></i>Sushi Sama Panel</a>
-    <a href="AdminLogin.html" class="justify-content-end"><i class="fa fa-lg fa-sign-out-alt"></i></a>
+    <a href="AdminLogin.php" class="justify-content-end"><i class="fa fa-lg fa-sign-out-alt"></i></a>
   </nav>
 
   <div class="container">
     <div class="row px-3 mt-3 rounded-lg">
       <nav aria-label="breadcrumb" class="w-100">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="AdminHome.html"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item"><a href="AdminHome.php"><i class="fas fa-home"></i></a></li>
           <li class="breadcrumb-item active" aria-current="page">Table Reservation</li>
         </ol>
       </nav>
@@ -156,41 +156,53 @@
         </tbody>
       </table>
     </div>
-    <div class="row justify-content-center rounded text-center bg-white mb-5 m-0 d-lg-none">
-      <table class="table table-borderless table-striped border text-left">
-        <colgroup>
-          <col class="p-1 px-2 w-25">
-          <col class="p-1 px-2 w-25">
-        </colgroup>
-        <tr>
-          <th scope="col">ID</th>
-          <td>1</td>
-        </tr>
-        <tr>
-          <th scope="col">Name</th>
-          <td>Test 1</td>
-        </tr>
-        <tr>
-          <th scope="col">Contact</th>
-          <td>0123456789</td>
-        </tr>
-        <tr>
-          <th scope="col">HeadCount<br>(Adult)</th>
-          <td>2</td>
-        </tr>
-        <tr>
-          <th scope="col">HeadCount<br>(Children)</th>
-          <td>2</td>
-        </tr>
-        <tr>
-          <th scope="col">Time</th>
-          <td>2020-01-17 15:30:00</td>
-        </tr>
-        <tr>
-          <th scope="col">Action</th>
-          <td><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal"><i class="fa fa-trash"></i></button></td>
-        </tr>
-      </table>
+    <div class="row justify-content-center rounded text-center bg-white m-0 d-lg-none">
+			<?php
+			foreach($reservationList as $reservation){ 
+				echo	'<table class="table table-borderless table-striped border md-3 text-left">
+						<colgroup>
+						  <col class="p-1 px-2 w-25">
+						  <col class="p-1 px-2 w-25">
+						</colgroup>
+						<tr>
+						  <th scope="col">ID</th>
+						  <td>'.$reservation[0].'</td>
+						</tr>
+						<tr>
+						  <th scope="col">Name</th>
+						  <td>'.$reservation[5].'</td>
+						</tr>
+						<tr>
+						  <th scope="col">Contact</th>
+						  <td>'.$reservation[7].'</td>
+						</tr>
+						<tr>
+						  <th scope="col">Email</th>
+						  <td>'.$reservation[6].'</td>
+						</tr>
+						<tr>
+						  <th scope="col">HeadCount<br>(Adult)</th>
+						  <td>'.$reservation[3].'</td>
+						</tr>
+						<tr>
+						  <th scope="col">HeadCount<br>(Children)</th>
+						  <td>'.$reservation[4].'</td>
+						</tr>
+						<tr>
+						  <th scope="col">Time</th>
+						  <td>'.$reservation[1]." ".$reservation[2].'</td>
+						</tr>
+						<tr>
+						  <th scope="col">Special remarks </th>
+						  <td>'.$reservation[9].'</td>
+						</tr>
+						<tr>
+						  <th scope="col">Action</th>
+						  <td><button class="btn btn-sm btn-danger deleteButton" data-toggle="modal" data-id="'.$reservation[0].'"><i class="fa fa-trash"></i></button></td>
+						</tr>
+				</table>	';	
+			}
+		  ?>
     </div>
   </div>
 
