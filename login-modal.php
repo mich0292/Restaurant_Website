@@ -11,11 +11,11 @@
 					<form action="includes/login.inc.php" method="post" id="loginform">
 						<div class="form-group">
 							<label for="usernameInput"><i class="fas fa-user mr-2 px-1"></i>Username</label>
-							<input type="text" class="form-control" id="usernameInput" name="username" placeholder="Username">
+							<input type="text" class="form-control" id="usernameInput" name="username" placeholder="Username" required>
 						</div>
 						<div class="form-group">
 							<label for="passwordInput"><i class="fas fa-lock mr-2 px-1"></i>Password</label>
-							<input type="password" class="form-control" id="passwordInput" name="password" placeholder="Password">
+							<input type="password" class="form-control" id="passwordInput" name="password" placeholder="Password" required>
 						</div>
 						<small id="registerLink" class="form-text text-muted">Not a member yet? <a
 								href="Registration.php">Sign up here</a></small>
