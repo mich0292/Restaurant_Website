@@ -7,14 +7,13 @@ $username = $_SESSION['username'];
 if(!isset($_SESSION['username'])){
     header("Location: ./Registration.php");
 }
-$sql = "SELECT name,email,birthday,contact FROM user WHERE username='$username'";
+$sql = "SELECT name,email,birthday,contact,password FROM user WHERE username='$username'";
 $result = mysqli_query($conn, $sql);
 if (!$result) {
     echo 'Could not run query: ' . mysql_error();
     exit;
 }
 $row = mysqli_fetch_row($result);
-
 $name = $row[0];
 $email = $row[1];
 $birthday = $row[2];
@@ -75,12 +74,28 @@ $contact = $row[3];
                         </div>
                         <div class="tab-content pt-3">
                             <div class="tab-pane active">
-                                <form class="form p-2" method="post" action="includes/profile.inc.php">
+                                <form class="form p-2" method="post" action="includes/profile.inc.php" id="editProfileform">
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group">
                                                 <label>Username</label>
-                                                <input class="form-control" type="text" name="username" value="" placeholder="<?php echo $username?>">
+                                                <input class="form-control" type="text" name="username" value="<?php echo $username?>" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Full Name</label>
+                                                <input class="form-control" type="text" name="name" value="<?php echo $name?>" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Password</label>
+                                                <input class="form-control" type="password" name="name" >
                                             </div>
                                         </div>
                                     </div>
@@ -88,7 +103,7 @@ $contact = $row[3];
                                         <div class="col">
                                             <div class="form-group">
                                                 <label>Email</label>
-                                                <input class="form-control" type="email" value="" placeholder="<?php echo $email?>">
+                                                <input class="form-control" type="email" value="<?php echo $email?>" >
                                             </div>
                                         </div>
                                     </div>
@@ -96,7 +111,7 @@ $contact = $row[3];
                                         <div class="col">
                                             <div class="form-group">
                                                 <label>Birthday</label>
-                                                <input class="form-control" type="date" value="" placeholder="<?php echo $birthday?>">
+                                                <input class="form-control" type="date" value="<?php echo $birthday?>" >
                                             </div>
                                         </div>
                                     </div>
@@ -104,14 +119,14 @@ $contact = $row[3];
                                         <div class="col">
                                             <div class="form-group">
                                                 <label>Contact</label>
-                                                <input class="form-control" type="text" value="" placeholder="<?php echo $contact?>">
+                                                <input class="form-control" type="text" value="<?php echo $contact?>" >
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group">
-                                                <button class="btn btn-primary" type="submit" name="edit-profile">Save</button>
+                                                <button class="btn btn-primary" type="submit" name="edit-profile" form="editProfileform">Save</button>
                                             </div>
                                         </div>
                                     </div>

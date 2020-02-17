@@ -23,17 +23,17 @@
                     <i class="fa fa-cog fa-2x pl-3"></i>
                     <h3 class="d-inline ml-2">Sushi Sama Panel</h3>
                 </div>
-                <form class="row"> 
+                <form class="row" method="post" action="includes/admin-login.inc.php"> 
                     <div class="form-group w-100 px-3 pt-3">
                         <label for="usernameInput"><i class="fas fa-user mr-2 px-1"></i>Username</label>
-                        <input type="text" class="form-control" id="usernameInput" placeholder="Enter username" required="required" value="" />
+                        <input type="text" class="form-control" id="usernameInput" placeholder="Enter username" required name="username" />
                     </div>
                     <div class="form-group w-100  px-3 pt-3">
                         <label for="passwordInput"><i class="fas fa-lock mr-2 px-1"></i>Password</label>
-                        <input type="password" class="form-control" id="passwordInput" placeholder="Enter password" required="required" value="" />
+                        <input type="password" class="form-control" id="passwordInput" placeholder="Enter password" required name="password" />
                     </div>
                     <div class="form-group w-100 px-3">
-                        <button href="AdminHome.html" class="btn btn-dark">Login</a>
+                        <button type="submit" name="admin-login-submit" class="btn btn-dark">Login</a>
                     </div>
                 </form>
             </div>
