@@ -158,6 +158,8 @@
 		if ( $statement=$pdo->prepare($sql)){
 			$statement->bindParam(':ID_number', $ID_number);
 			$statement->execute();
+			session_unset(); 
+			session_destroy(); 
 			header("Location: Admin-ReservedList.php?deleteReservation=success");
 			exit();	
 		} else{
@@ -170,8 +172,8 @@
 		$pdo = null;	
 	}
 	
-	if ( isset($_POST['deleteReservation']) ){		
-		$getID = $_POST['deleteReservation'];
+	if ( isset($_POST['confirmDeletion']) ){
+		$getID = $_POST['reservationID'];
 		deleteReservation($getID);
 	} 
 ?>

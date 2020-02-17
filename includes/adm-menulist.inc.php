@@ -98,7 +98,7 @@
 	}
 	
 	if (isset($_POST['deleteMenuItem'])){
-		$getID = $_POST['deleteMenuItem'];
+		$getID = $_POST['menuID'];
 		deleteMenuItem($getID);
 	} 
 ?>

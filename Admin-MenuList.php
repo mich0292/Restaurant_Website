@@ -49,6 +49,14 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
+	<script>
+		$(document).ready(function(){
+		     $(".deleteButton").click(function(){ // Click to only happen on announce links
+				$("#menuID").val($(this).data('id'));
+				$('#dltMenuModal').modal('show');
+		   });
+		});
+	</script>
 </head>
 
 <body>
@@ -106,14 +114,11 @@
 				echo '<td class="align-middle">'.$menuItem[2]."</td>"; //Price
 				echo '<td class="align-middle"> <img src="'.$menuItem[4].'" height="50" width="50"></td>'; //Picture's file path
 				echo '<td>
-						<form method="post">
-							<button type="submit" name="deleteMenuItem" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal" value="'.$menuItem[0].'">
-								<i class="fa fa-trash"></i>
-							</button>
-							<button class="btn btn-sm ml-0 btn-primary" data-toggle="modal" data-target="#editMenuModal" value="'.$menuItem[0].'">
-							<i class="fa fa-edit"></i>
-							</button>
-						</form>
+						<button type="button" class="btn btn-sm btn-danger deleteButton" data-toggle="modal"  data-id="'.$menuItem[0].'">
+						<i class="fa fa-trash"></i></button>
+						<button class="btn btn-sm ml-0 btn-primary" data-toggle="modal" data-target="#editMenuModal" value="'.$menuItem[0].'">
+						<i class="fa fa-edit"></i>
+						</button>	
 					  </td>';
 				echo "</tr>";
 			}
@@ -300,8 +305,11 @@
 					<div> Remove Item?</div>	
 				</div>
 				<div class="modal-footer">
-					<button type="button" name="deleteMenuItem" class="btn btn-danger">Comfirm</button>
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<form method ="post" id="deleteMenuItem">
+						<input type="hidden" name="menuID" id="menuID" form="deleteMenuItem">
+						<button type="submit" name="deleteMenuItem" class="btn btn-danger" form="deleteMenuItem">Comfirm</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</form>
 				</div>
 			</div>
 		</div>

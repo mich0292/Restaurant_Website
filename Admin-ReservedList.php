@@ -54,7 +54,6 @@
   <!-- Wong Zi Jiang -->
   <link rel="stylesheet" href="css/admin.css" />
 
-  <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -65,6 +64,15 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
+	<script>
+		$(document).ready(function(){
+		     $(".deleteButton").click(function(){ // Click to only happen on announce links
+				$("#reservationID").val($(this).data('id'));
+				$('#dltReserveModal').modal('show');
+		   });
+		});
+	</script>
+  <!-- Optional JavaScript -->
   <title>Reserved List</title>
 </head>
 
@@ -138,33 +146,11 @@
 				echo '<td class="align-middle">'.$reservation[1]." ".$reservation[2]."</td>"; //Date + time
 				echo '<td class="align-middle">'.$reservation[9]."</td>"; //Special remarks
 				echo '<td>
-					 <form method="post" id="deleteReservation">
-					 <button type="button" name="test" class="btn btn-sm btn-danger" data-toggle="modal" 
-						data-target="#dltReserveModal" form="deleteReservation">
-					 <i class="fa fa-trash"></i>
-					 </button>
-					 </form>
-					 </td>
-					 </tr>
-					<div class="modal fade" id="dltReserveModal" tabindex="-1" role="dialog" aria-labelledby="dltReserveModalLabel" aria-hidden="true">
-					<div class="modal-dialog" role="document">
-					<div class="modal-content">
-					<div class="modal-header">
-					<h5 class="modal-title" id="dltReserveModalLabel">Delete Item</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-					</button>
-					</div>
-					<div class="modal-body">
-					<div> Remove Reservation?</div>	
-					</div>
-					<div class="modal-footer">
-					<button type="submit" name="deleteReservation" class="btn btn-danger" form="deleteReservation" value="'.$reservation[0].'">Comfirm</button>
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					</div>
-					</div>
-					</div>
-					</div>';
+						<button type="button" class="btn btn-sm btn-danger deleteButton" data-toggle="modal" data-id="'.$reservation[0].'"> 
+							<i class="fa fa-trash"></i>
+						</button>
+					  </td>';
+				echo "</tr>"; //data-target="#dltReserveModal"
 			}
 		  ?>
         </tbody>
@@ -270,6 +256,28 @@
 		</div>
 	</div>
 
+	<div class="modal fade" id="dltReserveModal" tabindex="-1" role="dialog" aria-labelledby="dltReserveModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="dltReserveModalLabel">Delete Item</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div> Remove Reservation?</div>	
+				</div>
+				<div class="modal-footer">
+					<form method ="post" id="deleteReservation">
+						<input type="hidden" name="reservationID" id="reservationID" form="deleteReservation">
+						<button type="submit" name="confirmDeletion" class="btn btn-danger" form="deleteReservation">Comfirm</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
