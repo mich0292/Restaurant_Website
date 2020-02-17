@@ -35,7 +35,25 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</head>
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript">
+		function order(x)
+		{
+			//document.getElementById("update").submit();
+			var id = document.getElementsByName("id")[x].value;
+			var qty = prompt("Please enter quantity", "1");
+			
+			document.getElementsByName("tmp_id")[x].value = id;
+			document.getElementsByName("qty")[x].value = qty;
+			document.getElementById("form").submit();
+			
+			alert(document.getElementsByName("tmp_id")[x].value+document.getElementsByName("qty")[x].value);
+			
+			/*$.post('menu.inc.php', {qty:qty,id:id}
+			);*/
+		}
+	</script>
+	</head>
 
 <body>	
 	<!--Login Modal -->
@@ -66,22 +84,31 @@
 			<div class="card-deck">
 			<?php
 				// 0 -> ID, 1 -> food name, 2 -> food price, 3 -> category, 4 -> file image path
+				$count=0;
+				
 				foreach($foodList as $food){
 					//Ensure that only those food that falls under Sushi are displayed
 					if ($food[3] == "Sushi"){
+						echo '<form method="POST">';
 						echo '<div class = "col-xs-2 align-content-start">';
 						echo '<div class="card">';
+						echo '<input type="text" name="id" id="id" value="'.$food[0].'" hidden>';
 						echo '<img class="card-img-top img-fluid animated pulse" src="'.$food[4].'" alt="'.$food[1].'">';
 						echo '<div class="card-body">';
 						echo '<h2 class="card-title text-center">'.$food[1].'</h2>';
 						echo '<!-- p class="card-text"-->'; // For future use
 						echo '</div>';
 						echo '<div class="card-footer text-center">';
-						echo '<span class="pricing">'.'RM'.number_format((float)$food[2],2,'.','').'</span>'; 
-						echo '<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>';
+						echo '<span class="pricing">'.'RM'.number_format((float)$food[2],2,'.','').'</span><br>'; 
+						echo 'Quantity: ';
+						echo '<input type="hidden" id="tmp_id" name="tmp_id" />
+							  <input type="hidden" id="qty" name="qty" />';
+						echo '<button type="submit" name="" onClick="order('.$count.')" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>';
+						echo '</form>';
 						echo '</div>
 							  </div>
 							  </div>';
+						$count++;
 					}
 				}
 			?>
@@ -102,19 +129,26 @@
 				foreach($foodList as $food){
 					//Ensure that only those food that falls under Sushi are displayed
 					if ($food[3] == "Agemono"){
+						echo '<form method="POST">';
 						echo '<div class = "col-xs-2 align-content-start">';
 						echo '<div class="card">';
+						echo '<input type="text" name="id" id="id" value="'.$food[0].'" hidden>';
 						echo '<img class="card-img-top img-fluid animated pulse" src="'.$food[4].'" alt="'.$food[1].'">';
 						echo '<div class="card-body">';
 						echo '<h2 class="card-title text-center">'.$food[1].'</h2>';
 						echo '<!-- p class="card-text"-->'; // For future use
 						echo '</div>';
 						echo '<div class="card-footer text-center">';
-						echo '<span class="pricing">'.'RM'.number_format((float)$food[2],2,'.','').'</span>'; 
-						echo '<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>';
+						echo '<span class="pricing">'.'RM'.number_format((float)$food[2],2,'.','').'</span><br>'; 
+						echo 'Quantity: ';
+						echo '<input type="hidden" id="tmp_id" name="tmp_id" />
+							  <input type="hidden" id="qty" name="qty" />';
+						echo '<button type="submit" name="" onClick="order('.$count.')" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>';
+						echo '</form>';
 						echo '</div>
 							  </div>
 							  </div>';
+						$count++;
 					}
 				}
 			?>
@@ -135,19 +169,26 @@
 				foreach($foodList as $food){
 					//Ensure that only those food that falls under Sushi are displayed
 					if ($food[3] == "Dessert"){
+						echo '<form method="POST">';
 						echo '<div class = "col-xs-2 align-content-start">';
 						echo '<div class="card">';
+						echo '<input type="text" name="id" id="id" value="'.$food[0].'" hidden>';
 						echo '<img class="card-img-top img-fluid animated pulse" src="'.$food[4].'" alt="'.$food[1].'">';
 						echo '<div class="card-body">';
 						echo '<h2 class="card-title text-center">'.$food[1].'</h2>';
 						echo '<!-- p class="card-text"-->'; // For future use
 						echo '</div>';
 						echo '<div class="card-footer text-center">';
-						echo '<span class="pricing">'.'RM'.number_format((float)$food[2],2,'.','').'</span>'; 
-						echo '<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>';
+						echo '<span class="pricing">'.'RM'.number_format((float)$food[2],2,'.','').'</span><br>'; 
+						echo 'Quantity: ';
+						echo '<input type="hidden" id="tmp_id" name="tmp_id" />
+							  <input type="hidden" id="qty" name="qty" />';
+						echo '<button type="submit" name="" onClick="order('.$count.')" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>';
+						echo '</form>';
 						echo '</div>
 							  </div>
 							  </div>';
+						$count++;
 					}
 				}
 			?>
