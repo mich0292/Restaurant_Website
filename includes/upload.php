@@ -1,10 +1,10 @@
 <?php
 	if ( isset($_POST['uploadPic']) ){
-		$file = $_FILES['menuPic'];
-		print_r($_FILES);
+		$file = $_FILES['uploadPic'];
+		// print_r($_FILES); Debug purpose
 		//Extract information from the file 
 		$fileName = $file['name'];	//Associative array
-		//or $_FILES['menuPic']['name]
+		//or $_FILES['uploadPic']['name]
 		$fileType = $file['type'];
 		$fileTmp = $file['tmp_name'];
 		$fileError = $file['error']; //0 -> no error; 1 -> error
@@ -30,7 +30,7 @@
 			session_unset(); 
 			session_destroy(); 
 			header("Location: Admin-MenuList.php?error=uploadFailed");
-           exit();
+            exit();
 		}
 	}
 ?>
