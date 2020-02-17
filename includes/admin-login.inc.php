@@ -31,7 +31,7 @@
                         $_SESSION['username'] = $row['username'];
                         if($row['is_admin'] == true)
                         {
-                            header("Location: ../AdminHome.html?login=success");
+                            header("Location: ../AdminHome.php?login=success");
                             exit();
                         }
                         else{
