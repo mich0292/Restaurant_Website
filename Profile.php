@@ -81,7 +81,7 @@ $contact = $row[3];
                                         <div class="col">
                                             <div class="form-group">
                                                 <label>Username</label>
-                                                <input class="form-control" type="text" name="username" value="'.$username.'" readonly>
+                                                <input class="form-control" type="text" value="'.$username.'" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -112,7 +112,7 @@ $contact = $row[3];
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group">
-                                                <button class="btn btn-primary" formaction="edit-profile.php">Edit Profile</button>
+                                                <a class="btn btn-primary" href="edit-profile.php">Edit Profile</a>
                                             </div>
                                         </div>
                                     </div>
@@ -133,10 +133,5 @@ $contact = $row[3];
             </div>
         </div>
     </div>
-</div>
-
-<!--Login Modal -->
-<?php include('login-modal.php'); ?>
-</div>
 </body>
 </html>
