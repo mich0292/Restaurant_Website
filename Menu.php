@@ -62,14 +62,14 @@
 				<h1> Sushi </h1>
 			</div>
 		</div>
-		<div class = "row align-content-center">
+		<div class = "row">
 			<div class="card-deck">
 			<?php
 				// 0 -> ID, 1 -> food name, 2 -> food price, 3 -> category, 4 -> file image path
 				foreach($foodList as $food){
 					//Ensure that only those food that falls under Sushi are displayed
 					if ($food[3] == "Sushi"){
-						echo '<div class = "col-xs-2 mx-auto mx-auto">';
+						echo '<div class = "col-xs-2 align-content-start">';
 						echo '<div class="card">';
 						echo '<img class="card-img-top img-fluid animated pulse" src="'.$food[4].'" alt="'.$food[1].'">';
 						echo '<div class="card-body">';
@@ -95,14 +95,14 @@
 				<h1> Agemono </h1>
 			</div>
 		</div>
-		<div class = "row align-content-center">
+		<div class = "row ">
 			<div class="card-deck">
 			<?php
 				// 0 -> ID, 1 -> food name, 2 -> food price, 3 -> category, 4 -> file image path
 				foreach($foodList as $food){
 					//Ensure that only those food that falls under Sushi are displayed
 					if ($food[3] == "Agemono"){
-						echo '<div class = "col-xs-2 mx-auto mx-auto">';
+						echo '<div class = "col-xs-2 align-content-start">';
 						echo '<div class="card">';
 						echo '<img class="card-img-top img-fluid animated pulse" src="'.$food[4].'" alt="'.$food[1].'">';
 						echo '<div class="card-body">';
@@ -128,14 +128,14 @@
 				<h1> Dessert </h1>
 			</div>
 		</div>
-		<div class = "row align-content-center">
+		<div class = "row">
 			<div class="card-deck">
 				<?php
 				// 0 -> ID, 1 -> food name, 2 -> food price, 3 -> category, 4 -> file image path
 				foreach($foodList as $food){
 					//Ensure that only those food that falls under Sushi are displayed
 					if ($food[3] == "Dessert"){
-						echo '<div class = "col-xs-2 mx-auto mx-auto">';
+						echo '<div class = "col-xs-2 align-content-start">';
 						echo '<div class="card">';
 						echo '<img class="card-img-top img-fluid animated pulse" src="'.$food[4].'" alt="'.$food[1].'">';
 						echo '<div class="card-body">';
