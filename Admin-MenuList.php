@@ -1,6 +1,7 @@
 <?php	
     session_start();
-	include 'includes/adm-menulist.inc.php';
+	require 'includes/adm-menulist.inc.php';
+	include 'includes/upload.php';
 	$nameErr = $priceErr = "";
 	
 	if(isset($_POST['addMenuButton'])){		
@@ -9,7 +10,9 @@
 
 		if (empty($_POST['menuPrice']))
 			$priceErr = "Food price is required.";
-  }
+	}
+	
+	
 	$stmt = readMenu();
 	$menuList = $stmt->fetchAll();
 ?>
@@ -196,46 +199,55 @@
       </table>
     </div>
   </div>
-
-  <div class="modal fade" id="addMenuModal" tabindex="-1" role="dialog" aria-labelledby="addMenuModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addMenuModalLabel">Add Item</h5>
-          <button type="reset" class="close" data-dismiss="modal" aria-label="Close" name="closeAddItem" onClick="resetForm()">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div>
-            <form method="post" id="addMenuForm">
-              <div class="form-group">
-                <label for="menuName" class="">Name:</label>
-                <input type="text" class="form-control" name="menuName" id="addMenuName">
-              </div>
-              <div class="form-group">
-                <label for="menuPrice" class="">Price:</label>
-                <input type="number" class="form-control" step="0.01" min="0" name="menuPrice" id="addMenuPrice">
-              </div>
-			  <div class="form-group">
-                <label for="menuPicUrl" class="">Category:</label>
-                <input type="text" class="form-control" name="category" id="addMenuCategory">
-              </div>
-              <div class="form-group">
-                <label for="menuPicUrl" class="">Picture URL:</label>
-                <input type="text" class="form-control" name="menuPicUrl" id="addMenuPicUrl">
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="reset" class="btn btn-secondary" data-dismiss="modal" name="closeAddItem" form="addMenuForm" onClick="resetForm()">Close</button>
-          <button type="submit" name="addMenuButton" class="btn btn-primary" form="addMenuForm">Comfirm</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  
+	<!-- Modal for Add Menu Item -->
+	<div class="modal fade" id="addMenuModal" tabindex="-1" role="dialog" aria-labelledby="addMenuModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="addMenuModalLabel">Add Item</h5>
+			  <button type="reset" class="close" data-dismiss="modal" aria-label="Close" name="closeAddItem" onClick="resetForm()">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+				<form method="post" enctype="multipart/form-data" id="addMenuForm">
+					<div class="form-group">
+						<label for="menuName" class="">Name:</label>
+						<input type="text" class="form-control" name="menuName" id="addMenuName" form="addMenuForm">
+					</div>
+						<div class="form-group">
+						<label for="menuPrice" class="">Price:</label>
+					<input type="number" class="form-control" step="0.01" min="0" name="menuPrice" id="addMenuPrice" form="addMenuForm">
+					</div>
+					<div class="form-group">
+						<label for="category" class="">Category:</label>
+						<input type="text" class="form-control" name="category" id="addMenuCategory" form="addMenuForm">
+					</div>
+					<div class="form-group">
+					<?php 
+						if (!isset ($_SESSION['picURL']) ) {
+							echo '<label for="uploadPic" >Upload picture:</label>
+								 <input type="file" class="form-control" name="uploadPic" form="addMenuForm">
+								 <button class="m-2" type="submit" name="uploadPic" form="addMenuForm"> Upload </button>';
+						} else{
+								echo '<label for="menuPic" >Picture uploaded:</label>
+									  <input type="text" class="form-control" name="menuPic" id="addMenuURL" form="addMenuForm" value="'.$_SESSION['picURL'].'">';
+								//<small>'.$_SESSION['picURL'].'</small>';
+							}								
+						?>
+					</div> 
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" name="closeMenuButton" class="btn btn-secondary" form="addMenuForm">Close</button>
+				<button type="submit" name="addMenuButton" class="btn btn-primary" form="addMenuForm">Comfirm</button>
+			</div>
+		  </div>
+		</div>
+	</div>
+  
+<!-- Modal for Edit Menu Item -->
   <div class="modal fade" id="editMenuModal" tabindex="-1" role="dialog" aria-labelledby="editMenuModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -256,6 +268,10 @@
                 <label for="menuPrice" class="">Price:</label>
                 <input type="number" class="form-control" step="0.01" min="0" name="menuPrice">
               </div>
+			  <div class="form-group">
+                <label for="menuPicUrl" class="">Category:</label>
+                <input type="text" class="form-control" name="category" id="addMenuCategory">
+              </div>
               <div class="form-group">
                 <label for="menuPicUrl" class="">Picture URL:</label>
                 <input type="text" class="form-control" name="menuPicUrl">
@@ -270,6 +286,7 @@
       </div>
     </div>
   </div>
+  <!-- Modal for Delete Menu Item -->
 	<div class="modal fade" id="dltMenuModal" tabindex="-1" role="dialog" aria-labelledby="dltMenuModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">

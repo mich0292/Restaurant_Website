@@ -7,8 +7,8 @@
 		$foodName = $_POST['menuName'];
 		$foodPrice = $_POST['menuPrice'];
 		$foodCategory = $_POST['category'];
-		$foodPicUrl = $_POST['menuPicUrl'];
-		
+		$foodPicUrl = $_POST['menuPic'];
+		$file = $_FILES['menuPic'];
 		if (empty($foodName) || empty($foodPrice) || empty($foodCategory) || empty($foodPicUrl)){
 			header("Location: Admin-MenuList.php?error=emptyfields");
             exit();
@@ -35,6 +35,12 @@
 		}
 		mysqli_close($conn);		
 	} 
+	else if( isset($_POST['closeMenuButton']) ){
+		session_unset(); 
+		session_destroy(); 
+		header("Location: Admin-MenuList.php");
+		exit();
+	}
 	/*********************************************************************************************
 	*									Display Menu Item										 *
 	*********************************************************************************************/
