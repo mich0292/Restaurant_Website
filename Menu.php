@@ -1,8 +1,10 @@
 <?php
 
-session_start();
-$_SESSION['page'] = "menu";
-
+	session_start();
+	$_SESSION['page'] = "menu";
+	include "includes/menu.inc.php";
+	$stmt = readMenu();
+	$foodList = $stmt->fetchAll();
 ?>
 
 
@@ -62,123 +64,27 @@ $_SESSION['page'] = "menu";
 		</div>
 		<div class = "row align-content-center">
 			<div class="card-deck">
-				<div class = "col-xs-2 mx-auto mx-auto"> 
-					<div class="card">
-						<img class="card-img-top img-fluid animated pulse" src="images/menu/salmon_sushi.jpg" alt="Salmon sushi">
-						<div class="card-body">
-							<h2 class="card-title text-center"> Salmon Sushi </h2>
-							<!-- p class="card-text"-->
-						</div>
-						<div class="card-footer text-center">
-							<span class="pricing"> RM4.80 </span>
-							<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>
-						</div>
-					</div>
-				</div>
-				<div class = "col-xs-2 mx-auto mx-auto"> 
-					<div class="card">
-						<img class="card-img-top img-fluid animated pulse" src="images/menu/california-rol.jpg" alt="California roll">
-						<div class="card-body">
-							<h2 class="card-title text-center"> California roll </h2>
-							<!-- p class="card-text"-->
-						</div>
-						<div class="card-footer text-center">
-							<span class="pricing"> RM2.80 </span>
-							<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>
-						</div>
-					</div>
-				</div>
-				<div class = "col-xs-2 mx-auto mx-auto"> 
-					<div class="card">
-						<img class="card-img-top img-fluid animated pulse" src="images/menu/california-sushi-roll-with-tuna.jpg" alt="California Roll with Tuna">
-						<div class="card-body">
-							<h2 class="card-title text-center"> California roll with tuna </h2>
-							<!-- p class="card-text"-->
-						</div>
-						<div class="card-footer text-center">
-							<span class="pricing"> RM4.80 </span>
-							<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>
-						</div>
-					</div>
-				</div>
-				<div class = "col-xs-2 mx-auto"> 
-					<div class="card">
-						<img class="card-img-top img-fluid animated pulse" src="images/menu/shrimp-sush.jpg" alt="Shrimp sushi">
-						<div class="card-body">
-							<h2 class="card-title text-center"> Shrimp sushi </h2>
-							<!-- p class="card-text"-->
-						</div>
-						<div class="card-footer text-center">
-							<span class="pricing"> RM4.80 </span>
-							<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>
-						</div>
-					</div>
-				</div>
-				<div class = "col-xs-2 mx-auto"> 
-					<div class="card">
-						<img class="card-img-top img-fluid animated pulse" src="images/menu/avocado_roll.jpg" alt="Avocado roll">
-						<div class="card-body">
-							<h2 class="card-title text-center"> Avocado roll </h2>
-							<!-- p class="card-text"-->
-						</div>
-						<div class="card-footer text-center">
-							<span class="pricing"> RM2.80 </span>
-							<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>
-						</div>
-					</div>
-				</div>
-				<div class = "col-xs-2 mx-auto"> 
-					<div class="card">
-						<img class="card-img-top img-fluid animated pulse" src="images/menu/inari-nigiri.png" alt="Inari Nigiri">
-						<div class="card-body">
-							<h2 class="card-title text-center"> Inari Nigiri </h2>
-							<!-- p class="card-text"-->
-						</div>
-						<div class="card-footer text-center">
-							<span class="pricing"> RM1.80 </span>
-							<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>
-						</div>
-					</div>
-				</div>
-				<div class = "col-xs-2 mx-auto"> 
-					<div class="card">
-						<img class="card-img-top img-fluid animated pulse" src="images/menu/salmon-roll.jpg" alt="Salmon roll">
-						<div class="card-body">
-							<h2 class="card-title text-center"> Salmon roll </h2>
-							<!-- p class="card-text"-->
-						</div>
-						<div class="card-footer text-center">
-							<span class="pricing"> RM3.80 </span>
-							<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>
-						</div>
-					</div>
-				</div>
-				<div class = "col-xs-2 mx-auto"> 
-					<div class="card">
-						<img class="card-img-top img-fluid animated pulse" src="images/menu/ika-nigiri.jpg" alt="Ika Nigiri">
-						<div class="card-body">
-							<h2 class="card-title text-center"> Ika Nigiri </h2>
-							<!-- p class="card-text"-->
-						</div>
-						<div class="card-footer text-center">
-							<span class="pricing"> RM4.80 </span>
-							<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>
-						</div>
-					</div>
-				</div>
-				<div class = "col-xs-2 mx-auto"> 
-					<div class="card">
-						<img class="card-img-top img-fluid animated pulse" src="images/menu/sushi.jpg" alt="Octopus sushi">
-						<div class="card-body">
-							<h2 class="card-title text-center"> Octopus sushi </h2>
-							<!-- p class="card-text"-->
-						</div>
-						<div class="card-footer text-center">
-							<span class="pricing"> RM3.80 </span>
-							<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>
-						</div>
-					</div>
-				</div>
+			<?php
+				// 0 -> ID, 1 -> food name, 2 -> food price, 3 -> category, 4 -> file image path
+				foreach($foodList as $food){
+					//Ensure that only those food that falls under Sushi are displayed
+					if ($food[3] == "Sushi"){
+						echo '<div class = "col-xs-2 mx-auto mx-auto">';
+						echo '<div class="card">';
+						echo '<img class="card-img-top img-fluid animated pulse" src="'.$food[4].'" alt="'.$food[1].'">';
+						echo '<div class="card-body">';
+						echo '<h2 class="card-title text-center">'.$food[1].'</h2>';
+						echo '<!-- p class="card-text"-->'; // For future use
+						echo '</div>';
+						echo '<div class="card-footer text-center">';
+						echo '<span class="pricing">'.'RM'.number_format((float)$food[2],2,'.','').'</span>'; 
+						echo '<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>';
+						echo '</div>
+							  </div>
+							  </div>';
+					}
+				}
+			?>
 			</div>	
 		</div>
 		<!-- End -->
@@ -191,78 +97,27 @@ $_SESSION['page'] = "menu";
 		</div>
 		<div class = "row align-content-center">
 			<div class="card-deck">
-				<div class = "col-xs-2 mx-auto"> 
-					<div class="card">
-						<img class="card-img-top img-fluid animated pulse" src="images/menu/chicken-karaage.jpg" alt="Chicken karaage">
-						<div class="card-body">
-							<h2 class="card-title text-center"> Chicken karaage </h2>
-						</div>
-						<div class="card-footer text-center">
-							<span class="pricing"> RM7.80 </span>
-							<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>
-						</div>
-					</div>
-				</div>
-				<div class = "col-xs-2 mx-auto"> 
-					<div class="card">
-						<img class="card-img-top img-fluid animated pulse" src="images/menu/Vegetable-tempura.jpg" alt="Vegetable tempura">
-						<div class="card-body">
-							<h2 class="card-title text-center"> Vegetable tempura </h2>
-						</div>
-						<div class="card-footer text-center">
-							<span class="pricing"> RM8.80 </span>
-							<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>
-						</div>
-					</div>
-				</div>
-				<div class = "col-xs-2 mx-auto"> 
-					<div class="card">
-						<img class="card-img-top img-fluid animated pulse" src="images/menu/deepfried-sushi-roll.jpg" alt="Deepfried sushi roll">
-						<div class="card-body">
-							<h2 class="card-title text-center"> Deepfried sushi roll </h2>
-						</div>
-						<div class="card-footer text-center">
-							<span class="pricing"> RM10.60 </span>
-							<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>
-						</div>
-					</div>
-				</div>
-				<div class = "col-xs-2 mx-auto"> 
-					<div class="card">
-						<img class="card-img-top img-fluid animated pulse" src="images/menu/soft-shell-crab.jpg" alt="Deepfried soft shell crab">
-						<div class="card-body">
-							<h2 class="card-title text-center"> Deepfried soft shell crab </h2>
-						</div>
-						<div class="card-footer text-center">
-							<span class="pricing"> RM8.60 </span>
-							<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>
-						</div>
-					</div>
-				</div>
-				<div class = "col-xs-2 mx-auto"> 
-					<div class="card">
-						<img class="card-img-top img-fluid animated pulse" src="images/menu/shrimp-tempura.jpg" alt="Shrimp tempura">
-						<div class="card-body">
-							<h2 class="card-title text-center"> Shrimp tempura </h2>
-						</div>
-						<div class="card-footer text-center">
-							<span class="pricing"> RM14.60 </span>
-							<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>
-						</div>
-					</div>
-				</div>
-				<div class = "col-xs-2 mx-auto"> 
-					<div class="card">
-						<img class="card-img-top img-fluid animated pulse" src="images/menu/fried-oysters.jpg" alt="Deepfried oysters">
-						<div class="card-body">
-							<h2 class="card-title text-center"> Deepfried oysters </h2>
-						</div>
-						<div class="card-footer text-center">
-							<span class="pricing"> RM12.60 </span>
-							<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>
-						</div>
-					</div>
-				</div>
+			<?php
+				// 0 -> ID, 1 -> food name, 2 -> food price, 3 -> category, 4 -> file image path
+				foreach($foodList as $food){
+					//Ensure that only those food that falls under Sushi are displayed
+					if ($food[3] == "Agemono"){
+						echo '<div class = "col-xs-2 mx-auto mx-auto">';
+						echo '<div class="card">';
+						echo '<img class="card-img-top img-fluid animated pulse" src="'.$food[4].'" alt="'.$food[1].'">';
+						echo '<div class="card-body">';
+						echo '<h2 class="card-title text-center">'.$food[1].'</h2>';
+						echo '<!-- p class="card-text"-->'; // For future use
+						echo '</div>';
+						echo '<div class="card-footer text-center">';
+						echo '<span class="pricing">'.'RM'.number_format((float)$food[2],2,'.','').'</span>'; 
+						echo '<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>';
+						echo '</div>
+							  </div>
+							  </div>';
+					}
+				}
+			?>
 			</div>
 		</div>
 		<!-- End -->
@@ -275,54 +130,27 @@ $_SESSION['page'] = "menu";
 		</div>
 		<div class = "row align-content-center">
 			<div class="card-deck">
-				<div class = "col-xs-2 mx-auto"> 
-					<div class="card card-cascade narrower">
-						<img class="card-img-top img-fluid animated pulse" src="images/menu/mochi.jpg" alt="Mochi">
-						<div class="card-body">
-							<h2 class="card-title text-center"> Mochi </h2>
-						</div>
-						<div class="card-footer text-center">
-							<span class="pricing"> RM9.00 </span>
-							<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>
-						</div>
-					</div>
-				</div>
-				<div class = "col-xs-2 mx-auto"> 
-					<div class="card">
-						<img class="card-img-top img-fluid animated pulse" src="images/menu/strawberry-crepe.jpg" alt="Strawberry crepe">
-						<div class="card-body">
-							<h2 class="card-title text-center"> Strawberry crepe </h2>
-						</div>
-						<div class="card-footer text-center">
-							<span class="pricing"> RM12.60 </span>
-							<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>
-						</div>
-					</div>
-				</div>
-				<div class = "col-xs-2 mx-auto"> 
-					<div class="card">
-						<img class="card-img-top img-fluid animated pulse" src="images/menu/anmitsu.jpg" alt="Anmitsu">
-						<div class="card-body">
-							<h2 class="card-title text-center"> Anmitsu </h2>
-						</div>
-						<div class="card-footer text-center">
-							<span class="pricing"> RM10.60 </span>
-							<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>
-						</div>
-					</div>
-				</div>
-				<div class = "col-xs-2 mx-auto"> 
-					<div class="card">
-						<img class="card-img-top img-fluid animated pulse" src="images/menu/custard-pudding.jpg" alt="Custard pudding">
-						<div class="card-body">
-							<h2 class="card-title text-center"> Custard pudding </h2>
-						</div>
-						<div class="card-footer text-center">
-							<span class="pricing"> RM6.00 </span>
-							<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span> </i></button>
-						</div>
-					</div>
-				</div>
+				<?php
+				// 0 -> ID, 1 -> food name, 2 -> food price, 3 -> category, 4 -> file image path
+				foreach($foodList as $food){
+					//Ensure that only those food that falls under Sushi are displayed
+					if ($food[3] == "Dessert"){
+						echo '<div class = "col-xs-2 mx-auto mx-auto">';
+						echo '<div class="card">';
+						echo '<img class="card-img-top img-fluid animated pulse" src="'.$food[4].'" alt="'.$food[1].'">';
+						echo '<div class="card-body">';
+						echo '<h2 class="card-title text-center">'.$food[1].'</h2>';
+						echo '<!-- p class="card-text"-->'; // For future use
+						echo '</div>';
+						echo '<div class="card-footer text-center">';
+						echo '<span class="pricing">'.'RM'.number_format((float)$food[2],2,'.','').'</span>'; 
+						echo '<button type="button" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>';
+						echo '</div>
+							  </div>
+							  </div>';
+					}
+				}
+			?>
 			</div>
 		</div>
 		<!-- End -->
