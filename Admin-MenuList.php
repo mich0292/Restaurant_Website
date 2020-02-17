@@ -10,7 +10,8 @@
 		if (empty($_POST['menuPrice']))
 			$priceErr = "Food price is required.";
   }
-  $menuList = readMenu();
+	$stmt = readMenu();
+	$menuList = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,8 +35,7 @@
   <link rel="stylesheet" href="css/admin.css"/>
   <title>Menu List</title>
 
-  <!-- Optional JavaScript -->
-  <script type="text/javascript" src="Admin-MenuList.js"></script>
+  <!-- Optional JavaScript 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -68,13 +68,15 @@
       <div>Menu List</div>
       <button class="btn btn-success" data-toggle="modal" data-target="#addMenuModal">Add Item</button>
     </div>
-    <div class="row d-flex justify-content-center rounded text-center bg-white mt-1 m-0">
-      <table class="table table-hover table-bordered m-2 d-none d-md-table">
+    <div class="row d-flex justify-content-center rounded text-center bg-white mt-2 m-0">
+      <table class="table table-hover table-bordered m-0 d-none d-md-table">
         <thead class="thead-dark">
           <tr>
             <th scope="col">
               <div class="p-2">ID</div>
             </th>
+			<th scope="col" class="th-center">
+              <div class="py-2">Category</div>
             <th scope="col" class="th-center">
               <div class="py-2">Name</div>
             </th>
@@ -82,7 +84,7 @@
               <div class="py-2">Price</div>
             </th>
             <th scope="col" class="th-center">
-              <div class="py-2">Picture URL</div>
+              <div class="py-2">Picture</div>
             </th>
             <th scope="col" class="th-center">
               <div class="py-2">Action</div>
@@ -96,16 +98,19 @@
 				echo '<th class="align-middle">';
 				echo $menuItem[0]; //ID 
 				echo "</th>";
+				echo '<td class="align-middle">'.$menuItem[3]."</td>"; //Category
 				echo '<td class="align-middle">'.$menuItem[1]."</td>"; //Name
-				echo '<td class="align-middle">'.$menuItem[2]."</td>"; //Contact
-				echo '<td class="align-middle">'.$menuItem[3]."</td>"; //Email
+				echo '<td class="align-middle">'.$menuItem[2]."</td>"; //Price
+				echo '<td class="align-middle"> <img src="'.$menuItem[4].'" height="50" width="50"></td>'; //Picture's file path
 				echo '<td>
-						<button type="submit" name="deleteReservation" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal" value="'.$menuItem[0].'">
-						  <i class="fa fa-trash"></i>
-						</button>
-						<button class="btn btn-sm ml-0 btn-primary" data-toggle="modal" data-target="#editMenuModal" value="'.$menuItem[0].'">
-						  <i class="fa fa-edit"></i>
-						</button>
+						<form method="post">
+							<button type="submit" name="deleteMenuItem" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal" value="'.$menuItem[0].'">
+								<i class="fa fa-trash"></i>
+							</button>
+							<button class="btn btn-sm ml-0 btn-primary" data-toggle="modal" data-target="#editMenuModal" value="'.$menuItem[0].'">
+							<i class="fa fa-edit"></i>
+							</button>
+						</form>
 					  </td>';
 				echo "</tr>";
 			}
@@ -212,6 +217,10 @@
                 <label for="menuPrice" class="">Price:</label>
                 <input type="number" class="form-control" step="0.01" min="0" name="menuPrice" id="addMenuPrice">
               </div>
+			  <div class="form-group">
+                <label for="menuPicUrl" class="">Category:</label>
+                <input type="text" class="form-control" name="category" id="addMenuCategory">
+              </div>
               <div class="form-group">
                 <label for="menuPicUrl" class="">Picture URL:</label>
                 <input type="text" class="form-control" name="menuPicUrl" id="addMenuPicUrl">
@@ -261,28 +270,25 @@
       </div>
     </div>
   </div>
-
-  <div class="modal fade" id="dltMenuModal" tabindex="-1" role="dialog" aria-labelledby="dltMenuModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="dltMenuModalLabel">Add Item</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div> Remove Item?
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger">Comfirm</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="modal fade" id="dltMenuModal" tabindex="-1" role="dialog" aria-labelledby="dltMenuModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="dltMenuModalLabel">Delete Menu</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div> Remove Item?</div>	
+				</div>
+				<div class="modal-footer">
+					<button type="button" name="deleteMenuItem" class="btn btn-danger">Comfirm</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>

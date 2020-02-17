@@ -31,8 +31,8 @@
 		$_SESSION['phoneClass'] = "";
 		$_SESSION['adultClass'] = "";
 	}
-	$reservationList = readReservation();
-	
+	$stmt = readReservation();
+	$reservationList = $stmt->fetchAll();
 ?>
 <!doctype html>
 <html lang="en">
@@ -123,10 +123,11 @@
         </thead>
         <tbody>	
 		<?php
+			$IDCounter = 1;
 			foreach($reservationList as $reservation){
 				echo "<tr>";
 				echo '<th class="align-middle">';
-				echo $reservation[0]; //ID
+				echo $reservation[0]; //ID counter
 				//$reservation[7] = city
 				//$reservation[8] = special remark
 				echo "</th>";
@@ -253,7 +254,7 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="dltReserveModalLabel">Add Item</h5>
+					<h5 class="modal-title" id="dltReserveModalLabel">Delete Item</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 					</button>
