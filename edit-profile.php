@@ -54,6 +54,7 @@ $contact = $row[3];
 	<div class="container-fluid p-0" id="outer">
     	<!-- Nav bar -->
 		<!-- In reference to https://www.codeply.com/go/QAXbNGbWPA/bootstrap-4-navbar-transparent -->
+        <?php include 'navbar.php'?>
         <!-- End of Nav Bar -->
         <div class="container my-5">
             <div class="row flex-lg-nowrap justify-content-center">
