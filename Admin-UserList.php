@@ -50,7 +50,6 @@
 
   <!-- Wong Zi Jiang -->
   <link rel="stylesheet" href="css/admin.css" />
-  <script type="text/javascript" src="Admin-UserList.js"></script>
   <title>User List</title>
 
   <!-- Optional JavaScript -->
@@ -65,19 +64,18 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
 </head>
-
 <body>
   <nav class="navbar navbar-light bg-light justify-content-between">
     <a class="navbar-brand font-weight-bold">
       <i class="fa fa-cogs mr-2"></i>Sushi Sama Panel</a>
-    <a href="AdminLogin.html" class="justify-content-end"><i class="fa fa-lg fa-sign-out-alt"></i></a>
+    <a href="AdminLogin.php" class="justify-content-end"><i class="fa fa-lg fa-sign-out-alt"></i></a>
   </nav>
 
   <div class="container">
     <div class="row px-3 mt-3 rounded-lg">
       <nav aria-label="breadcrumb" class="w-100">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="AdminHome.html"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item"><a href="AdminHome.php"><i class="fas fa-home"></i></a></li>
           <li class="breadcrumb-item active" aria-current="page">User List</li>
         </ol>
       </nav>
@@ -133,11 +131,11 @@
                     echo '<td class="align-middle contact">'.$user[6]."</td>"; //Contact
                     echo '<td class="align-middle is-staff">'.$user[7]."</td>"; //Is_Staff
                     echo '<td>
-                        <form method="get">
-                        <button type="button" name="retrieveUser" class="btn btn-sm btn-primary editButton" data-toggle="modal" data-target="#editUserModal" value="'.$user[0].'">
+                        <form>
+                        <button type="button" name="retrieveUser" class="btn btn-sm btn-primary editButton" data-toggle="modal" data-id="'.$user[0].'">
                         <i class="fa fa-edit"></i>
                         </button>
-                        <button type="submit" name="deleteReservation" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal" value="'.$user[0].'">
+                        <button type="button" name="deleteModal" class="btn btn-sm btn-danger dltButton" data-toggle="modal" data-id="'.$user[0].'">
                         <i class="fa fa-trash"></i>
                         </button>
                         </td></form>';
@@ -146,130 +144,56 @@
         </tbody>
       </table>
     </div>
-    <div class="row justify-content-center rounded text-center bg-white mb-5 m-0 d-lg-none">
-      <table class="table table-borderless table-striped border m-2 text-left">
-        <colgroup>
-          <col class="p-0 px-2 w-25">
-          <col class="p-0 px-2 w-25">
-        </colgroup>
-        <tr>
-          <th scope="col">ID</th>
-          <td>1</td>
-        </tr>
-        <tr>
-          <th scope="col">Username</th>
-          <td>lucas123</td>
-        </tr>
-        <tr>
-          <th scope="col">Password</th>
-          <td>Lucas123</td>
-        </tr>
-        <tr>
-          <th scope="col">Name</th>
-          <td>Lucas Wong</td>
-        </tr>
-        <tr>
-          <th scope="col">Birthday</th>
-          <td>1999-02-21</td>
-        </tr>
-        <tr>
-          <th scope="col">Email</th>
-          <td>lucas@gmail.com</td>
-        </tr>
-        <tr>
-          <th scope="col">Contact</th>
-          <td>0123456789</td>
-        </tr>
-        <tr>
-          <th scope="col">Action</th>
-          <td>
-            <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
-            <button class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></button>
-          </td>
-        </tr>
-      </table>
-      <table class="table table-borderless table-striped border m-2 text-left">
-        <colgroup>
-          <col class="p-0 px-2 w-25">
-          <col class="p-0 px-2 w-25">
-        </colgroup>
-        <tr>
-          <th scope="col">ID</th>
-          <td>2</td>
-        </tr>
-        <tr>
-          <th scope="col">Username</th>
-          <td>lucas1234</td>
-        </tr>
-        <tr>
-          <th scope="col">Password4</th>
-          <td>Lucas123</td>
-        </tr>
-        <tr>
-          <th scope="col">Name</th>
-          <td>Lucas Wang</td>
-        </tr>
-        <tr>
-          <th scope="col">Birthday</th>
-          <td>1999-02-21</td>
-        </tr>
-        <tr>
-          <th scope="col">Email</th>
-          <td>lucas@gmail.com</td>
-        </tr>
-        <tr>
-          <th scope="col">Contact</th>
-          <td>0123456789</td>
-        </tr>
-        <tr>
-          <th scope="col">Action</th>
-          <td>
-            <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
-            <button class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></button>
-          </td>
-        </tr>
-      </table>
-      <table class="table table-borderless table-striped border m-2 text-left">
-        <colgroup>
-          <col class="p-0 px-2 w-25">
-          <col class="p-0 px-2 w-25">
-        </colgroup>
-        <tr>
-          <th scope="col">ID</th>
-          <td>3</td>
-        </tr>
-        <tr>
-          <th scope="col">Username</th>
-          <td>lucas12345</td>
-        </tr>
-        <tr>
-          <th scope="col">Password</th>
-          <td>Lucas12345</td>
-        </tr>
-        <tr>
-          <th scope="col">Name</th>
-          <td>Lucas Wong</td>
-        </tr>
-        <tr>
-          <th scope="col">Birthday</th>
-          <td>1999-02-21</td>
-        </tr>
-        <tr>
-          <th scope="col">Email</th>
-          <td>lucas@gmail.com</td>
-        </tr>
-        <tr>
-          <th scope="col">Contact</th>
-          <td>0123456789</td>
-        </tr>
-        <tr>
-          <th scope="col">Action</th>
-          <td>
-            <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
-            <button class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></button>
-          </td>
-        </tr>
-      </table>
+    <div class="row justify-content-center rounded text-center bg-white mb-5 m-0 d-lg-none table-responsive">
+        <?php
+            foreach($userList as $user){
+                echo '<table class="table table-borderless table-striped border text-left">
+                <colgroup>
+                  <col class="p-0 w-25">
+                  <col class="p-0 w-25">
+                </colgroup>
+                <tr>
+                  <th scope="col">ID</th>
+                  <td>'.$user[0].'</td>
+                </tr>
+                <tr>
+                  <th scope="col">Username</th>
+                  <td class="username">'.$user[1].'</td>
+                </tr>
+                <tr>
+                  <th scope="col">Password</th>
+                  <td class="password">'.$user[2].'</td>
+                </tr>
+                <tr>
+                  <th scope="col">Name</th>
+                  <td class="name">'.$user[4].'</td>
+                </tr>
+                <tr>
+                  <th scope="col"">Birthday</th>
+                  <td class="birthday">'.$user[5].'</td>
+                </tr>
+                <tr>
+                  <th scope="col">Email</th>
+                  <td class="email">'.$user[3].'</td>
+                </tr>
+                <tr>
+                  <th scope="col">Contact</th>
+                  <td class="contact">'.$user[6].'</td>
+                </tr>
+                <tr>
+                <th scope="col">Is Staff</th>
+                <td class="is-staff">'.$user[7].'</td>
+              </tr>
+                <tr>
+                  <th scope="col">Action</th>
+                  <td>
+                    <button type="button" class="btn btn-sm btn-primary editButton" name="retrieveUser" data-toggle="modal" data-id="'.$user[0].'"><i class="fa fa-edit"></i></button>
+                    <button type="button" class="btn btn-sm btn-danger dltButton" name="deleteUser" data-toggle="modal" data-id="'.$user[0].'"><i class="fa fa-trash"></i></button>
+                  </td>
+                </tr>
+              </table>';
+            }
+        ?>
     </div>
   </div>
 
@@ -327,11 +251,11 @@
 		</div>
 	</div>
 
-	<div class="modal fade" id="dltReserveModal" tabindex="-1" role="dialog" aria-labelledby="dltReserveModalLabel" aria-hidden="true">
+	<div class="modal fade" id="dltUserModal" tabindex="-1" role="dialog" aria-labelledby="dltUserModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="dltReserveModalLabel">Delete Item</h5>
+					<h5 class="modal-title" id="dltUserModalLabel">Delete Item</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 					</button>
@@ -340,15 +264,18 @@
 					<div> Remove User?</div>	
 				</div>
 				<div class="modal-footer">
-					<button type="button" name="deleteReservation" class="btn btn-danger">Comfirm</button>
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <form method="post" id="deleteUserForm">
+                        <input type="hidden" name="userID" id="userID" form="deleteUserForm">
+                        <button type="submit" name="deleteUser" class="btn btn-danger" form="deleteUserForm">Comfirm</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </form>
 				</div>
 			</div>
 		</div>
     </div>
     <script>
         $(document).on('click','.editButton',function(){
-            var row = $(this).closest('tr');
+            var row = $(this).closest('table');
             var name = row.find('.name').text();
             var username = row.find('.username').text();
             var password = row.find('.password').text();
@@ -366,7 +293,6 @@
             $('#editUserModal').modal('show');
             console.log("Got IT");
             console.log(name);
-            console.log(check);
             });
             $(document).on('click','.dltButton',function(){ // Click to only happen on announce links
 				$("#userID").val($(this).data('id'));

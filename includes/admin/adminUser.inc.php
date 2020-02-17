@@ -1,35 +1,5 @@
 <?php 
     /*********************************************************************************************
-	*									Get User										         *
-    *********************************************************************************************/
-	// function getUser($userID){
-    //     require 'includes/dbh.inc.php';
-    //     $sql = "SELECT * FROM user WHERE id='$userID'";
-    //     $result = mysqli_query($conn, $sql);
-    //     if (!$result) {
-    //         header("Location: Admin-UserList.php?getUser=failed");
-    //         exit();
-    //     }
-    //     else{
-    //         $row = mysqli_fetch_row($result);
-    //         $ID = $row[0];
-    //         $userName = $row[1];
-    //         $password = $row[2];
-    //         $name = $row[3];
-    //         $birthday = $row[4];
-    //         $email = $row[5];
-    //         $contact = $row[6];
-    //         $isStaff = $row[7];
-    //         header("Location: Admin-UserList.php?getUser=success");
-    //         exit();
-    //     }
-    // }
-
-    // if (isset($_POST['retrieveUser'])){
-	// 	$getID = $_POST['userID'];
-	// 	getUser($getID);
-	// } 
-    /*********************************************************************************************
 	*									Edit User										         *
     *********************************************************************************************/
 	if(isset($_POST['editUser'])){
@@ -43,10 +13,9 @@
         $contact = $_POST['usrlContact'];
         $isStaff = $_POST['usrlIsStaff']; 
 
-        if (!empty($userName) && !empty($name) && !empty($birthday) && ! empty($email) && !empty($contact) && !empty($isStaff)){			
+        if (!empty($userName) && !empty($password) && !empty($name) && !empty($birthday) && ! empty($email) && !empty($contact)){			
             //sql statement for update user profile
-            $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-			$sql = "UPDATE user SET password='$hashedPwd',name='$name', birthday='$birthday', email='$email', contact='$contact', is_admin='$isStaff' WHERE username='$userName'";
+			$sql = "UPDATE user SET password='$password',name='$name', birthday='$birthday', email='$email', contact='$contact', is_admin='$isStaff' WHERE username='$userName'";
 			$stmt = mysqli_stmt_init($conn);
 			if (mysqli_stmt_prepare($stmt, $sql)){
 				mysqli_stmt_execute($stmt);
@@ -163,4 +132,27 @@
     /*********************************************************************************************
 	*									Delete User										         *
     *********************************************************************************************/
+	function deleteUser($ID_number){
+		$pdo=setConnectionInfo();
+		$sql="DELETE FROM user WHERE id ='$ID_number'";
+		if ( $statement=$pdo->prepare($sql)){
+			$statement->execute();
+			session_unset(); 
+			session_destroy(); 
+			header("Location: Admin-UserList.php?deleteUser=success");
+			exit();	
+		} else{
+			$errorMessage = "Error entering data:".mysqli_error($link)."<br>";
+			session_unset(); 
+			session_destroy(); 
+			header("Location: Admin-UserList.php?sql_error");
+			exit();
+		}
+		$pdo = null;	
+	}
+	
+	if ( isset($_POST['deleteUser']) ){
+		$getID = $_POST['userID'];
+		deleteUser($getID);
+	} 
 ?>
