@@ -170,7 +170,7 @@
 		$pdo = null;	
 	}
 	
-	if (isset($_POST['deleteReservation'])){
+	if ( isset($_POST['deleteReservation']) ){		
 		$getID = $_POST['deleteReservation'];
 		deleteReservation($getID);
 	} 

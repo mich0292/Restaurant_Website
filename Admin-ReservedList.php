@@ -123,7 +123,6 @@
         </thead>
         <tbody>	
 		<?php
-			$IDCounter = 1;
 			foreach($reservationList as $reservation){
 				echo "<tr>";
 				echo '<th class="align-middle">';
@@ -139,12 +138,33 @@
 				echo '<td class="align-middle">'.$reservation[1]." ".$reservation[2]."</td>"; //Date + time
 				echo '<td class="align-middle">'.$reservation[9]."</td>"; //Special remarks
 				echo '<td>
-						<form method="post">
-							<button type="submit" name="deleteReservation" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#dltReserveModal" value="'.$reservation[0].'">
-								<i class="fa fa-trash"></i>
-							</button>
-					  </td>';
-				echo "</tr>";
+					 <form method="post" id="deleteReservation">
+					 <button type="button" name="test" class="btn btn-sm btn-danger" data-toggle="modal" 
+						data-target="#dltReserveModal" form="deleteReservation">
+					 <i class="fa fa-trash"></i>
+					 </button>
+					 </form>
+					 </td>
+					 </tr>
+					<div class="modal fade" id="dltReserveModal" tabindex="-1" role="dialog" aria-labelledby="dltReserveModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+					<div class="modal-content">
+					<div class="modal-header">
+					<h5 class="modal-title" id="dltReserveModalLabel">Delete Item</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+					</div>
+					<div class="modal-body">
+					<div> Remove Reservation?</div>	
+					</div>
+					<div class="modal-footer">
+					<button type="submit" name="deleteReservation" class="btn btn-danger" form="deleteReservation" value="'.$reservation[0].'">Comfirm</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+					</div>
+					</div>
+					</div>';
 			}
 		  ?>
         </tbody>
@@ -250,25 +270,6 @@
 		</div>
 	</div>
 
-	<div class="modal fade" id="dltReserveModal" tabindex="-1" role="dialog" aria-labelledby="dltReserveModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="dltReserveModalLabel">Delete Item</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div> Remove Reservation?</div>	
-				</div>
-				<div class="modal-footer">
-					<button type="button" name="deleteReservation" class="btn btn-danger">Comfirm</button>
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
 </body>
 
 </html>
