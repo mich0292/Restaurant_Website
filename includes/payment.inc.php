@@ -1,6 +1,8 @@
 <?php
+	//done by jun
 		require 'dbh.inc.php';
 
+		
 		//to check if the cart is empty or not, if empty go back to menu page
 		$count=0;
 		$grandtotal=0;
@@ -14,7 +16,7 @@
 		$stmt = $conn->prepare($sql);
 		$stmt->execute(); //execute query
 		$result = $stmt->get_result();//execute result
-			
+				
 		if($row = $result->fetch_assoc()) 
 		{
 			$count=$row['Auto_increment'];//get id for payment
@@ -22,8 +24,7 @@
 			$payment_ref.="-".$plus;
 		}
 		
-		
-		
+		//to set every session
 		if(!isset($_SESSION["discount"]))
 		{
 			$_SESSION["discount"]=0;
@@ -55,8 +56,8 @@
 				</script>';
 		}
 		
-		//to check cart exist
-		if(isset($_SESSION["cart"]))
+		//to validate if the user able to come in payment page
+		if(isset($_SESSION["cart"]))//to check cart exist
 		{
 			foreach($_SESSION["cart"] as $keys => $values)
 			{
@@ -86,15 +87,16 @@
 				</script>'; //go to menu page
 		}
 		
+		//to validate if the user able to come in payment page
 		if($_SESSION["payment"]>0) //if payment button clicked
 		{
 			$totals=0;
 			foreach($_SESSION["cart"] as $keys => $values)
 			{
-				$totals+=($values["food_price"]*$values["item_qty"]);
+				$totals+=($values["food_price"]*$values["item_qty"]);//calculate total
 			}
 			$tax = $totals/10;
-			$grandtotal=($totals+$tax)-$_SESSION["discount"];
+			$grandtotal=($totals+$tax)-$_SESSION["discount"]; //calculate grandtotal
 			
 			$sql = "SELECT * FROM user WHERE id = ?"; //get user data
 			$stmt = $conn->prepare($sql);
@@ -115,6 +117,8 @@
 			}
 		}
 		
+		
+		//button function
 		if(isset($_POST["card"])) //if credit card button clicked
 		{
 			echo ' <script>
@@ -137,7 +141,7 @@
 				$payment_discount=$_SESSION["discount"];
 				$remark=$_SESSION["remark"];
 				$payment_type="CASH";
-				$user_id=$_SESSION['userId'];
+				$username=$_SESSION['username'];
 					
 				foreach($_SESSION["cart"] as $keys => $values)
 				{
@@ -155,7 +159,7 @@
 						
 					if($row = $result->fetch_assoc()) 
 					{
-						$payment_id=$row['Auto_increment'];//get id for payment
+						$payment_id=$row['Auto_increment'];//set id for payment
 					}
 					
 					$change=$cash-$payment_grand;
@@ -163,11 +167,11 @@
 					$change=number_format($change,2);
 					
 					$sql = "INSERT INTO payment
-						(payment_id,payment_total,payment_tax,promo_code,promo_type,payment_discount, payment_grand, payment_type,remark, payment_paid,payment_change,user_id)
+						(payment_id,payment_total,payment_tax,promo_code,promo_type,payment_discount, payment_grand, payment_type,remark, payment_paid,payment_change,username)
 						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 					$stmt = $conn->prepare($sql);
-					$stmt->bind_param("iddssddssddi", $payment_id,$payment_total,$payment_tax,$promo_code,$promo_type,$payment_discount,$payment_grand,$payment_type,$remark,$cash,$change,$user_id);
-					
+					$stmt->bind_param("iddssddssdds", $payment_id,$payment_total,$payment_tax,$promo_code,$promo_type,$payment_discount,$payment_grand,$payment_type,$remark,$cash,$change,$username);
+					//insert payment data
 					
 					if($stmt->execute())//if insert payment successfully
 					{
@@ -187,8 +191,9 @@
 							$stmt = $conn->prepare($sql);
 							$stmt->bind_param("isdissi", $menu_id,$food_name,$food_price,$food_qty,$category,$img_file_path,$payment_id);
 							$stmt->execute();
-								
-							unset($_SESSION["cart"][$keys]);
+							//insert cart data
+							
+							unset($_SESSION["cart"][$keys]); //clear cart
 						}
 						echo ' <script>alert("Payment Successfully! Change='.$change.'");</script>';
 						echo ' <script>
@@ -202,24 +207,25 @@
 						unset($_SESSION["remark"]);
 						unset($_SESSION["cart"]);
 						unset($_SESSION["payment"]);
+						//clear session
 					}
 					else
 					{
-						echo ' <script>alert("Error!");</script>';
+						echo ' <script>alert("Error!");</script>'; //if sql unable to execute
 					}
 				}
 				else
 				{
-					echo ' <script>alert("Payment should be larger than price");</script>';
+					echo ' <script>alert("Payment should be larger than price");</script>'; //if the user input cash < grandtotal payment
 				}
 			}
 			else
 			{
-				echo ' <script>alert("Please insert only number!");</script>';
+				echo ' <script>alert("Please insert only number!");</script>'; //if the user input cash isn't number
 			}
 		}
 		
-		//----pay by card
+		//----pay by card in creditCard.php
 		if(isset($_POST["pay_card"])) 
 		{
 			$payment_id="1000"; //id for payment
@@ -231,7 +237,7 @@
 			$payment_discount=$_SESSION["discount"];
 			$remark=$_SESSION["remark"];
 			$payment_type="CASH";
-			$user_id=$_SESSION['userId'];
+			$username=$_SESSION['username'];
 			
 			foreach($_SESSION["cart"] as $keys => $values)
 			{
@@ -251,10 +257,10 @@
 			}
 			
 			$sql = "INSERT INTO payment
-				(payment_id,payment_total,payment_tax,promo_code,promo_type,payment_discount, payment_grand, payment_type,remark, user_id)
+				(payment_id,payment_total,payment_tax,promo_code,promo_type,payment_discount, payment_grand, payment_type,remark, username)
 				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			$stmt = $conn->prepare($sql);
-			$stmt->bind_param("iddssddssi", $payment_id,$payment_total,$payment_tax,$promo_code,$promo_type,$payment_discount,$payment_grand,$payment_type,$remark,$user_id);
+			$stmt->bind_param("iddssddsss", $payment_id,$payment_total,$payment_tax,$promo_code,$promo_type,$payment_discount,$payment_grand,$payment_type,$remark,$username);
 			
 			if($stmt->execute())//if insert payment successfully
 			{
@@ -270,7 +276,7 @@
 				(card_name,card_num,card_exp,card_code,card_country, card_ref, card_payment, payment_id) 
 				VALUES (?, ?, ?, ?, ?, ?, ?, ?)"; //detail_id is auto increment
 				$stmt = $conn->prepare($sql);
-				$stmt->bind_param("ssssssdi", $card_name,$card_num,$card_exp,$card_code,$card_country,$card_ref,$payment_grand,$payment_id);
+				$stmt->bind_param("ssssssdi", $card_name,$card_num,$card_exp,$card_code,$card_country,$card_ref,$payment_grand,$payment_id); //insert card details
 				if($stmt->execute())
 				{
 					foreach($_SESSION["cart"] as $keys => $values)

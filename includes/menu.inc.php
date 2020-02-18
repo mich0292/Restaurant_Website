@@ -15,6 +15,7 @@
 	catch(exception $e)
 	{}*/
 	
+	//Michelle
 	function setConnectionInfo(){
 		$connString='mysql:host=localhost;dbname=sushisamadb';
 		$user='root';
@@ -25,6 +26,7 @@
 		return $pdo;
 	}
 
+	//Michelle
 	function readMenu(){
 		$pdo=setConnectionInfo();
 		//Assign string to sql
@@ -42,8 +44,9 @@
 		$pdo = null;
 	}
 	
-	//Jun add cart
-	if(!empty($_POST)){
+	//Jun 
+	//add cart
+	if(!empty($_POST) ){
 		$menu_id = $_POST['tmp_id'];
 		$item_qty= $_POST['qty'];
 		$food_name;

@@ -1,4 +1,5 @@
 <?php
+
 	require 'dbh.inc.php';
 	
 	$total=0;
@@ -33,20 +34,20 @@
 	
 	
 	
-	if(isset($_POST['delete'])){
-		$menu_id = $_POST['id'];
+	if(isset($_POST['delete'])){ //if delete button clicked
+		$menu_id = $_POST['id']; //get the id of the row
 		$totals=0;
 		foreach($_SESSION["cart"] as $keys => $values)
 		{
-			$id = $values["menu_id"];
+			$id = $values["menu_id"]; //get every id in the cart
 						
-			if($id == $menu_id)
+			if($id == $menu_id) //if found the same id
 			{
-				unset($_SESSION["cart"][$keys]);
+				unset($_SESSION["cart"][$keys]); //delete the set in the cart
 			}
 			else
 			{
-				$totals+=($values["food_price"]*$values["item_qty"]);
+				$totals+=($values["food_price"]*$values["item_qty"]); //calculate the total price
 			}
 		}
 		
@@ -61,42 +62,42 @@
 			{
 				$discount=($totals*$_SESSION["promo_price"])/100;
 				$_SESSION["discount"]=number_format($discount,2);
-			}
+			} //recalculate the discount
 	}
 	
-	if(isset($_POST['apply'])){
-		$promo_code = $_POST['promo'];
+	if(isset($_POST['apply'])){ //apply promo
+		$promo_code = $_POST['promo']; //get promo code
 		$promo_type;
 		$promo_price;
 		$promo_active;
 		$totals=0;
-		if(isset($_SESSION["cart"]))
+		if(isset($_SESSION["cart"])) //if cart exist
 		{
 			foreach($_SESSION["cart"] as $keys => $values)
 			{
 				$item_qty = $values["item_qty"];
 				$food_price = $values['food_price'];			
 													
-				$totals+=($food_price*$item_qty);
+				$totals+=($food_price*$item_qty); //calculate totals
 			}
 		}
 		
-		if(!empty($promo_code))
+		if(!empty($promo_code)) //to check the field of promo code
 		{
-			if(!isset($_SESSION["discount"]))
+			if(!isset($_SESSION["discount"]))//to check the discount session
 			{
-				$_SESSION["discount"]=0;
+				$_SESSION["discount"]=0; 
 			}
 			
 			
-			$sql = "SELECT * FROM promo WHERE promo_code = ?";
+			$sql = "SELECT * FROM promo WHERE promo_code = ?"; //check if the promo code exist 
 			$stmt = $conn->prepare($sql);
 			$stmt->bind_param("s", $promo_code); //i integer  //s string
 			$stmt->execute(); //execute query
 				
 			$result = $stmt->get_result();//execute result
 			
-			if($row = $result->fetch_assoc())
+			if($row = $result->fetch_assoc())//if the promo code exist 
 			{
 				$promo_type=$row['promo_type'];
 				$promo_price=$row['promo_price'];
@@ -168,17 +169,17 @@
 	}
 	
 	
-	if(isset($_POST['checkout']))
+	if(isset($_POST['checkout'])) //checkout cart
 	{
 		$count=0;
-		if(isset($_SESSION["cart"]))
+		if(isset($_SESSION["cart"])) //if cart exist
 		{
 			foreach($_SESSION["cart"] as $keys => $values)
 			{
-				$count++;
+				$count++; //calculate items in cart
 			}
 			
-			if($count <= 0)
+			if($count <= 0) //if cart empty
 			{
 				echo ' <script>alert("Your cart is empty!");</script>';
 				$_SESSION["payment"]=0;
