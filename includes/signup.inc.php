@@ -9,19 +9,26 @@
         $contact = $_POST['contact'];
         
         if(empty($username) || empty($password) || empty($email) || empty($name) || empty($birthday) || empty($contact)){
-            header("Location: ../Registration.php?error=emptyfields&username=".$username."&email=".$email."&name=".$name."&birthday=".$birthday."&contact=".$contact);
             echo '<script>alert("Please fill in the form");</script>';
+            echo '<script>window.location.href="../Registration.php";</script>';
+            //header("Location: ../Registration.php?error=emptyfields&username=".$username."&email=".$email."&name=".$name."&birthday=".$birthday."&contact=".$contact);
             exit();
         }
         else if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)){
-            header("Location: ../Registration.php?error=invalidemailusername");
+            echo '<script>alert("Invalid email or username");</script>';
+            echo '<script>window.location.href="../Registration.php";</script>';
+            //header("Location: ../Registration.php?error=invalidemailusername");
         }
         else if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            header("Location: ../Registration.php?error=invalidemail&username=".$username);
+            echo '<script>alert("Invalid email or username");</script>';
+            echo '<script>window.location.href="../Registration.php";</script>';
+            //header("Location: ../Registration.php?error=invalidemail&username=".$username);
             exit();
         }
         else if (!preg_match("/^[a-zA-Z0-9]*$/", $username)){
-            header("Location: ../Registration.php?error=invalidusername&email=".$email);
+            echo '<script>alert("Invalid email or username");</script>';
+            echo '<script>window.location.href="../Registration.php";</script>';
+            //header("Location: ../Registration.php?error=invalidusername&email=".$email);
             exit();
         }
         else{
@@ -37,8 +44,9 @@
                 mysqli_stmt_store_result($stmt);
                 $resultCheck = mysqli_stmt_num_rows($stmt);
                 if($resultCheck > 0){
-                    echo '<script>alert("Username or Email already exist");</script>';
-                    header("Location: ../Registration.php?error=usertaken&email=".$email);
+                    echo '<script>alert("Email or username already exist");</script>';
+                    echo '<script>window.location.href="../Registration.php";</script>';
+                    //header("Location: ../Registration.php?error=usertaken&email=".$email);
                     exit();
                 }
                 else{
@@ -49,10 +57,11 @@
                         exit();
                     }
                     else{
-                        mysqli_stmt_bind_param($stmt, "ssssss", $username, $password, $email, $name, $birthday, $contact);
+                        mysqli_stmt_bind_param($stmt, "ssssss", $username, $hashedPwd, $email, $name, $birthday, $contact);
                         mysqli_stmt_execute($stmt);
                         echo ' <script>alert("Registration Success");</script>';
-                        header("Location: ../Registration.php?signup=success");
+                        echo '<script>window.location.href="../Registration.php";</script>';
+                        //header("Location: ../Registration.php?signup=success");
                         exit();
                     }
                 }

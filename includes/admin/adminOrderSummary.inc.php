@@ -13,7 +13,7 @@
     function readSummary(){
         $pdo=setConnectionInfo();
         //Assign menu query to sql
-        $sql='SELECT * FROM order_history';
+        $sql='SELECT * FROM payment';
         //Execute sql (statement hold the result of the query)
         if ( $statement=$pdo->query($sql) ){
             return $statement;
@@ -34,7 +34,7 @@
 	*********************************************************************************************/
 	function deleteOrderSummary($ID_number){
 		$pdo=setConnectionInfo();
-		$sql='DELETE FROM order_history WHERE orderID =:ID_number';
+		$sql='DELETE FROM payment WHERE payment_id =:ID_number';
 		if ( $statement=$pdo->prepare($sql)){
 			$statement->bindParam(':ID_number', $ID_number);
 			$statement->execute();

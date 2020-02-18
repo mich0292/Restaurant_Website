@@ -132,15 +132,15 @@ $_SESSION['page'] = "career";
 					<p> Copyright reserved &copy;</p>
 				</div>
 				<div class="col-lg-2 col-xs-12 d-none d-lg-block">
-					<a href="home.html"> <i class="fa fa-5x fa-home"></i> </a>
+					<a href="home.php"> <i class="fa fa-5x fa-home"></i> </a>
 					<p class="px-3 py-2"> Home</p>
 				</div>
 				<div class="col-lg-2 col-xs-12 d-none d-lg-block">
-					<a href="menu.html"> <i class="fa fa-5x fa-cutlery"></i> </a>
+					<a href="menu.php"> <i class="fa fa-5x fa-cutlery"></i> </a>
 					<p class="px-3 py-2"> Menu</p>
 				</div>
 				<div class="col-lg-2 col-xs-12 d-none d-lg-block">
-					<a href="career.html"> <i class="fa fa-5x fa-briefcase"></i> </a>
+					<a href="career.php"> <i class="fa fa-5x fa-briefcase"></i> </a>
 					<p class="px-3 py-2"> Career</p>
 				</div>
 				<div class="social-media col-lg-3 col-xs-12 d-none d-sm-block">

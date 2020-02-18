@@ -4,7 +4,9 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
         if(empty($username) || empty($password)){
-            header("Location: ../home.php?emptyfields");
+            echo '<script>alert("Please fill in username and password");</script>';
+            echo '<script>window.location.href="../home.php";</script>';
+            //header("Location: ../home.php?emptyfields");
             exit();
         }
         else{
@@ -21,7 +23,9 @@
                 if($row = mysqli_fetch_assoc($result)){
                     $pwdCheck = $row['password'];
                     if($pwdCheck == false){
-                        header("Location: ../home.php?error=wrongpassword");
+                        echo '<script>alert("Invalid username or password");</script>';
+                        echo '<script>window.location.href="../home.php";</script>';
+                        //header("Location: ../home.php?error=wrongpassword");
                         exit();
                     }
                     else if($pwdCheck == true){
@@ -34,7 +38,9 @@
                     }
                 }
                 else{
-                    header("Location: ../home.php?error=nouser");
+                    echo '<script>alert("Invalid username or password");</script>';
+                    echo '<script>window.location.href="../home.php";</script>';
+                    //header("Location: ../home.php?error=nouser");
                     exit();
                 }
             }
