@@ -32,6 +32,8 @@
 			}
         }
         else{
+			session_unset(); 
+			session_destroy(); 
 			header("Location: ../../Admin-UserList.php?field=empty");
 			exit();	
 		}				

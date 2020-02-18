@@ -183,31 +183,31 @@
 				<div class="modal-body">
                     <form id="editUserForm" method="post" action="includes/admin/adminUser.inc.php">
 						<div class="form-group">
-							<label for="usrlUsername" class="">Username:</label>
+							<label for="usrlUsername">Username:</label>
 							<input type="text" class="form-control" id="editUsername" name="usrlUsername" readonly>
 						</div>
 						<div class="form-group">
-							<label for="usrlPassword" class="">Password:</label>
+							<label for="usrlPassword">Password:</label>
 							<input type="text" class="form-control" id="editPassword" name="usrlPassword" >
 						</div>
 						<div class="form-group">
-							<label for="usrlName" class="">Name:</label>
+							<label for="usrlName">Name:</label>
 							<input type="text" class="form-control" id="editName" name="usrlName">
                         </div>
                         <div class="form-group">
-							<label for="usrlBday" class="">Birthday:</label>
+							<label for="usrlBday">Birthday:</label>
 							<input type="date" class="form-control" id="editBirthday" name="usrlBday">
                         </div>
                         <div class="form-group">
-							<label for="usrlEmail" class="">Email:</label>
+							<label for="usrlEmail">Email:</label>
 							<input type="text" class="form-control" id="editEmail" name="usrlEmail">
 						</div>
 						<div class="form-group">
-							<label for="usrlContact" class="">Contact:</label>
+							<label for="usrlContact">Contact:</label>
 							<input type="text" class="form-control" id="editContact" name="usrlContact">
 						</div>
 						<div class="form-group">
-							<label for="usrlIsStaff" class="">Is Staff:</label>
+							<label for="usrlIsStaff">Is Staff:</label>
 							<input type="text" class="form-control" id="editIsStaff" name="usrlIsStaff">
 						</div>
 							<button type="submit" name="closeButton" class="btn btn-secondary" >Close</button>
