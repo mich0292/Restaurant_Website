@@ -34,7 +34,7 @@
 	*********************************************************************************************/
 	function deleteVoucher($ID_number){ 
 		$pdo=setConnectionInfo();
-		$sql="DELETE FROM promo WHERE voucherID ='$ID_number'";
+		$sql="DELETE FROM promo WHERE promo_code ='$ID_number'";
 		if ( $statement=$pdo->prepare($sql)){
 			$statement->execute();
 			session_unset(); 
@@ -61,27 +61,27 @@
 	*********************************************************************************************/
     if(isset($_POST['voucherbutton'])){
     
-        $promoCode = $_POST['code'];
-        $promoType = $_POST['type'];
-        $promoPrice = $_POST['price'];
-        $promoActive = $_POST['active'];
+        $promoCode = $_POST['vourPromo'];
+        $promoType = $_POST['vourType'];
+        $promoPrice = $_POST['vourPrice'];
+        $promoActive = $_POST['vourActive'];
 
         if(!empty($promoCode) &&  !empty($promoType) &&  !empty($promoPrice) &&  !empty($promoActive) ){
             $sql = "INSERT INTO promo (promo_code,promo_type,promo_price,promo_active) VALUE (?,?,?,?)";
             $stmt = mysqli_stmt_init($conn);
             
             if (mysqli_stmt_prepare($stmt, $sql)){
-                mysqli_stmt_bind_param($stmt, "ssfi" ,  $promoCode,  $promoType,  $promoPrice,  $promoActive);
+                mysqli_stmt_bind_param($stmt, "ssdi" ,  $promoCode,  $promoType,  $promoPrice,  $promoActive);
                 mysqli_stmt_execute($stmt);
 				session_unset(); 
 				session_destroy(); 
-				header("Location: home.php?voucher=success");
+				header("Location: Admin-Voucher.php?voucher=success");
                 exit();
 			}else {
 				$errorMessage = "Error entering data:".mysqli_error($link)."<br>";
 				session_unset(); 
 				session_destroy(); 
-				header("Location: home.php?sql_error");
+				header("Location: Admin-Voucher.php?sql_error");
 				exit();
 			}
 
@@ -131,7 +131,7 @@
             $_SESSION['activelass'] = "";
         }
 
-        header("Location: home.php?emptyfields#section-Voucher");
+        header("Location: Admin-Voucher.php?emptyfields#section-Voucher");
 			exit();	
     }mysqli_close($conn);	
 
@@ -140,7 +140,7 @@
 		//Destroy session and clear the variables
 		session_unset(); 
 		session_destroy(); 
-		header("Location: home.php?cancel#section-Voucher");
+		header("Location: Admin-Voucher.php?cancel#section-Voucher");
 		exit();	
 	}
 ?>
