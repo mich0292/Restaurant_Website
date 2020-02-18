@@ -1,16 +1,44 @@
 <?php
-
+    
     session_start();
     //connect to database
     include 'includes/dbh.inc.php';	
-    require 'includes/admin/adminOrderSummary.inc.php';
-    $stmt = readSummary();
-    $ordersummary = $stmt->fetchAll();
-?> 
+    require 'includes/admin/adminVoucher.inc.php';
+
+    // if( isset( $_SESSION['counter'] ) ) {
+	// 	$_SESSION['counter'] += 1;
+	// }else  {
+		$_SESSION['counter'] = 1;
+		//Clear the saved input
+		$_SESSION['codeInput'] = "";
+		$_SESSION['typeInput'] = "";
+		$_SESSION['priceInput'] = "";
+		$_SESSION['activeInput'] = "";
+
+		
+		 //Clear the error message
+		$_SESSION['codeErr'] = "";
+		$_SESSION['typeErr'] = "";
+		$_SESSION['priceErr'] = "";
+		$_SESSION['activeErr'] = "";
+
+		
+		//Clear the error formattting
+		$_SESSION['codeClass'] = ""; 
+		$_SESSION['typeClass'] = "";
+		$_SESSION['priceClass'] = "";
+		$_SESSION['activeClass'] = "";
+
+	// }
+    $stmt = readVoucher();
+    $voucher = $stmt->fetchAll();
+
+
+?>
+
 
 <!doctype html>
 <html lang="en">
-
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -26,8 +54,9 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
 
-  
-  <!-- Optional JavaScript -->
+  <!-- Wong Zi Jiang -->
+  <link rel="stylesheet" href="css/admin.css" />
+
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -38,19 +67,20 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
-    <script>
+	<script>
 		$(document).ready(function(){
 		     $(".deleteButton").click(function(){ // Click to only happen on announce links
-				$("#orderID").val($(this).data('id'));
-				$('#dltOrderSummaryModal').modal('show');
+				$("#voucherID").val($(this).data('id'));
+                var check= $("#voucherID").val($(this).data('id'));
+                console.log(check);
+				$('#dltVoucherModal').modal('show');
 		   });
 		});
 	</script>
-
-  <!-- Wong Zi Jiang -->
-  <link rel="stylesheet" href="css/admin.css" />
-  <title>Order Summary</title>
+  <!-- Optional JavaScript -->
+  <title>Voucher</title>
 </head>
+
 
 <body>
   <nav class="navbar navbar-light bg-light justify-content-between">
@@ -64,37 +94,29 @@
       <nav aria-label="breadcrumb" class="w-100">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="AdminHome.php"><i class="fas fa-home"></i></a></li>
-          <li class="breadcrumb-item active" aria-current="page">Order Summary</li>
+          <li class="breadcrumb-item active" aria-current="page">Voucher</li>
         </ol>
       </nav>
     </div>
-    <div class="row p-2 bg-white shadow-lg rounded-lg title px-3 mt-3 m-0 text-left">
-      Order Summary
+    <div class="row p-2 bg-white shadow-lg rounded-lg title px-3 mt-md-3 m-0 text-left justify-content-between">
+      <div>Voucher</div>
+      <button class="btn btn-success" data-toggle="modal" data-target="#addVoucherModal">Add Voucher</button>
     </div>
     <div class="row d-flex justify-content-center rounded text-center bg-white mt-1 m-0">
       <table class="table table-hover table-bordered m-2 d-none d-md-table">
         <thead class="thead-dark">
             <tr>
             <th scope="col" class="th-center">
-                <div class="py-2">Order ID</div>
+                <div class="py-2">Promo Code</div>
               </th>
               <th scope="col" class="th-center">
-                <div class="py-2">Food ID</div>
+                <div class="py-2">Promo Type</div>
               </th>
               <th scope="col" class="th-center">
-                <div class="py-2">Username</div>
+                <div class="py-2">Promo Price</div>
               </th>
               <th scope="col" class="th-center">
-                <div class="py-2">Date</div>
-              </th>
-              <th scope="col" class="th-center">
-                <div class="py-2">Original<br>Price</div>
-              </th>
-              <th scope="col" class="th-center">
-                <div class="py-2">Quantity</div>
-              </th>
-              <th scope="col" class="th-center">
-                <div class="py-2">Total<br>Price</div>
+                <div class="py-2">Promo Active</div>
               </th>
               <th scope="col" class="th-center">
               <div class="py-2">Action</div>
@@ -102,33 +124,30 @@
             </tr>
         </thead>
         <tbody>
-          <?php
-          foreach($ordersummary as $summary){
+        <?php
+          foreach($voucher as $voucher_loop){
             echo "<tr>";
             echo '<th class="align-middle">';
-            echo $summary[0]; //ID counter
+            echo $voucher_loop[0]; //Promo Code
             echo "</th>";
-            echo '<td class="align-middle">'.$summary[1]."</td>"; //Food ID
-            echo '<td class="align-middle">'.$summary[2]."</td>"; //User Name
-            echo '<td class="align-middle">'.$summary[3]."</td>"; //Date
-            echo '<td class="align-middle">'.$summary[4]."</td>"; //Original Price
-            echo '<td class="align-middle">'.$summary[5]."</td>"; //Quantity 
-            echo '<td class="align-middle">'.$summary[6]."</td>"; //Total Price
+            echo '<td class="align-middle">'.$voucher_loop[1].'</td>'; //Promo Type
+            echo '<td class="align-middle">'.$voucher_loop[2].'</td>'; //Promo Price
+            echo '<td class="align-middle">'.$voucher_loop[3].'</td>'; //Promo Active
+            //echo '<td class="align-middle">'.$voucher_loop[4]."</td>"; //
             echo '<td>
-                <button type="button" class="btn btn-sm btn-danger deleteButton" data-toggle="modal" data-id="'.$summary[0].'"> 
+                <button type="button" class="btn btn-sm btn-danger deleteButton" data-toggle="modal" data-id="'.$voucher_loop[0].'"> 
                   <i class="fa fa-trash"></i>
                 </button>
                 </td>';
-            echo "</tr>"; //data-target="#dltOrderSummaryModal"
+            echo "</tr>"; //data-target="#dltVoucherModal"
           }
 
 	    	  ?>
 
-
         </tbody>
       </table>
-    </div>
-    <div class="row justify-content-center rounded text-center bg-white mb-5 m-0 d-md-none">
+      </div>
+      <div class="row justify-content-center rounded text-center bg-white mb-5 m-0 d-md-none">
             <table class="table table-borderless table-responsive table-striped border m-2 text-left">
               <colgroup>
                 <col class="p-1 px-2 w-25">
@@ -208,23 +227,68 @@
               </tr>
             </table>
     </div>
-  </div>
-  <div class="modal fade" id="dltOrderSummaryModal" tabindex="-1" role="dialog" aria-labelledby="dltOrderSummaryModalLabel" aria-hidden="true">
+
+ 
+
+  <div class="modal fade" id="addVoucherModal" tabindex="-1" role="dialog" aria-labelledby="addVoucherModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="dltOrderSummaryModalLabel">Delete Item</h5>
+					<h5 class="modal-title" id="addVoucherModalLabel">Add Item</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+    
+				<div class="modal-body">
+					<form id="addVoucherID" method="post">
+						<div class="form-group">
+							<label for="vourPromo" class="">Promo Code:</label>
+							<input type="text" class="form-control" name="vourPromo" value ="<?php echo $_SESSION['codeInput'];?>">
+							<small id="<?php echo $_SESSION['codeClass']; ?>"> <?php echo $_SESSION['codeErr']; ?> </small>
+						</div>
+						<div class="form-group">
+							<label for="vourType" class="">Promo Type:</label>
+							<input type="text" class="form-control" name="vourType" value ="<?php echo $_SESSION['typeInput'];?>">
+							<small id="<?php echo $_SESSION['typeClass'];?>"> <?php echo $_SESSION['typeErr']; ?> </small>
+						</div>
+						<div class="form-group">
+							<label for="vourPrice" class="">Promo Price:</label>
+							<input type="text" class="form-control" name="vourPrice" value ="<?php echo $_SESSION['priceInput'];?>">
+							<small id="<?php echo $_SESSION['priceClass'];?>"> <?php echo $_SESSION['priceErr']; ?> </small>
+						</div>
+                        <div class="form-group">
+							<label for="vourActive" class="">Promo Active:</label>
+							<input type="text" class="form-control" name="vourActive" value ="<?php echo $_SESSION['activeInput'];?>">
+							<small id="<?php echo $_SESSION['activeClass'];?>"> <?php echo $_SESSION['activeErr']; ?> </small>
+						</div>
+
+					
+							<button type="submit" name="closeButton" class="btn btn-secondary" >Close</button>
+							<button type="submit" name="addVoucherID" class="btn btn-primary" >Save changes</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <div class="modal fade" id="dltVoucherModal" tabindex="-1" role="dialog" aria-labelledby="dltVoucherModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="dltVoucherModalLabel">Delete Item</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
-					<div> Remove Order?</div>	
+					<div> Remove Voucher?</div>	
 				</div>
 				<div class="modal-footer">
-					<form method ="post" id="deleteOrderSummary">
-						<input type="hidden" name="orderID" id="orderID" form="deleteOrderSummary">
-						<button type="submit" name="confirmDeletion" class="btn btn-danger" form="deleteOrderSummary">Comfirm</button>
+					<form method ="post" id="deleteVoucher">
+						<input type="hidden" name="voucherID" id="voucherID" form="deleteVoucher">
+						<button type="submit" name="confirmDeletion" class="btn btn-danger" form="deleteVoucher">Confirm</button>
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 					</form>
 				</div>
@@ -232,5 +296,4 @@
 		</div>
 	</div>
 </body>
-
 </html>
