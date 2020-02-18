@@ -18,6 +18,10 @@
 	{
 		$_SESSION["promo_code"]="";
 	}
+	if(!isset($_SESSION["promo_price"]))
+	{
+		$_SESSION["promo_price"]=0;
+	}
 	if(!isset($_SESSION["promo_type"]))
 	{
 		$_SESSION["promo_type"]="";
@@ -49,7 +53,7 @@
 
 			if($_SESSION["promo_type"] == "CASH") // if promo code is cash
 			{
-				$discount=$promo_price;
+				$discount=$_SESSION["promo_price"];
 				$_SESSION["discount"]=number_format($discount,2);
 						
 			}
