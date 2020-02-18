@@ -13,6 +13,7 @@
 		$_SESSION['cityInput'] = "";
 		$_SESSION['phoneInput'] = "";
 		$_SESSION['remarksInput'] = "";
+		$_SESSION['adultInput'] = "";
 		
 		 //Clear the error message
 		$_SESSION['dateErr'] = "";
@@ -96,8 +97,8 @@
       <div>Table Reservation</div>
       <button class="btn btn-success" data-toggle="modal" data-target="#addReserveModal">Add Reservation</button>
     </div>
-    <div class="row justify-content-center rounded text-center bg-white mt-2 m-0">
-      <table class="table table-responsive table-hover table-bordered m-0 d-none d-lg-table text-center">
+    <div class="row justify-content-center rounded text-center bg-white mt-2 m-0 table-responsive">
+      <table class="table table-hover table-bordered m-0 d-none d-lg-table text-center">
         <thead class="thead-dark">
           <tr>
             <th scope="col" class="th-center">
@@ -118,6 +119,9 @@
             <th scope="col" class="th-center">
               <div class="py-2">Headcount<br>(Children)</div>
             </th>
+			<th scope="col" class="th-center">
+              <div class="py-2">Date</div>
+            </th>
             <th scope="col" class="th-center">
               <div class="py-2">Time</div>
             </th>
@@ -133,22 +137,26 @@
 		<?php
 			foreach($reservationList as $reservation){
 				echo "<tr>";
-				echo '<th class="align-middle">';
+				echo '<th class="align-middle id">';
 				echo $reservation[0]; //ID counter
 				//$reservation[7] = city
 				//$reservation[8] = special remark
 				echo "</th>";
-				echo '<td class="align-middle">'.$reservation[5]."</td>"; //Name
-				echo '<td class="align-middle">'.$reservation[7]."</td>"; //Contact
-				echo '<td class="align-middle">'.$reservation[6]."</td>"; //Email
-				echo '<td class="align-middle">'.$reservation[3]."</td>"; //Num of adult
-				echo '<td class="align-middle">'.$reservation[4]."</td>"; //Num of child
-				echo '<td class="align-middle">'.$reservation[1]." ".$reservation[2]."</td>"; //Date + time
-				echo '<td class="align-middle">'.$reservation[9]."</td>"; //Special remarks
+				echo '<td class="align-middle name">'.$reservation[5]."</td>"; //Name
+				echo '<td class="align-middle contact">'.$reservation[7]."</td>"; //Contact
+				echo '<td class="align-middle custEmail">'.$reservation[6]."</td>"; //Email
+				echo '<td class="align-middle adultNum">'.$reservation[3]."</td>"; //Num of adult
+				echo '<td class="align-middle childNum">'.$reservation[4]."</td>"; //Num of child
+				echo '<td class="align-middle resDate">'.$reservation[1]."</td>"; //Date
+				echo '<td class="align-middle resTime">'.$reservation[2]."</td>"; //Time
+				echo '<td class="align-middle remarks">'.$reservation[9]."</td>"; //Special remarks
 				echo '<td>
 						<button type="button" class="btn btn-sm btn-danger deleteButton" data-toggle="modal" data-id="'.$reservation[0].'"> 
 							<i class="fa fa-trash"></i>
 						</button>
+						<button type="button" class="btn btn-sm btn-primary editButton" data-toggle="modal" data-id="'.$reservation[0].'"> 
+						<i class="fa fa-edit"></i>
+					</button>
 					  </td>';
 				echo "</tr>"; //data-target="#dltReserveModal"
 			}
@@ -166,39 +174,44 @@
 						</colgroup>
 						<tr>
 						  <th scope="col">ID</th>
-						  <td>'.$reservation[0].'</td>
+						  <td class="id">'.$reservation[0].'</td>
 						</tr>
 						<tr>
 						  <th scope="col">Name</th>
-						  <td>'.$reservation[5].'</td>
+						  <td class="name">'.$reservation[5].'</td>
 						</tr>
 						<tr>
 						  <th scope="col">Contact</th>
-						  <td>'.$reservation[7].'</td>
+						  <td class="contact">'.$reservation[7].'</td>
 						</tr>
 						<tr>
 						  <th scope="col">Email</th>
-						  <td>'.$reservation[6].'</td>
+						  <td class="custEmail">'.$reservation[6].'</td>
 						</tr>
 						<tr>
 						  <th scope="col">HeadCount<br>(Adult)</th>
-						  <td>'.$reservation[3].'</td>
+						  <td class="adultNum">'.$reservation[3].'</td>
 						</tr>
 						<tr>
 						  <th scope="col">HeadCount<br>(Children)</th>
-						  <td>'.$reservation[4].'</td>
+						  <td class="childNum">'.$reservation[4].'</td>
 						</tr>
 						<tr>
+							<th scope="col">Date</th>
+							<td class="resDate">'.$reservation[1].'</td>
+					  	</tr>
+						<tr>
 						  <th scope="col">Time</th>
-						  <td>'.$reservation[1]." ".$reservation[2].'</td>
+						  <td class="resTime">'.$reservation[2].'</td>
 						</tr>
 						<tr>
 						  <th scope="col">Special remarks </th>
-						  <td>'.$reservation[9].'</td>
+						  <td class="remarks">'.$reservation[9].'</td>
 						</tr>
 						<tr>
 						  <th scope="col">Action</th>
-						  <td><button class="btn btn-sm btn-danger deleteButton" data-toggle="modal" data-id="'.$reservation[0].'"><i class="fa fa-trash"></i></button></td>
+						  <td><button class="btn btn-sm btn-danger deleteButton" data-toggle="modal" data-id="'.$reservation[0].'"><i class="fa fa-trash"></i></button>
+						  <button class="btn btn-sm btn-primary editButton" data-toggle="modal" data-id="'.$reservation[0].'"><i class="fa fa-edit"></i></button></td>
 						</tr>
 				</table>	';	
 			}
@@ -268,6 +281,58 @@
 		</div>
 	</div>
 
+	<div class="modal fade" id="editReserveModal" tabindex="-1" role="dialog" aria-labelledby="editReserveModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="editReserveModalLabel">Edit Reservation</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="editReserveForm" method="post">
+						<input type="hidden" class="form-control" name="editResvID" id="editResvID">
+						<div class="form-group">
+							<label for="editResvDate">Date:</label>
+							<input type="date" class="form-control" name="editResvDate" id="editResvDate">
+						</div>
+						<div class="form-group">
+							<label for="editResvTime">Time:</label>
+							<input type="time" class="form-control" name="editResvTime" id="editResvTime">
+						</div>
+						<div class="form-group">
+							<label for="editCustName">Name:</label>
+							<input type="text" class="form-control" name="editCustName"  id="editCustName">
+						</div>
+						<div class="form-group">
+							<label for="editCustContact" class="">Contact:</label>
+							<input type="text" class="form-control" name="editCustContact"  id="editCustContact">
+						</div>
+						<div class="form-group">
+							<label for="editCustEmail" class="">Email:</label>
+							<input type="text" class="form-control" name="editCustEmail"  id="editCustEmail">
+						</div>
+						<div class="form-group">
+							<label for="editAdultHc" class="">Headcount(Adult):</label>
+							<input type="number" min="1" class="form-control"  name="editAdultHc"  id="editAdultHc">
+						</div>
+						<div class="form-group">
+							<label for="editChildHc" class="">Headcount(Children):</label>
+							<input type="number" min="0" class="form-control"  name="editChildHc"  id="editChildHc">
+						</div>
+						<div class="form-group">
+							<label for="editSpecialRemark" class="">Special Remarks:</label>
+							<input type="text" class="form-control" name="editSpecialRemark"  id="editSpecialRemark">
+						</div>
+							<button type="submit" name="closeButton" class="btn btn-secondary" >Close</button>
+							<button type="submit" name="editReservation" class="btn btn-primary" >Save changes</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="modal fade" id="dltReserveModal" tabindex="-1" role="dialog" aria-labelledby="dltReserveModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -290,6 +355,42 @@
 			</div>
 		</div>
 	</div>
+	<script>
+			$(document).on('click','.editButton',function(){
+            var row = $(this).closest('tr');
+            var mobileRow = $(this).closest('table');
+            var id = row.find('.id').text();
+            var name = row.find('.name').text();
+            var contact = row.find('.contact').text();
+            var email = row.find('.custEmail').text();
+            var adultNum = row.find('.adultNum').text();
+            var childNum = row.find('.childNum').text();
+            var resDate = row.find('.resDate').text();
+			var resTime = row.find('.resTime').text();
+			var remarks = row.find('.remarks').text();
+			if(!id){
+				id = mobileRow.find('.id').text();
+				name = mobileRow.find('.name').text();
+				contact = mobileRow.find('.contact').text();
+				email = mobileRow.find('.custEmail').text();
+				adultNum = mobileRow.find('.adultNum').text();
+				childNum = mobileRow.find('.childNum').text();
+				resDate = mobileRow.find('.resDate').text();
+				resTime = mobileRow.find('.resTime').text();
+				remarks = mobileRow.find('.remarks').text();
+			}
+            $('#editReserveModal').find('#editResvID').val(id);
+            $('#editReserveModal').find('#editResvDate').val(resDate);
+            $('#editReserveModal').find('#editResvTime').val(resTime);
+            $('#editReserveModal').find('#editCustName').val(name);
+            $('#editReserveModal').find('#editCustEmail').val(email);
+            $('#editReserveModal').find('#editCustContact').val(contact);
+            $('#editReserveModal').find('#editAdultHc').val(adultNum);
+            $('#editReserveModal').find('#editChildHc').val(childNum);
+            $('#editReserveModal').find('#editSpecialRemark').val(remarks);
+            $('#editReserveModal').modal('show');
+            });
+			</script>
 </body>
 
 </html>

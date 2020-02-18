@@ -44,9 +44,9 @@ session_start();
       <i class="fa fa-cogs mr-2"></i>Sushi Sama Panel</a>
     <a href="AdminLogin.php"><i class="fa fa-lg fa-sign-out-alt"></i></a>
   </nav>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row summary-body d-flex align-items-center justify-content-center text-center">
-      <div class="card col-md-5 m-3 rounded p-3">
+      <div class="card col-md-2 m-3 rounded p-3">
         <div class="card-body">
           <i class="fas fa-book-open fa-10x w-100"></i>
           <a href="Admin-OrderSummary.php" class="btn btn-dark rounded-pill mt-3">
@@ -54,7 +54,7 @@ session_start();
           </a>
         </div>
       </div>
-      <div class="card bg-admin-content col-md-5 m-3 rounded p-3">
+      <div class="card bg-admin-content col-md-2 m-3 rounded p-3">
         <div class="card-body">
           <i class="fas fa-chair fa-10x w-100 p-2"></i>
           <a href="Admin-ReservedList.php" class="btn btn-dark rounded-pill mt-3">
@@ -62,7 +62,15 @@ session_start();
           </a>
         </div>
       </div>
-      <div class="card bg-admin-content col-md-5 m-3 rounded p-3">
+      <div class="card bg-admin-content col-md-2 m-3 rounded p-3">
+        <div class="card-body">
+          <i class="fas fa-gift fa-10x w-100 p-2"></i>
+          <a href="Admin-Voucher.php" class="btn btn-dark rounded-pill mt-3">
+            <h5>Voucher Promo</h5>
+          </a>
+        </div>
+      </div>
+      <div class="card bg-admin-content col-md-2 m-3 rounded p-3">
         <div class="card-body">
           <i class="fas fa-utensils fa-10x w-100"></i>
           <a href="Admin-MenuList.php" class="btn btn-dark rounded-pill mt-3">
@@ -70,7 +78,7 @@ session_start();
           </a>
         </div>
       </div>
-      <div class="card bg-admin-content col-md-5 m-3 rounded p-3">
+      <div class="card bg-admin-content col-md-2 m-3 rounded p-3">
         <div class="card-body">
           <i class="fas fa-user fa-10x w-100"></i>
           <a href="Admin-UserList.php" class="btn btn-dark rounded-pill mt-3">

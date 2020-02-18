@@ -117,7 +117,49 @@
 		header("Location: Admin-ReservedList.php");
 		exit();	
 	}
-	
+	/*********************************************************************************************
+	*									Edit Reservation										 *
+	*********************************************************************************************/
+	if(isset($_POST['editReservation'])){
+		require 'includes/dbh.inc.php';	//connect to database
+
+		$id = $_POST['editResvID'];
+		$dateOfReservation = $_POST['editResvDate'];
+		$timeOfReservation = $_POST['editResvTime'];
+		$numOfAdult = $_POST['editAdultHc'];
+		$numOfChild = $_POST['editChildHc'];
+		$fullName = $_POST['editCustName'];
+		$email = $_POST['editCustEmail'];
+		$phone = $_POST['editCustContact'];
+		$remarks = $_POST['editSpecialRemark'];
+		
+		//Ensure all the required fields are filled
+		if (!empty($dateOfReservation) && !empty($timeOfReservation) && !empty($numOfAdult) && !empty($fullName) && ! empty($email) && !empty($phone)){			
+			//sql statement for insertion
+			$sql = "UPDATE reservation SET date_of_reservation='$dateOfReservation', time_of_reservation='$timeOfReservation', num_of_adult='$numOfAdult', num_of_child='$numOfChild', full_name='$fullName', email='$email', phone='$phone', special_remarks='$remarks' WHERE reservationID='$id'";
+			$stmt = mysqli_stmt_init($conn);
+			if (mysqli_stmt_prepare($stmt, $sql)){
+				mysqli_stmt_execute($stmt);
+				session_unset(); 
+				session_destroy(); 
+				header("Location: Admin-ReservedList.php?reservation=success");
+				exit();
+			}else {
+				$errorMessage = "Error entering data:".mysqli_error($link)."<br>";
+				session_unset(); 
+				session_destroy(); 
+				header("Location: Admin-ReservedList.php?sql_error");
+				exit();
+			}
+		}
+		else
+		{
+			session_unset(); 
+        	session_destroy(); 
+			header("Location: ../../Admin-ReservedList.php?field=empty");
+			exit();
+		}
+	}
 	/*********************************************************************************************
 	*									Display Reservation										 *
 	*********************************************************************************************/
