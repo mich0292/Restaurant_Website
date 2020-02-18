@@ -157,14 +157,14 @@ include "includes/order.inc.php";
 											$_SESSION["discount"]=$discount;
 										}
 										
-										$grandtotal=($total+$tax)-$_SESSION["discount"];
+										$grandtotal=($total+$tax)-$_SESSION["discount"];// calculate grandtotal
 										if($grandtotal<=0)
 											$grandtotal=0;
 										
 										$tax=number_format($tax,2);
 										$total=number_format($total,2);
 										$grandtotal=number_format($grandtotal,2);
-										$_SESSION["discount"]=number_format($_SESSION["discount"],2);
+										$_SESSION["discount"]=number_format($_SESSION["discount"],2); //set 2decimal point
 									}
 									?>
 									</tbody>
@@ -199,7 +199,7 @@ include "includes/order.inc.php";
 								<li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax(10%)</strong><strong>RM<?php echo $tax; ?></strong></li>
 								<li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Discount <?php 
 								if($_SESSION["promo_code"] != "")
-									echo "(".$_SESSION["promo_code"].")"; 
+									echo "(".$_SESSION["promo_code"].")"; //check if discount exist
 								?>
 								
 								</strong><strong>-RM<?php echo $_SESSION["discount"]; ?></strong></li>

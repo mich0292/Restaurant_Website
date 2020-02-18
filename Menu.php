@@ -37,6 +37,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	
 	<script type="text/javascript">
+		//Jun
 		function order(x)
 		{
 			//document.getElementById("update").submit();
@@ -74,6 +75,7 @@
 	<!-- Nav bar -->
 		<!-- In reference to https://www.codeply.com/go/QAXbNGbWPA/bootstrap-4-navbar-transparent -->
 		<?php include('navbar.php'); ?>
+		
 		<div class="cover-container pt-5 mt-5">
 			<div class="cover-inner container justify-content-center">
 				<h1 class="heading mb-3 py-4">Delicious &amp; Fresh</h1>
@@ -100,7 +102,7 @@
 				foreach($foodList as $food){
 					//Ensure that only those food that falls under Sushi are displayed
 					if ($food[3] == "Sushi"){
-						echo '<form method="POST">';
+						echo '<form action="" method="POST">';
 						echo '<div class = "col-xs-2 align-content-start">';
 						echo '<div class="card">';
 						echo '<input type="text" name="id" id="id" value="'.$food[0].'" hidden>';
@@ -140,7 +142,7 @@
 				foreach($foodList as $food){
 					//Ensure that only those food that falls under Sushi are displayed
 					if ($food[3] == "Agemono"){
-						echo '<form method="POST">';
+						echo '<form action="" method="POST">';
 						echo '<div class = "col-xs-2 align-content-start">';
 						echo '<div class="card">';
 						echo '<input type="text" name="id" id="id" value="'.$food[0].'" hidden>';
@@ -180,7 +182,7 @@
 				foreach($foodList as $food){
 					//Ensure that only those food that falls under Sushi are displayed
 					if ($food[3] == "Dessert"){
-						echo '<form method="POST">';
+						echo '<form action="" method="POST">';
 						echo '<div class = "col-xs-2 align-content-start">';
 						echo '<div class="card">';
 						echo '<input type="text" name="id" id="id" value="'.$food[0].'" hidden>';
@@ -217,15 +219,15 @@
 					<p> Copyright reserved &copy;</p>
 				</div>
 				<div class="col-lg-2 col-xs-12 d-none d-lg-block">
-					<a href="home.php"> <i class="fa fa-5x fa-home"></i> </a>
+					<a href="home.html"> <i class="fa fa-5x fa-home"></i> </a>
 					<p class= "px-3 py-2"> Home</p>
 				</div>
 				<div class="col-lg-2 col-xs-12 d-none d-lg-block">
-					<a href="menu.php"> <i class="fa fa-5x fa-cutlery"></i> </a>
+					<a href="menu.html"> <i class="fa fa-5x fa-cutlery"></i> </a>
 					<p class= "px-3 py-2"> Menu</p>
 				</div>
 				<div class="col-lg-2 col-xs-12 d-none d-lg-block">
-					<a href="career.php"> <i class="fa fa-5x fa-briefcase"></i> </a>
+					<a href="career.html"> <i class="fa fa-5x fa-briefcase"></i> </a>
 					<p class= "px-3 py-2"> Career</p>
 				</div>
 				<div class="social-media col-lg-3 col-xs-12 d-none d-sm-block">
