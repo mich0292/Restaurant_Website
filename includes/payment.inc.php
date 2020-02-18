@@ -190,7 +190,7 @@
 								
 							unset($_SESSION["cart"][$keys]);
 						}
-						echo ' <script>alert("Payment Successfully!");</script>';
+						echo ' <script>alert("Payment Successfully! Change='.$change.'");</script>';
 						echo ' <script>
 									window.location.href = "home.php";
 								</script>';
