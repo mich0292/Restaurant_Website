@@ -67,21 +67,34 @@ else
                     </li>';
                 }
                 ?>
-                <li class="nav-item px-2 mt-1 d-lg-none">
-                    <a class="nav-link" data-toggle="modal" data-target="#loginModal">Login	</a>
-                </li>
                 <li class="nav-item pl-2 d-none d-lg-block">
                     <?php
                         if(isset($_SESSION['userId'])){
-                        echo '<form action="includes/logout.inc.php" method="post">
+                        echo '
+                            <li class="nav-item px-2 mt-1 d-lg-none">
+                                <form action="includes/logout.inc.php" method="post" id="logoutform">
+                                <a class="nav-link" href="javascript:{}" onclick="document.getElementById(';
+                                echo "'logoutform'";
+                                echo ').submit();">Logout</a>
+
+                                </form>
+                            </li>
+                            <li class="nav-item pl-2 d-none d-lg-block">
+                            <form action="includes/logout.inc.php" method="post">
                                 <button type="submit" name="logout-submit" class="btn btn-outline-white btn-outline">Logout
                                 </button>
-                            </form>';
+                            </form>
+                            </li>';
                         }
                         else{
-                        echo '<button class="btn btn-outline-white btn-outline" data-toggle="modal"
-                                data-target="#loginModal"><i class="fa fa-user"></i> Login
-                            </button>';
+                        echo '<li class="nav-item px-2 mt-1 d-lg-none">
+                                <a class="nav-link" data-toggle="modal" data-target="#loginModal">Login </a>
+                            </li>
+                            <li class="nav-item pl-2 d-none d-lg-block">
+                                <button class="btn btn-outline-white btn-outline" data-toggle="modal"
+                                    data-target="#loginModal"><i class="fa fa-user"></i> Login
+                                </button>
+                            </li>';
                         }
                     ?>
                 </li>

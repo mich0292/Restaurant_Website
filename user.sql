@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 17, 2020 at 11:51 AM
+-- Generation Time: Feb 18, 2020 at 07:58 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -35,7 +35,7 @@ CREATE TABLE `user` (
   `email` tinytext NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `birthday` date DEFAULT NULL,
-  `contact` int(11) DEFAULT NULL,
+  `contact` varchar(13) NOT NULL,
   `is_admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -44,8 +44,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `name`, `birthday`, `contact`, `is_admin`) VALUES
-(3, 'test', '$2y$10$fCBPtPV8GHltbviG9Y1Dh.DaDOyOO6KLfG2lJiIi9QgKUJEVZ3Jvu', 'test@gmail.com', NULL, NULL, NULL, 0),
-(6, 'gorden', '$2y$10$aaMUz4aGKBcyRuzR/6M7du44.rAyw0N4KY8muyEj2FbWYxONaBBqi', 'limguancheng@hotmail.com', 'Lim Guan Cheng', '1999-09-29', 123456789, 1);
+(1, 'test', '123', 'test123@mmu.edu.my', 'I am testing', '2020-02-02', '012-345 6789', 1);
 
 --
 -- Indexes for dumped tables
@@ -65,7 +64,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

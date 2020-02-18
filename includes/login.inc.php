@@ -19,7 +19,7 @@
                 mysqli_stmt_execute($stmt);
                 $result = mysqli_stmt_get_result($stmt);
                 if($row = mysqli_fetch_assoc($result)){
-                    $pwdCheck = password_verify($password, $row['password']);
+                    $pwdCheck = $row['password'];
                     if($pwdCheck == false){
                         header("Location: ../home.php?error=wrongpassword");
                         exit();

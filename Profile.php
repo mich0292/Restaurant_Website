@@ -61,8 +61,10 @@ else{
 <body>
 	<div class="container-fluid p-0" id="outer">
     	<!-- Nav bar -->
-		<!-- In reference to https://www.codeply.com/go/QAXbNGbWPA/bootstrap-4-navbar-transparent -->
+        <!-- In reference to https://www.codeply.com/go/QAXbNGbWPA/bootstrap-4-navbar-transparent -->
+        <div class="text-center">
         <?php include('navbar.php'); ?>
+</div>
         <!-- End of Nav Bar -->
         <?php
         echo '

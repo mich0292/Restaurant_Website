@@ -10,6 +10,7 @@
         
         if(empty($username) || empty($password) || empty($email) || empty($name) || empty($birthday) || empty($contact)){
             header("Location: ../Registration.php?error=emptyfields&username=".$username."&email=".$email."&name=".$name."&birthday=".$birthday."&contact=".$contact);
+            echo '<script>alert("Please fill in the form");</script>';
             exit();
         }
         else if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)){
@@ -36,6 +37,7 @@
                 mysqli_stmt_store_result($stmt);
                 $resultCheck = mysqli_stmt_num_rows($stmt);
                 if($resultCheck > 0){
+                    echo '<script>alert("Username or Email already exist");</script>';
                     header("Location: ../Registration.php?error=usertaken&email=".$email);
                     exit();
                 }
@@ -47,9 +49,9 @@
                         exit();
                     }
                     else{
-                        $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-                        mysqli_stmt_bind_param($stmt, "ssssss", $username, $hashedPwd, $email, $name, $birthday, $contact);
+                        mysqli_stmt_bind_param($stmt, "ssssss", $username, $password, $email, $name, $birthday, $contact);
                         mysqli_stmt_execute($stmt);
+                        echo ' <script>alert("Registration Success");</script>';
                         header("Location: ../Registration.php?signup=success");
                         exit();
                     }

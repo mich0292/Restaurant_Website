@@ -112,6 +112,29 @@ $_SESSION['page'] = "registration";
 			</div>
 		</div>
 	</div>
+
+	<div class="modal fade" id="dltUserModal" tabindex="-1" role="dialog" aria-labelledby="dltUserModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="dltUserModalLabel">Delete Item</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div> Remove User?</div>	
+				</div>
+				<div class="modal-footer">
+                    <form method="post" id="deleteUserForm">
+                        <input type="hidden" name="userID" id="userID" form="deleteUserForm">
+                        <button type="submit" name="deleteUser" class="btn btn-danger" form="deleteUserForm">Comfirm</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </form>
+				</div>
+			</div>
+		</div>
+    </div>
 </body>
 
 
