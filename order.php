@@ -34,6 +34,38 @@ include "includes/order.inc.php";
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	
 	<title>Order</title>
+	
+	<script type="text/javascript">
+		function order(x)
+		{
+			//document.getElementById("update").submit();
+			var id = document.getElementsByName("id")[x].value;
+			var qty = document.getElementsByName("qty")[x].value;
+			var numbers = /^[0-9]+$/;
+			
+			//alert("HI");
+			if(qty.match(numbers))
+			{
+				qty=parseInt(qty);
+				if(qty >= 0)
+				{
+					document.getElementsByName("tmp_id")[x].value = id;
+					document.getElementsByName("tmp_qty")[x].value = qty;
+					
+					document.getElementById("form").submit();
+				}
+				else
+				{
+					alert("Please insert only number larger than 0");
+				}
+			}
+			else
+			{
+				alert("Please insert only number");
+			}
+		}
+	</script>
+	
 </head>
 <body>		
 	<div class="text-center" id="career-banner">
@@ -74,6 +106,9 @@ include "includes/order.inc.php";
 									
 									<tbody>
 									<?php
+									if(isset($_SESSION["cart"]))
+									{
+										$count=0;
 											foreach($_SESSION["cart"] as $keys => $values)
 											{
 												$menu_id = $values["menu_id"];
@@ -87,7 +122,7 @@ include "includes/order.inc.php";
 									?>	
 										<tr>
 											<td>
-											<form action="" id="myForm" method="POST">
+											<form action="" id="form" method="POST">
 												<div class="p-2 text-left">
 													<img src="<?php echo  $img_file_path; ?>" alt="" width="70" class="img-fluid rounded shadow-sm">
 													<div class="ml-3 d-inline-block align-middle">
@@ -95,21 +130,43 @@ include "includes/order.inc.php";
 													</div>
 												</div>
 											</td>
-											<input type="text" name="id" value="<?php echo  $menu_id; ?>" hidden>
+											<input type="text" name="id" id="id" value="<?php echo  $menu_id; ?>" hidden>
 											<td class="align-middle"><strong><?php echo  $category; ?></strong></td>
 											<td class="align-middle"><strong>RM<?php echo  number_format($food_price,2); ?></strong></td>
-											<td class="align-middle"><input name="<?php echo $menu_id;?>"  class="form-control form-control-sm" type="number" min="1" onkeydown="return false" value="<?php echo  $item_qty; ?>" readonly /></td>
+											<td class="align-middle"><input name="qty"  class="form-control form-control-sm" type="number" min="1" onkeydown="return false" value="<?php echo  $item_qty; ?>" onChange="order(<?php echo $count; ?>)" readonly /></td>
 											<td class="align-middle"><button class="btn btn-danger rounded" type="submit" name="delete"><i class="fa fa-trash"></i></button></td>
+											<input type="text" id="tmp_id" name="tmp_id" hidden />
+											<input type="text" id="tmp_qty" name="tmp_qty" hidden />
 											</form>
 										</tr>
 
 									<?php
+										$count++;
 										}
 										$tax=$total/10;
-										$grandtotal=($total+$tax)-$discount;
+										
+										if($_SESSION["promo_type"] == "CASH") // if promo code is cash
+										{
+											$discount=$promo_price;
+											$_SESSION["discount"]=$discount;
+													
+										}
+										else if($_SESSION["promo_type"] == "PERCENT")// if promo code is percentage
+										{
+											$discount=($total*$_SESSION["promo_price"])/100;
+											$_SESSION["discount"]=$discount;
+										}
+										
+										$grandtotal=($total+$tax)-$_SESSION["discount"];
+										if($grandtotal<=0)
+											$grandtotal=0;
+										
+										$tax=number_format($tax,2);
+										$total=number_format($total,2);
+										$grandtotal=number_format($grandtotal,2);
+										$_SESSION["discount"]=number_format($_SESSION["discount"],2);
+									}
 									?>
-									
-							</form>
 									</tbody>
 								</table>
 							</div>
@@ -129,6 +186,7 @@ include "includes/order.inc.php";
 						</div>
 						</form>
 						<!-- Instructions -->
+						<form action="" method="POST"> 
 						<div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Special remarks</div>
 						<div class="p-4">
 							<p class="font-italic mb-4">If you have some information you can leave them in the box below</p>
@@ -137,13 +195,22 @@ include "includes/order.inc.php";
 						<div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary</div>
 						<div class="p-4">
 							<ul class="list-unstyled mb-4">
-								<li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>RM<?php echo number_format($total,2); ?></strong></li>
-								<li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax(10%)</strong><strong>RM<?php echo number_format($tax,2); ?></strong></li>
-								<li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Discount</strong><strong>RM<?php echo number_format($discount,2); ?></strong></li>
+								<li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>RM<?php echo $total; ?></strong></li>
+								<li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax(10%)</strong><strong>RM<?php echo $tax; ?></strong></li>
+								<li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Discount <?php 
+								if($_SESSION["promo_code"] != "")
+									echo "(".$_SESSION["promo_code"].")"; 
+								?>
+								
+								</strong><strong>-RM<?php echo $_SESSION["discount"]; ?></strong></li>
+								
 								<li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
-									<h5 class="font-weight-bold">RM<?php echo number_format($grandtotal,2); ?></h5>
+									<h5 class="font-weight-bold">RM<?php echo $grandtotal; ?></h5>
 								</li>
-							</ul><a href="payment.php" class="btn btn-dark rounded-pill py-2 px-3 px-lg-5">Procceed to checkout</a>
+							</ul>
+							
+								<button type="submit" name="checkout" class="btn btn-dark rounded-pill py-2 px-3 px-lg-5">Procceed to checkout</button>
+							</form>
 						</div>
 						</div>
 					</div>
