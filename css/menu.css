@@ -174,3 +174,6 @@ div.card-footer button{
 		display: none;
 	}
 }
+
+input[type="number"] 
+{ font-size: 15px; }
