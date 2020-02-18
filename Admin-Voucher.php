@@ -266,7 +266,7 @@
 
 					
 							<button type="submit" name="closeButton" class="btn btn-secondary" >Close</button>
-							<button type="submit" name="addVoucherID" class="btn btn-primary" >Save changes</button>
+							<button type="submit" name="voucherbutton" class="btn btn-primary" >Save changes</button>
 					</form>
 				</div>
 			</div>
