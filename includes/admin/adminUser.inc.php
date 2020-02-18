@@ -32,64 +32,7 @@
 			}
         }
         else{
-
-            if (empty($_POST['usrlUsername'])){
-				$_SESSION['usernameErr'] = "Username is Required";
-				$_SESSION['usernameClass'] = "has-error"; 
-			}else {
-				$_SESSION['usernameInput'] = $userName;
-				$_SESSION['usernameErr'] = "";
-				$_SESSION['usernameClass'] = "";
-            }
-            if (empty($_POST['usrlPassword'])){
-				$_SESSION['passwordErr'] = "Password is required";
-				$_SESSION['passwordClass'] = "has-error"; 
-			}else {
-				$_SESSION['passwordInput'] = $password;
-				$_SESSION['passwordErr'] = "";
-				$_SESSION['passwordClass'] = "";
-            }
-            if (empty($_POST['usrlName'])){
-				$_SESSION['nameErr'] = "Name is required";
-				$_SESSION['nameClass'] = "has-error"; 
-			}else {
-				$_SESSION['nameInput'] = $name;
-				$_SESSION['nameErr'] = "";
-				$_SESSION['nameClass'] = "";
-            }
-            if (empty($_POST['usrlBday'])){
-				$_SESSION['passwordErr'] = "Birthday is required";
-				$_SESSION['passwordClass'] = "has-error"; 
-			}else {
-				$_SESSION['bdayInput'] = $birthday;
-				$_SESSION['passwordErr'] = "";
-				$_SESSION['passwordClass'] = "";
-            }
-            if (empty($_POST['usrlPassword'])){
-				$_SESSION['passwordErr'] = "Password is required";
-				$_SESSION['passwordClass'] = "has-error"; 
-			}else {
-				$_SESSION['usernameInput'] = $email;
-				$_SESSION['passwordErr'] = "";
-				$_SESSION['passwordClass'] = "";
-            }
-            if (empty($_POST['usrlPassword'])){
-				$_SESSION['contactErr'] = "Password is required";
-				$_SESSION['contactClass'] = "has-error"; 
-			}else {
-				$_SESSION['usernameInput'] = $contact;
-				$_SESSION['contactErr'] = "";
-				$_SESSION['contactClass'] = "";
-            }
-            if (empty($_POST['usrlPassword'])){
-				$_SESSION['passwordErr'] = "Password is required";
-				$_SESSION['passwordClass'] = "has-error"; 
-			}else {
-				$_SESSION['staffInput'] = $isStaff;
-				$_SESSION['passwordErr'] = "";
-				$_SESSION['passwordClass'] = "";
-            }
-			header("Location: ../../Admin-UserList.php?error");
+			header("Location: ../../Admin-UserList.php?field=empty");
 			exit();	
 		}				
         mysqli_close($conn);

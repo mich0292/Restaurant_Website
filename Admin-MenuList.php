@@ -106,17 +106,17 @@
         <?php
 			foreach($menuList as $menuItem){
 				echo "<tr>";
-				echo '<th class="align-middle">';
+				echo '<th class="align-middle id">';
 				echo $menuItem[0]; //ID 
 				echo "</th>";
-				echo '<td class="align-middle">'.$menuItem[3]."</td>"; //Category
-				echo '<td class="align-middle">'.$menuItem[1]."</td>"; //Name
-				echo '<td class="align-middle">'.$menuItem[2]."</td>"; //Price
-				echo '<td class="align-middle"> <img src="'.$menuItem[4].'" height="50" width="50"></td>'; //Picture's file path
+				echo '<td class="align-middle category">'.$menuItem[3]."</td>"; //Category
+				echo '<td class="align-middle name">'.$menuItem[1]."</td>"; //Name
+				echo '<td class="align-middle price">'.$menuItem[2]."</td>"; //Price
+				echo '<td class="align-middle "> <img src="'.$menuItem[4].'" height="50" width="50"></td>'; //Picture's file path
 				echo '<td>
-						<button type="button" class="btn btn-sm btn-danger deleteButton" data-toggle="modal"  data-id="'.$menuItem[0].'">
+						<button type="button" class="btn btn-sm btn-danger deleteButton" data-toggle="modal" data-id="'.$menuItem[0].'">
 						<i class="fa fa-trash"></i></button>
-						<button class="btn btn-sm ml-0 btn-primary" data-toggle="modal" data-target="#editMenuModal" value="'.$menuItem[0].'">
+						<button class="btn btn-sm ml-0 btn-primary editButton" data-toggle="modal">
 						<i class="fa fa-edit"></i>
 						</button>	
 					  </td>';
@@ -136,19 +136,19 @@
 						</colgroup>
 						<tr>
 						  <th scope="col">ID</th>
-						  <td>'.$menuItem[0].'</td>
+						  <td class="id">'.$menuItem[0].'</td>
 						</tr>
 						<tr>
 						  <th scope="col">Category</th>
-						  <td>'.$menuItem[3].'</td>
+						  <td class="category">'.$menuItem[3].'</td>
 						</tr>
 						<tr>
 						  <th scope="col">Name</th>
-						  <td>'.$menuItem[1].'</td>
+						  <td class="name">'.$menuItem[1].'</td>
 						</tr>
 						<tr>
 						  <th scope="col">Price</th>
-						  <td>'.$menuItem[2].'</td>
+						  <td class="price">'.$menuItem[2].'</td>
 						</tr>
 						<tr>
 						  <th scope="col">Picture:<br>(Adult)</th>
@@ -156,7 +156,8 @@
 						</tr>
 						<tr>
 						  <th scope="col">Action</th>
-						  <td><button class="btn btn-sm btn-danger deleteButton" data-toggle="modal" data-id="'.$menuItem[0].'"><i class="fa fa-trash"></i></button></td>
+						  <td><button class="btn btn-sm btn-danger deleteButton" data-toggle="modal" data-id="'.$menuItem[0].'"><i class="fa fa-trash"></i></button>
+						  <button class="btn btn-sm ml-0 btn-primary editButton" data-toggle="modal"><i class="fa fa-edit"></i></button></td>	
 						</tr>
 				</table>	';	
 			}
@@ -171,7 +172,7 @@
 		  <div class="modal-content">
 			<div class="modal-header">
 			  <h5 class="modal-title" id="addMenuModalLabel">Add Item</h5>
-			  <button type="reset" class="close" data-dismiss="modal" aria-label="Close" name="closeAddItem" onClick="resetForm()">
+			  <button type="submit" class="close" data-dismiss="modal" aria-label="Close" name="closeAddItem" form="addMenuForm" onClick="resetForm()">
 				<span aria-hidden="true">&times;</span>
 			  </button>
 			</div>
@@ -218,35 +219,32 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="editMenuModalLabel">Edit Item</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="resetForm()">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <div>
-            <form method="post" id="editMenuForm">
+            <form method="post" id="editMenuForm" action="includes/adm-menulist.inc.php">
               <div class="form-group">
-                <label for="menuName" class="">Name:</label>
-                <input type="text" class="form-control" name="menuName">
+				<input type="hidden" id="editMenuID" name="editMenuID">
+                <label for="editMenuName" class="">Name:</label>
+                <input type="text" class="form-control" name="editMenuName" id="editMenuName">
               </div>
               <div class="form-group">
-                <label for="menuPrice" class="">Price:</label>
-                <input type="number" class="form-control" step="0.01" min="0" name="menuPrice">
+                <label for="editMenuPrice" class="">Price:</label>
+                <input type="number" class="form-control" step="0.01" min="0" name="editMenuPrice" id="editMenuPrice">
               </div>
 			  <div class="form-group">
-                <label for="menuPicUrl" class="">Category:</label>
-                <input type="text" class="form-control" name="category" id="addMenuCategory">
-              </div>
-              <div class="form-group">
-                <label for="menuPicUrl" class="">Picture URL:</label>
-                <input type="text" class="form-control" name="menuPicUrl">
+                <label for="editMenuCategory" class="">Category:</label>
+                <input type="text" class="form-control" name="editMenuCategory" id="editMenuCategory">
               </div>
             </form>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="resetForm()">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="submit" name="closeButton"class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" name="editMenu" class="btn btn-primary" form="editMenuForm">Save changes</button>
         </div>
       </div>
     </div>
@@ -274,6 +272,31 @@
 			</div>
 		</div>
 	</div>
+	<script>
+			$(document).on('click','.editButton',function(){
+            var row = $(this).closest('tr');
+			var mobileRow = $(this).closest('table');			
+			var id = row.find('.id').text();
+            var name = row.find('.name').text();
+            var category = row.find('.category').text();
+            var price = row.find('.price').text();
+			if(!id){
+				id= mobileRow.find('.id').text();
+				name = mobileRow.find('.name').text();
+				category = mobileRow.find('.category').text();
+				price = mobileRow.find('.price').text();
+			}
+            $('#editMenuModal').find('#editMenuID').val(id);
+            $('#editMenuModal').find('#editMenuName').val(name);
+            $('#editMenuModal').find('#editMenuCategory').val(category);
+            $('#editMenuModal').find('#editMenuPrice').val(price);
+            $('#editMenuModal').modal('show');
+            });
+
+			function resetForm(){ //resetForm upon click "X" button on modal
+				document.getElementById("addMenuForm").reset();
+			}	
+	</script>
 </body>
 
 </html>

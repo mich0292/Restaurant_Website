@@ -1,32 +1,6 @@
 <?php
 	session_start();
 	require 'includes/admin/adminUser.inc.php';
-		//Clear the saved input
-		$_SESSION['usernameInput'] = "";
-		$_SESSION['passwordInput'] = "";
-		$_SESSION['nameInput'] = "";
-		$_SESSION['emailInput'] = "";
-		$_SESSION['contactInput'] = "";
-		$_SESSION['staffInput'] = "";
-		
-		 //Clear the error message
-		$_SESSION['usernameErr'] = "";
-		$_SESSION['passwordErr'] = "";
-		$_SESSION['nameErr'] = "";
-		$_SESSION['contactErr'] = "";
-		$_SESSION['emailErr'] = "";
-		$_SESSION['bdayErr'] = "";
-		$_SESSION['staffErr'] = "";
-		
-		//Clear the error formattting
-		$_SESSION['dateClass'] = ""; 
-		$_SESSION['timeClass'] = "";
-		$_SESSION['nameClass'] = "";
-		$_SESSION['emailClass'] = "";
-		$_SESSION['contactClass'] = "";
-        $_SESSION['bdayClass'] = "";
-        $_SESSION['staffClass'] = "";
-	
 	$stmt = readUserList();
     $userList = $stmt->fetchAll();
 ?>
@@ -210,38 +184,31 @@
                     <form id="editUserForm" method="post" action="includes/admin/adminUser.inc.php">
 						<div class="form-group">
 							<label for="usrlUsername" class="">Username:</label>
-							<input type="text" class="form-control" id="editUsername" name="usrlUsername" value ="<?php echo $_SESSION['usernameInput'];?>" readonly>
-							<small id="<?php echo $_SESSION['usernameClass']; ?>"> <?php echo $_SESSION['usernameErr']; ?> </small>
+							<input type="text" class="form-control" id="editUsername" name="usrlUsername" readonly>
 						</div>
 						<div class="form-group">
 							<label for="usrlPassword" class="">Password:</label>
-							<input type="text" class="form-control" id="editPassword" name="usrlPassword" value ="<?php echo $_SESSION['passwordInput'];?>" >
-							<small id="<?php echo $_SESSION['passwordClass'];?>"> <?php echo $_SESSION['passwordErr']; ?> </small>
+							<input type="text" class="form-control" id="editPassword" name="usrlPassword" >
 						</div>
 						<div class="form-group">
 							<label for="usrlName" class="">Name:</label>
-							<input type="text" class="form-control" id="editName" name="usrlName" value ="<?php echo $_SESSION['nameInput'];?>">
-							<small id="<?php echo $_SESSION['nameClass'];?>"> <?php echo $_SESSION['nameErr']; ?> </small>
+							<input type="text" class="form-control" id="editName" name="usrlName">
                         </div>
                         <div class="form-group">
 							<label for="usrlBday" class="">Birthday:</label>
-							<input type="date" class="form-control" id="editBirthday" name="usrlBday" value = "<?php echo $_SESSION['bdayInput'];?>">
-							<small id="<?php echo $_SESSION['bdayClass'];?>"> <?php echo $_SESSION['bdayErr']; ?> </small>
+							<input type="date" class="form-control" id="editBirthday" name="usrlBday">
                         </div>
                         <div class="form-group">
 							<label for="usrlEmail" class="">Email:</label>
-							<input type="text" class="form-control" id="editEmail" name="usrlEmail" value = "<?php echo $_SESSION['emailInput'];?>">
-							<small id="<?php echo $_SESSION['emailClass'];?>"> <?php echo $_SESSION['emailErr']; ?> </small>
+							<input type="text" class="form-control" id="editEmail" name="usrlEmail">
 						</div>
 						<div class="form-group">
 							<label for="usrlContact" class="">Contact:</label>
-							<input type="text" class="form-control" id="editContact" name="usrlContact" value ="<?php echo $_SESSION['contactInput'];?>">
-							<small id="<?php echo $_SESSION['contactClass'];?>"> <?php echo $_SESSION['contactErr']; ?> </small>
+							<input type="text" class="form-control" id="editContact" name="usrlContact">
 						</div>
 						<div class="form-group">
 							<label for="usrlIsStaff" class="">Is Staff:</label>
-							<input type="text" class="form-control" id="editIsStaff" name="usrlIsStaff" value = "<?php echo $_SESSION['staffInput'];?>">
-							<small id="<?php echo $_SESSION['staffClass'];?>"> <?php echo $_SESSION['staffErr']; ?> </small>
+							<input type="text" class="form-control" id="editIsStaff" name="usrlIsStaff">
 						</div>
 							<button type="submit" name="closeButton" class="btn btn-secondary" >Close</button>
 							<button type="submit" name="editUser" class="btn btn-primary" >Save changes</button>
@@ -291,8 +258,6 @@
             $('#editUserModal').find('#editContact').val(contact);
             $('#editUserModal').find('#editIsStaff').val(is_staff);
             $('#editUserModal').modal('show');
-            console.log("Got IT");
-            console.log(name);
             });
             $(document).on('click','.dltButton',function(){ // Click to only happen on announce links
 				$("#userID").val($(this).data('id'));
