@@ -147,7 +147,7 @@ include "includes/order.inc.php";
 										
 										if($_SESSION["promo_type"] == "CASH") // if promo code is cash
 										{
-											$discount=$promo_price;
+											$discount=$_SESSION["promo_price"];
 											$_SESSION["discount"]=$discount;
 													
 										}
@@ -190,7 +190,7 @@ include "includes/order.inc.php";
 						<div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Special remarks</div>
 						<div class="p-4">
 							<p class="font-italic mb-4">If you have some information you can leave them in the box below</p>
-							<textarea name="remark" cols="30" rows="2" class="form-control"></textarea>
+							<textarea name="remark" cols="30" rows="2" class="form-control" ><?php echo $_SESSION["remark"]; ?></textarea>
 						</div>
 						<div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary</div>
 						<div class="p-4">
