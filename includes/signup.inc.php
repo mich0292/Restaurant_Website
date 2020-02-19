@@ -57,7 +57,7 @@
                         exit();
                     }
                     else{
-                        mysqli_stmt_bind_param($stmt, "ssssss", $username, $hashedPwd, $email, $name, $birthday, $contact);
+                        mysqli_stmt_bind_param($stmt, "ssssss", $username, $password, $email, $name, $birthday, $contact);
                         mysqli_stmt_execute($stmt);
                         echo ' <script>alert("Registration Success");</script>';
                         echo '<script>window.location.href="../Registration.php";</script>';
