@@ -30,6 +30,45 @@
 	<link rel="stylesheet" href="css/menu.css">
 	<link rel="stylesheet" href="css/style.css">
 	
+<<<<<<< HEAD
+=======
+	<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	
+	<script>
+		//Jun
+		function order(x)
+		{
+			//document.getElementById("update").submit();
+			var id = document.getElementsByName("id")[x].value;
+			var qty = prompt("Please enter quantity", "1");
+			var numbers = /^[0-9]+$/;
+			
+			if(qty.match(numbers))
+			{
+				qty=parseInt(qty);
+				if(qty >= 0)
+				{
+					document.getElementsByName("tmp_id")[x].value = id;
+					document.getElementsByName("qty")[x].value = qty;
+					document.getElementById("form").submit();
+				}
+				else
+				{
+					alert("Please insert only number larger than 0");
+				}
+			}
+			else
+			{
+				alert("Please insert only number");
+			}
+		}
+	</script>
+	</head>
+>>>>>>> 9686099f0cbcdcd0d251f6a901e1b4e629a48734
 
 </head>
 <body>	
@@ -58,17 +97,16 @@
 				<h1> Sushi </h1>
 			</div>
 		</div>
-		<div class = "row">
+		<div class = "row align-content-center">
 			<div class="card-deck">
 			<?php
+			$count=0;
 				// 0 -> ID, 1 -> food name, 2 -> food price, 3 -> category, 4 -> file image path
-				$count=0;
-				
 				foreach($foodList as $food){
 					//Ensure that only those food that falls under Sushi are displayed
 					if ($food[3] == "Sushi"){
-						echo '<form action="" method="POST">';
-						echo '<div class = "col-xs-2 align-content-start">';
+						echo '<form method="POST" action="">'; 
+						echo '<div class = "col-xs-2 mx-auto mx-auto">';
 						echo '<div class="card">';
 						echo '<input type="text" name="id" id="id" value="'.$food[0].'" hidden>';
 						echo '<img class="card-img-top img-fluid animated pulse" src="'.$food[4].'" alt="'.$food[1].'">';
@@ -77,11 +115,16 @@
 						echo '<!-- p class="card-text"-->'; // For future use
 						echo '</div>';
 						echo '<div class="card-footer text-center">';
+<<<<<<< HEAD
 						echo '<span class="pricing">'.'RM'.number_format((float)$food[2],2,'.','').'</span>'; 
 						echo '<button type="submit" name="" onClick="order('.$count.')" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>';
+=======
+						echo '<span class="pricing">'.'RM'.number_format((float)$food[2],2,'.','').'</span>';
+>>>>>>> 9686099f0cbcdcd0d251f6a901e1b4e629a48734
 						echo '<input type="hidden" id="tmp_id" name="tmp_id" />
-							  <input type="hidden" id="qty" name="qty" />';
-						echo '</form>';
+							  <input type="hidden" id="qty" name="qty" />';						
+						echo '<button type="submit" name="" onClick="order('.$count.')" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>';
+						echo '</form>'; 
 						echo '</div>
 							  </div>
 							  </div>';
@@ -106,8 +149,8 @@
 				foreach($foodList as $food){
 					//Ensure that only those food that falls under Sushi are displayed
 					if ($food[3] == "Agemono"){
-						echo '<form action="" method="POST">';
-						echo '<div class = "col-xs-2 align-content-start">';
+						echo '<form method="POST" action="">'; 
+						echo '<div class = "col-xs-2 mx-auto mx-auto">';
 						echo '<div class="card">';
 						echo '<input type="text" name="id" id="id" value="'.$food[0].'" hidden>';
 						echo '<img class="card-img-top img-fluid animated pulse" src="'.$food[4].'" alt="'.$food[1].'">';
@@ -116,11 +159,15 @@
 						echo '<!-- p class="card-text"-->'; // For future use
 						echo '</div>';
 						echo '<div class="card-footer text-center">';
+<<<<<<< HEAD
 						echo '<span class="pricing">'.'RM'.number_format((float)$food[2],2,'.','').'</span>'; 
+=======
+						echo '<span class="pricing">'.'RM'.number_format((float)$food[2],2,'.','').'</span>';
+>>>>>>> 9686099f0cbcdcd0d251f6a901e1b4e629a48734
 						echo '<input type="hidden" id="tmp_id" name="tmp_id" />
-							  <input type="hidden" id="qty" name="qty" />';
+							  <input type="hidden" id="qty" name="qty" />';						
 						echo '<button type="submit" name="" onClick="order('.$count.')" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>';
-						echo '</form>';
+						echo '</form>'; 
 						echo '</div>
 							  </div>
 							  </div>';
@@ -145,8 +192,8 @@
 				foreach($foodList as $food){
 					//Ensure that only those food that falls under Sushi are displayed
 					if ($food[3] == "Dessert"){
-						echo '<form action="" method="POST">';
-						echo '<div class = "col-xs-2 align-content-start">';
+						echo '<form method="POST" action="">'; 
+						echo '<div class = "col-xs-2 mx-auto mx-auto">';
 						echo '<div class="card">';
 						echo '<input type="text" name="id" id="id" value="'.$food[0].'" hidden>';
 						echo '<img class="card-img-top img-fluid animated pulse" src="'.$food[4].'" alt="'.$food[1].'">';
@@ -155,11 +202,17 @@
 						echo '<!-- p class="card-text"-->'; // For future use
 						echo '</div>';
 						echo '<div class="card-footer text-center">';
+<<<<<<< HEAD
 						echo '<span class="pricing">'.'RM'.number_format((float)$food[2],2,'.','').'</span>'; 
 						echo '<input type="hidden" id="tmp_id" name="tmp_id" /> 
 							  <input type="hidden" id="qty" name="qty" />';	//to get the id and qty from php
+=======
+						echo '<span class="pricing">'.'RM'.number_format((float)$food[2],2,'.','').'</span>';
+						echo '<input type="hidden" id="tmp_id" name="tmp_id" />
+							  <input type="hidden" id="qty" name="qty" />';						
+>>>>>>> 9686099f0cbcdcd0d251f6a901e1b4e629a48734
 						echo '<button type="submit" name="" onClick="order('.$count.')" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>';
-						echo '</form>';
+						echo '</form>'; 
 						echo '</div>
 							  </div>
 							  </div>';
