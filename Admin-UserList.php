@@ -245,7 +245,8 @@
     crossorigin="anonymous"></script>
     <script>
         $(document).on('click','.editButton',function(){
-            var row = $(this).closest('table');
+            var row = $(this).closest('tr');
+            var mobileRow = $(this).closest('table');
             var name = row.find('.name').text();
             var username = row.find('.username').text();
             var password = row.find('.password').text();
@@ -253,6 +254,15 @@
             var email = row.find('.email').text();
             var contact = row.find('.contact').text();
             var is_staff = row.find('.is-staff').text();
+            if(!name){
+              name = mobileRow.find('.name').text();
+              username = mobileRow.find('.username').text();
+              password = mobileRow.find('.password').text();
+              birthday = mobileRow.find('.birthday').text();
+              email = mobileRow.find('.email').text();
+              contact = mobileRow.find('.contact').text();
+              is_staff = mobileRow.find('.is-staff').text();
+            }
             $('#editUserModal').find('#editName').val(name);
             $('#editUserModal').find('#editUsername').val(username);
             $('#editUserModal').find('#editPassword').val(password);
