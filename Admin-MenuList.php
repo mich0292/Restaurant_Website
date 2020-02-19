@@ -1,6 +1,6 @@
 <?php	
     session_start();
-	require 'includes/adm-menulist.inc.php';
+	require 'includes/admin/adm-menulist.inc.php';
 	include 'includes/upload.php';
 	$nameErr = $priceErr = "";
 	
