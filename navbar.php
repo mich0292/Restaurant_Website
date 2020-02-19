@@ -27,7 +27,24 @@ else
     $registration = "";
 
 ?>
-
+<!DOCTYPE HTML>
+<head>
+	<link rel="stylesheet" href="css/nav.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script>
+	<!-- Reference https://stackoverflow.com/questions/23706003/changing-nav-bar-color-after-scrolling
+	https://stackoverflow.com/questions/37585678/navbar-become-transparent-and-fixed-to-top-when-scroll-down -->
+		$(function () {
+		  $(document).scroll(function () {
+			var $nav = $(".navbar-fixed-top");
+			$nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+		  });
+		});
+	</script>
+</head>
+<body>
 
 <nav class="navbar navbar-toggleable-sm navbar-expand-lg navbar-inverse">
     <div class="container-fluid py-0 justify-content-between">
@@ -89,3 +106,4 @@ else
         </div>
     </div>
 </nav>
+</body>
