@@ -67,7 +67,7 @@
     crossorigin="anonymous"></script>
 	<script>
 		$(document).ready(function(){
-		     $(".deleteButton").click(function(){ // Click to only happen on announce links
+		     $(".deleteButton").click(function(){ // Click to only happen on deletButton
 				$("#reservationID").val($(this).data('id'));
 				$('#dltReserveModal').modal('show');
 		   });
