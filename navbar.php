@@ -1,48 +1,35 @@
 <?php
-$page = $_SESSION['page'];
+	$page = $_SESSION['page'];
 
-if($page == "home")
-    $home = "active";
-else
-    $home = "";
-if($page == "menu")
-    $menu = "active";
-else 
-    $menu = "";
-if($page == "order")
-    $order = "active";
-else
-    $order = "";
-if($page == "career")
-    $career = "active";
-else
-    $career = "";
-if($page == "profile")
-    $profile = "active";
-else
-    $profile = "";
-if($page == "registration")
-    $registration = "active";
-else
-    $registration = "";
+	if($page == "home")
+		$home = "active";
+	else
+		$home = "";
+	if($page == "menu")
+		$menu = "active";
+	else 
+		$menu = "";
+	if($page == "order")
+		$order = "active";
+	else
+		$order = "";
+	if($page == "career")
+		$career = "active";
+	else
+		$career = "";
+	if($page == "profile")
+		$profile = "active";
+	else
+		$profile = "";
+	if($page == "registration")
+		$registration = "active";
+	else
+		$registration = "";
 
 ?>
 <!DOCTYPE HTML>
 <head>
 	<link rel="stylesheet" href="css/nav.css">
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-		crossorigin="anonymous"></script>
-	<script>
-	<!-- Reference https://stackoverflow.com/questions/23706003/changing-nav-bar-color-after-scrolling
-	https://stackoverflow.com/questions/37585678/navbar-become-transparent-and-fixed-to-top-when-scroll-down -->
-		$(function () {
-		  $(document).scroll(function () {
-			var $nav = $(".navbar-fixed-top");
-			$nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
-		  });
-		});
-	</script>
 </head>
 <body>
 
@@ -106,4 +93,19 @@ else
         </div>
     </div>
 </nav>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script>
+	<!-- Reference https://stackoverflow.com/questions/23706003/changing-nav-bar-color-after-scrolling
+	https://stackoverflow.com/questions/37585678/navbar-become-transparent-and-fixed-to-top-when-scroll-down -->
+		$(function () {
+		  $(document).scroll(function () {
+			var $nav = $(".navbar-fixed-top");
+			$nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+		  });
+		});
+</script>
 </body>
+</html>

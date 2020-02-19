@@ -1,32 +1,32 @@
 <?php
 
-session_start();
-$_SESSION['page'] = "profile";
-require 'includes/dbh.inc.php';
-$username = $_SESSION['username'];
-if(!isset($_SESSION['username'])){
-    header("Location: ./Registration.php");
-}
-$sql = "SELECT name,email,birthday,contact,is_admin FROM user WHERE username='$username'";
-$result = mysqli_query($conn, $sql);
-if (!$result) {
-    echo 'Could not run query: ' . mysql_error();
-    exit;
-}
-$row = mysqli_fetch_row($result);
+	session_start();
+	$_SESSION['page'] = "profile";
+	require 'includes/dbh.inc.php';
+	$username = $_SESSION['username'];
+	if(!isset($_SESSION['username'])){
+		header("Location: ./Registration.php");
+	}
+	$sql = "SELECT name,email,birthday,contact,is_admin FROM user WHERE username='$username'";
+	$result = mysqli_query($conn, $sql);
+	if (!$result) {
+		echo 'Could not run query: ' . mysql_error();
+		exit;
+	}
+	$row = mysqli_fetch_row($result);
 
-$name = $row[0];
-$email = $row[1];
-$birthday = $row[2];
-$contact = $row[3];
-$admin = $row[4];
+	$name = $row[0];
+	$email = $row[1];
+	$birthday = $row[2];
+	$contact = $row[3];
+	$admin = $row[4];
 
-if($admin == 1){
-    $user = "administrator";
-}
-else{
-    $user = "customer";
-}
+	if($admin == 1){
+		$user = "administrator";
+	}
+	else{
+		$user = "customer";
+	}
    
 ?>
 <!doctype html>
@@ -50,13 +50,6 @@ else{
 	<!-- Gordon -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/profile.css">
-	
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
- 
 </head>
 <body>
 	<div class="container-fluid p-0" id="outer">
@@ -143,5 +136,11 @@ else{
             </div>
         </div>
     </div>
-</body>
+
+<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+ </body>
 </html>
