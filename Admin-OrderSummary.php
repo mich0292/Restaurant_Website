@@ -96,6 +96,9 @@
                   <button type="button" class="btn btn-sm btn-danger deleteButton" data-toggle="modal" data-id="'.$summary[0].'"> 
                     <i class="fa fa-trash"></i>
                   </button>
+                  <button type="button" class="btn btn-sm btn-primary orderinfo" data-toggle="modal" data-id="'.$summary[0].'"> 
+                  <i class="fa fa-info-circle"></i>
+                    </button>
                   </td>';
               echo "</tr>"; //data-target="#dltOrderSummaryModal"
             }
@@ -138,8 +141,9 @@
 			
 						<tr>
 						  <th scope="col">Action</th>
-						  <td><button class="btn btn-sm btn-danger deleteButton" data-toggle="modal" data-id="'.$summary[0].'"><i class="fa fa-trash"></i></button>
-					
+                          <td><button class="btn btn-sm btn-danger deleteButton" data-toggle="modal" data-id="'.$summary[0].'"><i class="fa fa-trash"></i></button>
+                          <button class="btn btn-sm btn-primary orderinfo" data-toggle="modal" data-id="'.$summary[0].'"><i class="fa fa-info-circle"></i></button>
+                          </td>
 						</tr>
 				</table>	';	
 			}
@@ -167,20 +171,48 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="orderDetailModal" tabindex="-1" role="dialog" aria-labelledby="orderDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-light">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderDetailModalLabel">Order Detail</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="detailModal"></div>
+            </div>
+        </div>
+    </div>
 	<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      
     <script>
         $(document).ready(function(){
             $(".deleteButton").click(function(){ // Click to only happen on announce links
               $("#orderID").val($(this).data('id'));
               $('#dltOrderSummaryModal').modal('show');
+            });});
+            $(document).ready(function(){
+            $('.orderinfo').click(function(){
+            var paymentid = $(this).data('id');
+            // AJAX request
+            $.ajax({
+                url: 'includes/orderDetail.inc.php',
+                type: 'post',
+                data: {paymentid: paymentid},
+                success: function(response){ 
+                // Add response in Modal body
+                $('#detailModal').html(response);
+                $('#orderDetailModal').modal('show'); 
+                }
             });
+        });
         });
     </script>
 </body>

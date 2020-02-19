@@ -150,7 +150,7 @@
 				$payment_tax = $payment_total/10;
 				$payment_grand=($payment_total+$payment_tax)-$_SESSION["discount"]; //get grand total payment
 					
-				if($payment_grand<$cash)
+				if($payment_grand<=$cash)
 				{
 					$sql="SHOW TABLE STATUS LIKE 'payment'";
 					$stmt = $conn->prepare($sql);

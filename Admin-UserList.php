@@ -197,7 +197,10 @@
 						</div>
 						<div class="form-group">
 							<label for="usrlIsStaff">Is Staff:</label>
-							<input type="text" class="form-control" id="editIsStaff" name="usrlIsStaff">
+              <select name="usrlIsStaff" id="editIsStaff">
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+              </select>
 						</div>
 							<button type="submit" name="closeButton" class="btn btn-secondary" >Close</button>
 							<button type="submit" name="editUser" class="btn btn-primary" >Save changes</button>
