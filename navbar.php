@@ -48,7 +48,7 @@ else
 
 <nav class="navbar navbar-toggleable-sm navbar-expand-lg navbar-inverse">
     <div class="container-fluid py-0 justify-content-between">
-        <a class="navbar-brand" href="home.html">
+        <a class="navbar-brand" href="home.php">
             <img class="img-fluid pr-3 pb-1 d-none d-lg-inline" src="images/home/logo2.png" alt="sushi-sama-logo" /><span class="px-2">Sushi Sama </span>
         </a>
         <button class="navbar-toggler btn" type="button" data-toggle="collapse"
