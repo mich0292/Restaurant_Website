@@ -113,10 +113,9 @@
 						echo '</div>';
 						echo '<div class="card-footer text-center">';
 						echo '<span class="pricing">'.'RM'.number_format((float)$food[2],2,'.','').'</span><br>'; 
-						echo 'Quantity: ';
+						echo '<button type="submit" name="" onClick="order('.$count.')" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>';
 						echo '<input type="hidden" id="tmp_id" name="tmp_id" />
 							  <input type="hidden" id="qty" name="qty" />';
-						echo '<button type="submit" name="" onClick="order('.$count.')" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>';
 						echo '</form>';
 						echo '</div>
 							  </div>
@@ -153,7 +152,6 @@
 						echo '</div>';
 						echo '<div class="card-footer text-center">';
 						echo '<span class="pricing">'.'RM'.number_format((float)$food[2],2,'.','').'</span><br>'; 
-						echo 'Quantity: ';
 						echo '<input type="hidden" id="tmp_id" name="tmp_id" />
 							  <input type="hidden" id="qty" name="qty" />';
 						echo '<button type="submit" name="" onClick="order('.$count.')" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>';
@@ -193,7 +191,6 @@
 						echo '</div>';
 						echo '<div class="card-footer text-center">';
 						echo '<span class="pricing">'.'RM'.number_format((float)$food[2],2,'.','').'</span><br>'; 
-						echo 'Quantity: ';
 						echo '<input type="hidden" id="tmp_id" name="tmp_id" /> 
 							  <input type="hidden" id="qty" name="qty" />';	//to get the id and qty from php
 						echo '<button type="submit" name="" onClick="order('.$count.')" class="btn peach-gradient"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"> <span class="hidden"> Order </span></i></button>';
