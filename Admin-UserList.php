@@ -46,8 +46,8 @@
     <div class="row p-2 bg-white shadow-lg rounded-lg title px-3 text-left m-0">
       User List
     </div>
-    <div class="row d-flex rounded text-center bg-white mt-1 table-responsive m-0">
-      <table class="col table table-hover table-bordered d-none d-lg-table">
+    <div class="row d-flex rounded text-center bg-white mt-2 table-responsive m-0">
+      <table class="col table table-hover table-bordered m-0 d-none d-lg-table">
         <thead class="thead-dark">
           <tr>
             <th scope="col">

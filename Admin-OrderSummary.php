@@ -49,8 +49,8 @@
             </nav>
         </div>
     <div class="row p-2 bg-white shadow-lg rounded-lg title px-3 mt-3 m-0 text-left">Order Summary</div>
-    <div class="row d-flex justify-content-center rounded text-center bg-white mt-1 m-0">
-        <table class="table table-hover table-bordered m-2 d-none d-md-table">
+    <div class="row d-flex justify-content-center rounded text-center bg-white mt-2 m-0">
+        <table class="table table-hover table-bordered m-0 d-none d-md-table">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col" class="th-center">
