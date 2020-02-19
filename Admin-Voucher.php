@@ -82,7 +82,7 @@
       <button class="btn btn-success" data-toggle="modal" data-target="#addVoucherModal">Add Voucher</button>
     </div>
     <div class="row d-flex justify-content-center rounded text-center bg-white mt-2 m-0">
-      <table class="table table-hover table-bordered m-0 d-none d-md-table">
+      <table class="table table-hover table-bordered m-0 d-none d-lg-table">
         <thead class="thead-dark">
             <tr>
             <th scope="col" class="th-center">
@@ -126,85 +126,38 @@
         </tbody>
       </table>
       </div>
-      <div class="row justify-content-center rounded text-center bg-white mb-5 m-0 d-md-none">
-            <table class="table table-borderless table-responsive table-striped border m-2 text-left">
-              <colgroup>
-                <col class="p-1 px-2 w-25">
-                <col class="p-1 px-2 w-25">
-              </colgroup>
-              <tr>
-                <th scope="col">ID</th>
-                <td>1</td>
-              </tr>
-              <tr>
-                <th scope="col">Username</th>
-                <td>lucastest</td>
-              </tr>
-              <tr>
-                <th scope="col">Amount</th>
-                <td>RM4.80</td>
-              </tr>
-              <tr>
-                <th scope="col">Order Time</th>
-                <td>2020-01-17 15:30:00</td>
-              </tr>
-              <tr>
-                <th scope="col">Action</th>
-                <td><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
-              </tr>
-            </table>
-            <table class="table table-responsive table-borderless table-striped border m-2 text-left">
-              <colgroup>
-                <col class="p-1 px-2 w-25">
-                <col class="p-1 px-2 w-25">
-              </colgroup>
-              <tr>
-                <th scope="col">ID</th>
-                <td>2</td>
-              </tr>
-              <tr>
-                <th scope="col">Username</th>
-                <td>lucastest</td>
-              </tr>
-              <tr>
-                <th scope="col">Amount</th>
-                <td>RM2.80</td>
-              </tr>
-              <tr>
-                <th scope="col">Order Time</th>
-                <td>2020-01-17 15:30:00</td>
-              </tr>
-              <tr>
-                <th scope="col">Action</th>
-                <td><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
-              </tr>
-            </table>
-            <table class="table table-responsive table-borderless table-striped border m-2 text-left">
-              <colgroup>
-                <col class="p-1 px-2 w-25">
-                <col class="p-1 px-2 w-25">
-              </colgroup>
-              <tr>
-                <th scope="col">ID</th>
-                <td>3</td>
-              </tr>
-              <tr>
-                <th scope="col">Username</th>
-                <td>lucastest</td>
-              </tr>
-              <tr>
-                <th scope="col">Amount</th>
-                <td>RM7.80</td>
-              </tr>
-              <tr>
-                <th scope="col">Order Time</th>
-                <td>2020-01-17 15:30:00</td>
-              </tr>
-              <tr>
-                <th scope="col">Action</th>
-                <td><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>
-              </tr>
-            </table>
+      <div class="row justify-content-center rounded text-center bg-white m-0 d-lg-none">
+			<?php
+			foreach($voucher as $voucher_loop){ 
+				echo	'<table class="table table-borderless table-striped border md-3 text-left">
+						<colgroup>
+						  <col class="p-1 px-2 w-25">
+						  <col class="p-1 px-2 w-25">
+						</colgroup>
+						<tr>
+						  <th scope="col">ID</th>
+						  <td class="promoID">'.$voucher_loop[0].'</td>
+						</tr>
+						<tr>
+						  <th scope="col">Promo Type</th>
+						  <td class="promoType">'.$voucher_loop[1].'</td>
+						</tr>
+						<tr>
+						  <th scope="col">Promo Price</th>
+						  <td class="promoPricet">'.$voucher_loop[2].'</td>
+						</tr>
+						<tr>
+						  <th scope="col">Promo Active</th>
+						  <td class="promoActive">'.$voucher_loop[3].'</td>
+            </tr>
+            
+						<tr>
+						  <th scope="col">Action</th>
+						  <td><button class="btn btn-sm btn-danger deleteButton" data-toggle="modal" data-id="'.$voucher_loop[0].'"><i class="fa fa-trash"></i></button>
+						</tr>
+				</table>	';	
+			}
+		  ?>
     </div>
 
  

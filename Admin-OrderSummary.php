@@ -83,15 +83,15 @@
             <?php
             foreach($ordersummary as $summary){
               echo "<tr>";
-              echo '<th class="align-middle">';
+              echo '<th class="align-middle id">';
               echo $summary[0]; //PaymentID
               echo "</th>";
-              echo '<td class="align-middle">'.$summary[12]."</td>"; //Username
-              echo '<td class="align-middle">'.$summary[1]."</td>"; //Total
-              echo '<td class="align-middle">'.$summary[3]."</td>"; //PromoCode
-              echo '<td class="align-middle">'.$summary[5]."</td>"; //Discount
-              echo '<td class="align-middle">'.$summary[6]."</td>"; //GrandTotal 
-              echo '<td class="align-middle">'.$summary[9]."</td>"; //Time
+              echo '<td class="align-middle name">'.$summary[12]."</td>"; //Username
+              echo '<td class="align-middle total">'.$summary[1]."</td>"; //Total
+              echo '<td class="align-middle promocode">'.$summary[3]."</td>"; //PromoCode
+              echo '<td class="align-middle discount">'.$summary[5]."</td>"; //Discount
+              echo '<td class="align-middle grandtotal">'.$summary[6]."</td>"; //GrandTotal 
+              echo '<td class="align-middle time">'.$summary[9]."</td>"; //Time
               echo '<td>
                   <button type="button" class="btn btn-sm btn-danger deleteButton" data-toggle="modal" data-id="'.$summary[0].'"> 
                     <i class="fa fa-trash"></i>
@@ -103,7 +103,48 @@
             </tbody>
         </table>
     </div>
-
+    <div class="row justify-content-center rounded text-center bg-white mb-5 m-0 d-lg-none">
+    <?php
+			foreach($ordersummary as $summary){ 
+				echo	'<table class="table table-borderless table-striped border md-3 text-left">
+						<colgroup>
+						  <col class="p-1 px-2 w-25">
+						  <col class="p-1 px-2 w-25">
+						</colgroup>
+						<tr>
+						  <th scope="col">Payment ID</th>
+						  <td class="id">'.$summary[12].'</td>
+						</tr>
+						<tr>
+						  <th scope="col">Username</th>
+						  <td class="name">'.$summary[1].'</td>
+						</tr>
+						<tr>
+						  <th scope="col">Total</th>
+						  <td class="total">'.$summary[3].'</td>
+						</tr>
+						<tr>
+						  <th scope="col">Promo Code</th>
+						  <td class="promocode">'.$summary[5].'</td>
+						</tr>
+						<tr>
+						  <th scope="col">Discount</th>
+						  <td class="grandtotal">'.$summary[6].'</td>
+						</tr>
+						<tr>
+						  <th scope="col">Time</th>
+						  <td class="time">'.$summary[9].'</td>
+						</tr>
+			
+						<tr>
+						  <th scope="col">Action</th>
+						  <td><button class="btn btn-sm btn-danger deleteButton" data-toggle="modal" data-id="'.$summary[0].'"><i class="fa fa-trash"></i></button>
+					
+						</tr>
+				</table>	';	
+			}
+		  ?>
+    </div>
     <div class="modal fade" id="dltOrderSummaryModal" tabindex="-1" role="dialog" aria-labelledby="dltOrderSummaryModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
