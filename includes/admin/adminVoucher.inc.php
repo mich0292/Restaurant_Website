@@ -66,7 +66,7 @@
         $promoPrice = $_POST['vourPrice'];
         $promoActive = $_POST['vourActive'];
 
-        if(!empty($promoCode) &&  !empty($promoType) &&  !empty($promoPrice) &&  !empty($promoActive) ){
+        if(!empty($promoCode) &&  !empty($promoPrice)){
             $sql = "INSERT INTO promo (promo_code,promo_type,promo_price,promo_active) VALUE (?,?,?,?)";
             $stmt = mysqli_stmt_init($conn);
             
@@ -101,16 +101,6 @@
             $_SESSION['codeClass'] = "";
         }
 
-        if (empty($_POST['type'])) {
-            $_SESSION['typeInput'] = "";
-            $_SESSION['typeErr'] = "Type is required";
-            $_SESSION['typeClass'] = "has-error"; 
-        } else {
-            $_SESSION['typeInput'] = $promoType;
-            $_SESSION['typeErr'] = "";
-            $_SESSION['typeClass'] = "";
-        }
-
         if (empty($_POST['price'])) {
             $_SESSION['priceInput'] = "";
             $_SESSION['priceErr'] = "Code is required";
@@ -119,16 +109,6 @@
             $_SESSION['priceInput'] = $promoPrice;
             $_SESSION['priceErr'] = "";
             $_SESSION['priceClass'] = "";
-        }
-
-        if (empty($_POST['active'])) {
-            $_SESSION['activeInput'] = "";
-            $_SESSION['activeErr'] = "Code is required";
-            $_SESSION['activelass'] = "has-error"; 
-        } else {
-            $_SESSION['activeInput'] = $promoActive;
-            $_SESSION['activeErr'] = "";
-            $_SESSION['activelass'] = "";
         }
 
         header("Location: Admin-Voucher.php?emptyfields#section-Voucher");

@@ -182,8 +182,9 @@
 						</div>
 						<div class="form-group">
 							<label for="vourType" class="">Promo Type:</label>
-							<input type="text" class="form-control" name="vourType" value ="<?php echo $_SESSION['typeInput'];?>">
-							<small id="<?php echo $_SESSION['typeClass'];?>"> <?php echo $_SESSION['typeErr']; ?> </small>
+							<select name="vourType" id="vourType">
+							<option value="CASH">CASH</option>
+							<option value="PERCENT">PERCENT</option></select>
 						</div>
 						<div class="form-group">
 							<label for="vourPrice" class="">Promo Price:</label>
@@ -192,8 +193,9 @@
 						</div>
                         <div class="form-group">
 							<label for="vourActive" class="">Promo Active:</label>
-							<input type="text" class="form-control" name="vourActive" value ="<?php echo $_SESSION['activeInput'];?>">
-							<small id="<?php echo $_SESSION['activeClass'];?>"> <?php echo $_SESSION['activeErr']; ?> </small>
+							<select name="vourActive" id="vourActive">
+							<option value="0">Disable</option>
+							<option value="1">Enable</option></select>
 						</div>
 
 					
