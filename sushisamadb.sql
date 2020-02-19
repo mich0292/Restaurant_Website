@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2020 at 11:27 AM
+-- Generation Time: Feb 19, 2020 at 03:25 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.2
+-- PHP Version: 7.2.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -45,7 +45,10 @@ CREATE TABLE `credit_card` (
 --
 
 INSERT INTO `credit_card` (`card_id`, `card_name`, `card_num`, `card_exp`, `card_code`, `card_country`, `card_ref`, `card_payment`, `payment_id`) VALUES
-(1, 'Loo Yuan Jun', '5196032041483065', '12/31', '123', 'Malaysia', '20200218-100001', 6.16, 9);
+(1, 'Loo Yuan Jun', '5196032041483065', '12/31', '123', 'Malaysia', '20200218-100001', 6.16, 9),
+(2, 'LUCAS WONG', '5874987416541234', '11/25', '123', 'Malaysia', '20200218-100002', 10.56, 16),
+(3, 'Lucas Wong', '1234565798777894', '11/25', '123', 'Malaysia', '20200218-100003', 10.56, 17),
+(4, 'LUCASW', '1234546545456465', '11/25', '123', 'Malaysia', '20200219-100004', 3.08, 19);
 
 -- --------------------------------------------------------
 
@@ -88,30 +91,6 @@ INSERT INTO `menu` (`menuID`, `food_name`, `food_price`, `category`, `img_file_p
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_history`
---
-
-CREATE TABLE `order_history` (
-  `orderID` int(255) NOT NULL,
-  `foodID` int(255) NOT NULL,
-  `username` varchar(30) NOT NULL,
-  `date` date DEFAULT NULL,
-  `oriPrice` double NOT NULL,
-  `quantity` int(255) NOT NULL,
-  `totalPrice` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `order_history`
---
-
-INSERT INTO `order_history` (`orderID`, `foodID`, `username`, `date`, `oriPrice`, `quantity`, `totalPrice`) VALUES
-(3, 1, '123', '2020-02-18', 1.2, 5, 6),
-(4, 2, 'kelvin', '2020-02-19', 2.8, 2, 5);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `payment`
 --
 
@@ -136,15 +115,12 @@ CREATE TABLE `payment` (
 --
 
 INSERT INTO `payment` (`payment_id`, `payment_total`, `payment_tax`, `promo_code`, `promo_type`, `payment_discount`, `payment_grand`, `payment_paid`, `payment_change`, `payment_time`, `payment_type`, `remark`, `username`) VALUES
-(1, 8.4, 0.84, 'PROMO12', 'PERCENT', 1.01, 8.23, 0, 0, '2020-02-18 13:14:18', '', '', '8'),
-(2, 8.4, 0.84, 'PROMO12', 'PERCENT', 1.01, 8.23, 0, 0, '2020-02-18 13:14:47', '', '', '8'),
-(3, 8.4, 0.84, 'PROMO12', 'PERCENT', 1.01, 8.23, 0, 0, '2020-02-18 13:28:33', '', '', '8'),
-(4, 8.4, 0.84, 'PROMO12', 'PERCENT', 1.01, 8.23, 0, 0, '2020-02-18 13:30:28', '', '', '8'),
-(5, 8.4, 0.84, 'PROMO12', 'PERCENT', 1.01, 8.23, 0, 0, '2020-02-18 14:00:15', '', 'Hello', '8'),
-(6, 34.8, 3.48, 'DISCOUNT12', 'CASH', 12, 26.28, 0, 0, '2020-02-18 14:15:29', 'CASH', 'HELLO', '8'),
-(10, 230.4, 23.04, 'PROMO12', 'PERCENT', 27.65, 225.79, 300, 300, '2020-02-18 15:38:05', 'CASH', 'Faster', '8'),
-(11, 55.4, 5.54, 'DISCOUNT12', 'CASH', 12, 48.94, 50, 1.06, '2020-02-18 15:39:58', 'CASH', 'HALO', '8'),
-(14, 33.6, 3.36, 'PROMO12', 'PERCENT', 4.03, 32.93, 0, 0, '2020-02-18 19:51:23', 'CASH', '12345', 'boringjun');
+(15, 5.6, 0.56, '', '', 0, 6.16, 8, 1.84, '2020-02-18 22:31:20', 'CASH', '', 'gorden'),
+(18, 560, 56, '', '', 0, 616, 616, 0, '2020-02-19 13:22:04', 'CASH', '', 'gorden'),
+(20, 24, 2.4, '', '', 0, 26.4, 26.4, 0, '2020-02-19 14:14:32', 'CASH', 'more wasabi', 'karsing'),
+(21, 48, 4.8, '', '', 0, 52.8, 52.9, 0.1, '2020-02-19 14:14:53', 'CASH', '', 'karsing'),
+(22, 20.6, 2.06, 'DISCOUNT12', 'CASH', 12, 10.66, 20, 9.34, '2020-02-19 14:16:45', 'CASH', '', 'lucas123'),
+(23, 45.6, 4.56, 'PROMO12', 'PERCENT', 5.47, 44.69, 50, 5.31, '2020-02-19 14:19:28', 'CASH', '', 'junepro');
 
 -- --------------------------------------------------------
 
@@ -180,7 +156,24 @@ INSERT INTO `payment_detail` (`detail_id`, `menuID`, `food_name`, `food_price`, 
 (10, 14, 'Shrimp Tempura', 14.6, 15, 'Agemono', 'images/menu/shrimp-tempura.jpg', 10),
 (11, 2, 'California roll', 2.8, 2, 'Sushi', 'images/menu/california-rol.jpg', 11),
 (12, 8, 'Ika Nigiri', 4.8, 5, 'Sushi', 'images/menu/ika-nigiri.jpg', 11),
-(13, 13, 'Deepfried Soft Shell Crab', 8.6, 3, 'Agemono', 'images/menu/soft-shell-crab.jpg', 11);
+(13, 13, 'Deepfried Soft Shell Crab', 8.6, 3, 'Agemono', 'images/menu/soft-shell-crab.jpg', 11),
+(14, 2, 'California roll', 2.8, 2, 'Sushi', 'images/menu/california-rol.jpg', 15),
+(15, 3, 'California roll with tuna', 4.8, 1, 'Sushi', 'images/menu/california-sushi-roll-with-tuna.jpg', 16),
+(16, 4, 'Shrimp Sushi', 4.8, 1, 'Sushi', 'images/menu/shrimp-sush.jpg', 16),
+(17, 3, 'California roll with tuna', 4.8, 2, 'Sushi', 'images/menu/california-sushi-roll-with-tuna.jpg', 17),
+(18, 2, 'California roll', 2.8, 200, 'Sushi', 'images/menu/california-rol.jpg', 18),
+(19, 2, 'California roll', 2.8, 1, 'Sushi', 'images/menu/california-rol.jpg', 19),
+(20, 2, 'California roll', 2.8, 1, 'Sushi', 'images/menu/california-rol.jpg', 20),
+(21, 4, 'Shrimp Sushi', 4.8, 1, 'Sushi', 'images/menu/shrimp-sush.jpg', 20),
+(22, 7, 'Salmon Roll', 3.8, 1, 'Sushi', 'images/menu/salmon-roll.jpg', 20),
+(23, 15, 'Deepfried Oysters', 12.6, 1, 'Agemono', 'images/menu/fried-oysters.jpg', 20),
+(24, 8, 'Ika Nigiri', 4.8, 10, 'Sushi', 'images/menu/ika-nigiri.jpg', 21),
+(25, 6, 'Inari Nigiri', 1.8, 1, 'Sushi', 'images/menu/inari-nigiri.png', 22),
+(26, 4, 'Shrimp Sushi', 4.8, 1, 'Sushi', 'images/menu/shrimp-sush.jpg', 22),
+(27, 2, 'California roll', 2.8, 5, 'Sushi', 'images/menu/california-rol.jpg', 22),
+(28, 3, 'California roll with tuna', 4.8, 5, 'Sushi', 'images/menu/california-sushi-roll-with-tuna.jpg', 23),
+(29, 6, 'Inari Nigiri', 1.8, 5, 'Sushi', 'images/menu/inari-nigiri.png', 23),
+(30, 17, 'Strawberry Crepe', 12.6, 1, 'Dessert', 'images/menu/strawberry-crepe.jpg', 23);
 
 -- --------------------------------------------------------
 
@@ -228,7 +221,8 @@ CREATE TABLE `reservation` (
 --
 
 INSERT INTO `reservation` (`reservationID`, `date_of_reservation`, `time_of_reservation`, `num_of_adult`, `num_of_child`, `full_name`, `email`, `phone`, `city`, `special_remarks`) VALUES
-(2, '2020-02-06', '11:00:00', 1, 0, 'Michelle', 'michelle123679@gmail.com', '0165727809', 'Kuching', '');
+(13, '2020-02-05', '17:12:00', 2, 2, 'Test', 'test@gmail.com', '123', 'KL', 'Family Dinner'),
+(15, '2020-02-21', '23:00:00', 5, 0, 'Lucas', 'lucas@gmail.com', '012 9586972', 'KL', '');
 
 -- --------------------------------------------------------
 
@@ -252,7 +246,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `name`, `birthday`, `contact`, `is_admin`) VALUES
-(1, 'test', '123', 'test123@mmu.edu.my', 'I am testing', '2020-02-02', '012-345 6789', 1);
+(6, 'gorden', '123', 'limguancheng@hotmail.com', 'Lim Teh', '1999-09-29', '012-345 6789', 1),
+(8, 'lucas123', '1234', 'lucas@gmail.com', 'Lucas Wong', '1999-02-11', '018-3718597', 1),
+(9, 'karsing', 'lengzai123', 'karsing@gmail.com', 'Kar Sing', '1999-02-01', '010-3986969', 0),
+(10, 'michellec', 'michelle', 'michelle@qq.com', 'Michelle', '2000-03-11', '019-8765432', 0),
+(11, 'junepro', '12345', 'june666@gmail.com', 'June The Master', '2000-01-01', '016-6667777', 0);
 
 --
 -- Indexes for dumped tables
@@ -269,12 +267,6 @@ ALTER TABLE `credit_card`
 --
 ALTER TABLE `menu`
   ADD PRIMARY KEY (`menuID`);
-
---
--- Indexes for table `order_history`
---
-ALTER TABLE `order_history`
-  ADD PRIMARY KEY (`orderID`);
 
 --
 -- Indexes for table `payment`
@@ -314,43 +306,37 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `credit_card`
 --
 ALTER TABLE `credit_card`
-  MODIFY `card_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `card_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `menuID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
--- AUTO_INCREMENT for table `order_history`
---
-ALTER TABLE `order_history`
-  MODIFY `orderID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `menuID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `payment_detail`
 --
 ALTER TABLE `payment_detail`
-  MODIFY `detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `reservationID` int(155) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `reservationID` int(155) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
