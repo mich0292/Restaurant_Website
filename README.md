@@ -14,10 +14,21 @@ Functionalities:
 * Order food
 * Book reservation
 * Sign up, log in (profile)
+* Checkout (payment)
+* Use voucher
 
 <img src="https://github.com/mich0292/Food_Delivery_Website/blob/bb3934719245350c3e9b17e48b770cc434bd6974/screenshots/menu.png" alt="Menu" width="50%" height="50%">
 
 ## Admin side
+
+<img src="https://github.com/mich0292/Food_Delivery_Website/blob/2babb2ab8202429e91d6927a8faa9be829ca66fa/screenshots/admin%20functions.png" alt="Menu" width="50%" height="50%">
+
+Functionalities:
+* Order - check/delete
+* Table reservation - add/edit/delete
+* Voucher - add/delete
+* Menu - add/edit/delete items
+* User - edit/delete
 
 ## How to load the website properly?
 1. Use XAMPP Control Panel to start the service module for Apache and MySQL (ours: 3.2.4)
